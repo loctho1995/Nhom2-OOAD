@@ -1,0 +1,47 @@
+﻿@model IList<Common.ViewModels.NhanVienViewModel>
+
+@{
+    ViewBag.Title = "Sửa Nhân Viên";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div class="x_panel">
+    <div class="x_title">
+        <h2>Thông Tin Nhân Viên</h2>
+        <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+        <div class="main-content">
+            @using (Html.BeginForm())
+            {
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="row">
+                                    @{Html.RenderAction("ThongTinNhanVien", "NhanVien");}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <div class="col-md-offset-5 col-sm-offset-3 ">
+                                <input type="submit" value="Sửa Nhân Viên" class="btn btn-primary" />
+                                @Html.ActionLink("Quay Lại", "Index", null, new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+  

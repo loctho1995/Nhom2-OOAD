@@ -1,0 +1,383 @@
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\Common.dll.config
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\Common.dll
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\Common.pdb
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\EntityFramework.dll
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\EntityFramework.xml
+D:\C-SMS\C-SMS\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\C-SMS\C-SMS\C-SMS\Common\obj\Debug\Common.dll
+D:\C-SMS\C-SMS\C-SMS\Common\obj\Debug\Common.pdb
+D:\C-SMS\C-SMS\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\C-SMS - 26-08-2016\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\Prepare Commit\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 298\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\30-08-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\New folder\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\New folder\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\New folder\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\31-08\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\31-08\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\31-08\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\31-08\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\group02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\group02\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\group02\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\01-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Downloads\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Downloads\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Downloads\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Downloads\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 1-9\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\Commit 01-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\ThuongIT\Desktop\project\source\C-SMS\Common\obj\Debug\Common.pdb
+D:\Project\source\C-SMS\Common\bin\Debug\Common.dll.config
+D:\Project\source\C-SMS\Common\bin\Debug\Common.dll
+D:\Project\source\C-SMS\Common\bin\Debug\Common.pdb
+D:\Project\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+D:\Project\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\Project\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+D:\Project\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\Project\source\C-SMS\Common\obj\Debug\Common.dll
+D:\Project\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\02-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\03-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\group_02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\group_02\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\group_02\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\group_02\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\05-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\SMS New\source\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\gr02\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\gr02\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\gr02\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\07-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\group002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\group002\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\group002\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\group002\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS v2.0\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\08-09-2016\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 8-9\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9\source\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\gr0002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\gr0002\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\gr0002\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\gr0002\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 9-9 v2.0\source\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\gr00002\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\gr00002\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\gr00002\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\gr00002\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 11-9\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 12-9\source\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\Common.dll.config
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\Common.dll
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\Common.pdb
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+E:\GST2016\gr2\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\GST2016\gr2\source\C-SMS\Common\obj\Debug\Common.dll
+E:\GST2016\gr2\source\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS 13-9\source\C-SMS\Common\obj\Debug\Common.pdb
+E:\GST2016\gr2\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\16-9 v2.0\source\C-SMS\Common\obj\Debug\Common.pdb
+D:\Project\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+E:\GST2016\gr02\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Nobita\Desktop\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Nobita\Desktop\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Nobita\Desktop\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Nobita\Desktop\C-SMS\Common\obj\Debug\Common.pdb
+D:\C-SMS\Common\bin\Debug\Common.dll.config
+D:\C-SMS\Common\bin\Debug\Common.dll
+D:\C-SMS\Common\bin\Debug\Common.pdb
+D:\C-SMS\Common\bin\Debug\EntityFramework.dll
+D:\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+D:\C-SMS\Common\bin\Debug\EntityFramework.xml
+D:\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+D:\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+D:\C-SMS\Common\obj\Debug\Common.dll
+D:\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\son09\Desktop\20\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\20\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\20\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\son09\Desktop\20\C-SMS\Common\obj\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\Common.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\obj\Debug\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Common\obj\Debug\Common.pdb

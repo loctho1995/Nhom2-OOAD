@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Username" Type="nvarchar" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" MaxLength="10" />
+    <Property Name="Acc_Type" Type="int" />
+    <Property Name="Avatar" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_AUTHORITY">
+    <Key>
+      <PropertyRef Name="Acc_Type" />
+      <PropertyRef Name="Aut_Type" />
+    </Key>
+    <Property Name="Acc_Type" Type="int" Nullable="false" />
+    <Property Name="Aut_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Note" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_TYPE">
+    <Key>
+      <PropertyRef Name="Acc_Type" />
+    </Key>
+    <Property Name="Acc_Type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AUTHORITY">
+    <Key>
+      <PropertyRef Name="Aut_Type" />
+    </Key>
+    <Property Name="Aut_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_ACCOUNT_ACCOUNT_TYPE">
+    <End Role="ACCOUNT_TYPE" Type="Self.ACCOUNT_TYPE" Multiplicity="0..1" />
+    <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_TYPE">
+        <PropertyRef Name="Acc_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="Acc_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE">
+    <End Role="ACCOUNT_TYPE" Type="Self.ACCOUNT_TYPE" Multiplicity="1" />
+    <End Role="ACCOUNT_AUTHORITY" Type="Self.ACCOUNT_AUTHORITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_TYPE">
+        <PropertyRef Name="Acc_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT_AUTHORITY">
+        <PropertyRef Name="Acc_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNT_AUTHORITY_AUTHORITY">
+    <End Role="AUTHORITY" Type="Self.AUTHORITY" Multiplicity="1" />
+    <End Role="ACCOUNT_AUTHORITY" Type="Self.ACCOUNT_AUTHORITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTHORITY">
+        <PropertyRef Name="Aut_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT_AUTHORITY">
+        <PropertyRef Name="Aut_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ACCOUNT_List" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_AUTHORITY" EntityType="Self.ACCOUNT_AUTHORITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ACCOUNT_TYPE" EntityType="Self.ACCOUNT_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AUTHORITY" EntityType="Self.AUTHORITY" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ACCOUNT_ACCOUNT_TYPE" Association="Self.FK_ACCOUNT_ACCOUNT_TYPE">
+      <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE" Association="Self.FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE">
+      <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+      <End Role="ACCOUNT_AUTHORITY" EntitySet="ACCOUNT_AUTHORITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNT_AUTHORITY_AUTHORITY" Association="Self.FK_ACCOUNT_AUTHORITY_AUTHORITY">
+      <End Role="AUTHORITY" EntitySet="AUTHORITY" />
+      <End Role="ACCOUNT_AUTHORITY" EntitySet="ACCOUNT_AUTHORITY" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

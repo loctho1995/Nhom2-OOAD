@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Common.ViewModels.KiemKhoViewModel>
+
+@{
+    ViewBag.Title = "Thông Tin Chi Tiết Phiếu Kiểm Kho";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+
+<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+
+<div class="header">
+    <div class="col-sm-5 no-padding-left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <div class="pull-right">    
+        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "KiemKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="row">
+                @{Html.RenderAction("ThongTinPhieuKiemKho", "KiemKho");}
+            </div>
+        </div>
+    </div>
+</div>
+

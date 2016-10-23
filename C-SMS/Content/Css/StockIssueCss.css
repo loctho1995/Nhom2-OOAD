@@ -1,0 +1,35 @@
+﻿
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+        background: white;
+    }
+
+    tr.error {
+        background-color: rgba(255,0,0,0.35);
+    }
+
+    .container td {
+        vertical-align: top;
+    }
+
+    .tablecontainer table {
+        margin-top: 8%;
+        width: 100%;
+        border-collapse: collapse;
+        border-top: 1px solid #BFAEAE;
+        border-right: 1px solid #BFAEAE;
+    }
+
+    .tablecontainer th {
+        border-bottom: 2px solid #BFAEAE !important;
+    }
+
+    .tablecontainer th, .tablecontainer td {
+        text-align: center;
+        border-left: 1px solid #BFAEAE;
+        padding: 5px;
+        border-bottom: 1px solid #BFAEAE;
+    }

@@ -1,0 +1,106 @@
+﻿@model Common.ViewModels.NhanVienViewModel
+@{
+    ViewBag.Title = "Tạo Nhân Viên";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
+
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+
+<div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông Tin Nhân Viên</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            @using (Html.BeginForm("Create", "NhanVien", FormMethod.Post))
+            {
+                <div class="form-horizontal">
+                  
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Tên Đăng Nhập <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="nhanviencode" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Tên Nhân Viên <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="tennhanvien" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="email" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Địa Chỉ <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="diachi" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Số Điện Thoại <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="sodienthoai" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            CMND <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="cmnd" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Chức Vụ <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), "Tất cả", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-sm-offset-3 ">
+                            <input type="submit" value="Lưu Nhân Viên" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+

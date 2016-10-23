@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CSMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ACCOUNTs" EntityType="Model.ACCOUNT" />
+    <EntitySet Name="ACCOUNT_AUTHORITY" EntityType="Model.ACCOUNT_AUTHORITY" />
+    <EntitySet Name="ACCOUNT_TYPE" EntityType="Model.ACCOUNT_TYPE" />
+    <EntitySet Name="AUTHORITies" EntityType="Model.AUTHORITY" />
+    <AssociationSet Name="FK_ACCOUNT_ACCOUNT_TYPE" Association="Model.FK_ACCOUNT_ACCOUNT_TYPE">
+      <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE" Association="Model.FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE">
+      <End Role="ACCOUNT_TYPE" EntitySet="ACCOUNT_TYPE" />
+      <End Role="ACCOUNT_AUTHORITY" EntitySet="ACCOUNT_AUTHORITY" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ACCOUNT_AUTHORITY_AUTHORITY" Association="Model.FK_ACCOUNT_AUTHORITY_AUTHORITY">
+      <End Role="AUTHORITY" EntitySet="AUTHORITies" />
+      <End Role="ACCOUNT_AUTHORITY" EntitySet="ACCOUNT_AUTHORITY" />
+    </AssociationSet>
+    <FunctionImport Name="ACCOUNT_List" ReturnType="Collection(Model.ACCOUNT_List_Result2)" />
+  </EntityContainer>
+  <ComplexType Name="ACCOUNT_List_Result">
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="ACCOUNT_List_Test_Result">
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ACCOUNT_List1_Result">
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ACCOUNT_List_Result1">
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="ACCOUNT">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Acc_Type" Type="Int32" />
+    <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT_TYPE" Relationship="Model.FK_ACCOUNT_ACCOUNT_TYPE" FromRole="ACCOUNT" ToRole="ACCOUNT_TYPE" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_AUTHORITY">
+    <Key>
+      <PropertyRef Name="Acc_Type" />
+      <PropertyRef Name="Aut_Type" />
+    </Key>
+    <Property Name="Acc_Type" Type="Int32" Nullable="false" />
+    <Property Name="Aut_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Note" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT_TYPE" Relationship="Model.FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE" FromRole="ACCOUNT_AUTHORITY" ToRole="ACCOUNT_TYPE" />
+    <NavigationProperty Name="AUTHORITY" Relationship="Model.FK_ACCOUNT_AUTHORITY_AUTHORITY" FromRole="ACCOUNT_AUTHORITY" ToRole="AUTHORITY" />
+  </EntityType>
+  <EntityType Name="ACCOUNT_TYPE">
+    <Key>
+      <PropertyRef Name="Acc_Type" />
+    </Key>
+    <Property Name="Acc_Type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNTs" Relationship="Model.FK_ACCOUNT_ACCOUNT_TYPE" FromRole="ACCOUNT_TYPE" ToRole="ACCOUNT" />
+    <NavigationProperty Name="ACCOUNT_AUTHORITY" Relationship="Model.FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE" FromRole="ACCOUNT_TYPE" ToRole="ACCOUNT_AUTHORITY" />
+  </EntityType>
+  <EntityType Name="AUTHORITY">
+    <Key>
+      <PropertyRef Name="Aut_Type" />
+    </Key>
+    <Property Name="Aut_Type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ACCOUNT_AUTHORITY" Relationship="Model.FK_ACCOUNT_AUTHORITY_AUTHORITY" FromRole="AUTHORITY" ToRole="ACCOUNT_AUTHORITY" />
+  </EntityType>
+  <Association Name="FK_ACCOUNT_ACCOUNT_TYPE">
+    <End Type="Model.ACCOUNT_TYPE" Role="ACCOUNT_TYPE" Multiplicity="0..1" />
+    <End Type="Model.ACCOUNT" Role="ACCOUNT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_TYPE">
+        <PropertyRef Name="Acc_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT">
+        <PropertyRef Name="Acc_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNT_AUTHORITY_ACCOUNT_TYPE">
+    <End Type="Model.ACCOUNT_TYPE" Role="ACCOUNT_TYPE" Multiplicity="1" />
+    <End Type="Model.ACCOUNT_AUTHORITY" Role="ACCOUNT_AUTHORITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACCOUNT_TYPE">
+        <PropertyRef Name="Acc_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT_AUTHORITY">
+        <PropertyRef Name="Acc_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ACCOUNT_AUTHORITY_AUTHORITY">
+    <End Type="Model.AUTHORITY" Role="AUTHORITY" Multiplicity="1" />
+    <End Type="Model.ACCOUNT_AUTHORITY" Role="ACCOUNT_AUTHORITY" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AUTHORITY">
+        <PropertyRef Name="Aut_Type" />
+      </Principal>
+      <Dependent Role="ACCOUNT_AUTHORITY">
+        <PropertyRef Name="Aut_Type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="ACCOUNT_List_Result2">
+    <Property Type="String" Name="Username" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Avatar" Nullable="true" />
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

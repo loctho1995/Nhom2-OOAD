@@ -1,0 +1,48 @@
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\Data.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\Data.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\Data.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\obj\Release\Data.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\obj\Release\Data.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\Data\obj\Release\Data.pdb
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\Data.dll.config
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\Data.dll
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\Data.pdb
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\Common.dll
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\EntityFramework.dll
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\Common.pdb
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\EntityFramework.xml
+C:\Users\son09\Desktop\C-SMS\Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\C-SMS\Data\obj\Release\Data.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\C-SMS\Data\obj\Release\Data.dll
+C:\Users\son09\Desktop\C-SMS\Data\obj\Release\Data.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\Data.dll.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\Data.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\Data.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\Common.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\EntityFramework.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\EntityFramework.SqlServer.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\Common.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\EntityFramework.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\bin\Release\EntityFramework.SqlServer.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\obj\Release\Data.csprojResolveAssemblyReference.cache
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\obj\Release\Data.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\Data\obj\Release\Data.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\Data.dll.config
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\Data.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\Data.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\Common.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\EntityFramework.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\Common.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\EntityFramework.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\obj\Release\Data.csprojResolveAssemblyReference.cache
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\obj\Release\Data.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\Data\obj\Release\Data.pdb

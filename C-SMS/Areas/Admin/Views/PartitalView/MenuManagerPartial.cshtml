@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Common.ViewModels.NhanVien_QuyenViewModel>
+<link href="~/Content/Css/LeftPanel.css" rel="stylesheet" />
+@{
+    var listMenu = @Model;
+    var listParent = ViewBag.listParent;
+}
+@* Menu bên trái *@
+<div class="sidebar-nav navbar-collapse col-md-3 left_col" role="navigation">
+    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu left_col scroll-view">
+        @if (Session["Account"] != null && Session["Account"].ToString() != "Error")
+        {
+            //Show menu ứng với loại Position of account
+            <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                    @foreach (String itemParent in listParent)
+                    {
+                        <li class="@itemParent">
+                            <a>
+                                @switch (itemParent)
+                                {
+                                    case "Nhập Kho":
+                                        {
+                                            <i class="fa fa-bars"></i>
+                                            break;
+                                        }
+                                    case "Xuất Kho":
+                                        {
+                                            <i class="fa fa-th-list"></i>
+                                            break;
+                                        }
+                                    case "Kiểm Kho":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Đặt Hàng":
+                                        {
+                                            <i class="fa fa-file-text"></i>
+                                            break;
+                                        }
+                                    case "Bán Hàng":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Phiếu Chi":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Báo Cáo":
+                                        {
+                                            <i class="fa fa-bars"></i>
+                                            break;
+                                        }
+
+
+                                    case "Hàng Hóa":
+                                        {
+                                            <i class="fa fa-bars"></i>
+                                            break;
+                                        }
+                                    case "Bảo Hành":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Phiếu Nhập":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Nhà Cung Cấp":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                    case "Nhân Viên":
+                                        {
+                                            <i class="fa fa-tasks"></i>
+                                            break;
+                                        }
+                                }
+                                @itemParent<span class="fa fa-chevron-down"></span>
+                            </a>
+                            <ul class="nav child_menu">
+                                @foreach (var itemMenu in listMenu)
+                                {
+                                    if (itemMenu.parent == itemParent)
+                                    {
+                                        <li><a href="@Url.Action("Index", @itemMenu.maQuyen)">@itemMenu.tenQuyen</a></li>
+                                    }
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+</div>
+<script src="~/Scripts/LeftPanel.js"></script>

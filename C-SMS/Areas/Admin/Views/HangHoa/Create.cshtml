@@ -1,0 +1,252 @@
+﻿@*@model Common.ViewModels.ImportBallotViewModel*@
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+
+
+<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+<link href="~/Content/Plugin/DatePicker/datepicker.css" rel="stylesheet" />
+<link href="~/Content/Css/pignose.popup.min.css" rel="stylesheet" />
+<link href="~/Content/Css/Thuyen/generalMessageError.css" rel="stylesheet" />
+
+<div class="header">
+    <div class="col-sm-4 no-padding-left">
+        <h2>Tạo phiếu nhập</h2>
+    </div>
+    <div class="col-md-4 col-sm-4 col-xs-12 pull-right">
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Lưu</button>
+        <button class="btn btn-primary"><i class="glyphicon glyphicon-floppy-saved"></i> Lưu và in</button>
+        <button class="btn btn-dark"><i class="glyphicon glyphicon-arrow-left"></i> Hủy</button>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <!-- form webgid category -->
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="row">
+                <div class="col-md-8 col-sm-12 col-xs-12">
+                    <div class="x_title">
+                        <h2><small>Thông tin sản phẩm</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+ 
+                        <div class="details">
+                            <div class="row col-lg-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <input id="productId" list="listProduct" placeholder="Nhập mã sản phẩm để tìm kiếm..." type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" />
+                                        <datalist id="listProduct">
+                                            @*@foreach (var item in ViewBag.listProduct)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }*@
+                                        </datalist>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <table class="table table-responsive" style="width:100%">
+                                <tr>
+                                    <td>Sản phẩm</td>
+                                    <td>Giá nhập *</td>
+                                    <td>Số lượng *</td>
+                                    <td>Thành tiền</td>
+                                    <td></td>
+                                </tr>
+
+                                <tr class="mycontainer" id="mainrow">
+                                    <td>
+                                        <input id="productName" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" />
+                                    </td>
+
+                                    <td>
+                                        <input onkeypress="return checkNumber(event, this)" id="inputPrice" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" />
+                                        <h3 style="margin-top:-1%" hidden class="messageError  notifyinputPrice messageErrorinputPrice">Nhập giá nhập!</h3>
+                                    </td>
+                                    <td>
+                                        <input onkeypress="return checkNumber(event, this)" maxlength="3" id="inputQuantity" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" />
+                                        <h3 style="margin-top:-1%" hidden class="messageError  notifyinputQuantity messageErrorinputQuantity">Nhập số lượng!</h3>
+                                    </td>
+                                    <td>
+                                        <input id="amount" type="text" disabled="disabled" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" />
+                                    </td>
+                                    <td>
+                                        <input type="button" id="addProduct" value="Add" style="padding:4px 20px; margin-top:1%" class="btn btn-primary" />
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <span id="productItemError" style="color:red;background:white"></span>
+
+                            <div id="orderItems">
+                                <table class="table table-responsive" id="orderdetailItems"></table>
+                            </div>
+
+                            <div id="Items" hidden class="table-responsive"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="x_title">
+                        <h2><small>Thông tin phiếu nhập</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" @*style="margin-left:-5%"*@>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Mã phiếu</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="importBallotNo" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" @*style="margin-left:-5%"*@>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Ngày</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="date" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" @*style="margin-left:-5%"*@>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nhà cung cấp</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="supplier" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" @*style="margin-left:-5%"*@>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Ghi chú</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <textarea id="description" placeholder="Ghi chú tại đây" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Thông tin thanh toán-->
+                    <div class="x_title">
+                        <h2><small>Thông tin thanh toán</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:-5%">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tiền hàng</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="moneyProduct" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:-5%">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Thuế (%)</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="tax" value="@ViewBag.tax" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:-5%">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Tổng tiền</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="totalAmount" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:-5%">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Thanh toán</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input onkeypress="return checkNumber(event, this)" id="payment" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:-5%">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Nợ</label>
+                                <div class="col-md-8 col-sm-8 col-xs-12">
+                                    <input id="debt" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:0%">
+                            <div class="form-group">
+                                <div class="row" style="margin-left:0%">
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <button class="btn btn-primary"><i class="glyphicon glyphicon-ok"></i> Lưu</button>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12">
+                                        <button class="btn btn-primary"><i class="glyphicon glyphicon-floppy-saved"></i> Lưu và in</button>
+                                    </div>
+                                    <div class="col-md-3 col-sm-3 col-xs-12" style="margin-left:10%">
+                                        <button class="btn btn-dark"><i class="glyphicon glyphicon-arrow-left"></i> Hủy</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <label class="control-label col-md-12 col-sm-2 col-xs-12" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
+                        </div>
+                    </div>
+                    <!--/Thông tin thanh toán-->
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- /form webgid category -->
+</div>
+
+
+<script src="~/Scripts/Thuyen/validImportBallot.js"></script>
+<script src="~/Scripts/autoNumeric.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("#productId").on("input", function () {
+            // ClearValue();
+            $.getJSON('/ImportBallot/GetProductInformation',
+                           { id: $('#productId').val() },
+                           function (data) {
+                               $.each(data, function (index, row) {
+
+                                   if (row.StatusID == 3) {
+                                       //productId = row.ProductID;
+                                       productName = row.ProductName;
+                                       // unitName = row.UnitName;
+
+                                       $('#productName').val(productName);
+                                       // $('#unitName').val(unitName);
+                                   }
+
+                               });
+                           });
+        });
+    })
+</script>
+
+

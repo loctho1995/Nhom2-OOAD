@@ -1,0 +1,457 @@
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\ApplicationInsights.config
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\csc.exe
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\vbc.exe
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\MockSMS.dll.config
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\MockSMS.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\MockSMS.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Antlr3.Runtime.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Business.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Common.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\EntityFramework.SqlServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.Web.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Newtonsoft.Json.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Owin.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\PagedList.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\PagedList.Mvc.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Helpers.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Mvc.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Optimization.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Razor.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\WebGrease.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Data.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Business.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Common.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.Web.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\PagedList.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\PagedList.Mvc.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Helpers.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Mvc.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Optimization.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.Razor.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Antlr3.Runtime.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Newtonsoft.Json.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\EntityFramework.SqlServer.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\bin\Data.pdb
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\obj\Release\Web.csprojResolveAssemblyReference.cache
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\obj\Release\MockSMS.dll
+C:\Users\Thuyen_PC\Desktop\SMS Report\source\C-SMS\C-SMS\obj\Release\MockSMS.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\ApplicationInsights.config
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\csc.exe
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\vbc.exe
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\MockSMS.dll.config
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\MockSMS.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\MockSMS.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Antlr3.Runtime.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Business.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Common.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\EntityFramework.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\EntityFramework.SqlServer.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.Web.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Newtonsoft.Json.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Owin.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\PagedList.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\PagedList.Mvc.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Helpers.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Mvc.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Optimization.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Razor.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\WebGrease.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Data.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Business.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Common.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.Web.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\PagedList.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\PagedList.Mvc.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Helpers.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Mvc.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Optimization.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.Razor.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Antlr3.Runtime.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Newtonsoft.Json.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\EntityFramework.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\EntityFramework.SqlServer.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\son09\Desktop\C-SMS\C-SMS\bin\Data.pdb
+C:\Users\son09\Desktop\C-SMS\C-SMS\obj\Release\Web.csprojResolveAssemblyReference.cache
+C:\Users\son09\Desktop\C-SMS\C-SMS\obj\Release\MockSMS.dll
+C:\Users\son09\Desktop\C-SMS\C-SMS\obj\Release\MockSMS.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\ApplicationInsights.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\csc.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\System.Collections.Immutable.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\System.Reflection.Metadata.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\vbc.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\MockSMS.dll.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\MockSMS.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\MockSMS.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Antlr3.Runtime.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Business.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Common.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\EntityFramework.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\EntityFramework.SqlServer.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Agent.Intercept.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Web.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Web.Infrastructure.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Newtonsoft.Json.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\PagedList.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\PagedList.Mvc.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Helpers.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Mvc.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Optimization.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Razor.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\WebGrease.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Data.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Business.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Common.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Web.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\PagedList.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\PagedList.Mvc.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Helpers.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Mvc.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Optimization.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.Razor.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Antlr3.Runtime.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Newtonsoft.Json.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\EntityFramework.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\EntityFramework.SqlServer.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\bin\Data.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\obj\Release\Web.csprojResolveAssemblyReference.cache
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\obj\Release\MockSMS.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\Project vesion 0.1 ngày 16-10-2016\C-SMS\C-SMS\obj\Release\MockSMS.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\obj\Release\Web.csprojResolveAssemblyReference.cache
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\ApplicationInsights.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\csc.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\System.Collections.Immutable.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\System.Reflection.Metadata.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\vbc.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\MockSMS.dll.config
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\MockSMS.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\MockSMS.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Antlr3.Runtime.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Business.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Common.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\EntityFramework.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\EntityFramework.SqlServer.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.Agent.Intercept.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.PerfCounterCollector.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.Web.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Web.Infrastructure.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Newtonsoft.Json.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Owin.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\PagedList.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\PagedList.Mvc.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Helpers.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Mvc.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Optimization.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Razor.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\WebGrease.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Data.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Business.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Common.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.Web.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\PagedList.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\PagedList.Mvc.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Helpers.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Mvc.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Optimization.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.Razor.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Antlr3.Runtime.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\EntityFramework.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\EntityFramework.SqlServer.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\bin\Data.pdb
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\obj\Release\MockSMS.dll
+F:\IT\1. Giáo Trình IT\Học Kỳ Này\Phương pháp phát triển phân mềm hướng đối tượng\C-SMS\C-SMS\obj\Release\MockSMS.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\ApplicationInsights.config
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\csc.exe
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\vbc.exe
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\MockSMS.dll.config
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\MockSMS.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\MockSMS.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Antlr3.Runtime.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Business.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Common.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\EntityFramework.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\EntityFramework.SqlServer.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Web.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Owin.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\PagedList.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\PagedList.Mvc.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Helpers.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Mvc.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Optimization.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Razor.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\WebGrease.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Data.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Business.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Common.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.Web.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.ApplicationInsights.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\PagedList.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\PagedList.Mvc.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Helpers.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Mvc.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Optimization.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.Razor.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Deployment.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\System.Web.WebPages.Razor.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Antlr3.Runtime.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\EntityFramework.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\EntityFramework.SqlServer.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\bin\Data.pdb
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\obj\Release\Web.csprojResolveAssemblyReference.cache
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\obj\Release\MockSMS.dll
+C:\Users\locth\Desktop\OOAD\Project version 0.1 - 22-10-2016\C-SMS\C-SMS\obj\Release\MockSMS.pdb

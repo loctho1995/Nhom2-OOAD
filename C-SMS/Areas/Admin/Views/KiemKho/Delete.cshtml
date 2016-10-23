@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Common.ViewModels.KiemKhoViewModel>
+
+@{
+    ViewBag.Title = "Xóa Phiếu Kiểm Kho";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+
+<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+<div class="header">
+    <div class="col-sm-4 no-padding-left">
+        <div class="alert alert-danger fade in" style="width:310%">
+            <span><i class="fa fa-bullhorn" aria-hidden="true"></i>Bạn có chắc chắn muốn xóa?</span>
+        </div>
+    </div>
+    <div class="pull-right">
+     
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="row">
+                @{Html.RenderAction("ThongTinPhieuKiemKho", "KiemKho");}
+            </div>
+       
+        </div>   
+        @using (Html.BeginForm("Delete", "KiemKho"))
+        {
+            <div class="form-group">
+                <div class="col-md-offset-4 col-sm-offset-3">
+                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Phiếu Kiểm Kho</button>                 
+                </div>
+            </div>
+        }  
+       
+    </div>
+</div>
+
+
+

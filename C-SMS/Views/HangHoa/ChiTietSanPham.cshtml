@@ -1,0 +1,91 @@
+﻿@model IEnumerable<Common.Models.HangHoa>
+@using Common.Ultil
+
+@{
+    ViewBag.Title = "Sản Phẩm";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    FormatNumber number = new FormatNumber();
+    <div class="single_grid">
+        <div class="grid images_3_of_2">
+            <ul id="etalage">
+                <li>
+                    <a href="optionallink.html">
+                        <img class="etalage_thumb_image" src="~/Content/client/images/@item.HinhAnh" class="img-responsive" />                       
+                    </a>
+                </li>             
+            </ul>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="desc1 span_3_of_2">
+
+            <h4>@item.TenHangHoa</h4>
+            <div class="cart-b">
+                @if (@item.GiaKhuyenMai > 0)
+                {
+                    <div class="left-n ">@number.FormatNumbers(@item.GiaKhuyenMai.ToString()) đ</div>
+                    <span class="reducedfrom">@number.FormatNumbers(@item.GiaBan.ToString()) đ</span>
+                    <a class="now-get get-cart-in" href="#">Thêm vào giỏ hàng</a>
+                }
+                else
+                {
+                    <div class="left-n ">@number.FormatNumbers(@item.GiaBan.ToString()) đ</div>
+                }
+               
+                <div class="clearfix"></div>
+            </div>
+            <h6>@item.SoLuong mặt hàng trong kho</h6>
+            <h6>Thông số kỹ thuật</h6>
+            <p>@item.ThongSoKyThuat</p>
+            <div class="share">
+                <h5>Share Product :</h5>
+                <ul class="share_nav">
+                    <li><a href="#"><img src="~/Content/client/images/facebook.png" title="facebook"></a></li>
+                    <li><a href="#"><img src="~/Content/client/images/twitter.png" title="Twiiter"></a></li>
+                    <li><a href="#"><img src="~/Content/client/images/rss.png" title="Rss"></a></li>
+                    <li><a href="#"><img src="~/Content/client/images/gpluse.png" title="Google+"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clearfix"> </div>
+    </div>  
+    
+    <div class="toogle">
+        <h3 class="m_3">Thông tin chi tiết</h3>
+        <p class="m_text">@item.MoTa</p>
+    </div>
+
+}
+
+<script type="text/javascript">
+    $(window).load(function () {
+        $("#flexiselDemo1").flexisel({
+            visibleItems: 5,
+            animationSpeed: 1000,
+            autoPlay: true,
+            autoPlaySpeed: 3000,
+            pauseOnHover: true,
+            enableResponsiveBreakpoints: true,
+            responsiveBreakpoints: {
+                portrait: {
+                    changePoint: 480,
+                    visibleItems: 1
+                },
+                landscape: {
+                    changePoint: 640,
+                    visibleItems: 2
+                },
+                tablet: {
+                    changePoint: 768,
+                    visibleItems: 3
+                }
+            }
+        });
+
+    });
+</script>
+
+<script type="text/javascript" src="~/Scripts/client/js/jquery.flexisel.js"></script>

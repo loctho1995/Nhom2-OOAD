@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+@* Main layout  *@
+<html>
+
+<head>
+    <title>@ViewBag.Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/styles.css" />
+    @* Boostrap *@
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    @* Main style *@
+    <link href="~/Content/Css/MainStyle.css" rel="stylesheet" />
+    <link href="~/Content/Css/Lines.css" rel="stylesheet" />
+    <link href="~/Content/Css/Custom.css" rel="stylesheet" />
+    @* Icon *@
+    <link href="~/Content/plugin/IconAwesome/css/font-awesome.min.css" rel="stylesheet" />
+    @* jquery *@
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    @if ((Session["Account"] == null) &&
+        (HttpContext.Current.Request.Url.AbsolutePath == "/" || HttpContext.Current.Request.Url.AbsolutePath.Contains("/Home")))
+    {
+        // Render if not login, login faile, redirect to Homepage
+
+        @RenderBody()
+        <script src="~/Scripts/responsiveslides.min.js"></script>
+        @*<script src="~/Scripts/jquery.scrollify.js"></script>*@
+        <script src="~/Scripts/homelayout.js"></script>
+        if (Session["Account"] == null)
+        {
+            <script src="~/Scripts/loginError.js"></script>
+        }
+    }
+    else if (Session["Account"] != null)
+    {
+        // Render section menu and header if login successfull
+        <div class="top1 navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            @Html.Partial("~/Areas/Admin/Views/PartitalView/HeaderTopManagerPartial.cshtml")
+        </div>
+        <div id="wrapper">
+            <script src="~/Scripts/headertop-acc.js"></script>
+            @Html.Action("GetMenu", "Home", new { data = Model })
+
+            <div id="page-wrapper" style="background-color: rgb(242, 244, 248);">
+                @* Section to show notify Alert *@
+                <div class="graphs">
+                    @if (TempData["AlertMessage"] != null && (string)TempData["AlertMessage"] != "")
+                    {
+                        <div id="AlertBox" class="alert @TempData["AlertType"] hide">@Html.Raw(TempData["AlertMessage"]) </div>
+                    }
+                    @RenderBody()
+                </div>
+
+            </div>
+        </div>
+        <script src="~/Scripts/alert.js"></script>
+        <script src="~/Scripts/custom.js"></script>
+        <script src="~/Scripts/metisMenu.min.js"></script>
+    }
+    else
+    {
+        @RenderBody()
+    }
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/Notify.js"></script>
+</body>
+</html>

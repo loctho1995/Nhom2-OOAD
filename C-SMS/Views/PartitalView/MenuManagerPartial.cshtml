@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Common.Models.LoaiHangHoa>
+
+<div class=" top-nav rsidebar span_1_of_left">
+    <h3 class="cate">Danh Mục Sản Phẩm</h3>
+    <ul class="menu">
+        @foreach (var item in Model)
+        {
+            var url = "HangHoa/DanhSachSanPham/" + item.MaLoaiHangHoa;
+            <ul class="kid-menu ">               
+                <li><a href="@url">@item.TenLoaiHangHoa</a></li>            
+            </ul>
+        }            
+    </ul>
+</div>
+

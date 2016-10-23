@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+
+<style>
+    .inner-bg {
+        background: url("../../../../Content/assets/images/bg.jpg");
+        height: 638px;
+    }
+</style>
+
+@if (Session["Account"] == null)
+{ <div class="inner-bg">
+        <section class="container">
+
+            <section class="login-form">
+                <form method="post" action="/Admin/Home/Login" role="login">
+                    <img src="~/Content/assets/images/logo.png" class="img-responsive" alt="" />
+                    <input type="text" name="username" placeholder="Usename" required class="form-control input-lg" />
+                    <input type="password" name="password" id="form-password" placeholder="Password" required class="form-control input-lg" />
+
+                    @if (@TempData["notify"] != null)
+                    {
+                        <h3 class="notify">@Html.Raw(@TempData["notify"])</h3>
+                    }
+                    <input value="Login" type="submit" id="btnLogin" class="btn btn-lg btn-primary btn-block" onclick="return Checknull()">
+
+                </form>
+                <div class="form-links">
+                    <a href="#">www.nhom02.com</a>
+                </div>
+            </section>
+        </section>
+    </div>
+}
+
+else
+{
+    // Show notify
+    <div class="choose">
+        <h1>
+            Please choose on left panel!!!
+        </h1>
+        <img src="~/Content/Image/Home/left_arrow.gif" width="50" />
+    </div>
+    <link href="~/Content/Css/PleaseChoose.css" rel="stylesheet" />
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
+@* Validate login *@
+<script src="~/Scripts/ValidateLogin.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>

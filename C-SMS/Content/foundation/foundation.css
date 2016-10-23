@@ -1,0 +1,138 @@
+/* Grid HTML Classes */
+.row {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  /*max-width: 62.5em;  */ 
+   }
+  .row:before, .row:after {
+    content: " ";
+    display: table; }
+  .row:after {
+    clear: both; }
+  .row .column,
+  .row .columns {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 100%;
+    float: left; }
+ 
+  .row .row {
+    width: auto;
+    margin-left: -0.9375em;
+    margin-right: -0.9375em;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: none;
+     }
+
+/* Styles for screens that are atleast 768px; */
+@media only screen and (min-width: 48em) {
+    .row .large-6 {
+        position: relative;
+        width: 50%;
+    }
+
+    /* Pagination */
+    .pagination {
+        display: block;
+        height: 1.5em;
+        margin-left: -0.3125em;
+    }
+
+        .pagination li {
+            display: block;
+            float: left;
+            height: 1.5em;
+            color: #222222;
+            font-size: 0.875em;
+            margin-left: 0.3125em;
+        }
+
+            .pagination li a {
+                display: block;
+                padding: 0.0625em 0.4375em 0.0625em;
+                color: #999999;
+            }
+
+                .pagination li:hover a,
+                .pagination li a:focus {
+                    background: #e6e6e6;
+                }
+
+            .pagination li.unavailable a {
+                cursor: default;
+                color: #999999;
+            }
+
+                .pagination li.unavailable:hover a, .pagination li.unavailable a:focus {
+                    background: transparent;
+                }
+
+            .pagination li.current a {
+                background: #2ba6cb;
+                color: white;
+                font-weight: bold;
+                cursor: default;
+            }
+
+                .pagination li.current a:hover, .pagination li.current a:focus {
+                    background: #2ba6cb;
+                }
+
+    .pagination-centered {
+        text-align: center;
+    }
+
+        .pagination-centered ul > li {
+            float: none;
+            display: inline-block;
+        }
+
+    /* Tables */
+    table {
+        width: 1125px;
+        background: white;
+        margin-bottom: 1.25em;
+        border: solid 1px #dddddd;
+    }
+
+        table thead,
+        table tfoot {
+            background: whitesmoke;
+            font-weight: bold;
+        }
+
+            table thead tr th,
+            table thead tr td,
+            table tfoot tr th,
+            table tfoot tr td {
+                padding: 0.5em 0.625em 0.625em;
+                font-size: 1em;
+                color: #222222;
+                text-align: left;
+            }
+
+        table tr th,
+        table tr td {
+            padding: 0.5625em 0.625em;
+            font-size: 1em;
+            color: #222222;
+        }
+
+        table tr.even, table tr.alt, table tr:nth-of-type(even) {
+            background: #f9f9f9;
+        }
+
+        table thead tr th,
+        table tfoot tr th,
+        table tbody tr td,
+        table tr td,
+        table tfoot tr td {
+            display: table-cell;
+            line-height: 1.125em;
+        }
+}

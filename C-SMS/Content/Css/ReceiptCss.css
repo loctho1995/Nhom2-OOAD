@@ -1,0 +1,34 @@
+﻿
+
+ span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+        background: white;
+    }
+
+    div#Infor {
+        display: none;
+    }
+
+    top_search .input-form-control {
+        padding-left: 20px;
+        height: 100px;
+    }
+
+    button#openPopup {  
+    background-color:#ff8000;
+    border-color:#ff8000;
+    }
+
+    button#btnAll {
+    border-bottom-left-radius:20px;
+    border-top-left-radius:20px;
+    margin-right:-3px;
+    }
+
+    input#searchReceipt {
+    height:34px;
+    text-align:center; 
+    }

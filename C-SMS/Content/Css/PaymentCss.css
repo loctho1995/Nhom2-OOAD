@@ -1,0 +1,33 @@
+﻿
+    span.error {
+        display: block;
+        visibility: hidden;
+        color: red;
+        font-size: 90%;
+        background: white;
+    }
+
+    top_search .input-form-control {
+        padding-left: 20px;
+        height: 100px;
+    }
+
+    button#openPopup {
+       background-color:#ff8000;
+       border-color:#ff8000;
+    }
+
+    button#btnAll {
+    border-bottom-left-radius:20px;
+    border-top-left-radius:20px;
+    margin-right:-3px;
+    }
+
+    div.table-responsive {
+    text-align:center;
+    }
+
+    input#searchPayment {
+    height:34px;
+    text-align:center;
+    }

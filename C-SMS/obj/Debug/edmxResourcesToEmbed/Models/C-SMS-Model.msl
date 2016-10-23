@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="CSMSEntities">
+    <EntitySetMapping Name="ACCOUNTs">
+      <EntityTypeMapping TypeName="Model.ACCOUNT">
+        <MappingFragment StoreEntitySet="ACCOUNT">
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Acc_Type" ColumnName="Acc_Type" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_AUTHORITY">
+      <EntityTypeMapping TypeName="Model.ACCOUNT_AUTHORITY">
+        <MappingFragment StoreEntitySet="ACCOUNT_AUTHORITY">
+          <ScalarProperty Name="Note" ColumnName="Note" />
+          <ScalarProperty Name="Aut_Type" ColumnName="Aut_Type" />
+          <ScalarProperty Name="Acc_Type" ColumnName="Acc_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ACCOUNT_TYPE">
+      <EntityTypeMapping TypeName="Model.ACCOUNT_TYPE">
+        <MappingFragment StoreEntitySet="ACCOUNT_TYPE">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Acc_Type" ColumnName="Acc_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AUTHORITies">
+      <EntityTypeMapping TypeName="Model.AUTHORITY">
+        <MappingFragment StoreEntitySet="AUTHORITY">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Aut_Type" ColumnName="Aut_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ACCOUNT_List" FunctionName="Model.Store.ACCOUNT_List">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.ACCOUNT_List_Result2">
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

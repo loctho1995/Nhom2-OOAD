@@ -1,0 +1,63 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Common.ViewModels.PhieuXuatKhoViewModel>
+@using Common.Ultil
+
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>
+                @Html.DisplayName("Số Phiếu Xuất Kho")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày Xuất Kho")
+            </th>
+            <th>
+                @Html.DisplayName("Tên Nhân Viên")
+            </th>
+            <th>
+                @Html.DisplayName("Tổng Tiền (VND)")
+            </th>
+            <th>
+                @Html.DisplayName("Lý Do Xuất")
+            </th>
+            <th class="width-10">
+                Hành động
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            FormatNumber number = new FormatNumber();
+            <tr style="text-align:center">
+                <td>@item.soPhieuXuatKho</td>
+                <td>@item.ngayXuat.ToString("dd/MM/yyyy")</td>
+                <td>@item.tenNhanVien</td>
+                <td>@number.FormatNumbers(@item.tongTien.ToString())</td>
+                <td>@item.lyDoXuat</td>
+
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-default">
+                            <i class="fa fa-eye"></i> Xem
+                        </a>
+
+                        <a href="@Url.Action("Delete", new { id = item.soPhieuXuatKho })" class="btn btn-default">
+                            <i class="fa fa-remove" aria-hidden="true"></i> Xóa
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pull-left">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+<script src="~/Scripts/bootstrap.min.js"></script>

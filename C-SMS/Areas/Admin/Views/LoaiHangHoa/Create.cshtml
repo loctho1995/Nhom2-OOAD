@@ -1,0 +1,61 @@
+﻿@model Common.ViewModels.LoaiHangHoaViewModel
+@{
+    ViewBag.Title = "Tạo Loại Hàng Hóa";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
+
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+
+<div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông Tin Loại Hàng Hóa</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            @using (Html.BeginForm("Create", "LoaiHangHoa", FormMethod.Post))
+            {
+                <div class="form-horizontal">                  
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Tên Loại Hàng Hóa <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="tenLoaiHangHoa" class="form-control" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Phần trăm lợi nhuận <span class="required">*</span>
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="phanTramLoiNhuan" class="form-control" />
+                        </div>
+                    </div>            
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-sm-offset-3 ">
+                            <input type="submit" value="Lưu Loại Hàng Hòa" class="btn btn-primary" />
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+
