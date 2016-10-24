@@ -46,11 +46,11 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-/Business/bin
-/Business/obj
-/Common/bin
-/Common/obj
-/C-SMS/obj
-/Data/obj
-/Data/bin
-/C-SMS/bin
+Business/bin
+Business/obj
+Common/bin
+Common/obj
+C-SMS/obj
+Data/obj
+Data/bin
+C-SMS/bin
