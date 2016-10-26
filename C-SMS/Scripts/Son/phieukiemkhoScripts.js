@@ -184,7 +184,7 @@
             $(this).val('Please wait...');
 
             $.ajax({
-                url: '/KiemKho/LuuPhieuKiemKho',
+                url: "/KiemKho/LuuPhieuKiemKho",
                 type: "POST",
                 data: JSON.stringify(data),
                 dataType: "JSON",
@@ -200,7 +200,7 @@
                         $('#tenNhanVien').val('');
                         $('#ghiChu').val('');
                         $('#orderItems').empty();
-                        window.location.href = "/Admin/KiemKho/Create";
+                        window.location.href = '/Admin/KiemKho/';
                     }
                     else {
                         SetAlert("Something wrong! Please try again", "error");
@@ -208,6 +208,7 @@
                     $('#submit').val('Lưu Phiếu Kiểm Kho');
                 },
                 error: function () {
+                    alert('Error. Please try again.');
                     $('#submit').val('Lưu Phiếu Kiểm Kho');
                 }
             });

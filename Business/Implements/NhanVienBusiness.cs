@@ -96,6 +96,12 @@ namespace Business.Implements
             return tatCaNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).TenNhanvien;
         }
 
+        public int LoadMaNhanVien(string nhanVienCode)
+        {
+            IQueryable<NhanVien> tatCaNhanVien = _nhanVienRepo.GetAll();
+            return tatCaNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).MaNhanVien;
+        }
+
         public IList<NhanVienViewModel> SearchDanhSachNhanVien(string tenNhanVien)
         {
             IQueryable<NhanVien> danhSachNhanVien = _nhanVienRepo.GetAll();

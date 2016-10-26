@@ -27,7 +27,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.maNhanVien = HomeController.nhanVienCode;
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
             ViewBag.soPhieuKiemKhoTuTang = _phieuKiemKhoBus.LoadSoPhieuKiemKho();
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
@@ -57,14 +57,13 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             return new JsonResult { Data = new { status = status } };
         }
-
+      
         public ActionResult DanhSachPhieuKiemKho(string searchString, int page = 1, int pageSize = 5)
         {
             if (!string.IsNullOrEmpty(searchString))
             {
-                return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
+                return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(Convert.ToInt32(searchString), HomeController.nhanVienCode).ToPagedList(page, pageSize));
             }
-
             return View(_phieuKiemKhoBus.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
@@ -89,12 +88,12 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             else
             {
-                // Access delete from Business
                 try
                 {
-                    await _phieuKiemKhoBus.Delete(deletePhieuKiemKho);
-                    SetAlert("Đã xóa phiếu kiểm kho thành công!!!", "success");
+                    _phieuKiemKhoBus.DeleteChiTietPhieuKiemKho(id);
+                    await _phieuKiemKhoBus.DeletePhieuKiemKho(deletePhieuKiemKho);
 
+                    SetAlert("Đã xóa phiếu kiểm kho thành công!!!", "success");
                 }
                 catch
                 {

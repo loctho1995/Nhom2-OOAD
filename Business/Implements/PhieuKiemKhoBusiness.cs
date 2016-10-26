@@ -82,7 +82,7 @@ namespace Business.Implements
             }
         }
 
-        public IList<KiemKhoViewModel> SearchDanhSachPhieuKiemKho(string soPhieuKiemKho, string nhanVienCode)
+        public IList<KiemKhoViewModel> SearchDanhSachPhieuKiemKho(int soPhieuKiemKho, string nhanVienCode)
         {
             IQueryable<PhieuKiemKho> danhSachPhieuKiemKho = _phieuKiemKhoRepo.GetAll();
             List<KiemKhoViewModel> all = new List<KiemKhoViewModel>();
@@ -93,7 +93,7 @@ namespace Business.Implements
                 all = (from phieukiemkho in danhSachPhieuKiemKho
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.MaNhanVien.Equals(nhanVienCode) && phieukiemkho.SoPhieuKiemKho.Equals(soPhieuKiemKho))
+                       where (nhanvien.NhanVienCode.Equals(nhanVienCode) && phieukiemkho.SoPhieuKiemKho.Equals(soPhieuKiemKho))
                        select new
                        {
                            SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
@@ -139,8 +139,14 @@ namespace Business.Implements
         public int LoadSoPhieuKiemKho()
         {
             var soPhieuKiemKho = from phieukiemkho in _phieuKiemKhoRepo.GetAll()
-                           orderby phieukiemkho.SoPhieuKiemKho descending
-                           select phieukiemkho.SoPhieuKiemKho;
+                                 orderby phieukiemkho.SoPhieuKiemKho descending
+                                 select phieukiemkho.SoPhieuKiemKho;
+
+            int demSoPhieu = _phieuKiemKhoRepo.GetAll().Count();
+            if (demSoPhieu == 0)
+            {
+                return 1;
+            }
             return (soPhieuKiemKho.First() + 1);
         }
 
@@ -149,6 +155,7 @@ namespace Business.Implements
             PhieuKiemKho order = new PhieuKiemKho
             {
                 SoPhieuKiemKho = O.soPhieuKiemKho,
+                SoPhieuKiemKhoCode = "a",
                 NgayKiemKho = O.ngayKiemKho,
                 MaNhanVien = O.maNhanVien,
                 TrangThai = false,
@@ -229,11 +236,26 @@ namespace Business.Implements
             return await _chiTietPhieuKiemKhoRepo.GetByIdAsync(ID);
         }
 
-        public async Task Delete(object deleteModel)
+        public async Task DeletePhieuKiemKho(object deleteModel)
         {
             PhieuKiemKho xoaPhieuKiemKho = (PhieuKiemKho)deleteModel;
 
             await _phieuKiemKhoRepo.DeleteAsync(xoaPhieuKiemKho);
-        }      
+        }
+
+        public bool DeleteChiTietPhieuKiemKho(int id)
+        {
+            try
+            {               
+                var phieuKiemKho = dbContext.ChiTietPhieuKiemKhoes.Where(x => x.SoPhieuKiemKho == id);
+                dbContext.ChiTietPhieuKiemKhoes.RemoveRange(phieuKiemKho);           
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
