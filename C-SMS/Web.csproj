@@ -841,6 +841,10 @@
     <Content Include="Areas\Admin\Views\KiemKho\ThongTinPhieuKiemKho.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiHangHoa\DanhSachLoaiHangHoa.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\ThongTinNhanVien.cshtml" />
+    <Content Include="Areas\Admin\Views\BanHang\DanhSachPhieuBanHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\DanhSachPhieuDatHang.cshtml" />
+    <Content Include="Areas\Admin\Views\BanHang\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\BanHang\ThongTinPhieuBanHang.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

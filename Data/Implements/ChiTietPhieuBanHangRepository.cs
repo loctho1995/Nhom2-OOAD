@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Data.Implements
 {
-    public class ChiTietPhieuKiemKhoRepository: GenericRepository<ChiTietPhieuKiemKho>
+    public class ChiTietPhieuBanHangRepository : GenericRepository<ChiTietPhieuBanHang>
     {
-        public ChiTietPhieuKiemKhoRepository(DbContext dbContext)
+        public ChiTietPhieuBanHangRepository(DbContext dbContext)
             : base(dbContext)
         {
         }

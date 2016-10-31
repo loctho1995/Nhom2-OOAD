@@ -1,0 +1,81 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Common.ViewModels.PhieuDatHangViewModel>
+
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>
+                @Html.DisplayName("Số Phiếu đặt hàng")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày đặt")
+            </th>
+            <th>
+                @Html.DisplayName("Tên Nhân Viên duyệt")
+            </th>
+            <th>
+                @Html.DisplayName("Tên khách hàng")
+            </th>
+            <th>
+                @Html.DisplayName("Số điện thoại")
+            </th>
+            <th>
+                @Html.DisplayName("Tổng tiền")
+            </th>
+            <th>
+                @Html.DisplayName("Hình thức thanh toán")
+            </th>
+            <th>
+                @Html.DisplayName("Trạng thái nhận hàng")
+            </th>
+            <th>
+                @Html.DisplayName("Trạng thái thanh toán")
+            </th>
+            <th>
+                @Html.DisplayName("Ghi chú")
+            </th>
+            <th class="width-10">
+                Hành động
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var item in Model)
+        {
+            <tr style="text-align:center">
+                <td>@item.soPhieuDatHang</td>
+                <td>@item.ngayDat.ToString("dd/MM/yyyy")</td>
+                <td>@item.tenNhanVien</td>
+                <td>@item.tenKhachHang</td>
+                <td>@item.soDienThoai</td>
+                <td>@item.tongTien</td>
+                <td>@item.hinhThucThanhToan</td>
+                <td>@item.daXacNhan</td>
+                <td>@item.daThanhToan</td>
+                <td>@item.ghiChu</td>
+
+                <td>
+                    <div class="btn-group">
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })" class="btn btn-default">
+                            <i class="fa fa-eye"></i> Xem
+                        </a>
+
+                        <a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })" class="btn btn-default">
+                            <i class="fa fa-remove" aria-hidden="true"></i> Xóa
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pull-left">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+</div>
+<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
