@@ -14,7 +14,7 @@ namespace WebBanHang.Areas.Admin.Controllers
     public class KiemKhoController : BaseController
     {
         readonly PhieuKiemKhoBusiness _phieuKiemKhoBus = new PhieuKiemKhoBusiness();
-        readonly ChiTietPhieuKiemKhoBusiness _chiTietPhieuKiemKhoBus = new ChiTietPhieuKiemKhoBusiness();
+        readonly ChiTietPhieuBanHangBusiness _chiTietPhieuKiemKhoBus = new ChiTietPhieuBanHangBusiness();
         readonly HangHoaBusiness _hangHoaBus = new HangHoaBusiness();
         readonly NhanVienBusiness _nhanVienBus = new NhanVienBusiness();
         //

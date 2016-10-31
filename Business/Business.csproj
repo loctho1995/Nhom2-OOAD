@@ -82,6 +82,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implements\ChiTietPhieuBanHangBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuKiemKhoBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuNhapKhoBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuXuatKhoBusiness.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="Implements\HangHoaBusiness.cs" />
     <Compile Include="Implements\LoaiHangHoaBusiness.cs" />
     <Compile Include="Implements\NhanVienBusiness.cs" />
+    <Compile Include="Implements\PhieuBanHangBusiness.cs" />
+    <Compile Include="Implements\PhieuDatHangBusiness.cs" />
     <Compile Include="Implements\PhieuKiemKhoBusiness.cs" />
     <Compile Include="Implements\PhieuNhapKhoBusiness.cs" />
     <Compile Include="Implements\PhieuXuatKhoBusiness.cs" />
