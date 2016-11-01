@@ -18,6 +18,7 @@ namespace Business.Implements
         private readonly NhanVienRepository _nhanVienRepo;
         private readonly HangHoaRepository _hangHoaRepo;
         private NhanVienBusiness _nhanVienBus;
+        private HangHoaBusiness _hangHoaBus;
 
         public PhieuXuatKhoBusiness()
         {
@@ -27,6 +28,7 @@ namespace Business.Implements
             _chiTietPhieuXuatKhoRepo = new ChiTietPhieuXuathoRepository(dbContext);
             _hangHoaRepo = new HangHoaRepository(dbContext);
             _nhanVienBus = new NhanVienBusiness();
+            _hangHoaBus = new HangHoaBusiness();
         }
 
         public IList<PhieuXuatKhoViewModel> ListView(string nhanVienCode)
@@ -52,7 +54,7 @@ namespace Business.Implements
                        }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
                        {
                            soPhieuXuatKho = x.SoPhieuXuatKho,
-                           ngayXuat = x.NgayXuat,
+                           ngayXuatKho = x.NgayXuat,
                            tenNhanVien = x.TenNhanVien,
                            tongTien = x.TongTien,
                            lyDoXuat = x.LyDoXuat,
@@ -75,7 +77,7 @@ namespace Business.Implements
                                  }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
                                  {
                                      soPhieuXuatKho = x.SoPhieuXuatKho,
-                                     ngayXuat = x.NgayXuat,
+                                     ngayXuatKho = x.NgayXuat,
                                      tenNhanVien = x.TenNhanVien,
                                      tongTien = x.TongTien,
                                      lyDoXuat = x.LyDoXuat,
@@ -84,11 +86,18 @@ namespace Business.Implements
             }
         }
 
-         public string LoadSoPhieuXuatKho()
+        public int LoadSoPhieuXuatKho()
         {
-            CodeMasterGen codeMasterGen = new CodeMasterGen();
-            string autoNo = "PXK" + codeMasterGen.AutoNumber(_phieuXuatKhoRepo.CountPhieuXuatKho(_phieuXuatKhoRepo) + 1);
-            return autoNo;
+            var soPhieuXuatKho = from phieuxuatkho in _phieuXuatKhoRepo.GetAll()
+                                 orderby phieuxuatkho.SoPhieuXuatKho descending
+                                 select phieuxuatkho.SoPhieuXuatKho;
+
+            int a = _phieuXuatKhoRepo.GetAll().Count();
+            if (a == 0)
+            {
+                return 1;
+            }
+            return (soPhieuXuatKho.First() + 1);
         }
 
          public IList<PhieuXuatKhoViewModel> SearchDanhSachPhieuXuatKho(int soPhieuXuatKho, string nhanVienCode)
@@ -114,7 +123,7 @@ namespace Business.Implements
                         }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
                         {
                             soPhieuXuatKho = x.SoPhieuXuatKho,
-                            ngayXuat = x.NgayXuat,
+                            ngayXuatKho = x.NgayXuat,
                             tenNhanVien = x.TenNhanVien,
                             tongTien = x.TongTien,
                             lyDoXuat = x.LyDoXuat,
@@ -138,7 +147,7 @@ namespace Business.Implements
                                   }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
                                   {
                                       soPhieuXuatKho = x.SoPhieuXuatKho,
-                                      ngayXuat = x.NgayXuat,
+                                      ngayXuatKho = x.NgayXuat,
                                       tenNhanVien = x.TenNhanVien,
                                       tongTien = x.TongTien,
                                       lyDoXuat = x.LyDoXuat,
@@ -199,12 +208,67 @@ namespace Business.Implements
                     }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
                     {
                         soPhieuXuatKho = x.SoPhieuXuatKho,
-                        ngayXuat = x.NgayXuatKho,
+                        ngayXuatKho = x.NgayXuatKho,
                         tenNhanVien = x.TenNhanVien,
                         tongTien = x.TongTien,
                         lyDoXuat = x.LyDoXuat,
                     }).ToList();
              return all;
+         }
+
+         public async Task<object> Find(int ID)
+         {
+             return await _phieuXuatKhoRepo.GetByIdAsync(ID);
+         }
+
+         public async Task DeletePhieuXuatKho(object deleteModel)
+         {
+             PhieuXuatKho xoaPhieuXuatKho = (PhieuXuatKho)deleteModel;
+
+          
+             await _phieuXuatKhoRepo.DeleteAsync(xoaPhieuXuatKho);
+         }
+
+         public bool DeleteChiTietPhieuXuatKho(int id)
+         {
+             try
+             {
+                 var phieuXuatKho = dbContext.ChiTietPhieuXuatKhoes.Where(x => x.SoPhieuXuatKho == id);
+
+                 foreach (var i in phieuXuatKho)
+                 {
+                     _hangHoaBus.CapNhatHangHoaKhiXoaPhieuXuat(i.MaHangHoa, i.SoLuong);
+                 }
+
+
+                 dbContext.ChiTietPhieuXuatKhoes.RemoveRange(phieuXuatKho);
+                 dbContext.SaveChanges();
+                 return true;
+             }
+             catch (Exception)
+             {
+                 return false;
+             }
+         }
+
+         public async Task Create(PhieuXuatKhoViewModel O)
+         {
+             PhieuXuatKho phieuXuat = new PhieuXuatKho
+             {
+                 SoPhieuXuatKho = O.soPhieuXuatKho,
+                 SoPhieuXuatKhoCode = "a",
+                 NgayXuat = O.ngayXuatKho,
+                 MaNhanVien = O.maNhanVien,
+                 TongTien = O.tongTien,
+                 LyDoXuat = O.lyDoXuat
+             };
+             foreach (var i in O.chiTietPhieuXuatKho)
+             {
+                 _hangHoaBus.CapNhatHangHoaKhiTaoPhieuXuat(i.MaHangHoa, i.SoLuong);
+                 phieuXuat.ChiTietPhieuXuatKhos.Add(i);
+
+             }
+             await _phieuXuatKhoRepo.InsertAsync(phieuXuat);
          }
     }
 }

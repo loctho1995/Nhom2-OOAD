@@ -10,7 +10,8 @@ namespace Common.ViewModels
     public class PhieuXuatKhoViewModel
     {
         public int soPhieuXuatKho { get; set; }
-        public DateTime ngayXuat { get; set; }
+        public DateTime ngayXuatKho { get; set; }
+        public int maNhanVien { get; set; }
         public string tenNhanVien { get; set; }
         public string lyDoXuat { get; set; }
         public decimal tongTien { get; set; }     

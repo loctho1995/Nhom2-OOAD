@@ -30,6 +30,7 @@ namespace Common.Models
 
         public bool TrangThai { get; set; }
          public virtual ICollection<ChiTietPhieuKiemKho> ChiTietPhieuKiemKhos { get; set; }
+
     
     }
 }

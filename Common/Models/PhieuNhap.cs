@@ -9,6 +9,12 @@ namespace Common.Models
     [Table("PhieuNhap")]
     public partial class PhieuNhap
     {
+        public PhieuNhap()
+        {
+            ChiTietPhieuNhaps = new HashSet<ChiTietPhieuNhap>();
+        }
+
+        public virtual ICollection<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
         [Key]
         public int SoPhieuNhap { get; set; }
 

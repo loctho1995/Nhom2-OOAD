@@ -19,8 +19,7 @@
     <div class="x_panel">
         <div class="x_content">
             @using (Ajax.BeginForm("DanhSachLoaiHangHoa", "LoaiHangHoa", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
-            {
-               
+            {             
                 <div class="col-md-12 col-sm-6 col-xs-12">
                     <label class="control-label">Tìm Kiếm</label>
                     <div class="input-group">

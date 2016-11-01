@@ -24,16 +24,22 @@
         (HttpContext.Current.Request.Url.AbsolutePath == "/" || HttpContext.Current.Request.Url.AbsolutePath.Contains("/Home")))
     {
         // Render if not login, login faile, redirect to Homepage
-
+        <section class="background">
+            @*<script language="javascript">
+                window.location.replace("/Admin/Home/");
+            </script>*@
+        
+        </section>
         @RenderBody()
-        <script src="~/Scripts/responsiveslides.min.js"></script>
-        @*<script src="~/Scripts/jquery.scrollify.js"></script>*@
-        <script src="~/Scripts/homelayout.js"></script>
-        if (Session["Account"] == null)
-        {
-            <script src="~/Scripts/loginError.js"></script>
-        }
+        @*<script src="~/Scripts/responsiveslides.min.js"></script>
+            <script src="~/Scripts/jquery.scrollify.js"></script>
+            <script src="~/Scripts/homelayout.js"></script>
+            if (Session["Account"] == null)
+            {
+                <script src="~/Scripts/loginError.js"></script>
+            }*@
     }
+
     else if (Session["Account"] != null)
     {
         // Render section menu and header if login successfull
@@ -62,6 +68,10 @@
     }
     else
     {
+        // Redirect to error page if access to page which you dont have permission to access
+        <script language="javascript">
+            window.location.replace("/Admin/Home/PermissionError");
+        </script>
         @RenderBody()
     }
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>

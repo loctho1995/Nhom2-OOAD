@@ -231,10 +231,6 @@ namespace Business.Implements
         {
             return await _phieuKiemKhoRepo.GetByIdAsync(ID);
         }
-        public async Task<object> FindChiTietPhieuKiemKho(int ID)
-        {
-            return await _chiTietPhieuKiemKhoRepo.GetByIdAsync(ID);
-        }
 
         public async Task DeletePhieuKiemKho(object deleteModel)
         {

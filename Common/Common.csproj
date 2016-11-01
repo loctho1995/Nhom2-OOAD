@@ -84,10 +84,12 @@
     <Compile Include="ViewModels\ChiTietPhieuKiemKhoViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuNhapKhoViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuXuatKhoViewModel.cs" />
+    <Compile Include="ViewModels\HangHoaViewModel.cs" />
     <Compile Include="ViewModels\KiemKhoViewModel.cs" />
     <Compile Include="ViewModels\LoaiHangHoaViewModel.cs" />
     <Compile Include="ViewModels\NhanVienViewModel.cs" />
     <Compile Include="ViewModels\NhanVien_QuyenViewModel.cs" />
+    <Compile Include="ViewModels\PhieuDatHangViewModel.cs" />
     <Compile Include="ViewModels\PhieuNhapKhoViewModel.cs" />
     <Compile Include="ViewModels\PhieuXuatKhoViewModel.cs" />
   </ItemGroup>

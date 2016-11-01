@@ -33,7 +33,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             curController = this;
             if (Session["Account"] != null && Session["Account"].ToString() == "Error")
             {
-                ViewBag.notify = "Incorrect CSMS ID or Password!";
+                TempData["notify"] = "ID hoặc Password không đúng!!!";
             }
             return View();
         }
@@ -58,7 +58,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 if (account.trangThai != true)
                 {
-                    TempData["notify"] = "Your account is deactive!!!<br> Please contact your Manager!!!";
+                    TempData["notify"] = "Tài khoản của bạn đã bị khóa!!!";
                 }
                 else
                 {
@@ -95,6 +95,11 @@ namespace WebBanHang.Areas.Admin.Controllers
             Response.Cookies.Add(cookie);
         }
 
+        public ActionResult PermissionError()
+        {
+            return View();
+        }
+
         /// <summary>
         /// Logout
         /// </summary>
@@ -121,7 +126,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public PartialViewResult GetMenu()
         {
-            var menuModel = _chucVuBus.GetMenu(((NhanVienViewModel)Session["Account"]).maChucVu);
+            var menuModel = _chucVuBus.GetMenu( ((NhanVienViewModel)Session["Account"]).maChucVu );
             ViewBag.listParent = _chucVuBus.GetListParent(((NhanVienViewModel)Session["Account"]).maChucVu);
             return PartialView("~/Areas/Admin/Views/PartitalView/MenuManagerPartial.cshtml", menuModel);
         }
