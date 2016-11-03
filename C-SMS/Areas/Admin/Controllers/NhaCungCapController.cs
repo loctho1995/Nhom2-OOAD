@@ -1,13 +1,18 @@
-﻿using System;
+﻿using Business.Implements;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using Common.Models;
+using System.Threading.Tasks;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
-    public class NhaCungCapController : Controller
+    public class NhaCungCapController : BaseController
     {
+        readonly NhaCungCapBusiness _nhaCungCapBus = new NhaCungCapBusiness();
         //
         // GET: /Admin/NhaCungCap/
 
@@ -21,5 +26,62 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
+        public ActionResult DanhSachNhaCungCap(string searchString, int page = 1, int pageSize = 5)
+        {
+            return View(_nhaCungCapBus.SearchDanhSachNhaCungCap(searchString).ToPagedList(page, pageSize));
+        }
+
+        public ActionResult ThongTinNhaCungCap(int id)
+        {
+            ViewBag.nhaCungCap = _nhaCungCapBus.LoadDanhSachNhaCungCapTheoMa(id).ToList();         
+            return View(ViewBag.nhaCungCap);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Create(NhaCungCap nhaCungCap)
+        {
+            try
+            {
+                await _nhaCungCapBus.Create(nhaCungCap);
+                SetAlert("Đã thêm nhà cung cấp thành công!!!", "success");
+            }
+            catch
+            {
+                SetAlert("Đã xảy ra lỗi! Bạn hãy thêm lại", "error");
+
+            }
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Edit(int id)
+        {
+            ViewBag.nhaCungCap = _nhaCungCapBus.LoadDanhSachNhaCungCapTheoMa(id).ToList();
+            return View(ViewBag.nhaCungCap);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(int id, NhaCungCap nhaCungCap)
+        {
+            NhaCungCap edit = (NhaCungCap)await _nhaCungCapBus.Find(id);
+            if (edit == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                try
+                {
+                    await _nhaCungCapBus.Update(nhaCungCap, edit);
+                    SetAlert("Đã cập nhật nhà cung cấp thành công!!!", "success");
+
+                }
+                catch
+                {
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy cập nhật lại", "error");
+                    return RedirectToAction("Edit");
+                }
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

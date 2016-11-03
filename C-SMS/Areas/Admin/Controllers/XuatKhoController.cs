@@ -42,14 +42,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DanhSachPhieuXuatKho(string searchString, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuXuatKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(Convert.ToInt32(searchString), HomeController.nhanVienCode).ToPagedList(page, pageSize));
-            }
-
-            return View(_phieuXuatKhoBus.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         [HttpPost]

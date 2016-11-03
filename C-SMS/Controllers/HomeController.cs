@@ -15,7 +15,6 @@ namespace WebBanHang.Controllers
         public ActionResult Index()
         {
             ViewBag.hangHoaMoiNhat = _hangHoaBus.DanhSachHangHoaMoiNhat();
-
             ViewBag.hangHoaBanChayNhat = _hangHoaBus.DanhSachHangHoaBanChayNhat();
             return View();
         }

@@ -1,6 +1,43 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model IEnumerable<Common.Models.NhaCungCap>
+@{
+    ViewBag.Title = "Danh Sách Nhà Cung Cấp";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
 
-<h2>Index</h2>
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+
+<div>
+    <div class="x_panel">
+        <div class="x_content">
+            @using (Ajax.BeginForm("DanhSachNhaCungCap", "NhaCungCap", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+            {
+                @*<div class="col-md-4 col-sm-6 col-xs-12">
+                    <label class="control-label">Trạng Thái</label>
+                    @Html.DropDownList("status", new SelectList(ViewBag.data, "Value", "Text"), "Tất cả", new { @class = "form-control" })
+                </div>*@
+
+                <div class="col-md-12 col-sm-6 col-xs-12">
+                    <label class="control-label">Tìm Kiếm</label>
+                    <div class="input-group">
+                        @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm theo tên nhà cung cấp hoặc số điện thoại hoặc email", @aria_describedby = "basic-addon2" })
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </span>
+                    </div>
+                </div>
+
+            }
+            <div id="list">
+                @{Html.RenderAction("DanhSachNhaCungCap", "NhaCungCap");}
+            </div>
+        </div>
+    </div>
+</div>

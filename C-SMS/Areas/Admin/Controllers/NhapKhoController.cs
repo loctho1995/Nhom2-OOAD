@@ -46,15 +46,10 @@ namespace WebBanHang.Areas.Admin.Controllers
             var result = _hangHoaBus.LayThongTinHangHoa(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-
-        public ActionResult DanhSachPhieuNhapKho(string searchString, int page = 1, int pageSize = 5)
+     
+        public ActionResult DanhSachPhieuNhapKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(Convert.ToInt32(searchString), HomeController.nhanVienCode).ToPagedList(page, pageSize));
-            }
-
-            return View(_phieuNhapKhoBus.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         [HttpPost]

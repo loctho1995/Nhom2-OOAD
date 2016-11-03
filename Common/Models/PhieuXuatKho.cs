@@ -18,7 +18,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuXuatKho { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuXuatKhoCode { get; set; }
 

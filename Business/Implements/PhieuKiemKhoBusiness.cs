@@ -29,7 +29,7 @@ namespace Business.Implements
             _nhanVienBus = new NhanVienBusiness();
         }
 
-        public IList<KiemKhoViewModel> ListView(string nhanVienCode)
+        public IList<KiemKhoViewModel> SearchDanhSachPhieuKiemKho(String key, DateTime tungay, DateTime denngay, string nhanVienCode)
         {
             IQueryable<PhieuKiemKho> danhSachPhieuKiemKho = _phieuKiemKhoRepo.GetAll();
             List<KiemKhoViewModel> all = new List<KiemKhoViewModel>();
@@ -37,6 +37,34 @@ namespace Business.Implements
 
             if (_nhanVienBus.layMaChucVu(nhanVienCode) == 5)
             {
+                if (!string.IsNullOrEmpty(key))
+                {
+                    all = (from phieukiemkho in danhSachPhieuKiemKho
+                           join nhanvien in _nhanVienRepo.GetAll()
+                           on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
+                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                                     phieukiemkho.SoPhieuKiemKho.ToString().Contains(key)
+                                  || nhanvien.TenNhanvien.Contains(key)
+                                  || phieukiemkho.NgayKiemKho.ToString().Contains(key)))
+                           select new
+                           {
+                               SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
+                               NgayKiemKho = phieukiemkho.NgayKiemKho,
+                               TenNhanVien = nhanvien.TenNhanvien,
+                               TrangThai = phieukiemkho.TrangThai,
+                               ChuThich = phieukiemkho.GhiChu,
+
+                           }).AsEnumerable().Select(x => new KiemKhoViewModel()
+                           {
+                               soPhieuKiemKho = x.SoPhieuKiemKho,
+                               ngayKiemKho = x.NgayKiemKho,
+                               tenNhanVien = x.TenNhanVien,
+                               trangThai = x.TrangThai,
+                               ghiChu = x.ChuThich,
+                           }).OrderByDescending(x => x.soPhieuKiemKho).ToList();
+                    return all;
+                }
+
                 all = (from phieukiemkho in danhSachPhieuKiemKho
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
@@ -48,6 +76,7 @@ namespace Business.Implements
                            TenNhanVien = nhanvien.TenNhanvien,
                            TrangThai = phieukiemkho.TrangThai,
                            ChuThich = phieukiemkho.GhiChu,
+
                        }).AsEnumerable().Select(x => new KiemKhoViewModel()
                        {
                            soPhieuKiemKho = x.SoPhieuKiemKho,
@@ -55,11 +84,61 @@ namespace Business.Implements
                            tenNhanVien = x.TenNhanVien,
                            trangThai = x.TrangThai,
                            ghiChu = x.ChuThich,
-                       }).ToList();
+                       }).OrderByDescending(x => x.soPhieuKiemKho).ToList();
                 return all;
             }
             else
             {
+                if ((!(tungay == default(DateTime))) && (!(denngay == default(DateTime))))
+                {
+                    allForManager = (from phieukiemkho in danhSachPhieuKiemKho
+                                     join nhanvien in _nhanVienRepo.GetAll()
+                                     on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
+                                     where (phieukiemkho.NgayKiemKho >= tungay.Date && phieukiemkho.NgayKiemKho <= denngay.Date)
+                                     select new
+                                     {
+                                         SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
+                                         NgayKiemKho = phieukiemkho.NgayKiemKho,
+                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         TrangThai = phieukiemkho.TrangThai,
+                                         ChuThich = phieukiemkho.GhiChu,
+
+                                     }).AsEnumerable().Select(x => new KiemKhoViewModel()
+                                     {
+                                         soPhieuKiemKho = x.SoPhieuKiemKho,
+                                         ngayKiemKho = x.NgayKiemKho,
+                                         tenNhanVien = x.TenNhanVien,
+                                         trangThai = x.TrangThai,
+                                         ghiChu = x.ChuThich,
+                                     }).OrderByDescending(x => x.soPhieuKiemKho).ToList();
+                    return allForManager;
+                }
+                if (!string.IsNullOrEmpty(key))
+                {
+                    allForManager = (from phieukiemkho in danhSachPhieuKiemKho
+                                     join nhanvien in _nhanVienRepo.GetAll()
+                                     on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
+                                     where (phieukiemkho.SoPhieuKiemKho.ToString().Contains(key)
+                                            || nhanvien.TenNhanvien.Contains(key))
+                                     select new
+                                     {
+                                         SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
+                                         NgayKiemKho = phieukiemkho.NgayKiemKho,
+                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         TrangThai = phieukiemkho.TrangThai,
+                                         ChuThich = phieukiemkho.GhiChu,
+
+                                     }).AsEnumerable().Select(x => new KiemKhoViewModel()
+                                     {
+                                         soPhieuKiemKho = x.SoPhieuKiemKho,
+                                         ngayKiemKho = x.NgayKiemKho,
+                                         tenNhanVien = x.TenNhanVien,
+                                         trangThai = x.TrangThai,
+                                         ghiChu = x.ChuThich,
+                                     }).OrderByDescending(x => x.soPhieuKiemKho).ToList();
+                    return allForManager;
+                }
+
                 allForManager = (from phieukiemkho in danhSachPhieuKiemKho
                                  join nhanvien in _nhanVienRepo.GetAll()
                                  on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
@@ -70,6 +149,7 @@ namespace Business.Implements
                                      TenNhanVien = nhanvien.TenNhanvien,
                                      TrangThai = phieukiemkho.TrangThai,
                                      ChuThich = phieukiemkho.GhiChu,
+
                                  }).AsEnumerable().Select(x => new KiemKhoViewModel()
                                  {
                                      soPhieuKiemKho = x.SoPhieuKiemKho,
@@ -77,61 +157,7 @@ namespace Business.Implements
                                      tenNhanVien = x.TenNhanVien,
                                      trangThai = x.TrangThai,
                                      ghiChu = x.ChuThich,
-                                 }).ToList();
-                return allForManager;
-            }
-        }
-
-        public IList<KiemKhoViewModel> SearchDanhSachPhieuKiemKho(int soPhieuKiemKho, string nhanVienCode)
-        {
-            IQueryable<PhieuKiemKho> danhSachPhieuKiemKho = _phieuKiemKhoRepo.GetAll();
-            List<KiemKhoViewModel> all = new List<KiemKhoViewModel>();
-            List<KiemKhoViewModel> allForManager = new List<KiemKhoViewModel>();
-
-            if (_nhanVienBus.layMaChucVu(nhanVienCode) == 5)
-            {
-                all = (from phieukiemkho in danhSachPhieuKiemKho
-                       join nhanvien in _nhanVienRepo.GetAll()
-                       on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.NhanVienCode.Equals(nhanVienCode) && phieukiemkho.SoPhieuKiemKho.Equals(soPhieuKiemKho))
-                       select new
-                       {
-                           SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
-                           NgayKiemKho = phieukiemkho.NgayKiemKho,
-                           TenNhanVien = nhanvien.TenNhanvien,
-                           TrangThai = phieukiemkho.TrangThai,
-                           ChuThich = phieukiemkho.GhiChu,
-                       }).AsEnumerable().Select(x => new KiemKhoViewModel()
-                       {
-                           soPhieuKiemKho = x.SoPhieuKiemKho,
-                           ngayKiemKho = x.NgayKiemKho,
-                           tenNhanVien = x.TenNhanVien,
-                           trangThai = x.TrangThai,
-                           ghiChu = x.ChuThich,
-                       }).ToList();
-                return all;
-            }
-            else
-            {
-                allForManager = (from phieukiemkho in danhSachPhieuKiemKho
-                                 join nhanvien in _nhanVienRepo.GetAll()
-                                 on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
-                                 where (phieukiemkho.SoPhieuKiemKho.Equals(soPhieuKiemKho))
-                                 select new
-                                 {
-                                     SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,
-                                     NgayKiemKho = phieukiemkho.NgayKiemKho,
-                                     TenNhanVien = nhanvien.TenNhanvien,
-                                     TrangThai = phieukiemkho.TrangThai,
-                                     ChuThich = phieukiemkho.GhiChu,
-                                 }).AsEnumerable().Select(x => new KiemKhoViewModel()
-                                 {
-                                     soPhieuKiemKho = x.SoPhieuKiemKho,
-                                     ngayKiemKho = x.NgayKiemKho,
-                                     tenNhanVien = x.TenNhanVien,
-                                     trangThai = x.TrangThai,
-                                     ghiChu = x.ChuThich,
-                                 }).ToList();
+                                 }).OrderByDescending(x => x.soPhieuKiemKho).ToList();
                 return allForManager;
             }
         }
@@ -177,7 +203,7 @@ namespace Business.Implements
                        on chitietphieukiemkho.MaHangHoa equals hanghoa.MaHangHoa
                        select new
                        {
-                           SoPhieuKiemKho = chitietphieukiemkho.SoPhieuKiemKho,                        
+                           SoPhieuKiemKho = chitietphieukiemkho.SoPhieuKiemKho,
                            MaHangHoa = hanghoa.MaHangHoa,
                            SoLuongHienTai = chitietphieukiemkho.SoLuongHienTai,
                            SoLuongKiemTra = chitietphieukiemkho.SoLuongKiemTra,
@@ -186,7 +212,7 @@ namespace Business.Implements
 
                        }).AsEnumerable().Select(x => new KiemKhoViewModel()
                     {
-                        soPhieuKiemKho = x.SoPhieuKiemKho,                   
+                        soPhieuKiemKho = x.SoPhieuKiemKho,
                         maHangHoa = x.MaHangHoa,
                         soLuongHienTai = x.SoLuongHienTai,
                         soLuongKiemTra = x.SoLuongKiemTra,
@@ -242,9 +268,9 @@ namespace Business.Implements
         public bool DeleteChiTietPhieuKiemKho(int id)
         {
             try
-            {               
+            {
                 var phieuKiemKho = dbContext.ChiTietPhieuKiemKhoes.Where(x => x.SoPhieuKiemKho == id);
-                dbContext.ChiTietPhieuKiemKhoes.RemoveRange(phieuKiemKho);           
+                dbContext.ChiTietPhieuKiemKhoes.RemoveRange(phieuKiemKho);
                 dbContext.SaveChanges();
                 return true;
             }

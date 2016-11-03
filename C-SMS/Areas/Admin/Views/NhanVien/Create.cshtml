@@ -28,7 +28,7 @@
                   
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Đăng Nhập <span class="required">*</span>
+                            Tên Đăng Nhập <span class="required" style="color:red">*</span>
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
                             <input type="text" name="nhanviencode" class="form-control" />
@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Nhân Viên <span class="required">*</span>
+                            Tên Nhân Viên <span class="required" style="color:red">*</span>
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
                             <input type="text" name="tennhanvien" class="form-control" />
@@ -81,10 +81,10 @@
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Chức Vụ <span class="required">*</span>
+                            Chức Vụ <span class="required" style="color:red">*</span>
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), "Tất cả", new { @class = "form-control" })
+                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control" })
                         </div>
                     </div>
                     <div class="form-group">

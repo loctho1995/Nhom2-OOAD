@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuDatHang { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuDatHangCode { get; set; }
 

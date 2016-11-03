@@ -18,7 +18,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuNhap { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuNhapCode { get; set; }
 

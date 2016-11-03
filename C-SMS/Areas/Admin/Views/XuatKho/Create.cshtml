@@ -49,35 +49,33 @@
                             <table class="table table-responsive" style="width:100%">
                                 <tr>
                                     <td>Sản Phẩm</td>
-                                    <td>Đơn Vị Tính</td>
+                                    @*<td>Đơn Vị Tính</td>*@
                                     <td>Số Lượng Tồn</td>
-                                    <td>Giá Bán</td>
                                     <td>Số Lượng Xuất</td>
+                                    <td>Giá Bán</td>                                
                                     <td>Thành Tiền</td>
                                     <td></td>
                                 </tr>
 
                                 <tr class="mycontainer" id="mainrow">
                                     <td>
-                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" oninput="HideErrorTenHangHoa()" />
+                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:110%" oninput="HideErrorTenHangHoa()" />
                                         <span class="error">Chưa có hàng hóa</span>
                                     </td>
-
                                     <td>
-                                        <input type="text" id="donViTinh" class="form-control" style="width:100%" disabled="disabled" />
-                                    </td>
-                                    <td>
+                                        <input type="hidden" id="donViTinh" class="form-control" style="width:100%" disabled="disabled" />
                                         <input type="text" id="soLuongTon" class="form-control" style="width:100%" disabled="disabled" />
                                     </td>
                                     <td>
-                                        <input type="text" id="gia" class="form-control" style="width:100%" disabled="disabled" />
-                                    </td>
-                                    <td>
-                                        <input type="text"  id="soLuongXuat" class="form-control" style="width:100%" oninput="HideErrorSoLuongXuat()" onkeypress="    return checkNumber(event, this)" maxlength="4" />
+                                        <input type="text" id="soLuongXuat" class="form-control" style="width:100%" oninput="HideErrorSoLuongXuat()" onkeypress="    return checkNumber(event, this)" maxlength="4" />
                                         <span class="error">Nhập số lượng</span>
-                                    </td>                                 
+                                    </td>      
                                     <td>
-                                        <input type="text" id="thanhTien" disabled="disabled" class="form-control" style="width:100%" />
+                                        <input type="text" id="gia" class="form-control" style="width:110%" disabled="disabled" />                               
+                                    </td>
+                                                              
+                                    <td>
+                                        <input type="text" id="thanhTien" disabled="disabled" class="form-control" style="width:110%" />
                                     </td>
                                     <td>
                                         <input type="button" id="add" value="Thêm" style="padding:3px 20px; margin-top:2%" class="btn btn-success" />

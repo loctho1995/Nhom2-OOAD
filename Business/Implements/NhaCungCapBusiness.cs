@@ -32,5 +32,61 @@ namespace Business.Implements
                         });
             return new List<Object>(list);
         }
+        public IList<NhaCungCap> SearchDanhSachNhaCungCap(string key)
+        {          
+            IQueryable<NhaCungCap> danhSachNhaCungCap = _nhaCungCapRepo.GetAll();
+
+            //Find by keyword
+            if (!string.IsNullOrEmpty(key))
+            {
+                danhSachNhaCungCap = from nhacungcap in danhSachNhaCungCap
+                                     where (nhacungcap.TenNhaCungCap.Contains(key)
+                                  || nhacungcap.SoDienThoai.Contains(key)
+                                  || nhacungcap.Email.Contains(key)
+                                  || nhacungcap.DiaChi.Contains(key))
+                                     select nhacungcap;
+            }
+
+            return danhSachNhaCungCap.ToList();
+        }
+
+        public IList<NhaCungCap> LoadDanhSachNhaCungCapTheoMa(int maNhaCungCap)
+        {
+            IQueryable<NhaCungCap> danhSachNhaCungCap = _nhaCungCapRepo.SearchFor(i => i.MaNhaCungCap == maNhaCungCap);
+            return danhSachNhaCungCap.ToList();
+        }
+
+        public async Task<object> Find(int ID)
+        {
+            return await _nhaCungCapRepo.GetByIdAsync(ID);
+        }
+
+        public async Task Create(object model)
+        {
+            var nhaCungCap = new NhaCungCap();
+            NhaCungCap input = (NhaCungCap)model;
+
+          //  nhaCungCap.NhaCungCapCode = "a";
+            nhaCungCap.TenNhaCungCap = input.TenNhaCungCap;
+            nhaCungCap.DiaChi = input.DiaChi;
+            nhaCungCap.SoDienThoai = input.SoDienThoai;
+            nhaCungCap.Email = input.Email;
+
+            await _nhaCungCapRepo.InsertAsync(nhaCungCap);
+        }
+
+        public async Task Update(object inputModel, object editModel)
+        {
+            NhaCungCap input = (NhaCungCap)inputModel;
+            NhaCungCap editNhaCungCap = (NhaCungCap)editModel;
+
+            editNhaCungCap.TenNhaCungCap = input.TenNhaCungCap;
+            editNhaCungCap.DiaChi = input.DiaChi;
+            editNhaCungCap.Email = input.Email;
+            editNhaCungCap.SoDienThoai = input.SoDienThoai;
+            editNhaCungCap.NhaCungCapCode = "a";
+
+            await _nhaCungCapRepo.EditAsync(editNhaCungCap);
+        }
     }
 }

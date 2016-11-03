@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuBanHang { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuBanHangCode { get; set; }
 

@@ -13,7 +13,6 @@ namespace Common.Models
         [StringLength(50)]
         public string MaQuyen { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string TenQuyen { get; set; }
     }

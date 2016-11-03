@@ -49,13 +49,14 @@ namespace Business.Implements
         public Object LayThongTinHangHoa(int maHangHoa)
         {
             var producInfor = from hanghoa in dbContext.HangHoas
-                              where (hanghoa.MaHangHoa == maHangHoa)
+                              where (hanghoa.MaHangHoa == maHangHoa && hanghoa.TrangThai == true)
                               select new
                               {
                                   hanghoa.TenHangHoa,
                                   hanghoa.DonViTinh,
                                   hanghoa.SoLuongTon,
                                   hanghoa.GiaBan,
+                                  hanghoa.GiamGia,
                               };
             return producInfor;
         }
@@ -66,6 +67,8 @@ namespace Business.Implements
             List<HangHoa> all = new List<HangHoa>();
 
             all = (from hanghoa in danhSachHangHoa
+                   where (hanghoa.TrangThai == true)
+                   orderby hanghoa.MaHangHoa descending
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -80,7 +83,7 @@ namespace Business.Implements
                        HinhAnh = x.HinhAnh,
                        GiaBan = x.GiaBan,
                        GiamGia = x.GiamGia,
-                   }).ToList();
+                   }).Take(6).ToList();
             return all;
         }
 
@@ -89,16 +92,17 @@ namespace Business.Implements
             var orders = (from od in _chiTietPhieuBanHangRepo.GetAll().GroupBy(m => m.MaHangHoa)
                           join hanghoa in _hangHoaRepo.GetAll()
                           on od.Key equals hanghoa.MaHangHoa
-                         select new
-                         {
-                             MaHangHoa = od.Key,                           
-                             SoLuong = od.Sum(m => m.SoLuong),
-                             HinhAnh = hanghoa.HinhAnh,
-                             TenHangHoa = hanghoa.TenHangHoa,
-                             GiaBan = hanghoa.GiaBan,
-                             GiamGia = hanghoa.GiamGia,
+                          where (hanghoa.TrangThai == true)
+                          select new
+                          {
+                              MaHangHoa = od.Key,
+                              SoLuong = od.Sum(m => m.SoLuong),
+                              HinhAnh = hanghoa.HinhAnh,
+                              TenHangHoa = hanghoa.TenHangHoa,
+                              GiaBan = hanghoa.GiaBan,
+                              GiamGia = hanghoa.GiamGia,
 
-                         }).AsEnumerable().Select(x => new HangHoa()
+                          }).AsEnumerable().Select(x => new HangHoa()
                    {
                        MaHangHoa = x.MaHangHoa,
                        SoLuongTon = x.SoLuong,
@@ -142,7 +146,7 @@ namespace Business.Implements
             List<HangHoa> all = new List<HangHoa>();
 
             all = (from hanghoa in danhSachHangHoa
-                   where (hanghoa.MaHangHoa.Equals(maHangHoa))
+                   where (hanghoa.MaHangHoa.Equals(maHangHoa) &&  hanghoa.TrangThai == true)
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -175,7 +179,7 @@ namespace Business.Implements
             all = (from hanghoa in danhSachHangHoa
                    join loaihanghoa in _loaiHangHoaRepo.GetAll()
                    on hanghoa.MaLoaiHangHoa equals loaihanghoa.MaLoaiHangHoa
-                   where (hanghoa.MaLoaiHangHoa.Equals(maLoaiHangHoa))
+                   where (hanghoa.MaLoaiHangHoa.Equals(maLoaiHangHoa)  && hanghoa.TrangThai == true)
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -197,10 +201,10 @@ namespace Business.Implements
         }
 
         public IList<HangHoaViewModel> TenLoaiHangHoaTheoMaLoaiHangHoa(int maLoaiHangHoa)
-        {          
+        {
             List<HangHoaViewModel> all = new List<HangHoaViewModel>();
 
-            all = (from loaihanghoa in _loaiHangHoaRepo.GetAll()                  
+            all = (from loaihanghoa in _loaiHangHoaRepo.GetAll()
                    where (loaihanghoa.MaLoaiHangHoa.Equals(maLoaiHangHoa))
                    select new
                    {
@@ -283,6 +287,104 @@ namespace Business.Implements
             }
         }
 
+        public int LaySoLuongTonCuoiCuaThangTruoc(int maHangHoa, int thang, int nam)
+        {
+            if (thang == 1)
+            {
+                var result = dbContext.BaoCaoTonKhoes.FirstOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == 12 && x.Nam == (nam - 1));
+                if (result != null)
+                {
+                    return result.SoLuongTonCuoi;
+                }
+                else
+                {
+                    return 0;
+                }        
+            }
+
+            var result1 = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == (thang - 1) && x.Nam == nam);
+            if (result1 != null)
+            {
+                return result1.SoLuongTonCuoi;
+            }
+            else
+            {
+                return 0;
+            }                
+        }
+
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuXuat(int maHangHoa, int soLuongXuat, int thang, int nam)
+        {
+            try
+            {
+                var result = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == thang && x.Nam == nam);
+                if (result != null)
+                {
+                    result.SoLuongXuat += soLuongXuat;
+                    result.SoLuongTonCuoi = result.SoLuongTonDau + result.SoLuongNhap - result.SoLuongXuat;
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    BaoCaoTonKho baoCaoTonKho = new BaoCaoTonKho
+                    {
+                        Thang = thang,
+                        Nam = nam,
+                        MaHangHoa = maHangHoa,
+                        SoLuongTonDau = LaySoLuongTonCuoiCuaThangTruoc(maHangHoa, thang, nam),
+                        SoLuongNhap = 0,
+                        SoLuongXuat = soLuongXuat,
+                        SoLuongTonCuoi = LaySoLuongTonCuoiCuaThangTruoc(maHangHoa, thang, nam) + 0 - soLuongXuat,
+                    };
+
+                    dbContext.BaoCaoTonKhoes.Add(baoCaoTonKho);
+                    dbContext.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuNhap(int maHangHoa, int soLuongNhap, int thang, int nam)
+        {
+            try
+            {
+                var result = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == thang && x.Nam == nam);
+                if (result != null)
+                {
+                    result.SoLuongNhap += soLuongNhap;
+                    result.SoLuongTonCuoi = result.SoLuongTonDau + result.SoLuongNhap - result.SoLuongXuat;
+                    dbContext.SaveChanges();
+                }
+                else
+                {
+                    BaoCaoTonKho baoCaoTonKho = new BaoCaoTonKho
+                    {
+                        Thang = thang,
+                        Nam = nam,
+                        MaHangHoa = maHangHoa,
+                        SoLuongTonDau = LaySoLuongTonCuoiCuaThangTruoc(maHangHoa, thang, nam),
+                        SoLuongNhap = soLuongNhap,
+                        SoLuongXuat = 0,
+                        SoLuongTonCuoi = LaySoLuongTonCuoiCuaThangTruoc(maHangHoa, thang, nam) + soLuongNhap - 0,
+                    };
+
+                    dbContext.BaoCaoTonKhoes.Add(baoCaoTonKho);
+                    dbContext.SaveChanges();
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         public bool CapNhatHangHoaKhiXoaPhieuXuat(int maHangHoa, int soLuongXuat)
         {
             try
@@ -302,10 +404,46 @@ namespace Business.Implements
             }
         }
 
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuXuat(int maHangHoa, int soLuongXuat, int thang, int nam)
+        {
+            try
+            {
+                var result = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == thang && x.Nam == nam);
+                if (result != null)
+                {
+                    result.SoLuongXuat -= soLuongXuat;
+                    result.SoLuongTonCuoi = result.SoLuongTonDau + result.SoLuongNhap - result.SoLuongXuat;
+                    dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuNhap(int maHangHoa, int soLuongNhap, int thang, int nam)
+        {
+            try
+            {
+                var result = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == thang && x.Nam == nam);
+                if (result != null)
+                {
+                    result.SoLuongNhap -= soLuongNhap;
+                    result.SoLuongTonCuoi = result.SoLuongTonDau + result.SoLuongNhap - result.SoLuongXuat;
+                    dbContext.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         public HangHoa ViewDetail(int id)
         {
             return dbContext.HangHoas.Find(id);
         }
     }
 }
-

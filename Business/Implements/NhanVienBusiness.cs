@@ -102,7 +102,7 @@ namespace Business.Implements
             return tatCaNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).MaNhanVien;
         }
 
-        public IList<NhanVienViewModel> SearchDanhSachNhanVien(string tenNhanVien)
+        public IList<NhanVienViewModel> SearchDanhSachNhanVien(String key, string trangthai, string machucvu)
         {
             IQueryable<NhanVien> danhSachNhanVien = _nhanVienRepo.GetAll();
             List<NhanVienViewModel> all = new List<NhanVienViewModel>();
@@ -110,7 +110,13 @@ namespace Business.Implements
             all = (from nhanvien in danhSachNhanVien
                    join chucvu in _chucVuRepo.GetAll()
                    on nhanvien.MaChucVu equals chucvu.MaChucVu
-                   where (nhanvien.TenNhanvien.Equals(tenNhanVien))
+                   where (nhanvien.TrangThai.ToString().Equals(trangthai) 
+                        ||chucvu.MaChucVu.ToString().Equals(machucvu)
+                        || nhanvien.TenNhanvien.ToString().Contains(key)
+                        || nhanvien.SoDienThoai.ToString().Contains(key)
+                        || nhanvien.Email.ToString().Contains(key)
+                        || nhanvien.DiaChi.ToString().Contains(key)
+                        || nhanvien.CMND.ToString().Contains(key))
                    select new
                    {
                        MaNhanVien = nhanvien.MaNhanVien,
@@ -121,6 +127,7 @@ namespace Business.Implements
                        CMND = nhanvien.CMND,
                        TrangThai = nhanvien.TrangThai,
                        TenChucVu = chucvu.TenChucVu,
+
                    }).AsEnumerable().Select(x => new NhanVienViewModel()
                    {
                        maNhanVien = x.MaNhanVien,
@@ -133,7 +140,6 @@ namespace Business.Implements
                        tenChucVu = x.TenChucVu,
                    }).ToList();
             return all;
-
         }   
 
         public IEnumerable<NhanVienViewModel> LoadDanhSachNhanVien()
@@ -144,6 +150,7 @@ namespace Business.Implements
             all = (from nhanvien in danhSachNhanVien
                    join chucvu in _chucVuRepo.GetAll()
                    on nhanvien.MaChucVu equals chucvu.MaChucVu
+                   where (nhanvien.TrangThai.Equals(true))
                    select new
                    {
                        MaNhanVien = nhanvien.MaNhanVien,
@@ -218,13 +225,6 @@ namespace Business.Implements
             return await _nhanVienRepo.GetByIdAsync(ID);
         }
 
-        public async Task Delete(object deleteModel)
-        {
-            NhanVien xoaNhanVien = (NhanVien)deleteModel;
-        
-            await _nhanVienRepo.DeleteAsync(xoaNhanVien);
-        }
-
         public async Task Update(object inputModel, object editModel)
         {
             NhanVienViewModel input = (NhanVienViewModel)inputModel;
@@ -240,6 +240,12 @@ namespace Business.Implements
             editNhanVien.TrangThai = input.trangThai;
 
             await _nhanVienRepo.EditAsync(editNhanVien);
+        }
+
+        public async Task UpdatePassword(NhanVien editEmployee, String PassWord)
+        {
+            editEmployee.PassWord = PassWord;
+            await _nhanVienRepo.EditAsync(editEmployee);
         }
     }
 }

@@ -779,6 +779,7 @@
     <Content Include="Scripts\scroll.js" />
     <Content Include="Scripts\Son\phieukiemkhoScripts.js" />
     <Content Include="Scripts\Son\jquery.dataTables.min.js" />
+    <Content Include="Scripts\ValidateUpdatePassword.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -838,7 +839,6 @@
     <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\NhanVien\DanhSachNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
     <Content Include="Content\client\images\Thumbs.db" />
     <Content Include="Areas\Admin\Views\XuatKho\DanhSachPhieuXuatKho.cshtml" />
     <Content Include="Areas\Admin\Views\XuatKho\Delete.cshtml" />
@@ -856,6 +856,10 @@
     <Content Include="Areas\Admin\Views\NhapKho\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\NhapKho\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhapKho\ThongTinPhieuNhapKho.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\DanhSachNhaCungCap.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\ThongTinNhaCungCap.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\UpdatePassword.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

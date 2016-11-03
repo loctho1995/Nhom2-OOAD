@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int MaChucVu { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string ChucVuCode { get; set; }
 
