@@ -7,7 +7,7 @@
 <link href="~/Content/Css/InventoryBallotCss.css" rel="stylesheet" />
 <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
 <link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<script src="~/Scripts/Son/phieukiemkhoScripts.js"></script>
+<script src="~/Scripts/Tho/phieubanhangScripts.js"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 
 <div class="header">
@@ -17,7 +17,7 @@
     <div class="pull-right">
         <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-ok"></i> Lưu</button>
         <button class="btn btn-primary" id="print"><i class="glyphicon glyphicon-print"></i> In</button>
-        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "KiemKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
+        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "BanHang") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
     </div>
 </div>
 
@@ -63,7 +63,7 @@
                                     </td>
 
                                     <td>
-                                        <input type="text" id="donViTinh" class="form-control" style="width:100%" disabled="disabled" />
+                                        <input type="text" id="donGia" class="form-control" style="width:100%" disabled="disabled" />
                                     </td>
                                     <td>
                                         <input type="text" id="soLuong" class="form-control" style="width:100%" />
@@ -115,7 +115,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Số phiếu</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input value="@ViewBag.soPhieuKiemKhoTuTang" type="text" id="soPhieuKiemKho" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" disabled="disabled" />
+                                    <input value="@ViewBag.soPhieuBanHang" type="text" id="soPhieuBanHang" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" disabled="disabled" />
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Ngày</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input id="ngayKiemKho" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                    <input id="ngayBan" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
                                 </div>
                             </div>
                         </div>

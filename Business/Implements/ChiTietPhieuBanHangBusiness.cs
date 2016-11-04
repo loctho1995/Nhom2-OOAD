@@ -38,7 +38,7 @@ namespace Business.Implements
                        SoLuong = chitietphieubanhang.SoLuong,
                        Gia = chitietphieubanhang.Gia,
                        ThanhTien = chitietphieubanhang.ThanhTien,
-
+                       tenHangHoa = hanghoa.TenHangHoa,
                    }).AsEnumerable().Select(x => new ChiTietPhieuBanHangViewModel()
                    {
                        soPhieuBanHang = x.SoPhieuBanHang,
@@ -46,6 +46,7 @@ namespace Business.Implements
                        soLuong = x.SoLuong,
                        gia = x.Gia,
                        thanhTien = x.ThanhTien,
+                       tenHangHoa = x.tenHangHoa,
                    }).ToList();
 
             var information = (from i in all

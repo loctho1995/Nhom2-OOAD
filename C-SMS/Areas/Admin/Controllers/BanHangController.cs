@@ -58,6 +58,33 @@ namespace WebBanHang.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public async Task<JsonResult> LuuPhieuBanHang(PhieuBanHangViewModel phieuBanHang)
+        {
+            bool status = false;
+
+            try
+            {
+                if(ModelState.IsValid)
+                {
+                    await _phieuBanHangBUS.Create(phieuBanHang);
+                    status = true;
+                    SetAlert("Đã lưu phiếu bán hàng thành công!", "success");
+                }
+                else
+                {
+                    status = false;
+                    SetAlert("Đã xảy ra lỗi! xin hãy tạo lại phiếu bán hàng", "error");
+                }
+            }
+            catch(Exception ex)
+            {
+                SetAlert(ex.ToString(), "success");
+            }
+
+            return new JsonResult { Data = new { status = status } };
+        }
+
         public ActionResult Detail()
         {
             return View();
@@ -65,9 +92,10 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.maNhanVien = HomeController.nhanVienCode;
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
+            ViewBag.soPhieuBanHang = _phieuBanHangBUS.LoadSoPhieuBanHang();
 
             return View();
         }
@@ -87,6 +115,12 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.chiTietPhieuBanHang = _chiTietPhieuBanHangBus.danhSachPhieuBanHangTheoMa(id).ToList();
             ViewBag.phieuBanHang = _phieuBanHangBUS.thongTinPhieuBanHangTheoMa(id).ToList();
             return View();
+        }
+
+        public ActionResult LoadThongTinHangHoa(int id)
+        {
+            var result = _hangHoaBus.LayThongTinHangHoa(id);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }

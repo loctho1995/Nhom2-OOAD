@@ -12,7 +12,7 @@ namespace Common.Models
         [Key]
         public int SoPhieuBanHang { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(50)]
         public string SoPhieuBanHangCode { get; set; }
 
@@ -31,5 +31,7 @@ namespace Common.Models
 
         [StringLength(200)]
         public string Ghichu { get; set; }
+
+        public virtual ICollection<ChiTietPhieuBanHang> ChiTetPhieuBanHangs { get; set; }
     }
 }

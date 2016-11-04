@@ -28,6 +28,30 @@ namespace Business.Implements
             _nhanVienBus = new NhanVienBusiness();
         }
 
+        public async Task Create(PhieuBanHangViewModel obj)
+        {
+            PhieuBanHang order = new PhieuBanHang
+            {
+                SoPhieuBanHang = obj.soPhieuBanHang,
+                SoPhieuBanHangCode = "a",
+                NgayBan = obj.ngayBan,
+                MaNhanVien = obj.maNhanVien,
+                Ghichu = obj.ghiChu,
+                TenKhachHang = obj.tenKhachHang,
+                SoDienThoai = obj.soDienThoai,
+                TongTien = obj.tongTien
+            };
+
+            order.ChiTetPhieuBanHangs = new List<ChiTietPhieuBanHang>();
+
+            foreach(var i in obj.chiTietPhieuBanHang)
+            {
+                order.ChiTetPhieuBanHangs.Add(i);
+            }
+
+            await _phieuBanHangRepo.InsertAsync(order);
+        }
+
         public IList<PhieuBanHangViewModel> ListView(string nhanVienCode)
         {
             IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
@@ -135,6 +159,21 @@ namespace Business.Implements
                    }).ToList();        
 
             return all;
+        }
+
+        public int LoadSoPhieuBanHang()
+        {
+            var soPhieuKiemKho = from phieuBanHang in _phieuBanHangRepo.GetAll()
+                                 orderby phieuBanHang.SoPhieuBanHang descending
+                                 select phieuBanHang.SoPhieuBanHang;
+
+            int demSoPhieu = _phieuBanHangRepo.GetAll().Count();
+            if(demSoPhieu == 0)
+            {
+                return 1;
+            }
+
+            return (soPhieuKiemKho.First() + 1);
         }
     }
 }

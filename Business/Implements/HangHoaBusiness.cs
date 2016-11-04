@@ -48,6 +48,7 @@ namespace Business.Implements
                                   hanghoa.TenHangHoa,
                                   hanghoa.DonViTinh,
                                   hanghoa.SoLuongTon,
+                                  hanghoa.GiaBan,
                               };
             return producInfor;
         }
