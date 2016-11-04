@@ -1,5 +1,4 @@
-﻿using Common.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,24 +8,26 @@ namespace Common.ViewModels
 {
     public class PhieuDatHangViewModel
     {
-        public int soPhieuDatHang { get; set; }
-        public DateTime ngayDat { get; set; }
-        public string tenNhanVien { get; set; }
-        public decimal tongTien { get; set; }
-        public int maHangHoa { get; set; }
-        public string tenHangHoa { get; set; }
-        public int soLuong { get; set; }
-        public decimal gia { get; set; }
-        public decimal thanhTien { get; set; }
-        public string donViTinh { get; set; }
-        public string tenKhachHang { get; set; }
-        public string soDienThoai { get; set; }
-        public string ghiChu { get; set; }
-        public string hinhThucThanhToan { get; set; }
-        public bool daXacNhan { get; set; }
-        public bool daThanhToan { get; set; }
-        public DateTime ngayGiao { get; set; }
+        public int maHangHoa { set; get; }
+        public string tenHangHoa { set; get; }
+        public int soLuong { set; get; }
+        public string hinhAnh { set; get; }
 
-        public List<ChiTietPhieuBanHang> chiTietPhieuBanHang { get; set; }
+        public string diaChi { set; get; }
+
+        public string soDienThoai { set; get; }
+
+        public string email { set; get; }
+
+        public string tenKhachHang { set; get; }
+
+        public string hinhThucThanhToan { set; get; }
+
+        public string ghiChu { set; get; }
+
+        public decimal giaBan { get; set; }
+
+        public decimal giamGia { get; set; }
+        public decimal tongTien { get; set; }
     }
 }

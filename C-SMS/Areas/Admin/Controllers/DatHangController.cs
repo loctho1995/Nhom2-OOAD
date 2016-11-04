@@ -35,7 +35,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
             //}
 
-            return View(_phieuDatHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            //return View(_phieuDatHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+
+            return View();
         }
     }
 }
