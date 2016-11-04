@@ -16,7 +16,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuKiemKho { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuKiemKhoCode { get; set; }
 
@@ -30,6 +29,7 @@ namespace Common.Models
 
         public bool TrangThai { get; set; }
          public virtual ICollection<ChiTietPhieuKiemKho> ChiTietPhieuKiemKhos { get; set; }
+
     
     }
 }

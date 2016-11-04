@@ -22,17 +22,18 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Index()
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "0" });
+            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
+            ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             return View();
         }
 
-        public ActionResult DanhSachNhanVien(string searchString, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachNhanVien(string searchString, string trangthai, string chucvu , int page = 1, int pageSize = 5)
         {
-            if (!string.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString) || !string.IsNullOrEmpty(trangthai) || !string.IsNullOrEmpty(chucvu))
             {
-                return View(_nhanVienKhoBus.SearchDanhSachNhanVien(searchString).ToPagedList(page, pageSize));
+                return View(_nhanVienKhoBus.SearchDanhSachNhanVien(searchString, trangthai, chucvu).ToPagedList(page, pageSize));
             }
 
             return View(_nhanVienKhoBus.LoadDanhSachNhanVien().ToPagedList(page, pageSize));
@@ -41,8 +42,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult ThongTinNhanVien(int id)
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "0" });
+            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             ViewBag.thongTinNhanVien = _nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList();
@@ -80,7 +81,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
             trangThai.Add(new SelectListItem { Text = "Đang hoạt động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "0" });
+            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             return View(_nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList());
@@ -107,42 +108,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 catch
                 {
                     TempData["nhanVien"] = nhanVien;
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy thêm lại", "error");
-                }
-            }
-            return RedirectToAction("Index");
-        }
-        public ActionResult Delete(int id)
-        {
-            List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang hoạt động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "0" });
-            ViewBag.data = trangThai;
-            ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
-            return View(_nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList());
-        }
-
-        [HttpPost, ActionName("Delete")]
-        public async Task<ActionResult> DeleteConfirmed(int id)
-        {
-            //Get nhân viên muốn delete (find by ID)
-            NhanVien edit = (NhanVien)await _nhanVienKhoBus.Find(id);
-            if (edit == null)
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                // Access delete from Business
-                try
-                {
-                    await _nhanVienKhoBus.Delete(edit);
-                    SetAlert("Đã xóa nhân viên thành công!!!", "success");
-
-                }
-                catch
-                {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy cập nhật lại", "error");
                 }
             }
             return RedirectToAction("Index");

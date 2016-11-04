@@ -27,17 +27,31 @@
         <div class="x_content">
             @using (Ajax.BeginForm("DanhSachPhieuKiemKho", "KiemKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
             {
-
-                <div class="col-md-12 col-sm-6 col-xs-12">
-                    <label class="control-label">Tìm Kiếm</label>
-                    <div class="input-group">
-                        @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm theo số phiếu kiểm kho", @onkeypress = "    return checkNumber(event, this)" })
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </span>
+                <div class="form-group clearfix">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Từ ngày</label>
+                        <input type="date" id="dateFrom" name="dateFrom" required class="form-control" />
                     </div>
-                </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Đến ngày</label>
+                        <input type="date" id="dateTo" name="dateTo" required class="form-control" />
+                    </div>                   
+                </div>             
+            }
 
+            @using (Ajax.BeginForm("DanhSachPhieuKiemKho", "KiemKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+            {
+                <div class="form-group clearfix">                
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <label class="control-label">Tìm Kiếm</label>
+                        <div class="input-group">
+                            @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm theo số phiếu kiểm kho"})
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>           
             }
             <div id="list">
                 @{Html.RenderAction("DanhSachPhieuKiemKho", "KiemKho");}
@@ -46,5 +60,13 @@
     </div>
 </div>
 
+<script>
+    $('#dateFrom').change(function () {
+        $('#filter_div').submit();
+    });
 
+    $('#dateTo').change(function () {
+        $('#filter_div').submit();
+    });
+</script>
 

@@ -7,8 +7,7 @@
 <link href="~/Content/Css/InventoryBallotCss.css" rel="stylesheet" />
 <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
 <link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<script src="~/Scripts/Son/phieukiemkhoScripts.js"></script>
-
+<script src="~/Scripts/Son/phieuxuatkhoScripts.js"></script>
 
 <div class="header">
     <div class="col-sm-4 no-padding-left">
@@ -35,7 +34,7 @@
                             <div class="row col-lg-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
                                     <div class="col-md-12 col-sm-12 col-xs-12">
-                                        <input id="maHangHoa" list="listProduct" type="text" class="form-control dropdownlist col-md-12 col-xs-12" placeholder="Nhập mã sản phẩm để tìm kiếm..." style="width:100%">
+                                        <input id="maHangHoa" list="listProduct" type="text" class="form-control dropdownlist col-md-12 col-xs-12" placeholder="Nhập mã sản phẩm để tìm kiếm..." style="width:100%" oninput="HideErrorMaHangHoa()">
                                         <datalist id="listProduct">
                                             @foreach (var item in ViewBag.danhSachHangHoa)
                                             {
@@ -50,35 +49,33 @@
                             <table class="table table-responsive" style="width:100%">
                                 <tr>
                                     <td>Sản Phẩm</td>
-                                    <td>Đơn Vị Tính</td>
+                                    @*<td>Đơn Vị Tính</td>*@
                                     <td>Số Lượng Tồn</td>
                                     <td>Số Lượng Xuất</td>
-                                    <td>Giá</td>
+                                    <td>Giá Bán</td>                                
                                     <td>Thành Tiền</td>
                                     <td></td>
                                 </tr>
 
                                 <tr class="mycontainer" id="mainrow">
                                     <td>
-                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:100%" onblur="HideErrorProductName()" />
+                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:110%" oninput="HideErrorTenHangHoa()" />
                                         <span class="error">Chưa có hàng hóa</span>
                                     </td>
-
                                     <td>
-                                        <input type="text" id="donViTinh" class="form-control" style="width:100%" disabled="disabled" />
+                                        <input type="hidden" id="donViTinh" class="form-control" style="width:100%" disabled="disabled" />
+                                        <input type="text" id="soLuongTon" class="form-control" style="width:100%" disabled="disabled" />
                                     </td>
                                     <td>
-                                        <input type="text" id="soLuongDangCo" class="form-control" style="width:100%" disabled="disabled" />
-                                    </td>
+                                        <input type="text" id="soLuongXuat" class="form-control" style="width:100%" oninput="HideErrorSoLuongXuat()" onkeypress="    return checkNumber(event, this)" maxlength="4" />
+                                        <span class="error">Nhập số lượng</span>
+                                    </td>      
                                     <td>
-                                        <input type="text" id="soLuongXuat" class="form-control" style="width:100%" oninput="checkQuantity()" onkeypress="return checkNumber(event, this)" maxlength="4" />
-                                        <span class="error">Yêu cầu nhập số lượng</span>
+                                        <input type="text" id="gia" class="form-control" style="width:110%" disabled="disabled" />                               
                                     </td>
+                                                              
                                     <td>
-                                        <input type="text" id="gia" class="form-control" disabled="disabled" style="width:100%" oninput="checkQuantity()" onkeypress="return checkNumber(event, this)" />                                        
-                                    </td>
-                                    <td>
-                                        <input type="text" id="thanhTien" disabled="disabled" class="form-control" style="width:100%" oninput="checkQuantity()" onkeypress="return checkNumber(event, this)" />                                   
+                                        <input type="text" id="thanhTien" disabled="disabled" class="form-control" style="width:110%" />
                                     </td>
                                     <td>
                                         <input type="button" id="add" value="Thêm" style="padding:3px 20px; margin-top:2%" class="btn btn-success" />
@@ -103,7 +100,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Số phiếu</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input value="@ViewBag.soPhieuXuatKhoTuTang" type="text" id="soPhieuKiemKho" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" disabled="disabled" />
+                                    <input value="@ViewBag.soPhieuXuatKhoTuTang" type="text" id="soPhieuXuatKho" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" disabled="disabled" />
                                 </div>
                             </div>
                         </div>
@@ -112,7 +109,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Ngày</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <input id="ngayXuaKho" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                    <input id="ngayXuatKho" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
                                 </div>
                             </div>
                         </div>
@@ -124,13 +121,13 @@
                                     <input value="@ViewBag.tenNhanVien" id="tenNhanVien" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" disabled="disabled" />
                                 </div>
                             </div>
-                        </div>
-                    
+                        </div>                     
+
                         <div class="col-lg-12 col-sm-12 col-xs-12">
                             <div class="form-group">
                                 <label class="control-label col-md-4 col-sm-4 col-xs-12">Lý do xuất</label>
                                 <div class="col-md-8 col-sm-8 col-xs-12">
-                                    <textarea id="lyDoXuat" placeholder="Lý do xuất viết tại đây" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%"></textarea>
+                                    <textarea id="lyDoXuat" placeholder="Ghi chú viết tại đây" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%"></textarea>
                                 </div>
                             </div>
                         </div>

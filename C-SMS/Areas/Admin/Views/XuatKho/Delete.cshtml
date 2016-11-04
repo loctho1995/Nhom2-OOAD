@@ -6,17 +6,12 @@
 }
 
 <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
-<div class="header">
-    <div class="col-sm-4 no-padding-left">
-        <div class="alert alert-danger fade in" style="width:230%; height:47px">
-            <span><i class="fa fa-bullhorn" aria-hidden="true"></i>Bạn có chắc chắn muốn xóa?</span>
-        </div>
-    </div>
-    <div class="pull-right">
-        <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Phiếu Xuất Kho</button>
-        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "XuatKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
-    </div>
+
+<div class="alert alert-danger fade in">
+    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn xóa?</span>
 </div>
+
+<br />
 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
@@ -26,14 +21,15 @@
             </div>
 
         </div>
-
         @using (Html.BeginForm("Delete", "XuatKho"))
         {
             <div class="form-group">
                 <div class="col-md-offset-4 col-sm-offset-3">
-
+                    <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "XuatKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
+                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Phiếu Xuất Kho</button>
                 </div>
             </div>
         }
+
     </div>
 </div>

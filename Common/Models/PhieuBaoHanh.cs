@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuBaoHanh { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuBaoHanhCode { get; set; }
 

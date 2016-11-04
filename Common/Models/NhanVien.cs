@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int MaNhanVien { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string NhanVienCode { get; set; }
 
@@ -31,7 +30,6 @@ namespace Common.Models
         [StringLength(10)]
         public string CMND { get; set; }
 
-        [Required]
         [StringLength(100)]
         public string UserName { get; set; }
 

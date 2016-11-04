@@ -1,7 +1,43 @@
-﻿@model IEnumerable<Common.Models.HangHoa>
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Common.ViewModels.HangHoaViewModel>
 @using Common.Ultil
 
 @{
     ViewBag.Title = "Danh Sách Sản Phẩm";
     Layout = "~/Views/Layout/HomeLayout.cshtml";
 }
+<div class="products">
+    @foreach (var item in ViewBag.tenLoaiHangHoa)
+    {
+        <h5 class="latest-product" >@item.tenLoaiHangHoa có @Model.Count sản phẩm</h5>
+    }
+</div>
+<div class="">
+    <!-- grids_of_4 -->
+    @foreach (var item in Model)
+    {
+        FormatNumber number = new FormatNumber();
+        var url = "/HangHoa/" + "ChiTietSanPham/" + @item.maHangHoa;
+        <div class="grid-product">
+            <div class="  product-grid">
+                <div class="content_box">
+                    <a href="@url">
+                        <div class="left-grid-view grid-view-left">
+                            <img src="~/Content/client/images/@item.hinhAnh" class="img-responsive watch-right" alt="" style="height:285px" />
+                        </div>
+                    </a>
+                </div>
+                <h4><a href="@url">@item.tenHangHoa</a></h4>
+                <div class="left-n">@number.FormatNumbers(@item.giamGia.ToString()) đ</div>
+                <span class="reducedfrom">@number.FormatNumbers(@item.giaBan.ToString()) đ</span>
+                <div style="padding-right:100px">
+                    <a class="now-get get-cart" href="/PhieuDatHang/DatHang?maHangHoa=@item.maHangHoa&soLuong=1">Thêm vào giỏ hàng</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<div class="pull-left">
+   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>

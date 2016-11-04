@@ -1,0 +1,108 @@
+﻿@model List<Common.ViewModels.PhieuDatHangViewModel>
+@using Common.Ultil
+@{
+    ViewBag.Title = "Đặt Hàng";
+    Layout = "~/Views/Layout/HomeLayout.cshtml";
+}
+
+<div class="content">
+    @using (Ajax.BeginForm("Update", "PhieuDatHang", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+    {
+        <div class="section group">
+            @if (Model.Count > 0)
+            {
+                <table class="table" id="productTable">
+                    <thead>
+                        <tr>
+                            <td> <label>Mã Sản Phẩm</label></td>
+                            <td> <label>Sản Phẩm </label></td>
+                            <td> <label>Hình Ảnh</label> </td>
+                            <td> <label>Số lượng </label>  </td>
+                            <td> <label>Đơn giá</label> </td>
+                            <td> <label>Thành tiền</label> </td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            FormatNumber number = new FormatNumber();
+                            <tr>
+                                <td>@item.maHangHoa</td>
+                                <td>@item.tenHangHoa</td>
+                                <td><img src="~/Content/client/images/@item.hinhAnh" width="100" /></td>
+                                <td><input type="text" id="soLuong" name="soLuong" value="@item.soLuong" class="form-control" style="width:50px" maxlength="3" onkeypress="return checkNumber(event, this)" /></td>
+
+                                @if (@item.giamGia <= 0)
+                                {
+                                    <td>@number.FormatNumbers(@item.giaBan.ToString()) VND</td>
+                                    <td>@number.FormatNumbers((@item.giaBan * @item.soLuong).ToString()) VND</td>
+                                }
+                                else
+                                {
+                                    <td>@number.FormatNumbers(@item.giamGia.ToString()) VND</td>
+                                    <td>@number.FormatNumbers((@item.giamGia * @item.soLuong).ToString()) VND</td>
+                                }
+                                <td>
+                                    <a href="@Url.Action("Delete", new { id = item.maHangHoa })" class=" btn-delete"> Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="7">
+                                <label>Tổng tiền (VND)</label>
+                                <input type="text" id="tongTien" name="tongTien" disabled="disabled" class="form-control"/>                           
+                                <br />
+                                <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Update", "PhieuDatHang") + "'"); "> Cập nhật giỏ hàng </button>
+                              
+
+                            </td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger fade in">
+                    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Chưa có sản phẩm nào trong giỏ hàng</span>
+                </div>
+            }
+        </div>
+    }
+    @if (Model.Count > 0)
+    {
+        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'"); "> Tiếp tục mua hàng </button>
+        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("DeleteAll", "PhieuDatHang") + "'"); "> Xóa giỏ hàng </button>
+        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("ThanhToan", "PhieuDatHang") + "'"); "> Thanh toán </button>
+    }
+</div>
+
+<script>
+    $(document).ready(function () {
+        var amount;
+        var total = 0.0;
+        var row = document.getElementById('productTable').rows.length;
+        for (var i = 1; i < row; i++) {
+            amount = document.getElementById("productTable").rows[i].cells[5].innerHTML.replace(/,/gi, "");
+
+            total += parseFloat(amount);
+            $('#tongTien').val(formatNumber(parseFloat(total)));
+        }
+    })
+
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    }
+</script>
+
+<script>
+    function checkNumber(e, element) {
+        var charcode = (e.which) ? e.which : e.keyCode;
+        if (charcode > 31 && (charcode < 48 || charcode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>

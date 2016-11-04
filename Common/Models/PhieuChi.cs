@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuChi { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string SoPhieuChiCode { get; set; }
 

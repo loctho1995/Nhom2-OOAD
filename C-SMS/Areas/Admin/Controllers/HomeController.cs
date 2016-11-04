@@ -24,28 +24,16 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public static string nhanVienCode = string.Empty;
 
-        /// <summary>
-        /// Home page, return notification if incorrect CSMS ID or Password
-        /// </summary>
-        /// <returns></returns>
         public ActionResult Index()
         {
             curController = this;
             if (Session["Account"] != null && Session["Account"].ToString() == "Error")
             {
-                ViewBag.notify = "Incorrect CSMS ID or Password!";
+                TempData["notify"] = "ID hoặc Password không đúng!!!";
             }
             return View();
         }
 
-        /// <summary>
-        /// Action Login:
-        ///     - Check account
-        ///     - Login
-        ///     - Get authority
-        /// </summary>
-        /// <param name="f">input from form</param>
-        /// <returns>Index page</returns>
         [HttpPost]
         public ActionResult Login(FormCollection f)
         {
@@ -58,7 +46,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 if (account.trangThai != true)
                 {
-                    TempData["notify"] = "Your account is deactive!!!<br> Please contact your Manager!!!";
+                    TempData["notify"] = "Tài khoản của bạn đã bị khóa!!!";
                 }
                 else
                 {
@@ -75,11 +63,6 @@ namespace WebBanHang.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        /// <summary>
-        /// Thời gian làm việc of Seasson
-        /// </summary>
-        /// <param name="Username">Username</param>
-        /// <param name="Aut">authority string</param>
         public void Decentralization(string userName, string aut)
         {
             FormsAuthentication.Initialize();
@@ -95,17 +78,45 @@ namespace WebBanHang.Areas.Admin.Controllers
             Response.Cookies.Add(cookie);
         }
 
-        /// <summary>
-        /// Logout
-        /// </summary>
-        /// <returns>
-        ///     - Allways return to Index page: return RedirectToAction("Index")
-        /// </returns>
+        public ActionResult PermissionError()
+        {
+            return View();
+        }
+
         public ActionResult Logout()
         {
             Session["Account"] = null;
             FormsAuthentication.SignOut();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> UpdatePassword()
+        {
+            if (Session["Account"] != null)
+            {
+                ViewBag.employee = await _nhanVienBus.Find(((NhanVienViewModel)(Session["Account"])).maNhanVien);
+                return View();
+            }
+            else
+                return RedirectToAction("PermissionError", "Home");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> UpdatePassword(String PassWord)
+        {
+            NhanVien editEmployee = (NhanVien)await _nhanVienBus.Find(((NhanVienViewModel)(Session["Account"])).maNhanVien);
+
+            try
+            {
+                await _nhanVienBus.UpdatePassword(editEmployee, Md5Encode.EncodePassword(PassWord));
+                SetAlert("Successfull!!!", "success");
+            }
+            catch
+            {
+                SetAlert("Đã xảy ra lỗi! Bạn hãy cập nhật lại", "error");
+            }
+            return RedirectToAction("UpdatePassword");
         }
 
         protected void SetAlert(string message, string type)
@@ -121,7 +132,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public PartialViewResult GetMenu()
         {
-            var menuModel = _chucVuBus.GetMenu(((NhanVienViewModel)Session["Account"]).maChucVu);
+            var menuModel = _chucVuBus.GetMenu( ((NhanVienViewModel)Session["Account"]).maChucVu );
             ViewBag.listParent = _chucVuBus.GetListParent(((NhanVienViewModel)Session["Account"]).maChucVu);
             return PartialView("~/Areas/Admin/Views/PartitalView/MenuManagerPartial.cshtml", menuModel);
         }

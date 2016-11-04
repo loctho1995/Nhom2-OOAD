@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace WebBanHang.Controllers
 {
@@ -18,15 +19,16 @@ namespace WebBanHang.Controllers
             return View();
         }
 
-        public ActionResult ChiTietSanPham(string id)
+        public ActionResult ChiTietSanPham(int id)
         {
             var a = _hangHoaBus.LoadHangHoaTheoMa(id);
             return View(a);
         }
 
-        public ActionResult DanhSachSanPham(string id)
+        public ActionResult DanhSachSanPham(int id, int page = 1, int pageSize = 5)
         {
-            var a = _hangHoaBus.DanhSachHangHoaTheoMaLoaiHangHoa(id);
+            ViewBag.tenLoaiHangHoa = _hangHoaBus.TenLoaiHangHoaTheoMaLoaiHangHoa(id);
+            var a = _hangHoaBus.DanhSachHangHoaTheoMaLoaiHangHoa(id).ToPagedList(page, pageSize);
             return View(a);
         }
     }

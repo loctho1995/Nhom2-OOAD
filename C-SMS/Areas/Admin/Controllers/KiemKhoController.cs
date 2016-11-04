@@ -57,14 +57,10 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             return new JsonResult { Data = new { status = status } };
         }
-      
-        public ActionResult DanhSachPhieuKiemKho(string searchString, int page = 1, int pageSize = 5)
-        {
-            if (!string.IsNullOrEmpty(searchString))
-            {
-                return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(Convert.ToInt32(searchString), HomeController.nhanVienCode).ToPagedList(page, pageSize));
-            }
-            return View(_phieuKiemKhoBus.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+
+        public ActionResult DanhSachPhieuKiemKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        {           
+            return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         public ActionResult Delete()

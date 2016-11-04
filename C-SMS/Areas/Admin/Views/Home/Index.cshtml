@@ -6,7 +6,7 @@
 <style>
     .inner-bg {
         background: url("../../../../Content/assets/images/bg.jpg");
-        height: 638px;
+        height: 662px;
     }
 </style>
 
@@ -22,7 +22,7 @@
 
                     @if (@TempData["notify"] != null)
                     {
-                        <h3 class="notify">@Html.Raw(@TempData["notify"])</h3>
+                        <h3 class="notify" style="color:red">@Html.Raw(@TempData["notify"])</h3>
                     }
                     <input value="Login" type="submit" id="btnLogin" class="btn btn-lg btn-primary btn-block" onclick="return Checknull()">
 

@@ -12,7 +12,6 @@ namespace Common.Models
         [Key]
         public int MaLoaiHangHoa { get; set; }
 
-        [Required]
         [StringLength(50)]
         public string LoaiHangHoaCode { get; set; }
 

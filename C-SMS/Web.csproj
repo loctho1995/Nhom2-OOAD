@@ -230,6 +230,7 @@
     <Compile Include="Areas\Admin\Controllers\XuatKhoController.cs" />
     <Compile Include="Controllers\HangHoaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PhieuDatHangController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -269,6 +270,7 @@
     <Content Include="Content\client\images\ch.jpg" />
     <Content Include="Content\client\images\facebook.png" />
     <Content Include="Content\client\images\gpluse.png" />
+    <Content Include="Content\client\images\hot.png" />
     <Content Include="Content\client\images\img-sprite.png" />
     <Content Include="Content\client\images\label_new.png" />
     <Content Include="Content\client\images\logo.png" />
@@ -680,6 +682,11 @@
     <Content Include="Scripts\client\js\jquery.min.js" />
     <Content Include="Scripts\client\js\jquery.wmuSlider.js" />
     <Content Include="Scripts\Tho\phieubanhangScripts.js" />
+    <Content Include="Scripts\js\jquery.etalage.min.js" />
+    <Content Include="Scripts\js\jquery.flexisel.js" />
+    <Content Include="Scripts\js\jquery.min.js" />
+    <Content Include="Scripts\js\jquery.wmuSlider.js" />
+    <Content Include="Scripts\Son\phieunhapkhoScripts.js" />
     <Content Include="Scripts\ValidateLogin.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\Customer.js" />
@@ -772,6 +779,7 @@
     <Content Include="Scripts\scroll.js" />
     <Content Include="Scripts\Son\phieukiemkhoScripts.js" />
     <Content Include="Scripts\Son\jquery.dataTables.min.js" />
+    <Content Include="Scripts\ValidateUpdatePassword.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -792,7 +800,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <Content Include="Content\Plugin\jcrop\jquery.form.min.js.map" />
-    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Admin\Views\BanHang\Create.cshtml" />
     <Content Include="Areas\Admin\Views\BanHang\Index.cshtml" />
     <Content Include="Areas\Admin\Views\BaoCaoBanHang\Index.cshtml" />
@@ -816,7 +826,6 @@
     <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhapKho\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\NhapKho\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PartitalView\HeaderTopManagerPartial.cshtml" />
     <Content Include="Areas\Admin\Views\PartitalView\MenuManagerPartial.cshtml" />
     <Content Include="Areas\Admin\Views\PhieuChi\Create.cshtml" />
@@ -830,7 +839,6 @@
     <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Areas\Admin\Views\NhanVien\DanhSachNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\NhanVien\Delete.cshtml" />
     <Content Include="Content\client\images\Thumbs.db" />
     <Content Include="Areas\Admin\Views\XuatKho\DanhSachPhieuXuatKho.cshtml" />
     <Content Include="Areas\Admin\Views\XuatKho\Delete.cshtml" />
@@ -846,6 +854,16 @@
     <Content Include="Areas\Admin\Views\DatHang\DanhSachPhieuDatHang.cshtml" />
     <Content Include="Areas\Admin\Views\BanHang\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\BanHang\ThongTinPhieuBanHang.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\PermissionError.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapKho\DanhSachPhieuNhapKho.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapKho\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapKho\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapKho\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\NhapKho\ThongTinPhieuNhapKho.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\DanhSachNhaCungCap.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\NhaCungCap\ThongTinNhaCungCap.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\UpdatePassword.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -859,6 +877,10 @@
     <Content Include="Views\HangHoa\Index.cshtml" />
     <Content Include="Views\HangHoa\ChiTietSanPham.cshtml" />
     <Content Include="Views\HangHoa\DanhSachSanPham.cshtml" />
+    <Content Include="Views\PhieuDatHang\Index.cshtml" />
+    <Content Include="Views\PhieuDatHang\ThanhToan.cshtml" />
+    <Content Include="Views\PhieuDatHang\ThongBaoThanhCong.cshtml" />
+    <Content Include="Views\Home\TimKiemSanPham.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

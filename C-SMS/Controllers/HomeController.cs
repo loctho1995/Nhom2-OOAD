@@ -15,6 +15,7 @@ namespace WebBanHang.Controllers
         public ActionResult Index()
         {
             ViewBag.hangHoaMoiNhat = _hangHoaBus.DanhSachHangHoaMoiNhat();
+            ViewBag.hangHoaBanChayNhat = _hangHoaBus.DanhSachHangHoaBanChayNhat();
             return View();
         }
 
@@ -22,6 +23,12 @@ namespace WebBanHang.Controllers
         {
             var menuLoaiHangHoa = _loaiHangHoaBus.LoadDSLoaiHangHoa();
             return PartialView("~/Views/PartitalView/MenuManagerPartial.cshtml", menuLoaiHangHoa);
+        }
+
+        public ActionResult TimKiemSanPham(string SearchString)
+        {
+            ViewBag.TimKiemSanPham = _hangHoaBus.TimKiemHangHoa(SearchString);
+            return View();
         }
     }
 }

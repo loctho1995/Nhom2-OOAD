@@ -106,6 +106,33 @@ namespace Business.Implements
                                  }).ToList();
                 return allForManager;
             }
+			
+        public PhieuDatHangBusiness()
+        {
+            dbContext = new SMSEntities();          
+        }
+
+        public int Insert(PhieuDatHang order)
+        {
+            dbContext.PhieuDatHangs.Add(order);
+            dbContext.SaveChanges();
+            return order.SoPhieuDatHang;
+        }
+
+        public bool Update(PhieuDatHang entity)
+        {
+            try
+            {
+                var user = dbContext.PhieuDatHangs.Find(entity.SoPhieuDatHang);
+                user.TongTien = entity.TongTien;
+
+                dbContext.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

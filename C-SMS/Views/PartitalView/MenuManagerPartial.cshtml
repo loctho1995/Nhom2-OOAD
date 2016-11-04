@@ -5,7 +5,7 @@
     <ul class="menu">
         @foreach (var item in Model)
         {
-            var url = "HangHoa/DanhSachSanPham/" + item.MaLoaiHangHoa;
+            var url = "/HangHoa/" + "DanhSachSanPham/" + @item.MaLoaiHangHoa;
             <ul class="kid-menu ">               
                 <li><a href="@url">@item.TenLoaiHangHoa</a></li>            
             </ul>
