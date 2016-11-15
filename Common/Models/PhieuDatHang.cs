@@ -46,5 +46,7 @@ namespace Common.Models
         public bool DaXacNhan { get; set; }
 
         public bool DaThanhToan { get; set; }
+
+        public virtual ICollection<ChiTietPhieuDatHang> ChiTetPhieuDatHangs { get; set; }
     }
 }

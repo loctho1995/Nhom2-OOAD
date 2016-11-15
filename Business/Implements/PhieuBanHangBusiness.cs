@@ -39,7 +39,7 @@ namespace Business.Implements
                 Ghichu = obj.ghiChu,
                 TenKhachHang = obj.tenKhachHang,
                 SoDienThoai = obj.soDienThoai,
-                TongTien = obj.tongTien
+                TongTien = obj.tongTien,               
             };
 
             order.ChiTetPhieuBanHangs = new List<ChiTietPhieuBanHang>();

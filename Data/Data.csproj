@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Base\GenericRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuBanHangRepository.cs" />
+    <Compile Include="Implements\ChiTietPhieuDatHangRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuKiemKhoRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuNhapKhoRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuXuatKhoRepository.cs" />

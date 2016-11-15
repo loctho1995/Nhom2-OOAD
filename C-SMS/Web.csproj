@@ -864,6 +864,8 @@
     <Content Include="Areas\Admin\Views\NhaCungCap\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\NhaCungCap\ThongTinNhaCungCap.cshtml" />
     <Content Include="Areas\Admin\Views\Home\UpdatePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\ThongTinPhieuDatHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\Detail.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
