@@ -47,10 +47,24 @@
                 <td>@item.soDienThoai</td>
                 <td>@item.tongTien</td>
                 <td>@item.hinhThucThanhToan</td>
-                <td>@item.daXacNhan</td>
-                <td>@item.daThanhToan</td>
-                <td>@item.ghiChu</td>
+                @if(@item.daXacNhan == true)
+                {
+                    <td>Đã xác nhận</td>
+                }
+                else
+                {
+                    <td> Chưa xác nhận</td>
+                }
 
+                @if(@item.daThanhToan == true)
+                {
+                    <td>Đã thanh toán</td>
+                }
+                else
+                {
+                    <td>Chưa thanh toán</td>
+                }
+                <td>@item.ghiChu</td>
                 <td>
                     <div class="btn-group">
                         <a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })" class="btn btn-default">
