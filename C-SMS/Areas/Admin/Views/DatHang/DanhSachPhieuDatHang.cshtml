@@ -1,6 +1,8 @@
 ﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Common.ViewModels.PhieuDatHangViewModel>
 
+<script src="~/Scripts/Tho/phieudathangScripts.js"></script>
+
 <table class="table table-hover">
     <thead class="thead-inverse">
         <tr>
@@ -11,7 +13,7 @@
                 @Html.DisplayName("Ngày đặt")
             </th>
             <th>
-                @Html.DisplayName("Tên Nhân Viên duyệt")
+                @Html.DisplayName("Tên Khách hàng")
             </th>
             <th>
                 @Html.DisplayName("Số điện thoại")
@@ -49,20 +51,27 @@
                 <td>@item.hinhThucThanhToan</td>
                 @if(@item.daXacNhan == true)
                 {
-                    <td>Đã xác nhận</td>
+                    <td>Đã nhận hàng</td>
                 }
                 else
                 {
-                    <td> Chưa xác nhận</td>
+                    <td > 
+                        <script>createNhanHangDiv(@item.soPhieuDatHang)</script>
+                    </td>
                 }
 
                 @if(@item.daThanhToan == true)
                 {
-                    <td>Đã thanh toán</td>
+                    <td>
+                        Đã thanh toán
+                    </td>
                 }
                 else
                 {
-                    <td>Chưa thanh toán</td>
+                    <td>
+                        <script>createThanhToanDiv(@item.soPhieuDatHang)</script>
+                    </td>
+
                 }
                 <td>@item.ghiChu</td>
                 <td>

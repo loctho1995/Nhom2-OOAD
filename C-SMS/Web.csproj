@@ -687,6 +687,7 @@
     <Content Include="Scripts\js\jquery.min.js" />
     <Content Include="Scripts\js\jquery.wmuSlider.js" />
     <Content Include="Scripts\Son\phieunhapkhoScripts.js" />
+    <Content Include="Scripts\Tho\phieudathangScripts.js" />
     <Content Include="Scripts\ValidateLogin.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\Customer.js" />

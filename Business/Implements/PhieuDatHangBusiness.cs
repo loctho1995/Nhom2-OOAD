@@ -45,13 +45,23 @@ namespace Business.Implements
                 user.TongTien = entity.TongTien;
 
                 dbContext.SaveChanges();
-                return true;
             }
             catch (Exception)
             {
-                return false;
+
             }
 
+            return true;
+        }
+
+        public async Task<object> Find(int ID)
+        {
+            return await _phieuDatHangRepo.GetByIdAsync(ID);
+        }
+
+        public PhieuDatHang LayPhieuDatHang(int soPhieuDatHang)
+        {
+            return dbContext.PhieuDatHangs.Find(soPhieuDatHang);
         }
 
         public async Task Create(PhieuDatHangViewModel obj)

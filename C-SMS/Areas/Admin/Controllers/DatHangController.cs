@@ -5,10 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using PagedList;
+using System.Threading.Tasks;
+using Common.ViewModels;
+using Common.Models;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
-    public class DatHangController : Controller
+    public class DatHangController :BaseController
     {
         //
         // GET: /Admin/BanHang/
@@ -56,6 +59,26 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             var result = _hangHoaBus.LayThongTinHangHoa(id);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+        
+        public ActionResult XacNhanNhanHang(int id)
+        {
+            var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
+           updatePhieuDatHang.DaXacNhan = true;
+
+            _phieuDatHangBUS.Update(updatePhieuDatHang);
+
+            return Json(updatePhieuDatHang, JsonRequestBehavior.AllowGet);
+        }
+
+        public ActionResult XacNhanThanhToan(int id)
+        {
+            var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
+            updatePhieuDatHang.DaThanhToan = true;
+
+            _phieuDatHangBUS.Update(updatePhieuDatHang);
+
+            return Json(updatePhieuDatHang, JsonRequestBehavior.AllowGet);
         }
     }
 }
