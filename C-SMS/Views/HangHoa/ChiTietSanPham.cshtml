@@ -38,7 +38,8 @@
             <h6>Thời gian bảo hành: @item.ThoiGianBaoHanh tháng </h6>
             <h6>Có @item.SoLuongTon sản phẩm tại cửa hàng</h6>
             <h6>Thông số kỹ thuật</h6>
-            <p>@item.ThongSoKyThuat</p>
+            <span>@Html.Raw(@item.ThongSoKyThuat)</span>
+            @*<p>@item.ThongSoKyThuat</p>*@
             <div class="share">
                 <h5>Share Product :</h5>
                 <ul class="share_nav">

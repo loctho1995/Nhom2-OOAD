@@ -22,6 +22,9 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.data = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+                                                    new { Value = "false", Text = "Đã hủy" }},
+                                               "Value", "Text");
             return View();
         }
 
@@ -58,9 +61,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             return new JsonResult { Data = new { status = status } };
         }
 
-        public ActionResult DanhSachPhieuKiemKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuKiemKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {           
-            return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         public ActionResult Delete()
@@ -76,9 +79,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
-            PhieuKiemKho deletePhieuKiemKho = (PhieuKiemKho)await _phieuKiemKhoBus.Find(id);
-
-            if (deletePhieuKiemKho == null)
+            PhieuKiemKho huyPhieuKiemKho = (PhieuKiemKho)await _phieuKiemKhoBus.Find(id);
+            if (huyPhieuKiemKho == null)
             {
                 return HttpNotFound();
             }
@@ -86,19 +88,18 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 try
                 {
-                    _phieuKiemKhoBus.DeleteChiTietPhieuKiemKho(id);
-                    await _phieuKiemKhoBus.DeletePhieuKiemKho(deletePhieuKiemKho);
-
-                    SetAlert("Đã xóa phiếu kiểm kho thành công!!!", "success");
+                    await _phieuKiemKhoBus.HuyPhieuKiemKho(huyPhieuKiemKho);
+                    SetAlert("Đã hủy phiếu kiểm kho thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                    return RedirectToAction("Edit");
                 }
             }
             return RedirectToAction("Index");
-        }   
-
+        }
+       
         public ActionResult ThongTinPhieuKiemKho(int id)
         {
             ViewBag.chiTietPhieuKiemKho = _phieuKiemKhoBus.thongTinChiTietPhieuKiemKhoTheoMa(id).ToList();

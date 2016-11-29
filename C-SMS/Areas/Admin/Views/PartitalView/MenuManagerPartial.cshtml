@@ -10,9 +10,13 @@
         @if (Session["Account"] != null && Session["Account"].ToString() != "Error")
         {
             //Show menu ứng với loại Position of account
-            <div class="menu_section">
-                <h3>General</h3>
+            <div class="">
                 <ul class="nav side-menu">
+                    <li>
+                        <a href="@Url.Action("Index", "Home")">
+                            <i class="fa fa-home"></i>Trang chính
+                        </a>
+                    </li>
                     @foreach (String itemParent in listParent)
                     {
                         <li class="@itemParent">

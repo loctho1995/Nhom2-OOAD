@@ -15,6 +15,9 @@
             </th>
             <th >
                 @Html.DisplayName("Ghi Chú")
+            </th>  
+            <th>
+                @Html.DisplayName("Trạng Thái")
             </th>          
             <th class="width-10">
                 Hành động
@@ -30,6 +33,14 @@
                 <td>@item.ngayKiemKho.ToString("dd/MM/yyyy")</td>
                 <td>@item.tenNhanVien</td>
                 <td>@item.ghiChu</td>
+                @if (@item.trangThai == true)
+                {
+                    <td>Hoàn thành</td>
+                }
+                else
+                {
+                    <td>Đã hủy</td>
+                }              
                     
                 <td>
                     <div class="btn-group" >
@@ -38,7 +49,7 @@
                         </a>
 
                         <a href="@Url.Action("Delete", new { id = item.soPhieuKiemKho })" class="btn btn-default">
-                            <i class="fa fa-remove" aria-hidden="true"></i> Xóa
+                            <i class="fa fa-remove" aria-hidden="true"></i> Hủy
                         </a>
                     </div>
                 </td>               

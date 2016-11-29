@@ -28,68 +28,68 @@
                   
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Đăng Nhập <span class="required" style="color:red">*</span>
+                            Tên Đăng Nhập 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="nhanviencode" class="form-control" />
+                            <input type="text" name="nhanviencode" class="form-control" style="margin-left:5px" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Nhân Viên <span class="required" style="color:red">*</span>
+                            Tên Nhân Viên 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="tennhanvien" class="form-control" />
+                            <input type="text" name="tennhanvien" class="form-control" style="margin-left:5px" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Email <span class="required">*</span>
+                            Email 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="email" class="form-control" />
+                            <input type="text" name="email" class="form-control" style="margin-left:5px" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Địa Chỉ <span class="required">*</span>
+                            Địa Chỉ 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="diachi" class="form-control" />
+                            <input type="text" name="diachi" class="form-control" style="margin-left:5px" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Số Điện Thoại <span class="required">*</span>
+                            Số Điện Thoại 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="sodienthoai" class="form-control" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            CMND <span class="required">*</span>
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="cmnd" class="form-control" />
+                            <input type="text" name="sodienthoai" class="form-control" style="margin-left:5px" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Chức Vụ <span class="required" style="color:red">*</span>
+                            CMND 
                         </label>
                         <div class="col-md-10 col-sm-9 col-xs-12">
-                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control" })
+                            <input type="text" name="cmnd" class="form-control" style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Chức Vụ 
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-5 col-sm-offset-3 ">
-                            <input type="submit" value="Lưu Nhân Viên" class="btn btn-primary" />
+                            <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu Nhân Viên</button>
                         </div>
                     </div>
 
