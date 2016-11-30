@@ -226,5 +226,12 @@ namespace Business.Implements
 
             return all;
         }
+
+        public async Task DeletePhieuDatHang(object deleteModel)
+        {
+            PhieuDatHang xoaPhieuKiemKho = (PhieuDatHang)deleteModel;
+
+            await _phieuDatHangRepo.DeleteAsync(xoaPhieuKiemKho);
+        }
     }
 }

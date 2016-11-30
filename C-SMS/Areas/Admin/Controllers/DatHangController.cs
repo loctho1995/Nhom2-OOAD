@@ -80,5 +80,36 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             return Json(updatePhieuDatHang, JsonRequestBehavior.AllowGet);
         }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult>  Delete(int id)
+        {
+            PhieuDatHang deletePhieu = (PhieuDatHang)await _phieuDatHangBUS.Find(id);
+
+            if(deletePhieu == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                try
+                {
+                    await _phieuDatHangBUS.DeletePhieuDatHang(deletePhieu);
+
+                    SetAlert("Đã xóa phiếu đặt hàng thành công!!!", "success");
+                }
+                catch
+                {
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                }
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
