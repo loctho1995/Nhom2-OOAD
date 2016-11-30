@@ -23,6 +23,9 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.trangthai = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+                                                    new { Value = "false", Text = "Đã hủy" }},
+                                               "Value", "Text");
             return View();
         }
 
@@ -42,9 +45,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DanhSachPhieuXuatKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuXuatKho(string searchString,string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         [HttpPost]
@@ -95,14 +98,12 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 try
                 {
-                    _phieuXuatKhoBus.DeleteChiTietPhieuXuatKho(id);
-                    await _phieuXuatKhoBus.DeletePhieuXuatKho(deletePhieuXuatKho);
-
-                    SetAlert("Đã xóa phiếu xuất kho thành công!!!", "success");
+                    await _phieuXuatKhoBus.HuyPhieuXuatKho(deletePhieuXuatKho);
+                    SetAlert("Đã hủy phiếu xuất kho thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
                 }
             }
             return RedirectToAction("Index");

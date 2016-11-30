@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuXuatKhoViewModel>
 
 @{
-    ViewBag.Title = "Xóa Phiếu Xuất Kho";
+    ViewBag.Title = "Hủy Phiếu Xuất Kho";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
 <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
 
 <div class="alert alert-danger fade in">
-    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn xóa?</span>
+    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn hủy?</span>
 </div>
 
 <br />
@@ -26,7 +26,7 @@
             <div class="form-group">
                 <div class="col-md-offset-4 col-sm-offset-3">
                     <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "XuatKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
-                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Phiếu Xuất Kho</button>
+                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Hủy Phiếu Xuất Kho</button>
                 </div>
             </div>
         }

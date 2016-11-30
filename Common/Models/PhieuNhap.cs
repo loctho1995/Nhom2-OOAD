@@ -32,5 +32,7 @@ namespace Common.Models
 
         [StringLength(200)]
         public string Ghichu { get; set; }
+
+        public bool TrangThai { get; set; }
     }
 }

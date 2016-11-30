@@ -47,7 +47,7 @@ namespace Business.Implements
             return (soPhieuKiemKho.First() + 1);
         }
 
-        public IList<PhieuNhapKhoViewModel> SearchDanhSachPhieuNhapKho(String key, DateTime tungay, DateTime denngay, string nhanVienCode)
+        public IList<PhieuNhapKhoViewModel> SearchDanhSachPhieuNhapKho(String key, string trangthai, DateTime tungay, DateTime denngay, string nhanVienCode)
         {
             IQueryable<PhieuNhap> dsPhieuNhap = _phieuNhapKhoRepo.GetAll();
             List<PhieuNhapKhoViewModel> all = new List<PhieuNhapKhoViewModel>();
@@ -71,6 +71,7 @@ namespace Business.Implements
                                TongTien = phieunhap.TongTien,
                                GhiChu = phieunhap.Ghichu,
                                TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                               TrangThai = phieunhap.TrangThai,
 
                            }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                            {
@@ -80,6 +81,7 @@ namespace Business.Implements
                                tongTien = x.TongTien,
                                ghiChu = x.GhiChu,
                                tenNhaCungCap = x.TenNhaCungCap,
+                               trangThai = x.TrangThai,
                            }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                     return all;
                 }
@@ -103,6 +105,7 @@ namespace Business.Implements
                                TongTien = phieunhap.TongTien,
                                GhiChu = phieunhap.Ghichu,
                                TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                               TrangThai = phieunhap.TrangThai,
 
                            }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                            {
@@ -112,6 +115,38 @@ namespace Business.Implements
                                tongTien = x.TongTien,
                                ghiChu = x.GhiChu,
                                tenNhaCungCap = x.TenNhaCungCap,
+                               trangThai = x.TrangThai,
+                           }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
+                    return all;
+                }
+                if (!string.IsNullOrEmpty(trangthai))
+                {
+                    all = (from phieunhap in dsPhieuNhap
+                           join nhanvien in _nhanVienRepo.GetAll()
+                           on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
+                           join nhacungcap in _nhaCungCapRepo.GetAll()
+                           on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
+                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                                     phieunhap.TrangThai.Equals(trangthai)))
+                           select new
+                           {
+                               SoPhieuNhap = phieunhap.SoPhieuNhap,
+                               NgayNhap = phieunhap.NgayNhap,
+                               TenNhanVien = nhanvien.TenNhanvien,
+                               TongTien = phieunhap.TongTien,
+                               GhiChu = phieunhap.Ghichu,
+                               TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                               TrangThai = phieunhap.TrangThai,
+
+                           }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
+                           {
+                               soPhieuNhapKho = x.SoPhieuNhap,
+                               ngayNhapKho = x.NgayNhap,
+                               tenNhanVien = x.TenNhanVien,
+                               tongTien = x.TongTien,
+                               ghiChu = x.GhiChu,
+                               tenNhaCungCap = x.TenNhaCungCap,
+                               trangThai = x.TrangThai,
                            }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                     return all;
                 }
@@ -130,6 +165,7 @@ namespace Business.Implements
                            TongTien = phieunhap.TongTien,
                            GhiChu = phieunhap.Ghichu,
                            TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                           TrangThai = phieunhap.TrangThai,
 
                        }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                        {
@@ -139,6 +175,7 @@ namespace Business.Implements
                            tongTien = x.TongTien,
                            ghiChu = x.GhiChu,
                            tenNhaCungCap = x.TenNhaCungCap,
+                           trangThai = x.TrangThai,
                        }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                 return all;
             }
@@ -160,6 +197,7 @@ namespace Business.Implements
                                TongTien = phieunhap.TongTien,
                                GhiChu = phieunhap.Ghichu,
                                TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                               TrangThai = phieunhap.TrangThai,
 
                            }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                            {
@@ -169,6 +207,7 @@ namespace Business.Implements
                                tongTien = x.TongTien,
                                ghiChu = x.GhiChu,
                                tenNhaCungCap = x.TenNhaCungCap,
+                               trangThai = x.TrangThai,
                            }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                     return allForManager;
                 }
@@ -190,6 +229,7 @@ namespace Business.Implements
                                          TongTien = phieunhap.TongTien,
                                          GhiChu = phieunhap.Ghichu,
                                          TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                                         TrangThai = phieunhap.TrangThai,
 
                                      }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                                      {
@@ -199,15 +239,47 @@ namespace Business.Implements
                                          tongTien = x.TongTien,
                                          ghiChu = x.GhiChu,
                                          tenNhaCungCap = x.TenNhaCungCap,
+                                         trangThai = x.TrangThai,
                                      }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                     return allForManager;
                 }
 
+                if (!string.IsNullOrEmpty(trangthai))
+                {
+                    allForManager = (from phieunhap in dsPhieuNhap
+                                     join nhanvien in _nhanVienRepo.GetAll()
+                                     on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
+                                     join nhacungcap in _nhaCungCapRepo.GetAll()
+                                     on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
+                                     where phieunhap.TrangThai.ToString().Equals(trangthai)
+                                     select new
+                                     {
+                                         SoPhieuNhap = phieunhap.SoPhieuNhap,
+                                         NgayNhap = phieunhap.NgayNhap,
+                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         TongTien = phieunhap.TongTien,
+                                         GhiChu = phieunhap.Ghichu,
+                                         TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                                         TrangThai = phieunhap.TrangThai,
+
+                                     }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
+                                     {
+                                         soPhieuNhapKho = x.SoPhieuNhap,
+                                         ngayNhapKho = x.NgayNhap,
+                                         tenNhanVien = x.TenNhanVien,
+                                         tongTien = x.TongTien,
+                                         ghiChu = x.GhiChu,
+                                         tenNhaCungCap = x.TenNhaCungCap,
+                                         trangThai = x.TrangThai,
+                                     }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
+                    return allForManager;
+                }
                 allForManager = (from phieunhap in dsPhieuNhap
                                  join nhanvien in _nhanVienRepo.GetAll()
                                  on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
                                  join nhacungcap in _nhaCungCapRepo.GetAll()
-                                 on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap                               
+                                 on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
+                                 where phieunhap.TrangThai.Equals(true)
                                  select new
                                  {
                                      SoPhieuNhap = phieunhap.SoPhieuNhap,
@@ -216,6 +288,7 @@ namespace Business.Implements
                                      TongTien = phieunhap.TongTien,
                                      GhiChu = phieunhap.Ghichu,
                                      TenNhaCungCap = nhacungcap.TenNhaCungCap,
+                                     TrangThai = phieunhap.TrangThai,
 
                                  }).AsEnumerable().Select(x => new PhieuNhapKhoViewModel()
                                  {
@@ -225,6 +298,7 @@ namespace Business.Implements
                                      tongTien = x.TongTien,
                                      ghiChu = x.GhiChu,
                                      tenNhaCungCap = x.TenNhaCungCap,
+                                     trangThai = x.TrangThai,
                                  }).OrderByDescending(x => x.soPhieuNhapKho).ToList();
                 return allForManager;
             }
@@ -233,36 +307,6 @@ namespace Business.Implements
         public async Task<object> Find(int ID)
         {
             return await _phieuNhapKhoRepo.GetByIdAsync(ID);
-        }
-
-        public async Task DeletePhieuNhapKho(object deleteModel)
-        {
-            PhieuNhap xoaPhieuNhapKho = (PhieuNhap)deleteModel;
-
-            await _phieuNhapKhoRepo.DeleteAsync(xoaPhieuNhapKho);
-        }
-
-        public bool DeleteChiTietPhieuNhapKho(int id)
-        {
-            try
-            {
-                var phieuNhapKho = dbContext.ChiTietPhieuNhaps.Where(x => x.SoPhieuNhap == id);
-                int thang = dbContext.PhieuNhaps.SingleOrDefault(x => x.SoPhieuNhap == id).NgayNhap.Month;
-                int nam = dbContext.PhieuNhaps.SingleOrDefault(x => x.SoPhieuNhap == id).NgayNhap.Year;
-
-                foreach (var i in phieuNhapKho)
-                {
-                    _hangHoaBus.CapNhatHangHoaKhiXoaPhieuNhap(i.SoPhieuNhap, i.MaHangHoa, i.SoLuong, i.GiaNhap);
-                    _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuNhap(i.MaHangHoa, i.SoLuong, thang, nam);
-                }
-                dbContext.ChiTietPhieuNhaps.RemoveRange(phieuNhapKho);
-                dbContext.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
         }
 
         public async Task Create(PhieuNhapKhoViewModel O)
@@ -351,6 +395,31 @@ namespace Business.Implements
                        ghiChu = x.GhiChu,
                    }).ToList();
             return all;
+        }
+
+        public async Task HuyPhieuNhapKho(object editModel)
+        {
+            try
+            {
+                PhieuNhap editPhieuNhapKho = (PhieuNhap)editModel;
+                editPhieuNhapKho.TrangThai = false;
+                await _phieuNhapKhoRepo.EditAsync(editPhieuNhapKho);
+
+                var phieuNhapKho = dbContext.ChiTietPhieuNhaps.Where(x => x.SoPhieuNhap == editPhieuNhapKho.SoPhieuNhap);
+                int thang = dbContext.PhieuNhaps.SingleOrDefault(x => x.SoPhieuNhap == editPhieuNhapKho.SoPhieuNhap).NgayNhap.Month;
+                int nam = dbContext.PhieuNhaps.SingleOrDefault(x => x.SoPhieuNhap == editPhieuNhapKho.SoPhieuNhap).NgayNhap.Year;
+
+                foreach (var i in phieuNhapKho)
+                {
+                    _hangHoaBus.CapNhatHangHoaKhiXoaPhieuNhap(i.SoPhieuNhap, i.MaHangHoa, i.SoLuong, i.GiaNhap);
+                    _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuNhap(i.MaHangHoa, i.SoLuong, thang, nam);
+                }
+
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

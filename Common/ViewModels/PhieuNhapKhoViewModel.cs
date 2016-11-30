@@ -30,6 +30,8 @@ namespace Common.ViewModels
         public decimal gia { get; set; }
 
         public decimal thanhTien { get; set; }
+
+        public bool trangThai { get; set; }
         public List<ChiTietPhieuNhap> chiTietPhieuNhap { get; set; }
     }
 }

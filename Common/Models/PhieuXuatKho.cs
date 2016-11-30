@@ -30,5 +30,7 @@ namespace Common.Models
         public string LyDoXuat { get; set; }
 
         public decimal TongTien { get; set; }
+
+        public bool TrangThai { get; set; }
     }
 }

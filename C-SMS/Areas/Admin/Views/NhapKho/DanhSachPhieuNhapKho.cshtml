@@ -23,6 +23,9 @@
             <th>
                 @Html.DisplayName("Ghi Chú")
             </th>
+            <th>
+                @Html.DisplayName("Trạng Thái")
+            </th>
             <th class="width-10">
                 Hành động
             </th>
@@ -40,7 +43,14 @@
                 <td>@item.tenNhaCungCap</td>
                 <td>@number.FormatNumbers(@item.tongTien.ToString())</td>
                 <td>@item.ghiChu</td>
-
+                @if (@item.trangThai == true)
+                {
+                    <td>Hoàn thành</td>
+                }
+                else
+                {
+                    <td>Đã hủy</td>
+                }          
                 <td>
                     <div class="btn-group">
                         <a href="@Url.Action("Detail", new { id = item.soPhieuNhapKho })" class="btn btn-default">
@@ -49,7 +59,7 @@
                         @if ((@item.ngayNhapKho.Month >= @DateTime.Now.Month) && (@item.ngayNhapKho.Year == @DateTime.Now.Year))
                         {
                             <a href="@Url.Action("Delete", new { id = item.soPhieuNhapKho })" class="btn btn-default">
-                                <i class="fa fa-remove" aria-hidden="true"></i> Xóa
+                                <i class="fa fa-remove" aria-hidden="true"></i> Hủy
                             </a>
                         }                            
                     </div>

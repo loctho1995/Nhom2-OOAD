@@ -24,6 +24,9 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.trangthai = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+                                                    new { Value = "false", Text = "Đã hủy" }},
+                                               "Value", "Text");
             return View();
         }
 
@@ -47,9 +50,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
      
-        public ActionResult DanhSachPhieuNhapKho(string searchString, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuNhapKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         [HttpPost]
@@ -88,14 +91,14 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 try
                 {
-                    _phieuNhapKhoBus.DeleteChiTietPhieuNhapKho(id);
-                    await _phieuNhapKhoBus.DeletePhieuNhapKho(deletePhieuNhapKho);
-
-                    SetAlert("Đã xóa phiếu nhập kho thành công!!!", "success");
+                    //_phieuNhapKhoBus.DeleteChiTietPhieuNhapKho(id);
+                    //await _phieuNhapKhoBus.DeletePhieuNhapKho(deletePhieuNhapKho);
+                    await _phieuNhapKhoBus.HuyPhieuNhapKho(deletePhieuNhapKho);
+                    SetAlert("Đã hủy phiếu nhập kho thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
                 }
             }
             return RedirectToAction("Index");
