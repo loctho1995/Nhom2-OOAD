@@ -869,6 +869,11 @@
     <Content Include="Areas\Admin\Views\DatHang\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\DatHang\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BanHang\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\DanhSachHangHoa.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\ThongTinHangHoa.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHoa\ViewInfo.cshtml" />
     <None Include="Project_Readme.html" />
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

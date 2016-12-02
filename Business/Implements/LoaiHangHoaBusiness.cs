@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Business.Implements
 {
@@ -57,6 +58,17 @@ namespace Business.Implements
             loaihanghoa.LoaiHangHoaCode = "";
 
             await _loaiHangHoaRepo.InsertAsync(loaihanghoa);
+        }
+        public List<Object> LoadLoaiHangHoa()
+        {
+            IQueryable<LoaiHangHoa> dsLoaiHangHoa = _loaiHangHoaRepo.GetAll();
+            var list = (from loaihanghoa in dsLoaiHangHoa
+                        select new SelectListItem
+                        {
+                            Text = loaihanghoa.TenLoaiHangHoa,
+                            Value = loaihanghoa.MaLoaiHangHoa.ToString(),
+                        });
+            return new List<Object>(list);
         }
     }
 }

@@ -103,14 +103,14 @@ namespace Business.Implements
                               GiamGia = hanghoa.GiamGia,
 
                           }).AsEnumerable().Select(x => new HangHoa()
-                   {
-                       MaHangHoa = x.MaHangHoa,
-                       SoLuongTon = x.SoLuong,
-                       TenHangHoa = x.TenHangHoa,
-                       HinhAnh = x.HinhAnh,
-                       GiamGia = x.GiamGia,
-                       GiaBan = x.GiaBan,
-                   }).Distinct().Take(6).ToList();
+                          {
+                              MaHangHoa = x.MaHangHoa,
+                              SoLuongTon = x.SoLuong,
+                              TenHangHoa = x.TenHangHoa,
+                              HinhAnh = x.HinhAnh,
+                              GiamGia = x.GiamGia,
+                              GiaBan = x.GiaBan,
+                          }).Distinct().Take(6).ToList();
 
             return orders;
         }
@@ -146,7 +146,7 @@ namespace Business.Implements
             List<HangHoa> all = new List<HangHoa>();
 
             all = (from hanghoa in danhSachHangHoa
-                   where (hanghoa.MaHangHoa.Equals(maHangHoa) &&  hanghoa.TrangThai == true)
+                   where (hanghoa.MaHangHoa.Equals(maHangHoa) && hanghoa.TrangThai == true)
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -179,7 +179,7 @@ namespace Business.Implements
             all = (from hanghoa in danhSachHangHoa
                    join loaihanghoa in _loaiHangHoaRepo.GetAll()
                    on hanghoa.MaLoaiHangHoa equals loaihanghoa.MaLoaiHangHoa
-                   where (hanghoa.MaLoaiHangHoa.Equals(maLoaiHangHoa)  && hanghoa.TrangThai == true)
+                   where (hanghoa.MaLoaiHangHoa.Equals(maLoaiHangHoa) && hanghoa.TrangThai == true)
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -299,7 +299,7 @@ namespace Business.Implements
                 else
                 {
                     return 0;
-                }        
+                }
             }
 
             var result1 = dbContext.BaoCaoTonKhoes.SingleOrDefault(x => x.MaHangHoa == maHangHoa && x.Thang == (thang - 1) && x.Nam == nam);
@@ -310,7 +310,7 @@ namespace Business.Implements
             else
             {
                 return 0;
-            }                
+            }
         }
 
         public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuXuat(int maHangHoa, int soLuongXuat, int thang, int nam)
@@ -444,6 +444,170 @@ namespace Business.Implements
         public HangHoa ViewDetail(int id)
         {
             return dbContext.HangHoas.Find(id);
+        }
+        public IList<HangHoaViewModel> SearchDanhSachHangHoa(String key, string trangthai, string maloaihanghoa)
+        {
+            IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
+            List<HangHoaViewModel> all = new List<HangHoaViewModel>();
+
+            all = (from hanghoa in danhSachHangHoa
+                   join loaihanghoa in _loaiHangHoaRepo.GetAll()
+                   on hanghoa.MaLoaiHangHoa equals loaihanghoa.MaLoaiHangHoa
+                   where (hanghoa.TrangThai.ToString().Equals(trangthai)
+                        || hanghoa.MaLoaiHangHoa.ToString().Equals(maloaihanghoa)
+                        || hanghoa.TenHangHoa.ToString().Contains(key)
+                        || hanghoa.XuatXu.ToString().Contains(key))
+                   select new
+                   {
+                       MaHangHoa = hanghoa.MaHangHoa,
+                       TenHangHoa = hanghoa.TenHangHoa,
+                       GiaBan = hanghoa.GiaBan,
+                       GiamGia = hanghoa.GiamGia,
+                       SoLuongTon = hanghoa.SoLuongTon,
+                       DonViTinh = hanghoa.DonViTinh,
+                       MoTa = hanghoa.MoTa,
+                       ThongSoKyThuat = hanghoa.ThongSoKyThuat,
+                       XuatXu = hanghoa.XuatXu,
+                       ThoiGianBaoHanh = hanghoa.ThoiGianBaoHanh,
+                       HinhAnh = hanghoa.HinhAnh,
+                       TenLoaiHangHoa = loaihanghoa.TenLoaiHangHoa,
+
+                   }).AsEnumerable().Select(x => new HangHoaViewModel()
+                   {
+                       maHangHoa = x.MaHangHoa,
+                       tenHangHoa = x.TenHangHoa,
+                       giaBan = x.GiaBan,
+                       giamGia = x.GiamGia,
+                       soLuongTon = x.SoLuongTon,
+                       donViTinh = x.DonViTinh,
+                       moTa = x.MoTa,
+                       thongSoKyThuat = x.ThongSoKyThuat,
+                       xuatXu = x.XuatXu,
+                       thoiGianBaoHanh = x.ThoiGianBaoHanh,
+                       hinhAnh = x.HinhAnh,
+                       tenLoaiHangHoa = x.TenLoaiHangHoa
+                   }).ToList();
+            return all;
+        }
+        public IEnumerable<HangHoaViewModel> LoadDanhSachHangHoa()
+        {
+            IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
+            List<HangHoaViewModel> all = new List<HangHoaViewModel>();
+
+            all = (from hanghoa in danhSachHangHoa
+                   join loaihanghoa in _loaiHangHoaRepo.GetAll()
+                   on hanghoa.MaLoaiHangHoa equals loaihanghoa.MaLoaiHangHoa
+                   where (hanghoa.TrangThai.Equals(true))
+                   select new
+                   {
+                       MaHangHoa = hanghoa.MaHangHoa,
+                       TenHangHoa = hanghoa.TenHangHoa,
+                       GiaBan = hanghoa.GiaBan,
+                       GiamGia = hanghoa.GiamGia,
+                       SoLuongTon = hanghoa.SoLuongTon,
+                       DonViTinh = hanghoa.DonViTinh,
+                       MoTa = hanghoa.MoTa,
+                       ThongSoKyThuat = hanghoa.ThongSoKyThuat,
+                       XuatXu = hanghoa.XuatXu,
+                       ThoiGianBaoHanh = hanghoa.ThoiGianBaoHanh,
+                       HinhAnh = hanghoa.HinhAnh,
+                       TrangThai = hanghoa.TrangThai,
+                       TenLoaiHangHoa = loaihanghoa.TenLoaiHangHoa,
+                   }).AsEnumerable().Select(x => new HangHoaViewModel()
+                   {
+                       maHangHoa = x.MaHangHoa,
+                       tenHangHoa = x.TenHangHoa,
+                       giaBan = x.GiaBan,
+                       giamGia = x.GiamGia,
+                       soLuongTon = x.SoLuongTon,
+                       donViTinh = x.DonViTinh,
+                       moTa = x.MoTa,
+                       thongSoKyThuat = x.ThongSoKyThuat,
+                       xuatXu = x.XuatXu,
+                       thoiGianBaoHanh = x.ThoiGianBaoHanh,
+                       hinhAnh = x.HinhAnh,
+                       trangThai = x.TrangThai,
+                       tenLoaiHangHoa = x.TenLoaiHangHoa
+                   }).ToList();
+            return all;
+
+        }
+        public async Task Create(object model)
+        {
+            var hangHoa = new HangHoa();
+            HangHoaViewModel input = (HangHoaViewModel)model;
+
+            hangHoa.HangHoaCode = "code";
+            hangHoa.TenHangHoa = input.tenHangHoa;
+            hangHoa.GiaBan = input.giaBan;
+            hangHoa.DonViTinh = input.donViTinh;
+            hangHoa.MoTa = input.moTa;
+            hangHoa.ThongSoKyThuat = input.thongSoKyThuat;
+            hangHoa.XuatXu = input.xuatXu;
+            hangHoa.ThoiGianBaoHanh = input.thoiGianBaoHanh;
+            hangHoa.HinhAnh = input.hinhAnh;
+            hangHoa.MaLoaiHangHoa = input.maLoaiHangHoa;
+            hangHoa.TrangThai = true;
+
+            await _hangHoaRepo.InsertAsync(hangHoa);
+        }
+        public IEnumerable<HangHoaViewModel> LoadDanhSachHangHoaTheoMa(int maHangHoa)
+        {
+            IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
+
+            var all = (from hanghoa in danhSachHangHoa
+                       join loaihanghoa in _loaiHangHoaRepo.GetAll()
+                       on hanghoa.MaLoaiHangHoa equals loaihanghoa.MaLoaiHangHoa
+                       where (hanghoa.MaHangHoa.Equals(maHangHoa))
+                       select new HangHoaViewModel
+                       {
+                           maHangHoa = hanghoa.MaHangHoa,
+                           tenHangHoa = hanghoa.TenHangHoa,
+                           giaBan = hanghoa.GiaBan,
+                           giamGia = hanghoa.GiamGia,
+                           soLuongTon = hanghoa.SoLuongTon,
+                           donViTinh = hanghoa.DonViTinh,
+                           moTa = hanghoa.MoTa,
+                           thongSoKyThuat = hanghoa.ThongSoKyThuat,
+                           xuatXu = hanghoa.XuatXu,
+                           thoiGianBaoHanh = hanghoa.ThoiGianBaoHanh,
+                           hinhAnh = hanghoa.HinhAnh,
+                           tenLoaiHangHoa = loaihanghoa.TenLoaiHangHoa,
+                           trangThai = hanghoa.TrangThai,
+                       }).ToList();
+
+            return all;
+        }
+        public async Task<object> Find(int ID)
+        {
+            return await _hangHoaRepo.GetByIdAsync(ID);
+        }
+        public async Task Update(object inputModel, object editModel)
+        {
+            HangHoaViewModel input = (HangHoaViewModel)inputModel;
+            HangHoa editHangHoa = (HangHoa)editModel;
+
+            editHangHoa.TenHangHoa = input.tenHangHoa;
+            editHangHoa.GiaBan = input.giaBan;
+            editHangHoa.DonViTinh = input.donViTinh;
+            editHangHoa.MoTa = input.moTa;
+            editHangHoa.ThongSoKyThuat = input.thongSoKyThuat;
+            editHangHoa.XuatXu = input.xuatXu;
+            editHangHoa.ThoiGianBaoHanh = input.thoiGianBaoHanh;
+            editHangHoa.HinhAnh = "abc.png";
+            editHangHoa.MaLoaiHangHoa = input.maLoaiHangHoa;
+            editHangHoa.TrangThai = true;
+
+            await _hangHoaRepo.EditAsync(editHangHoa);
+        }
+
+        public async Task Delete(object editModel)
+        {
+            HangHoa editHangHoa = (HangHoa)editModel;
+
+            editHangHoa.TrangThai = false;
+
+            await _hangHoaRepo.EditAsync(editHangHoa);
         }
     }
 }

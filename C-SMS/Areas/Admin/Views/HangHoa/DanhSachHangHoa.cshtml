@@ -1,0 +1,63 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Common.ViewModels.HangHoaViewModel>
+
+    <table class="table table-hover">
+        <thead class="thead-inverse">
+            <tr>
+                <th class="width-5">
+                    @Html.DisplayName("Tên Hàng Hóa")
+                </th>
+                <th class="width-5">
+                    @Html.DisplayName("Giá Bán")
+                </th>
+                <th class="width-10">
+                    @Html.DisplayName("Mô Tả")
+                </th>
+                <th class="width-10">
+                    @Html.DisplayName("Xuất Xứ")
+                </th>
+                <th class="width-5">
+                    Hành động
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="text-align:center">
+                    <td>@item.tenHangHoa</td>
+                    <td>@item.giaBan</td>
+                    <td>@item.moTa</td>
+                    <td>@item.xuatXu</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-default">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Xem
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a href="@Url.Action("Edit", new { id = item.maHangHoa })" class="btn btn-default">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Sửa
+                            </a>
+                        </div>
+                        <div class="btn-group">
+                            <a href="@Url.Action("Delete", new { id = item.maHangHoa })" class="btn btn-default">
+                                <i class="fa fa-pencil" aria-hidden="true"></i> Xóa
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="pull-left">
+        Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+    </div>
+    <div class="pull-right">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+

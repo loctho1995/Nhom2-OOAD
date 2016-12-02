@@ -1,8 +1,150 @@
-﻿@*@model Common.ViewModels.ImportBallotViewModel*@
+﻿@model Common.ViewModels.HangHoaViewModel
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Tạo Hàng Hóa";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
 
-<h2>Index</h2>
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
 
+
+<div>
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông Tin Hàng Hóa</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            @using (Html.BeginForm("Create", "HangHoa", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-horizontal">
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Tên Hàng Hóa
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="tenhanghoa"  class="form-control " style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Gía Bán
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="number" name="giaban" min="0" max="1000000000" class="form-control " style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Đơn vị tính
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="donvitinh" class="form-control" style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Mô Tả
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="mota" class="form-control" style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Xuất Xứ
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="text" name="xuatxu" class="form-control"  style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Thời Gian Bảo Hành
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="number" name="thoigianbaohanh" min=0 class="numericOnly form-control" style="margin-left:5px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Hình Ảnh
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <input type="file" id="fileUpload" class="form-control" style="margin-left:5px" />
+                            <input type="hidden"  id="file" name="hinhanh" class="form-control" style="margin-left:5px" 
+                        </div>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <img id="preview" hidden ="true" src="" width="300px" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Thông Số Kỹ Thuật
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            <textarea type="text" name="thongsokythuat" class="form-control" style="margin-left:5px"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
+                            Loại Hàng Hóa
+                        </label>
+                        <div class="col-md-10 col-sm-9 col-xs-12">
+                            @Html.DropDownList("maloaihanghoa", new SelectList(ViewBag.loaihanghoa, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
+                        </div>
+                    </div>
+                
+                    <div class="form-group">
+                        <div class="col-md-offset-5 col-sm-offset-3 ">
+                            <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu Hàng Hóa</button>
+                        </div>
+                    </div>
+
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    File.prototype.convertToBase64 = function (callback) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            callback(e.target.result)
+        };
+        reader.onerror = function (e) {
+            callback(null);
+        };
+        reader.readAsDataURL(this);
+    };
+    $(function () {
+        $('#fileUpload').on('change', function () {
+            var selectedFile = this.files[0];
+            selectedFile.convertToBase64(function (base64) {
+                $('#preview').attr("src", base64);
+                $('#file').val(base64);
+                $('#preview').show();
+            })
+        });
+    });
+
+</script>
