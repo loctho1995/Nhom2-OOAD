@@ -18,7 +18,7 @@ namespace Common.Models
         [Column(TypeName = "date")]
         public DateTime NgayChi { get; set; }
 
-        public int MaNhanvien { get; set; }
+        public int MaNhanVien { get; set; }
 
         public int MaPhieuNhap { get; set; }
 

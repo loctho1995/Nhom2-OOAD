@@ -85,6 +85,7 @@
     <Compile Include="Implements\BaoCaoBanHangBusiness.cs" />
     <Compile Include="Implements\BaoCaoDatHangBusiness.cs" />
     <Compile Include="Implements\BaoCaoHangHoaBusiness.cs" />
+    <Compile Include="Implements\BaoCaoPhieuChiBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuBanHangBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuDatHangBusiness.cs" />
     <Compile Include="Implements\ChiTietPhieuKiemKhoBusiness.cs" />

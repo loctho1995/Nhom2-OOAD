@@ -42,6 +42,15 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="BaoCaoPhieuChi" msprop:Generator_TableClassName="BaoCaoPhieuChiDataTable" msprop:Generator_TableVarName="tableBaoCaoPhieuChi" msprop:Generator_RowChangedName="BaoCaoPhieuChiRowChanged" msprop:Generator_TablePropName="BaoCaoPhieuChi" msprop:Generator_RowDeletingName="BaoCaoPhieuChiRowDeleting" msprop:Generator_RowChangingName="BaoCaoPhieuChiRowChanging" msprop:Generator_RowEvHandlerName="BaoCaoPhieuChiRowChangeEventHandler" msprop:Generator_RowDeletedName="BaoCaoPhieuChiRowDeleted" msprop:Generator_RowClassName="BaoCaoPhieuChiRow" msprop:Generator_UserTableName="BaoCaoPhieuChi" msprop:Generator_RowEvArgName="BaoCaoPhieuChiRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NgayChi" msdata:Caption="NgayBan" msprop:Generator_ColumnVarNameInTable="columnNgayChi" msprop:Generator_ColumnPropNameInRow="NgayChi" msprop:Generator_ColumnPropNameInTable="NgayChiColumn" msprop:Generator_UserColumnName="NgayChi" type="xs:string" minOccurs="0" />
+              <xs:element name="GhiChu" msdata:Caption="SoDonHang" msprop:Generator_ColumnVarNameInTable="columnGhiChu" msprop:Generator_ColumnPropNameInRow="GhiChu" msprop:Generator_ColumnPropNameInTable="GhiChuColumn" msprop:Generator_UserColumnName="GhiChu" type="xs:string" minOccurs="0" />
+              <xs:element name="TongTienChi" msdata:Caption="TongTien" msprop:Generator_ColumnVarNameInTable="columnTongTienChi" msprop:Generator_ColumnPropNameInRow="TongTienChi" msprop:Generator_ColumnPropNameInTable="TongTienChiColumn" msprop:Generator_UserColumnName="TongTienChi" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>
