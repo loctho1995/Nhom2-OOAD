@@ -1,6 +1,50 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model List<Common.ViewModels.BaoCaoHangHoaViewModel>
+@using Common.ViewModels
+@{
+    ViewBag.Title = "Báo cáo hàng hoá";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<h2>Index</h2>
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
+
+
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <ul class="nav navbar-right panel_toolbox">
+        <li class="dropdown">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                    Xuất Báo Cáo
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="@Url.Action("XuatFilePDF", "BaoCaoHangHoa")" style="font-family:'Times New Roman', Times, serif">
+                            Xuất file PDF
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("XuatFileEXE", "BaoCaoHangHoa")" style="font-family:'Times New Roman', Times, serif">
+                            Xuất file Excel
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <div class="x_panel">
+        <div class="x_content">
+           <div id="list">
+                @{Html.RenderAction("DanhSachBaoCaoHangHoa", "BaoCaoHangHoa");}
+            </div>
+        </div>
+    </div>
+</div>

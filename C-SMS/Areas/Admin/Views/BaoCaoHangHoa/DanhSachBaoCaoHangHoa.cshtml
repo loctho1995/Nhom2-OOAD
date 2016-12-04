@@ -1,0 +1,40 @@
+﻿@using PagedList.Mvc
+@model List<Common.ViewModels.BaoCaoHangHoaViewModel>
+
+<table class="table table-hover">
+    <thead class="thead-inverse">
+        <tr>
+            <th>
+                @Html.DisplayName("Mã hàng hoá")
+            </th>
+            <th>
+                @Html.DisplayName("Tên hàng hoá")
+            </th>
+            <th>
+                @Html.DisplayName("Tên loại hàng hoá")
+            </th>
+            <th>
+                @Html.DisplayName("Giá bán")
+            </th>
+            <th>
+                @Html.DisplayName("Giảm giá")
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center">
+                <td>@item.maHangHoa</td>
+                <td>@item.tenHangHoa</td>
+                <td>@item.tenLoaiHangHoa</td>
+                <td>@item.giaBan</td>
+                <td>@item.giamGia</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+
