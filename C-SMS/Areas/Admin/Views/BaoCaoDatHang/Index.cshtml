@@ -1,6 +1,79 @@
-﻿@{
-    ViewBag.Title = "Index";
+﻿@model List<Common.ViewModels.BaoCaoDatHangViewModel>
+@using Common.ViewModels
+@{
+    ViewBag.Title = "Báo cáo đặt hàng";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<h2>Index</h2>
+<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
+<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
+<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
+<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
+
+
+<div class="page-title">
+    <div class="title_left">
+        <h2>@ViewBag.Title</h2>
+    </div>
+    <ul class="nav navbar-right panel_toolbox">
+        <li class="dropdown">
+            <ul class="nav navbar-right panel_toolbox">
+                <li class="dropdown">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Xuất Báo Cáo
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="@Url.Action("XuatFilePDF", "BaoCaoDatHang")" style="font-family:'Times New Roman', Times, serif">
+                                    Xuất file PDF
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("XuatFileEXE", "BaoCaoDatHang")" style="font-family:'Times New Roman', Times, serif">
+                                    Xuất file Excel
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<div>
+    <div class="x_panel">
+        <div class="x_content">
+            @using (Ajax.BeginForm("DanhSachBaoCaoDatHang", "BaoCaoDatHang", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+            {
+                <div class="form-group clearfix">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Từ ngày</label>
+                        <input type="date" id="dateFrom" name="dateFrom" required class="form-control" style="width:99%" />
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <label>Đến ngày</label>
+                        <input type="date" id="dateTo" name="dateTo" required class="form-control" style="width:100%" />
+                    </div>
+                </div>
+            }
+
+            <div id="list">
+                @{Html.RenderAction("DanhSachBaoCaoDatHang", "BaoCaoDatHang");}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#dateFrom').change(function () {
+        $('#filter_div').submit();
+    });
+
+    $('#dateTo').change(function () {
+        $('#filter_div').submit();
+    });
+</script>

@@ -235,6 +235,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\ADataSetBaoCao.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\BaoCaoBanHangRP1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoBanHangRP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\BaoCaoDatHangRP.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaoCaoDatHangRP.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -874,7 +891,20 @@
     <Content Include="Areas\Admin\Views\HangHoa\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HangHoa\ThongTinHangHoa.cshtml" />
     <Content Include="Areas\Admin\Views\HangHoa\ViewInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoCaoBanHang\DanhSachBaoCaoBanHang.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoCaoDatHang\DanhSachBaoCaoDatHang.cshtml" />
     <None Include="Project_Readme.html" />
+    <Content Include="Reports\ADataSetBaoCao.xsc">
+      <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\ADataSetBaoCao.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ADataSetBaoCao.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Reports\ADataSetBaoCao.xss">
+      <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <None Include="Scripts\jquery-1.7.1-vsdoc.js" />
@@ -905,6 +935,16 @@
       <Project>{f268a9f8-bb95-4bbb-9f4d-e6cd993797b4}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Reports\BaoCaoBanHangRP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoBanHangRP1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\BaoCaoDatHangRP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoDatHangRP.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

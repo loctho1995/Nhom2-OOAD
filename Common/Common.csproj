@@ -81,6 +81,8 @@
     <Compile Include="Ultil\FormatNumber.cs" />
     <Compile Include="Ultil\Md5Encode.cs" />
     <Compile Include="Ultil\SentMail.cs" />
+    <Compile Include="ViewModels\BaoCaoBanHangViewModel.cs" />
+    <Compile Include="ViewModels\BaoCaoDatHangViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuBanHangViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuDatHangViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuKiemKhoViewModel.cs" />
