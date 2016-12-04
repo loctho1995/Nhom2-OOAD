@@ -240,6 +240,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\BaoCaoTonKhoRP.cs">
+      <DependentUpon>BaoCaoTonKhoRP.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reports\BaoCaoPhieuChiRP.cs">
       <DependentUpon>BaoCaoPhieuChiRP.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -907,6 +913,7 @@
     <Content Include="Areas\Admin\Views\BaoCaoDatHang\DanhSachBaoCaoDatHang.cshtml" />
     <Content Include="Areas\Admin\Views\BaoCaoHangHoa\DanhSachBaoCaoHangHoa.cshtml" />
     <Content Include="Areas\Admin\Views\BaoCaoPhieuChi\DanhSachBaoCaoPhieuChi.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoCaoTonKho\DanhSachBaoCaoTonKho.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Reports\ADataSetBaoCao.xsc">
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>
@@ -951,6 +958,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\BaoCaoTonKhoRP.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>BaoCaoTonKhoRP.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\BaoCaoPhieuChiRP.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>BaoCaoPhieuChiRP.cs</LastGenOutput>

@@ -85,6 +85,7 @@
     <Compile Include="ViewModels\BaoCaoDatHangViewModel.cs" />
     <Compile Include="ViewModels\BaoCaoHangHoaViewModel.cs" />
     <Compile Include="ViewModels\BaoCaoPhieuChiViewModel.cs" />
+    <Compile Include="ViewModels\BaoCaoTonKhoViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuBanHangViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuDatHangViewModel.cs" />
     <Compile Include="ViewModels\ChiTietPhieuKiemKhoViewModel.cs" />

@@ -48,12 +48,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\GenericRepository.cs" />
+    <Compile Include="Implements\BaoCaoTonKhoRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuBanHangRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuDatHangRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuKiemKhoRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuNhapKhoRepository.cs" />
     <Compile Include="Implements\ChiTietPhieuXuatKhoRepository.cs" />
     <Compile Include="Implements\ChucVuRepository.cs" />
+    <Compile Include="Implements\GenericRepository.cs" />
     <Compile Include="Implements\HangHoaRepository.cs" />
     <Compile Include="Implements\LoaiHangHoaRepository.cs" />
     <Compile Include="Implements\NhaCungCapRepository.cs" />
