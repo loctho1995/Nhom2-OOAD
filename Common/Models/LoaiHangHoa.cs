@@ -13,9 +13,6 @@ namespace Common.Models
         public int MaLoaiHangHoa { get; set; }
 
         [StringLength(50)]
-        public string LoaiHangHoaCode { get; set; }
-
-        [StringLength(50)]
         public string TenLoaiHangHoa { get; set; }
 
         public int PhanTramLoiNhuan { get; set; }

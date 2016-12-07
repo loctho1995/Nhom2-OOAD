@@ -58,7 +58,6 @@
     <Compile Include="Models\ChiTietPhieuNhap.cs" />
     <Compile Include="Models\ChiTietPhieuXuatKho.cs" />
     <Compile Include="Models\ChucVu.cs" />
-    <Compile Include="Models\Code.cs" />
     <Compile Include="Models\HangHoa.cs" />
     <Compile Include="Models\LoaiHangHoa.cs" />
     <Compile Include="Models\NhaCungCap.cs" />
@@ -72,7 +71,6 @@
     <Compile Include="Models\PhieuKiemKho.cs" />
     <Compile Include="Models\PhieuNhap.cs" />
     <Compile Include="Models\PhieuXuatKho.cs" />
-    <Compile Include="Models\Prefix.cs" />
     <Compile Include="Models\SMSEntities.cs" />
     <Compile Include="Models\ThamSo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,6 +98,7 @@
     <Compile Include="ViewModels\PhieuDatHangViewModel.cs" />
     <Compile Include="ViewModels\PhieuNhapKhoViewModel.cs" />
     <Compile Include="ViewModels\PhieuXuatKhoViewModel.cs" />
+    <Compile Include="ViewModels\ThongTinHoatDongViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

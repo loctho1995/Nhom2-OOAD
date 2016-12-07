@@ -214,7 +214,7 @@
 
     function GeneratedItemsTable() {
         if (orderItems.length > 0) {
-            var $table = $('<table id="productTable" style="max-width:970px" />');
+            var $table = $('<table id="productTable"  class="table table-bordered" />');
             $table.append('<thead><tr><th>Mã Hàng Hóa</th><th>Tên Hàng Hóa</th><th>Đơn Vị Tính</th><th>Số Lượng Xuất</th><th>Giá</th><th>Thành Tiền</th><th> Hành Động</th></tr></thead>');
             var $tbody = $('<tbody/>');
             $.each(orderItems, function (i, val) {
@@ -284,7 +284,7 @@ function HideErrorProductName() {
 }
 
 $(document).ready(function () {
-    $('#maHangHoa').on("input", function () {
+    $('#maHangHoa').on("change", function () {
         $.getJSON('/XuatKho/LoadThongTinHangHoa',
                     { id: $('#maHangHoa').val() },
                     function (data) {

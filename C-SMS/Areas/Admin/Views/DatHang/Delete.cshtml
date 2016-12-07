@@ -1,36 +1,32 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuDatHangViewModel>
 
 @{
-    ViewBag.Title = "Xóa Phiếu Đặt Hàng";
+    ViewBag.Title = "Hủy Phiếu Đặt Hàng";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
-<div class="alert alert-danger fade in">
-    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn xóa?</span>
-</div>
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Phiếu Đặt Hàng</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
 
-<br />
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="row">
-                @{Html.RenderAction("ThongTinPhieuDatHang", "DatHang");}
-            </div>
+            @using (Html.BeginForm("Delete", "DatHang"))
+            {
+                <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
+                    <i class="fa fa-trash"></i> Hủy Phiếu Đặt Hàng
+                </button>
+            }
 
         </div>
-        @using(Html.BeginForm("Delete", "DatHang"))
-        {
-            <div class="form-group">
-                <div class="col-md-offset-4 col-sm-offset-3">
-                    <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "DatHang") + "'"); ">
-                        <i class="glyphicon glyphicon-arrow-left"></i> 
-                        Quay lại 
-                    </div>
-                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Phiếu Đặt hàng</button>
-                </div>
+    </div>
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="alert alert-danger fade in">
+                <span><i class="fa fa-bullhorn"></i>Bạn có chắc chắn muốn hủy?</span>
             </div>
-        }
+
+            @{Html.RenderAction("ThongTinPhieuDatHang", "DatHang");}
+        </div>
 
     </div>
-</div>
+</section>

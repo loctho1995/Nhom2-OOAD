@@ -4,34 +4,54 @@
     ViewBag.Title = "Sửa Nhà Cung Cấp";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
-<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
 
-<div class="page-title">
-    <div class="title_left">
-        <h2>@ViewBag.Title</h2>
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i> Nhà cung cấp</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-lg btn-danger btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhaCungCap") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            </button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "NhaCungCap") + "'"); ">
+                <i class="glyphicon glyphicon-saved"></i>
+                Tạo mới nhà cung cấp
+            </button>
+
+        </div>
     </div>
-</div>
 
-<div class="x_panel">
-    <div class="x_title">
-        <h2>Thông Tin Nhà Cung Cấp</h2>
-        <div class="clearfix"></div>
-    </div>
-    <div class="x_content">
-        @using (Html.BeginForm())
-        {
-            <div class="form-horizontal">
-                @{Html.RenderAction("ThongTinNhaCungCap", "NhaCungCap");}
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Start input fields - basic form -->
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">@ViewBag.Title</h3>
+                        </div>
+                       
+                        <div class="clearfix"></div>
+                    </div><!-- /.panel-heading -->
 
-                <div class="form-group">
-                    <div class="col-md-offset-4 col-sm-offset-3">
-                        <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "NhaCungCap") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
-                        <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-edit"></i>Sửa nhà cung cấp</button>
+                    <div class="panel-body no-padding">
+                        @using (Html.BeginForm("Edit", "NhaCungCap", FormMethod.Post, new { id = "basic-validate" }))
+                        {
+                            <div class="form-body">
+                                @{Html.RenderAction("ThongTinNhaCungCap", "NhaCungCap");}
+
+                            </div>
+                            <div class="form-footer">
+                                <div class="col-md-offset-5 col-sm-offset-3 ">
+                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-edit"></i>Sửa nhà cung cấp</button>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
-
             </div>
-        }
+        </div>
     </div>
-</div>
-</div>
+</section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+

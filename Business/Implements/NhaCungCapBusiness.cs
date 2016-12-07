@@ -84,7 +84,6 @@ namespace Business.Implements
             editNhaCungCap.DiaChi = input.DiaChi;
             editNhaCungCap.Email = input.Email;
             editNhaCungCap.SoDienThoai = input.SoDienThoai;
-            editNhaCungCap.NhaCungCapCode = "a";
 
             await _nhaCungCapRepo.EditAsync(editNhaCungCap);
         }

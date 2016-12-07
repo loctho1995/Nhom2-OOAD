@@ -233,5 +233,10 @@ namespace Business.Implements
 
             await _phieuDatHangRepo.DeleteAsync(xoaPhieuKiemKho);
         }
+
+        public int LaySoDonDatHang()
+        {
+            return _phieuDatHangRepo.GetAll().Where(i => i.DaXacNhan == false).Count();
+        }
     }
 }

@@ -130,7 +130,6 @@ namespace WebBanHang.Controllers
             phieuDatHang.Email = datHang.email;
             phieuDatHang.HinhThucThanhToan = datHang.hinhThucThanhToan;
             phieuDatHang.Ghichu = datHang.ghiChu;
-            phieuDatHang.SoPhieuDatHangCode = "a";
 
             try
             {

@@ -30,9 +30,9 @@ namespace Business.Implements
             _nhanVienQuyenRepo = new NhanVien_QuyenRepository(_dbContext);
         }
 
-        public NhanVienViewModel Login(string nhanVienCode, string password)
+        public NhanVienViewModel Login(string userName, string password)
         {
-            NhanVien account = (NhanVien)_nhanVienRepo.SearchFor(i => i.NhanVienCode.Equals(nhanVienCode) && i.PassWord.Equals(password)).SingleOrDefault();
+            NhanVien account = (NhanVien)_nhanVienRepo.SearchFor(i => i.UserName.Equals(userName) && i.PassWord.Equals(password)).SingleOrDefault();
             if (account != null)
             {
                 var thongTinNhanVien = (from nhanvien in _nhanVienRepo.GetAll()
@@ -84,22 +84,22 @@ namespace Business.Implements
             }
         }
 
-        public int? layMaChucVu(String nhanVienCode)
+        public int? layMaChucVu(String userName)
         {
             IQueryable<NhanVien> danhSachNhanVien = _nhanVienRepo.GetAll();
-            return danhSachNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).MaChucVu;
+            return danhSachNhanVien.FirstOrDefault(x => x.UserName.Equals(userName)).MaChucVu;
         }
 
-        public string LoadTenNhanVien(string nhanVienCode)
+        public string LoadTenNhanVien(string userName)
         {
             IQueryable<NhanVien> tatCaNhanVien = _nhanVienRepo.GetAll();
-            return tatCaNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).TenNhanvien;
+            return tatCaNhanVien.FirstOrDefault(x => x.UserName.Equals(userName)).TenNhanvien;
         }
 
-        public int LoadMaNhanVien(string nhanVienCode)
+        public int LoadMaNhanVien(string userName)
         {
             IQueryable<NhanVien> tatCaNhanVien = _nhanVienRepo.GetAll();
-            return tatCaNhanVien.FirstOrDefault(x => x.NhanVienCode.Equals(nhanVienCode)).MaNhanVien;
+            return tatCaNhanVien.FirstOrDefault(x => x.UserName.Equals(userName)).MaNhanVien;
         }
 
         public IList<NhanVienViewModel> SearchDanhSachNhanVien(String key, string trangthai, string machucvu)
@@ -161,6 +161,8 @@ namespace Business.Implements
                        CMND = nhanvien.CMND,
                        TrangThai = nhanvien.TrangThai,
                        TenChucVu = chucvu.TenChucVu,
+                       Avatar = nhanvien.Avatar,
+                       UserName = nhanvien.UserName,
                    }).AsEnumerable().Select(x => new NhanVienViewModel()
                    {
                        maNhanVien = x.MaNhanVien,
@@ -171,7 +173,10 @@ namespace Business.Implements
                        CMND = x.CMND,
                        trangThai = x.TrangThai,
                        tenChucVu = x.TenChucVu,
+                       avatar = x.Avatar,
+                       userName = x.UserName,
                    }).ToList();
+            
             return all;
 
         }
@@ -181,14 +186,13 @@ namespace Business.Implements
             var nhanVien = new NhanVien();
             NhanVienViewModel input = (NhanVienViewModel)model;
 
-            nhanVien.NhanVienCode = input.nhanVienCode;
             nhanVien.TenNhanvien = input.tenNhanVien;
             nhanVien.DiaChi = input.diaChi;
             nhanVien.SoDienThoai = input.soDienThoai;
             nhanVien.Email = input.email;
             nhanVien.CMND = input.CMND;
-            nhanVien.UserName = "a";
-            nhanVien.PassWord = Md5Encode.EncodePassword("123456");
+            nhanVien.UserName = input.userName;
+            nhanVien.PassWord = Md5Encode.EncodePassword(input.password);
             nhanVien.TrangThai = true;
             nhanVien.MaChucVu = input.maChucVu;
             nhanVien.Avatar = input.avatar;
@@ -208,13 +212,14 @@ namespace Business.Implements
                        {
                            maNhanVien = nhanvien.MaNhanVien,
                            tenNhanVien = nhanvien.TenNhanvien,
-                           nhanVienCode = nhanvien.NhanVienCode,
+                           userName = nhanvien.UserName,
                            diaChi = nhanvien.DiaChi,
                            soDienThoai = nhanvien.SoDienThoai,
                            email = nhanvien.Email,
                            CMND = nhanvien.CMND,
                            trangThai = nhanvien.TrangThai,
                            tenChucVu = chucvu.TenChucVu,
+                           avatar = nhanvien.Avatar,
                        }).ToList();
 
             return all;
@@ -235,9 +240,9 @@ namespace Business.Implements
             editNhanVien.DiaChi = input.diaChi;
             editNhanVien.Email = input.email;
             editNhanVien.MaChucVu = input.maChucVu;
-            editNhanVien.NhanVienCode = input.nhanVienCode;
             editNhanVien.SoDienThoai = input.soDienThoai;
             editNhanVien.TrangThai = input.trangThai;
+            editNhanVien.UserName = input.userName;
 
             await _nhanVienRepo.EditAsync(editNhanVien);
         }

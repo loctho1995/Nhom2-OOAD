@@ -27,18 +27,18 @@ namespace Business.Implements
             _nhanVienBus = new NhanVienBusiness();
         }
 
-        public IList<BaoCaoBanHangViewModel> ListView2(string nhanVienCode, DateTime dateFrom, DateTime dateTo, int page = 1, int pageSize = 5)
+        public IList<BaoCaoBanHangViewModel> ListView2(string userName, DateTime dateFrom, DateTime dateTo, int page = 1, int pageSize = 5)
         {
             IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
             List<BaoCaoBanHangViewModel> all = new List<BaoCaoBanHangViewModel>();
             List<BaoCaoBanHangViewModel> allForManager = new List<BaoCaoBanHangViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(nhanVienCode) == 4)
+            if (_nhanVienBus.layMaChucVu(userName) == 4)
             {
                 all = (from phieuBanHang in danhSachPhieuBanHang
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieuBanHang.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.NhanVienCode.Equals(nhanVienCode))
+                       where (nhanvien.UserName.Equals(userName))
                        select new
                        {
                            NgayBan = phieuBanHang.NgayBan,
@@ -72,18 +72,18 @@ namespace Business.Implements
             }
         }
 
-        public IList<BaoCaoBanHangViewModel> ListView(string nhanVienCode, DateTime dateFrom, DateTime dateTo)
+        public IList<BaoCaoBanHangViewModel> ListView(string userName, DateTime dateFrom, DateTime dateTo)
         {
             IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
             List<BaoCaoBanHangViewModel> all = new List<BaoCaoBanHangViewModel>();
             List<BaoCaoBanHangViewModel> allForManager = new List<BaoCaoBanHangViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(nhanVienCode) == 4)
+            if (_nhanVienBus.layMaChucVu(userName) == 4)
             {
                 all = (from phieuBanHang in danhSachPhieuBanHang
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieuBanHang.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.NhanVienCode.Equals(nhanVienCode))
+                       where (nhanvien.UserName.Equals(userName))
                        select new
                        {
                            NgayBan = phieuBanHang.NgayBan,

@@ -13,9 +13,6 @@ namespace Common.Models
         public int MaHangHoa { get; set; }
 
         [StringLength(50)]
-        public string HangHoaCode { get; set; }
-
-        [StringLength(50)]
         public string TenHangHoa { get; set; }
 
         public decimal GiaBan { get; set; }
@@ -43,5 +40,13 @@ namespace Common.Models
         public int MaLoaiHangHoa { get; set; }
 
         public bool TrangThai { get; set; }
+
+        public string ModelName { get; set; }
+
+        public string Value { get; set; }
+
+        public int Value1 { get; set; }
+
+        public decimal Value2 { get; set; }
     }
 }

@@ -5,75 +5,63 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
-<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
-<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
-
-
-<div class="page-title">
-    <div class="title_left">
-        <h2>@ViewBag.Title</h2>
-    </div>
-    <ul class="nav navbar-right panel_toolbox">
-        <li class="dropdown">
-            <ul class="nav navbar-right panel_toolbox">
-                <li class="dropdown">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Xuất Báo Cáo
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="@Url.Action("XuatFilePDF", "BaoCaoPhieuChi")" style="font-family:'Times New Roman', Times, serif">
-                                    Xuất file PDF
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("XuatFileEXE", "BaoCaoPhieuChi")" style="font-family:'Times New Roman', Times, serif">
-                                    Xuất file Excel
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <div class="x_panel">
-        <div class="x_content">
-            @using (Ajax.BeginForm("DanhSachBaoCaoPhieuChi", "BaoCaoPhieuChi", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
-            {
-                <div class="form-group clearfix">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <label>Từ ngày</label>
-                        <input type="date" id="dateFrom" name="dateFrom" required class="form-control" style="width:99%" />
-                    </div>
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <label>Đến ngày</label>
-                        <input type="date" id="dateTo" name="dateTo" required class="form-control" style="width:100%" />
-                    </div>
-                </div>
-            }
-
-            <div id="list">
-                @{Html.RenderAction("DanhSachBaoCaoPhieuChi", "BaoCaoPhieuChi");}
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Báo cáo phiếu chi</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Xuất ra file</button>
+                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="@Url.Action("XuatFilePDF", "BaoCaoPhieuChi")">Xuất file PDF</a></li>
+                    <li><a href="@Url.Action("XuatFileEXE", "BaoCaoPhieuChi")">Xuất file Excel</a></li>
+                </ul>
             </div>
         </div>
     </div>
-</div>
 
-<script>
-    $('#dateFrom').change(function () {
-        $('#filter_div').submit();
-    });
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">Danh sách phiếu chi</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-body">
+                            @using (Ajax.BeginForm("DanhSachBaoCaoPhieuChi", "BaoCaoPhieuChi", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Từ ngày</label>
+                                        <input type="date" id="dateFrom" name="dateFrom" data-date-format="dd/mm/yyyy" required class="form-control rounded" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Đến ngày</label>
+                                        <div class="input-group">
+                                            <input type="date" id="dateTo" name="dateTo" required class="form-control rounded" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                            <div id="list">
+                                @{Html.RenderAction("DanhSachBaoCaoPhieuChi", "BaoCaoPhieuChi");}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-    $('#dateTo').change(function () {
-        $('#filter_div').submit();
-    });
-</script>
+<script src="~/Scripts/bootstrap.min.js"></script>

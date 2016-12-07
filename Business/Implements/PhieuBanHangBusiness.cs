@@ -33,7 +33,6 @@ namespace Business.Implements
             PhieuBanHang order = new PhieuBanHang
             {
                 SoPhieuBanHang = obj.soPhieuBanHang,
-                SoPhieuBanHangCode = "a",
                 NgayBan = obj.ngayBan,
                 MaNhanVien = obj.maNhanVien,
                 Ghichu = obj.ghiChu,
@@ -52,18 +51,18 @@ namespace Business.Implements
             await _phieuBanHangRepo.InsertAsync(order);
         }
 
-        public IList<PhieuBanHangViewModel> ListView(string nhanVienCode)
+        public IList<PhieuBanHangViewModel> ListView(string userName)
         {
             IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
             List<PhieuBanHangViewModel> all = new List<PhieuBanHangViewModel>();
             List<PhieuBanHangViewModel> allForManager = new List<PhieuBanHangViewModel>();
 
-            if(_nhanVienBus.layMaChucVu(nhanVienCode) == 4)
+            if (_nhanVienBus.layMaChucVu(userName) == 4)
             {
                 all = (from phieuBanHang in danhSachPhieuBanHang
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieuBanHang.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.NhanVienCode.Equals(nhanVienCode))
+                       where (nhanvien.UserName.Equals(userName))
                        select new
                        {
                            SoPhieuBanHang = phieuBanHang.SoPhieuBanHang,
@@ -174,6 +173,31 @@ namespace Business.Implements
             }
 
             return (soPhieuKiemKho.First() + 1);
+        }
+
+        public IEnumerable<ThongTinHoatDongViewModel> ThongTinHoatDong()
+        {
+            IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
+            List<ThongTinHoatDongViewModel> all = new List<ThongTinHoatDongViewModel>();
+
+            all = (from phieubanhang in danhSachPhieuBanHang
+                   join nhanvien in _nhanVienRepo.GetAll()
+                   on phieubanhang.MaNhanVien equals nhanvien.MaNhanVien
+                   orderby phieubanhang.NgayChinhSua descending
+                   select new
+                   {
+                       SoPhieuBanHang = phieubanhang.SoPhieuBanHang,
+                       NgayChinhSua = phieubanhang.NgayChinhSua,
+                       TenNhanVien = nhanvien.TenNhanvien,
+                       TrangThai = phieubanhang.TrangThai,
+                   }).AsEnumerable().Select(x => new ThongTinHoatDongViewModel()
+                   {
+                       soPhieuBanHang = x.SoPhieuBanHang,
+                       ngayChinhSuaBanHang = x.NgayChinhSua,
+                       tenNhanVienBanHang = x.TenNhanVien,
+                       trangThaiBanHang = x.TrangThai,
+                   }).Take(1).ToList();
+            return all;
         }
     }
 }

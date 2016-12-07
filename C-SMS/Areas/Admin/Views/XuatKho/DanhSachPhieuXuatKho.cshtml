@@ -2,8 +2,9 @@
 @model PagedList.IPagedList<Common.ViewModels.PhieuXuatKhoViewModel>
 @using Common.Ultil
 
-<table class="table table-hover">
-    <thead class="thead-inverse">
+<br />
+<table class="table table-bordered table-middle table-lilac">
+    <thead>
         <tr>
             <th>
                 @Html.DisplayName("Số Phiếu Xuất Kho")
@@ -33,7 +34,7 @@
         @foreach (var item in Model)
         {
             FormatNumber number = new FormatNumber();
-            <tr style="text-align:center">
+            <tr style="text-align:center" class="border-warning">
                 <td>@item.soPhieuXuatKho</td>
                 <td>@item.ngayXuatKho.ToString("dd/MM/yyyy")</td>
                 <td>@item.tenNhanVien</td>
@@ -46,19 +47,15 @@
                 else
                 {
                     <td>Đã hủy</td>
-                }           
+                }
                 <td>
-                    <div class="btn-group">
-                        <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-default">
-                            <i class="fa fa-eye"></i> Xem
-                        </a>
-                       @if ((@item.ngayXuatKho.Month >= @DateTime.Now.Month) && (@item.ngayXuatKho.Year == @DateTime.Now.Year))
-                       {
-                            <a href="@Url.Action("Delete", new { id = item.soPhieuXuatKho })" class="btn btn-default">
-                                <i class="fa fa-remove" aria-hidden="true"></i> Hủy
-                            </a>
-                        }                       
-                    </div>
+                    <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+
+                    @if ((@item.ngayXuatKho.Month >= @DateTime.Now.Month) && (@item.ngayXuatKho.Year == @DateTime.Now.Year))
+                    {
+                        <a href="@Url.Action("Delete", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+
+                    }
 
                 </td>
             </tr>
@@ -66,8 +63,8 @@
     </tbody>
 </table>
 
-<div class="pull-left">
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+<div class="pull-left" style="padding-top:20px">
+    <h3 class="panel-title">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</h3>
 </div>
 <div class="pull-right">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

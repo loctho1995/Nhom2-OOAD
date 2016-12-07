@@ -3,59 +3,55 @@
     ViewBag.Title = "Tạo Loại Hàng Hóa";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
-<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
-<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
-<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
-
-<div class="page-title">
-    <div class="title_left">
-        <h2>@ViewBag.Title</h2>
-    </div>
-</div>
-
-
-<div>
-    <div class="x_panel">
-        <div class="x_title">
-            <h2>Thông Tin Loại Hàng Hóa</h2>
-            <div class="clearfix"></div>
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Loại hàng hóa</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "LoaiHangHoa") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            </button>
         </div>
-        <div class="x_content">
-            @using (Html.BeginForm("Create", "LoaiHangHoa", FormMethod.Post))
-            {
-                <div class="form-horizontal">                  
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Loại Hàng Hóa <span class="required">*</span>
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="tenLoaiHangHoa" class="form-control" />
-                        </div>
-                    </div>
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Phần trăm lợi nhuận <span class="required">*</span>
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="phanTramLoiNhuan" class="form-control" />
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Start input fields - basic form -->
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">@ViewBag.Title</h3>
                         </div>
-                    </div>            
-                    <div class="form-group">
-                        <div class="col-md-offset-5 col-sm-offset-3 ">
-                            <input type="submit" value="Lưu Loại Hàng Hòa" class="btn btn-primary" />
-                        </div>
-                    </div>
+                        <div class="clearfix"></div>
+                    </div><!-- /.panel-heading -->
 
+                    <div class="panel-body no-padding">
+                        @using (Html.BeginForm("Create", "LoaiHangHoa", FormMethod.Post, new { id = "basic-validate" }))
+                        {
+                            <div class="form-body">
+
+                                <div class="form-group">
+                                    <label class="control-label">Tên Loại Hàng Hóa</label>
+                                    <input type="text" name="tenloaihanghoa" class="form-control rounded" maxlength="50" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Phần trăm lợi nhuận</label>
+                                    <input type="text" name="phantramloinhuan" class="form-control rounded" required />
+                                </div>
+                            </div><!-- /.form-body -->
+                            <div class="form-group">
+                                <div class="col-md-offset-5 col-sm-offset-3 ">
+                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-saved"></i> Lưu</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
                 </div>
-
-            }
+            </div>
         </div>
     </div>
-</div>
-
-
-
-
-
+</section>
+<script src="~/Scripts/bootstrap.min.js"></script>

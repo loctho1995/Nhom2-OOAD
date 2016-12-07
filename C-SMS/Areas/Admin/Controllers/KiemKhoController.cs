@@ -22,7 +22,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.data = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+            ViewBag.trangthai = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
                                                     new { Value = "false", Text = "Đã hủy" }},
                                                "Value", "Text");
             return View();

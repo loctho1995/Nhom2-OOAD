@@ -47,13 +47,13 @@ namespace Business.Implements
             return (soPhieuKiemKho.First() + 1);
         }
 
-        public IList<PhieuNhapKhoViewModel> SearchDanhSachPhieuNhapKho(String key, string trangthai, DateTime tungay, DateTime denngay, string nhanVienCode)
+        public IList<PhieuNhapKhoViewModel> SearchDanhSachPhieuNhapKho(String key, string trangthai, DateTime tungay, DateTime denngay, string userName)
         {
             IQueryable<PhieuNhap> dsPhieuNhap = _phieuNhapKhoRepo.GetAll();
             List<PhieuNhapKhoViewModel> all = new List<PhieuNhapKhoViewModel>();
             List<PhieuNhapKhoViewModel> allForManager = new List<PhieuNhapKhoViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(nhanVienCode) == 5)
+            if (_nhanVienBus.layMaChucVu(userName) == 5)
             {
                 if ((!(tungay == default(DateTime))) && (!(denngay == default(DateTime))))
                 {
@@ -62,7 +62,7 @@ namespace Business.Implements
                            on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
                            join nhacungcap in _nhaCungCapRepo.GetAll()
                            on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && phieunhap.NgayNhap >= tungay.Date && phieunhap.NgayNhap <= denngay.Date)
+                           where (nhanvien.UserName.Equals(userName) && phieunhap.NgayNhap >= tungay.Date && phieunhap.NgayNhap <= denngay.Date)
                            select new
                            {
                                SoPhieuNhap = phieunhap.SoPhieuNhap,
@@ -93,7 +93,7 @@ namespace Business.Implements
                            on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
                            join nhacungcap in _nhaCungCapRepo.GetAll()
                            on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                           where (nhanvien.UserName.Equals(userName) && (
                                      phieunhap.SoPhieuNhap.ToString().Contains(key)
                                   || nhanvien.TenNhanvien.Contains(key)
                                   || nhacungcap.TenNhaCungCap.Contains(key)))
@@ -126,7 +126,7 @@ namespace Business.Implements
                            on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
                            join nhacungcap in _nhaCungCapRepo.GetAll()
                            on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                           where (nhanvien.UserName.Equals(userName) && (
                                      phieunhap.TrangThai.Equals(trangthai)))
                            select new
                            {
@@ -156,7 +156,7 @@ namespace Business.Implements
                                  on phieunhap.MaNhanVien equals nhanvien.MaNhanVien
                                  join nhacungcap in _nhaCungCapRepo.GetAll()
                                  on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
-                                 where (nhanvien.NhanVienCode.Equals(nhanVienCode))
+                                 where (nhanvien.UserName.Equals(userName))
                        select new
                        {
                            SoPhieuNhap = phieunhap.SoPhieuNhap,
@@ -314,12 +314,13 @@ namespace Business.Implements
             PhieuNhap phieuNhap = new PhieuNhap
             {
                 SoPhieuNhap = O.soPhieuNhapKho,
-                SoPhieuNhapCode = "a",
                 NgayNhap = O.ngayNhapKho,
                 MaNhanVien = O.maNhanVien,
                 MaNhaCungCap = O.maNhaCungCap,
                 TongTien = O.tongTien,
-                Ghichu = O.ghiChu
+                Ghichu = O.ghiChu,
+                TrangThai = true,
+                NgayChinhSua = DateTime.Now,
             };
             DateTime today = DateTime.Now;
             int thang = today.Month;
@@ -420,6 +421,31 @@ namespace Business.Implements
             {
 
             }
+        }
+
+        public IEnumerable<ThongTinHoatDongViewModel> ThongTinHoatDong()
+        {
+            IQueryable<PhieuNhap> danhSachPhieuNhapKho = _phieuNhapKhoRepo.GetAll();
+            List<ThongTinHoatDongViewModel> all = new List<ThongTinHoatDongViewModel>();
+
+            all = (from phieunhapkho in danhSachPhieuNhapKho
+                   join nhanvien in _nhanVienRepo.GetAll()
+                   on phieunhapkho.MaNhanVien equals nhanvien.MaNhanVien
+                   orderby phieunhapkho.NgayChinhSua descending
+                   select new
+                   {
+                       SoPhieuNhapKho = phieunhapkho.SoPhieuNhap,
+                       NgayChinhSua = phieunhapkho.NgayChinhSua,
+                       TenNhanVien = nhanvien.TenNhanvien,
+                       TrangThai = phieunhapkho.TrangThai,
+                   }).AsEnumerable().Select(x => new ThongTinHoatDongViewModel()
+                   {
+                       soPhieuNhapKho = x.SoPhieuNhapKho,
+                       ngayChinhSuaNhapKho = x.NgayChinhSua,
+                       tenNhanVienNhapKho = x.TenNhanVien,
+                       trangThaiNhapKho = x.TrangThai,
+                   }).Take(1).ToList();
+            return all;
         }
     }
 }

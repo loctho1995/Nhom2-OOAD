@@ -79,9 +79,9 @@ namespace Business.Implements
         public List<Object> LoadChucVu()
         {
             IQueryable<ChucVu> dsChucVu = _chucVuRepo.GetAll();
-            string[] IDs= {"BanHang", "ThuKho", "KeToan", "KyThuat"};
+            int[] IDs= {4,5,6,7};
             var list = (from chucvu in dsChucVu
-                        where IDs.Contains(chucvu.ChucVuCode)
+                        where IDs.Contains(chucvu.MaChucVu)
                         select new SelectListItem
                         {
                             Text = chucvu.TenChucVu,

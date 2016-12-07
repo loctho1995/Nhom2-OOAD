@@ -5,30 +5,29 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
-<div class="alert alert-danger fade in">
-    <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn hủy?</span>
-</div>
-
-<br />
-
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="row">
-                @{Html.RenderAction("ThongTinPhieuNhapKho", "NhapKho");}
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Phiếu Nhập Kho</h2>
+    </div>
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="alert alert-danger fade in">
+                <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn hủy?</span>
             </div>
 
+            @{Html.RenderAction("ThongTinPhieuNhapKho", "NhapKho");}
         </div>
-
         @using (Html.BeginForm("Delete", "NhapKho"))
         {
             <div class="form-group">
                 <div class="col-md-offset-4 col-sm-offset-3">
-                    <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "NhapKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
-                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Hủy Phiếu Nhập Kho</button>
+                    <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
+                        <i class="fa fa-trash"></i> Hủy Phiếu Nhập Kho
+                    </button>
                 </div>
             </div>
         }
     </div>
-</div>
+</section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>

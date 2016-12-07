@@ -13,9 +13,6 @@ namespace Common.Models
         public int MaNhaCungCap { get; set; }
 
         [StringLength(50)]
-        public string NhaCungCapCode { get; set; }
-
-        [StringLength(50)]
         public string TenNhaCungCap { get; set; }
 
         [StringLength(100)]

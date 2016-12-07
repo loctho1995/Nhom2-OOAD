@@ -5,81 +5,84 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
-<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
-<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
-
-
-<div class="page-title">
-    <div class="title_left">
-        <h2>@ViewBag.Title</h2>
-    </div>
-    <ul class="nav navbar-right panel_toolbox">
-        <li class="dropdown">
-            <ul class="nav navbar-right panel_toolbox">
-                <li class="dropdown">
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Xuất Báo Cáo
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="@Url.Action("XuatFilePDF", "BaoCaoTonKho")" style="font-family:'Times New Roman', Times, serif">
-                                    Xuất file PDF
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("XuatFileEXE", "BaoCaoTonKho")" style="font-family:'Times New Roman', Times, serif">
-                                    Xuất file Excel
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-
-<div>
-    <div class="x_panel">
-        <div class="x_content">
-            @using (Ajax.BeginForm("DanhSachBaoCaoTonKho", "BaoCaoTonKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
-            {
-                <div class="form-group clearfix">
-                    @*<div class="col-md-6 col-sm-6 col-xs-12">
-                            <label> Tháng</label>
-                            <select id="thang" name="thang" style="width:99%">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                            </select>
-                        </div>*@
-                    <label class="control-label">Tháng</label>
-                    <div class="input-group">
-                        @Html.TextBox("thang", null, new { @class = "form-control", @placeholder = "Nhập tháng" })
-                        @Html.TextBox("nam", null, new { @class = "form-control", @placeholder = "Nhập năm" })
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </span>
-                    </div>
-                </div>
-            }
-            <div id="list">
-                @{Html.RenderAction("DanhSachBaoCaoTonKho", "BaoCaoTonKho");}
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Báo cáo tồn kho</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <div class="input-group-btn">
+                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Xuất ra file</button>
+                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="@Url.Action("XuatFilePDF", "BaoCaoTonKho")">Xuất file PDF</a></li>
+                    <li><a href="@Url.Action("XuatFileEXE", "BaoCaoTonKho")">Xuất file Excel</a></li>
+                </ul>
             </div>
         </div>
     </div>
-</div>
+
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">Hàng hóa tồn kho</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-body">
+                            @using (Ajax.BeginForm("DanhSachBaoCaoTonKho", "BaoCaoTonKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-6">
+                                        <label class="control-label">Chọn tháng</label>
+                                        <select data-placeholder="Chọn tháng" class="chosen-select" tabindex="2">
+                                            <option value="1">Tháng 1</option>
+                                            <option value="2">Tháng 2</option>
+                                            <option value="3">Tháng 3</option>
+                                            <option value="4">Tháng 4</option>
+                                            <option value="5">Tháng 5</option>
+                                            <option value="6">Tháng 6</option>
+                                            <option value="7">Tháng 7</option>
+                                            <option value="8">Tháng 8</option>
+                                            <option value="9">Tháng 9</option>
+                                            <option value="10">Tháng 10</option>
+                                            <option value="11">Tháng 11</option>
+                                            <option value="12">Tháng 12</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="control-label">Chọn năm</label>
+                                        <div class="input-group">
+                                            <select data-placeholder="Chọn năm" class="chosen-select">
+                                                <option value="2015">2015</option>
+                                                <option value="2016">2016</option>
+                                                <option value="2017">2017</option>
+                                                <option value="2018">2018</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2020</option>
+                                            </select>
+
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default btn-sm" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                            <div id="list">
+                                @{Html.RenderAction("DanhSachBaoCaoTonKho", "BaoCaoTonKho");}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>

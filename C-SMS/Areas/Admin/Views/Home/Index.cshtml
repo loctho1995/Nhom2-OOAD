@@ -3,52 +3,353 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<style>
-    .inner-bg {
-        background: url("../../../../Content/assets/images/bg.jpg");
-        height: 662px;
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <link href="~/Content/assets/global/plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/global/plugins/bower_components/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/global/plugins/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/reset.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/layout.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/components.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/plugins.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/themes/default.theme.css" rel="stylesheet" id="theme">
+    <link href="~/Content/assets/admin/css/pages/sign.css" rel="stylesheet">
+    <link href="~/Content/assets/admin/css/custom.css" rel="stylesheet">
+    <link href="~/Content/assets/global/plugins/bower_components/jquery.gritter/css/jquery.gritter.css" rel="stylesheet">
+    <link href="~/Content/assets/global/plugins/bower_components/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!--/ END THEME STYLES -->
+
+</head>
+<!--/ END HEAD -->
+<!--
+-->
+<body class="page-sound">
+    @if (Session["Account"] == null)
+    {
+        <div id="sign-wrapper">
+            <!-- Login form -->
+            <form class="sign-in form-horizontal shadow rounded no-overflow" action="/Admin/Home/Login" method="post">
+                <div class="sign-header">
+                    <div class="form-group">
+                        <div class="sign-text">
+                            <!--<span>Member Area</span>-->
+                            <span>Phạm Hoàng Hải Sơn</span>
+                        </div>
+                    </div><!-- /.form-group -->
+                </div><!-- /.sign-header -->
+                <div class="sign-body">
+                    <div class="form-group">
+                        <div class="input-group input-group-lg rounded no-overflow">
+                            <input type="text" class="form-control input-sm" placeholder="Tên đăng nhập" name="username" required>
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        </div>
+                    </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <div class="input-group input-group-lg rounded no-overflow">
+                            <input type="password" class="form-control input-sm" placeholder="Mật khẩu" name="password" required>
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        </div>
+                    </div><!-- /.form-group -->
+                </div><!-- /.sign-body -->
+                @if (@TempData["notify"] != null)
+                {
+                    <h3 class="notify" style="color:red">@Html.Raw(@TempData["notify"])</h3>
+                }
+                <div class="sign-footer">
+                    <div class="form-group">
+                        <div class="row">
+
+                        </div>
+                    </div><!-- /.form-group -->
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-theme btn-lg btn-block no-margin rounded" id="login-btn">Đăng Nhập</button>
+                    </div><!-- /.form-group -->
+                </div><!-- /.sign-footer -->
+            </form><!-- /.form-horizontal -->
+
+        </div><!-- /#sign-wrapper -->
     }
-</style>
+    else
+    {
+        <section id="page-content">
+            <div id="tour-11" class="header-content">
+                <h2><i class="fa fa-home"></i>Trang chính</h2>
+            </div>
+            <div class="body-content animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="mini-stat-type-3 shadow border-danger">
+                            <div class="ribbon-wrapper">
+                                <a href="#" class="ribbon ribbon-success ribbon-shadow">Đơn đặt hàng</a>
+                            </div>
+                            <span class="text-uppercase text-block text-left">Số đơn đặt hàng: <span class="counter">@ViewBag.soPhieuDatHang</span></span>
+                            <span class="text-uppercase text-block text-left">Số đơn đặt hàng: <span class="counter">@ViewBag.soPhieuDatHang</span></span>
+                            @*<h3 class="text-strong text-left">$<span class="counter">@ViewBag.soPhieuDatHang</span>B</h3>*@
+                            <div class="meta-stat">
+                                <span class="pull-left text-uppercase">growth</span>
+                                <span class="pull-right">-<span class="counter">20.5</span>%</span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="mini-stat-type-3 shadow border-danger">
+                            <div class="ribbon-wrapper">
+                                <a href="#" class="ribbon ribbon-danger ribbon-shadow">View</a>
+                            </div>
+                            <span class="text-uppercase text-block text-center"># investments</span>
+                            <h3 class="text-strong text-center"><span class="counter">3,540</span></h3>
+                            <div class="meta-stat">
+                                <span class="pull-left text-uppercase">growth</span>
+                                <span class="pull-right">-<span class="counter">6.5</span>%</span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="mini-stat-type-3 shadow border-danger">
+                            <div class="ribbon-wrapper">
+                                <a href="#" class="ribbon ribbon-primary ribbon-shadow">View</a>
+                            </div>
+                            <span class="text-uppercase text-block text-center">median raise</span>
+                            <h3 class="text-strong text-center">$<span class="counter">1.8</span>M</h3>
+                            <div class="meta-stat">
+                                <span class="pull-left text-uppercase">growth</span>
+                                <span class="pull-right">-<span class="counter">13.5</span>%</span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
 
-@if (Session["Account"] == null)
-{ <div class="inner-bg">
-        <section class="container">
-
-            <section class="login-form">
-                <form method="post" action="/Admin/Home/Login" role="login">
-                    <img src="~/Content/assets/images/logo.png" class="img-responsive" alt="" />
-                    <input type="text" name="username" placeholder="Usename" required class="form-control input-lg" />
-                    <input type="password" name="password" id="form-password" placeholder="Password" required class="form-control input-lg" />
-
-                    @if (@TempData["notify"] != null)
-                    {
-                        <h3 class="notify" style="color:red">@Html.Raw(@TempData["notify"])</h3>
-                    }
-                    <input value="Login" type="submit" id="btnLogin" class="btn btn-lg btn-primary btn-block" onclick="return Checknull()">
-
-                </form>
-                <div class="form-links">
-                    <a href="#">www.nhom02.com</a>
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="mini-stat-type-3 shadow border-danger">
+                            <div class="ribbon-wrapper">
+                                <a href="#" class="ribbon ribbon-warning ribbon-shadow">View</a>
+                            </div>
+                            <span class="text-uppercase text-block text-center"># startup</span>
+                            <h3 class="text-strong text-center"><span class="counter">2,480</span></h3>
+                            <div class="meta-stat">
+                                <span class="pull-left text-uppercase">growth</span>
+                                <span class="pull-right">-<span class="counter">7.0</span>%</span>
+                                <span class="clearfix"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <!-- Start list bank table -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center"><b>Thông tin kho</b></h3>
+                                    </div><!-- /.panel-heading -->
+                                    <div class="panel-body no-padding">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Tồn kho</span>
+                                                            <span class="pull-right text-strong fg-teals"><span class="counter">230.45</span></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Hết hàng</span>
+                                                            <span class="pull-right text-strong fg-teals">$<span class="counter">34.11</span></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Sắp hết hàng</span>
+                                                            <span class="pull-right text-strong fg-teals"><span class="counter">34.11</span></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><!-- /.panel-body -->
+                                </div>
+                                <!--/ End list bank table -->
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <!-- Start list bank table -->
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title text-center"><b>Thông tin hàng hóa</b></h3>
+                                    </div><!-- /.panel-heading -->
+                                    <div class="panel-body no-padding">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Tồn kho</span>
+                                                            <span class="pull-right text-strong fg-teals">$<span class="counter">230.45</span></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Pending transactions:</span>
+                                                            <span class="pull-right text-strong fg-teals">$<span class="counter">34.11</span></span>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <span class="pull-left text-capitalize">Reserves & holds:</span>
+                                                            <span class="pull-right text-strong">$<span class="counter">0.00</span></span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div><!-- /.panel-body -->
+                                </div>
+                                <!--/ End list bank table -->
+
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <!-- Start widget visitor chart -->
+                                <div id="tour-13" class="panel stat-stack widget-visitor rounded shadow">
+                                    <div class="panel-body no-padding br-3">
+                                        <div class="row row-merge">
+                                            <div class="col-sm-8">
+                                                <div class="panel panel-theme stat-left no-margin no-box-shadow">
+                                                    <div class="panel-heading no-border">
+                                                        <div class="pull-left">
+                                                            <h3 class="panel-title">Daily Visitor</h3>
+                                                        </div><!-- /.pull-left -->
+                                                        <div class="pull-right">
+                                                            <div class="btn-group">
+                                                                <button type="button" class="btn btn-sm btn-theme dropdown-toggle no-border" data-toggle="dropdown">
+                                                                    Duration <span class="caret"></span>
+                                                                </button>
+                                                                <ul class="dropdown-menu dropdown-menu-right no-border">
+                                                                    <li class="dropdown-header">Select duration :</li>
+                                                                    <li><a href="#">Year</a></li>
+                                                                    <li><a href="#">Month</a></li>
+                                                                    <li><a href="#">Week</a></li>
+                                                                    <li><a href="#">Day</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div><!-- /.pull-right -->
+                                                        <div class="clearfix"></div>
+                                                    </div><!-- /.panel-heading -->
+                                                    <div class="panel-body bg-theme">
+
+                                                        <div id="visitor-chart" class="resize-chart"></div>
+
+                                                    </div><!-- /.panel-body -->
+                                                    <div class="panel-footer no-border-top">
+                                                        <div class="row text-center">
+                                                            <div class="col-xs-4 col-xs-override border-right dotted">
+                                                                <p class="text-danger text-strong mb-0">- 5%</p>
+                                                                <p class="h3 text-strong mb-0 mt-10 counter-visit" data-counter="7341">7,341</p>
+                                                                <p class="text-muted">Visits Today</p>
+                                                            </div>
+                                                            <div class="col-xs-4 col-xs-override border-right dotted">
+                                                                <p class="text-success text-strong mb-0">+ 32%</p>
+                                                                <p class="h3 text-strong mb-0 mt-10 counter-unique" data-counter="23762">23,762</p>
+                                                                <p class="text-muted">Unique Visitors</p>
+                                                            </div>
+                                                            <div class="col-xs-4 col-xs-override">
+                                                                <p class="text-success text-strong mb-0">+ 76%</p>
+                                                                <p class="h3 text-strong mb-0 mt-10 counter-page" data-counter="70112">70,112</p>
+                                                                <p class="text-muted">Page Views</p>
+                                                            </div>
+                                                        </div>
+                                                    </div><!-- /.panel-footer -->
+                                                </div><!-- /.panel -->
+                                            </div><!-- /.col-sm-8 -->
+                                            <div class="col-sm-4">
+                                                <div class="panel stat-right no-margin no-box-shadow">
+                                                    <div class="panel-body">
+                                                        <h4 class="no-margin">Server Status</h4>
+                                                        <p class="text-muted">Summary of the server status.</p>
+
+                                                        <span>Domains</span><span class="pull-right">(7/10)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-lilac" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%"></div>
+                                                        </div><!-- /.progress -->
+
+                                                        <span>Databases</span><span class="pull-right">(45/100)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-teal" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
+                                                        </div><!-- /.progress -->
+
+                                                        <span>Email Account</span><span class="pull-right">(30/50)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%"></div>
+                                                        </div><!-- /.progress -->
+
+                                                        <span>Memory Usage</span><span class="pull-right">(45.2%)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%"></div>
+                                                        </div><!-- /.progress -->
+
+                                                        <span>Disk Usage</span><span class="pull-right">(68.2%)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: 68%"></div>
+                                                        </div><!-- /.progress -->
+
+                                                        <span>CPU Usage</span><span class="pull-right">(35.05 - 30 cpus)</span>
+                                                        <div class="progress progress-xs">
+                                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="78" aria-valuemin="0" aria-valuemax="100" style="width: 78%"></div>
+                                                        </div><!-- /.progress -->
+                                                    </div><!-- /.panel-body -->
+                                                    <div class="panel-footer">
+                                                        <div id="realtime-status-chart" class="resize-chart"></div>
+                                                    </div>
+                                                </div><!-- /.panel -->
+                                            </div><!-- /.col-sm-4 -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.panel-body -->
+                                </div><!-- /.panel -->
+                                <!--/ End widget visitor chart -->
+
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="recent-activity">
+
+                            @{
+                                Html.RenderAction("ThongTinHoatDong", "Home");
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
-    </div>
-}
+    }
 
-else
-{
-    // Show notify
-    <div class="choose">
-        <h1>
-            Please choose on left panel!!!
-        </h1>
-        <img src="~/Content/Image/Home/left_arrow.gif" width="50" />
-    </div>
-    <link href="~/Content/Css/PleaseChoose.css" rel="stylesheet" />
-}
+    <script src="~/Content/assets/global/plugins/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/jquery-cookie/jquery.cookie.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/jquery-easing-original/jquery.easing.1.3.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/ionsound/js/ion.sound.min.js"></script>
+    <!--/ END CORE PLUGINS -->
+    <script src="~/Content/assets/global/plugins/bower_components/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/admin/js/pages/blankon.sign.js"></script>
+    <script src="~/Content/assets/admin/js/demo.js"></script>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="~/Content/assets/bootstrap/js/bootstrap.min.js"></script>
-@* Validate login *@
-<script src="~/Scripts/ValidateLogin.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Content/assets/admin/js/pages/blankon.dashboard.ecommerce.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/raphael/raphael-min.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/morrisjs/morris.min.js"></script>
+    <script src="~/Content/assets/global/plugins/bower_components/bootstrap-session-timeout/dist/bootstrap-session-timeout.min.js"></script>
+</body>
+<!-- END BODY -->
+</html>

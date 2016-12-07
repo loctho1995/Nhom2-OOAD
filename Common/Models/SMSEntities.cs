@@ -13,7 +13,6 @@ namespace Common.Models
         }
 
         public virtual DbSet<BaoCaoTonKho> BaoCaoTonKhoes { get; set; }
-        public virtual DbSet<Code> Codes { get; set; }
         public virtual DbSet<ChiTietPhieuBanHang> ChiTietPhieuBanHangs { get; set; }
         public virtual DbSet<ChiTietPhieuBaoHanh> ChiTietPhieuBaoHanhs { get; set; }
         public virtual DbSet<ChiTietPhieuDatHang> ChiTietPhieuDatHangs { get; set; }
@@ -26,7 +25,6 @@ namespace Common.Models
         public virtual DbSet<NhaCungCap> NhaCungCaps { get; set; }
         public virtual DbSet<NhanVien> NhanViens { get; set; }
         public virtual DbSet<NhanVien_Quyen> NhanVien_Quyen { get; set; }
-        public virtual DbSet<Prefix> Prefixes { get; set; }
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; }
         public virtual DbSet<PhieuBanHang> PhieuBanHangs { get; set; }
         public virtual DbSet<PhieuBaoHanh> PhieuBaoHanhs { get; set; }
@@ -39,13 +37,6 @@ namespace Common.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Code>()
-                .Property(e => e.TableName)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Code>()
-                .Property(e => e.TenVietTat)
-                .IsUnicode(false);
 
             modelBuilder.Entity<ChiTietPhieuBanHang>()
                 .Property(e => e.Gia)
@@ -87,14 +78,7 @@ namespace Common.Models
                 .Property(e => e.ThanhTien)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<ChucVu>()
-                .Property(e => e.ChucVuCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<HangHoa>()
-                .Property(e => e.HangHoaCode)
-                .IsUnicode(false);
-
+          
             modelBuilder.Entity<HangHoa>()
                 .Property(e => e.GiaBan)
                 .HasPrecision(18, 0);
@@ -103,20 +87,8 @@ namespace Common.Models
                 .Property(e => e.GiamGia)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<LoaiHangHoa>()
-                .Property(e => e.LoaiHangHoaCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NhaCungCap>()
-                .Property(e => e.NhaCungCapCode)
-                .IsUnicode(false);
-
             modelBuilder.Entity<NhaCungCap>()
                 .Property(e => e.SoDienThoai)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<NhanVien>()
-                .Property(e => e.NhanVienCode)
                 .IsUnicode(false);
 
             modelBuilder.Entity<NhanVien>()
@@ -139,18 +111,11 @@ namespace Common.Models
                 .Property(e => e.MaQuyen)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Prefix>()
-                .Property(e => e.IDPrefix)
-                .IsUnicode(false);
-
             modelBuilder.Entity<PhanQuyen>()
                 .Property(e => e.MaQuyen)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<PhieuBanHang>()
-                .Property(e => e.SoPhieuBanHangCode)
-                .IsUnicode(false);
-
+           
             modelBuilder.Entity<PhieuBanHang>()
                 .Property(e => e.SoDienThoai)
                 .IsUnicode(false);
@@ -159,10 +124,7 @@ namespace Common.Models
                 .Property(e => e.TongTien)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<PhieuBaoHanh>()
-                .Property(e => e.SoPhieuBaoHanhCode)
-                .IsUnicode(false);
-
+          
             modelBuilder.Entity<PhieuBaoHanh>()
                 .Property(e => e.SoDienThoai)
                 .IsUnicode(false);
@@ -171,18 +133,13 @@ namespace Common.Models
                 .Property(e => e.TongTien)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<PhieuChi>()
-                .Property(e => e.SoPhieuChiCode)
-                .IsUnicode(false);
+         
 
             modelBuilder.Entity<PhieuChi>()
                 .Property(e => e.TongTienChi)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<PhieuDatHang>()
-                .Property(e => e.SoPhieuDatHangCode)
-                .IsUnicode(false);
-
+           
             modelBuilder.Entity<PhieuDatHang>()
                 .Property(e => e.SoDienThoai)
                 .IsUnicode(false);
@@ -191,22 +148,12 @@ namespace Common.Models
                 .Property(e => e.TongTien)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<PhieuKiemKho>()
-                .Property(e => e.SoPhieuKiemKhoCode)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<PhieuNhap>()
-                .Property(e => e.SoPhieuNhapCode)
-                .IsUnicode(false);
-
+         
             modelBuilder.Entity<PhieuNhap>()
                 .Property(e => e.TongTien)
                 .HasPrecision(18, 0);
 
-            modelBuilder.Entity<PhieuXuatKho>()
-                .Property(e => e.SoPhieuXuatKhoCode)
-                .IsUnicode(false);
-
+       
             modelBuilder.Entity<PhieuXuatKho>()
                 .Property(e => e.TongTien)
                 .HasPrecision(18, 0);

@@ -12,9 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuBaoHanh { get; set; }
 
-        [StringLength(50)]
-        public string SoPhieuBaoHanhCode { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime NgayLap { get; set; }
 
@@ -35,5 +32,13 @@ namespace Common.Models
         public string GhiChu { get; set; }
 
         public bool DaGiao { get; set; }
+
+        public bool TrangThai { get; set; }
+
+        public DateTime NgayChinhSua { get; set; }
+
+        public string Value { get; set; }
+
+        public int Value1 { get; set; }
     }
 }

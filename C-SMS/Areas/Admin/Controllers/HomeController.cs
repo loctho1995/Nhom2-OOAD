@@ -12,6 +12,7 @@ using Common.ViewModels;
 using System.Threading.Tasks;
 using Common;
 using Common.Ultil;
+using System.IO;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -20,6 +21,11 @@ namespace WebBanHang.Areas.Admin.Controllers
         static HomeController curController;
 
         NhanVienBusiness _nhanVienBus = new NhanVienBusiness();
+        PhieuDatHangBusiness _phieuDatHangBus = new PhieuDatHangBusiness();
+        PhieuKiemKhoBusiness _phieuKiemKhoBus = new PhieuKiemKhoBusiness();
+        PhieuXuatKhoBusiness _phieuXuatKhoBus = new PhieuXuatKhoBusiness();
+        PhieuNhapKhoBusiness _phieuNhapKhoBus = new PhieuNhapKhoBusiness();
+        PhieuBanHangBusiness _phieuBanHangBus = new PhieuBanHangBusiness();
         ChucVuBusiness _chucVuBus = new ChucVuBusiness();
 
         public static string nhanVienCode = string.Empty;
@@ -31,9 +37,23 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 TempData["notify"] = "ID hoặc Password không đúng!!!";
             }
+            ViewBag.soPhieuDatHang = _phieuDatHangBus.LaySoDonDatHang();
+            
             return View();
         }
 
+
+        public PartialViewResult ThongTinHoatDong()
+        {
+            ViewBag.thongTinHoatDongKiemKho = _phieuKiemKhoBus.ThongTinHoatDong();
+            ViewBag.thongTinHoatDongXuatKho = _phieuXuatKhoBus.ThongTinHoatDong();
+            ViewBag.thongTinHoatDongNhapKho = _phieuNhapKhoBus.ThongTinHoatDong();
+            ViewBag.thongTinHoatDongBanHang = _phieuBanHangBus.ThongTinHoatDong();
+           
+            return PartialView();
+        }
+
+        
         [HttpPost]
         public ActionResult Login(FormCollection f)
         {
@@ -76,11 +96,6 @@ namespace WebBanHang.Areas.Admin.Controllers
             var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(ticket));
             if (ticket.IsPersistent) cookie.Expires = ticket.Expiration;
             Response.Cookies.Add(cookie);
-        }
-
-        public ActionResult PermissionError()
-        {
-            return View();
         }
 
         public ActionResult Logout()

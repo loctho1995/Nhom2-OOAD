@@ -27,36 +27,29 @@ namespace Business.Implements
             return loaiHangHoa.ToList();
         }
 
-        public IEnumerable<LoaiHangHoaViewModel> LoadDanhSachLoaiHangHoa()
+        public IList<LoaiHangHoa> LoadDanhSachLoaiHangHoa(string key)
         {
             IQueryable<LoaiHangHoa> danhSachLoaiHangHoa = _loaiHangHoaRepo.GetAll();
-            List<LoaiHangHoaViewModel> all = new List<LoaiHangHoaViewModel>();
 
-            all = (from nhanvien in danhSachLoaiHangHoa               
-                   select new
-                   {
-                       MaLoaiHangHoa = nhanvien.MaLoaiHangHoa,
-                       TenLoaiHangHoa = nhanvien.TenLoaiHangHoa,
-                       PhanTramLoiNhuan = nhanvien.PhanTramLoiNhuan,
-                   }).AsEnumerable().Select(x => new LoaiHangHoaViewModel()
-                   {
-                       maLoaiHangHoa = x.MaLoaiHangHoa,
-                       tenLoaiHangHoa = x.TenLoaiHangHoa,
-                       phanTramLoiNhuan = x.PhanTramLoiNhuan,                     
-                   }).ToList();
-            return all;
-
+            //Find by keyword
+            if (!string.IsNullOrEmpty(key))
+            {
+                danhSachLoaiHangHoa = from loaihanghoa in danhSachLoaiHangHoa
+                                      where (loaihanghoa.TenLoaiHangHoa.Contains(key)
+                                            || loaihanghoa.PhanTramLoiNhuan.ToString().Contains(key))
+                                      select loaihanghoa;
+            }
+            return danhSachLoaiHangHoa.ToList();
         }
 
         public async Task Create(object model)
         {
             var loaihanghoa = new LoaiHangHoa();
-            LoaiHangHoaViewModel input = (LoaiHangHoaViewModel)model;
+            LoaiHangHoa input = (LoaiHangHoa)model;
 
-            loaihanghoa.TenLoaiHangHoa = input.tenLoaiHangHoa;
-            loaihanghoa.PhanTramLoiNhuan = input.phanTramLoiNhuan;
-            loaihanghoa.LoaiHangHoaCode = "";
-
+            loaihanghoa.TenLoaiHangHoa = input.TenLoaiHangHoa;
+            loaihanghoa.PhanTramLoiNhuan = input.PhanTramLoiNhuan;
+           
             await _loaiHangHoaRepo.InsertAsync(loaihanghoa);
         }
         public List<Object> LoadLoaiHangHoa()
@@ -69,6 +62,28 @@ namespace Business.Implements
                             Value = loaihanghoa.MaLoaiHangHoa.ToString(),
                         });
             return new List<Object>(list);
+        }
+
+        public IList<LoaiHangHoa> LoadDanhSachLoaiHangHoaTheoMa(int maLoaiHangHoa)
+        {
+            IQueryable<LoaiHangHoa> danhSachLoaiHangHoa = _loaiHangHoaRepo.SearchFor(i => i.MaLoaiHangHoa == maLoaiHangHoa);
+            return danhSachLoaiHangHoa.ToList();
+        }
+
+        public async Task<object> Find(int ID)
+        {
+            return await _loaiHangHoaRepo.GetByIdAsync(ID);
+        }
+
+        public async Task Update(object inputModel, object editModel)
+        {
+            LoaiHangHoa input = (LoaiHangHoa)inputModel;
+            LoaiHangHoa editLoaiHangHoa = (LoaiHangHoa)editModel;
+
+            editLoaiHangHoa.TenLoaiHangHoa = input.TenLoaiHangHoa;
+            editLoaiHangHoa.PhanTramLoiNhuan = input.PhanTramLoiNhuan;
+
+            await _loaiHangHoaRepo.EditAsync(editLoaiHangHoa);
         }
     }
 }

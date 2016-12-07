@@ -5,24 +5,25 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Phiếu Nhập Kho</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhapKho") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            </button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "NhapKho") + "'"); ">
+                <i class="glyphicon glyphicon-saved"></i>
+                Tạo mới phiếu nhập kho
+            </button>
 
-<div class="header">
-    <div class="col-sm-5 no-padding-left">
-        <h2>@ViewBag.Title</h2>
-    </div>
-    <div class="pull-right">
-        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "NhapKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
-    </div>
-</div>
-
-
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-            <div class="row">
-                @{Html.RenderAction("ThongTinPhieuNhapKho", "NhapKho");}
-            </div>
         </div>
     </div>
-</div>
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            @{Html.RenderAction("ThongTinPhieuNhapKho", "NhapKho");}
+
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/bootstrap.min.js"></script>

@@ -3,104 +3,101 @@
     ViewBag.Title = "Tạo Nhân Viên";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
-<link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
-<link href="../../Content/foundation/foundation.css" type="text/css" rel="Stylesheet" />
-<link href="../../Content/DataTables-1.9.4/foundation/dataTables.foundation.css" type="text/css" rel="Stylesheet" />
-<link rel="stylesheet" href="../../Content/foundation/foundation_icons_general/stylesheets/general_foundicons.css">
-
-<div class="page-title">
-    <div class="title_left">
-        <h2>@ViewBag.Title</h2>
-    </div>
-</div>
-
-
-<div>
-    <div class="x_panel">
-        <div class="x_title">
-            <h2>Thông Tin Nhân Viên</h2>
-            <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-            @using (Html.BeginForm("Create", "NhanVien", FormMethod.Post))
-            {
-                <div class="form-horizontal">
-                  
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Đăng Nhập 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="nhanviencode" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Nhân Viên 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="tennhanvien" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Email 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="email" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Địa Chỉ 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="diachi" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Số Điện Thoại 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="sodienthoai" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            CMND 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="cmnd" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Chức Vụ 
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-5 col-sm-offset-3 ">
-                            <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu Nhân Viên</button>
-                        </div>
-                    </div>
-
-                </div>
-
-            }
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Nhân Viên</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhanVien") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            </button>
+            <button class="btn btn-lg btn-primary btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhanVien") + "'"); ">
+                <i class="fa fa-list"></i>
+                Danh sách nhân viên
+            </button>
         </div>
     </div>
-</div>
 
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Start input fields - basic form -->
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">@ViewBag.Title</h3>
+                        </div>
 
+                        <div class="clearfix"></div>
+                    </div><!-- /.panel-heading -->
 
+                    <div class="panel-body no-padding">
+                        @using (Html.BeginForm("Create", "NhanVien", FormMethod.Post, new { id = "basic-validate", enctype = "multipart/form-data" }))
+                        {
+                            <div class="form-body">
 
+                                <div class="form-group">
+                                    <label class="control-label">Tên Nhân Viên</label>
+                                    <input type="text" name="tennhanvien" class="form-control rounded" maxlength="50" required />
+                                </div>
 
+                                <div class="form-group">
+                                    <label class="control-label">Tên Đăng Nhập</label>
+                                    <input type="text" name="tendangnhap" class="form-control rounded" maxlength="100" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Mật Khẩu</label>
+                                    <input type="text" name="matkhau" class="form-control rounded" maxlength="15" required />
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Email   </label>
+                                    <input type="text" name="email" class="form-control rounded" maxlength="30" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Số Điện Thoại</label>
+                                    <input type="text" name="sodienthoai" class="form-control rounded" maxlength="30" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Địa Chỉ</label>
+                                    <input type="text" name="diachi" class="form-control rounded" maxlength="30" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">CMND</label>
+                                    <input type="text" name="cmnd" class="form-control rounded" maxlength="30" />
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Chức Vụ</label>
+                                  
+                                     @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control rounded" })
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label">Hình Đại Diện</label>
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-preview thumbnail" name="avatar" data-trigger="fileinput" style="width: 200px; height: 150px;"></div>
+                                        <div>
+                                            <span class="btn btn-info btn-file">
+                                                <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
+                                                <input type="file" name="avatar">
+                                            </span>
+                                            <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- /.form-body -->
+                            <div class="form-group">
+                                <div class="col-md-offset-5 col-sm-offset-3 ">
+                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div><!-- /.panel-body -->
+                </div><!-- /.panel -->
+                <!--/ End input fields - basic form-->
+            </div><!-- /.col-md-6 -->
+        </div>
+    </div>
+</section>
+<script src="~/Scripts/bootstrap.min.js"></script>

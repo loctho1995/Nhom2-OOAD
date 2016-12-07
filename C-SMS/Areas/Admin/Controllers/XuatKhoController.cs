@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using PagedList;
 using System.Threading.Tasks;
 using Common.Models;
+using System.Globalization;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -45,9 +46,22 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DanhSachPhieuXuatKho(string searchString,string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuXuatKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+
+            if (!string.IsNullOrEmpty(searchString)
+                || !string.IsNullOrEmpty(trangthai))
+            {
+                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            }
+            if (!string.IsNullOrEmpty(dateFrom)
+                && !string.IsNullOrEmpty(dateTo))
+            {
+                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai,Convert.ToDateTime(dateFrom),Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            }
+
+            return View(_phieuXuatKhoBus.DanhSachPhieuXuatKho(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+
         }
 
         [HttpPost]
@@ -107,6 +121,6 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
             }
             return RedirectToAction("Index");
-        }   
+        }
     }
 }

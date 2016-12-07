@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using PagedList;
 using System.Threading.Tasks;
 using Common.ViewModels;
+using Common.Models;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -27,7 +28,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(LoaiHangHoaViewModel loaiHangHoa)
+        public async Task<ActionResult> Create(LoaiHangHoa loaiHangHoa)
         {                      
             try
             {
@@ -43,8 +44,45 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         public ActionResult DanhSachLoaiHangHoa(string searchString, int page = 1, int pageSize = 5)
-        {          
-            return View(_loaiHangHoaBus.LoadDanhSachLoaiHangHoa().ToPagedList(page, pageSize));
+        {
+            return View(_loaiHangHoaBus.LoadDanhSachLoaiHangHoa(searchString).ToPagedList(page, pageSize));
+        }
+
+        public ActionResult ThongTinLoaiHangHoa(int id)
+        {
+            ViewBag.loaiHangHoa = _loaiHangHoaBus.LoadDanhSachLoaiHangHoaTheoMa(id).ToList();
+            return View(ViewBag.loaiHangHoa);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            ViewBag.loaiHangHoa = _loaiHangHoaBus.LoadDanhSachLoaiHangHoaTheoMa(id).ToList();
+            return View(ViewBag.loaiHangHoa);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(int id, LoaiHangHoa loaiHangHoa)
+        {
+            LoaiHangHoa edit = (LoaiHangHoa)await _loaiHangHoaBus.Find(id);
+            if (edit == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                try
+                {
+                    await _loaiHangHoaBus.Update(loaiHangHoa, edit);
+                    SetAlert("Đã cập nhật loại hàng hóa thành công!!!", "success");
+
+                }
+                catch
+                {
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy cập nhật lại", "error");
+                    return RedirectToAction("Edit");
+                }
+            }
+            return RedirectToAction("Index");
         }
     }
 }

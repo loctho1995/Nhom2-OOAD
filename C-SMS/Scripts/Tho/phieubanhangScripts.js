@@ -1,8 +1,7 @@
 ﻿$(document).ready(function () {
     var orderItems = [];
     //Add button click function
-    $('#add').click(function () {
-        //Check validation of inventory ballot detail
+    $('#add').click(function () { 
         var isValidItem = true;
 
         if ($('#maHangHoa').val().trim() == '') {
@@ -223,7 +222,7 @@
     //function for show added product in table
     function GeneratedItemsTable() {
         if (orderItems.length > 0) {
-            var $table = $('<table id="productTable" style="max-width:970px" />');
+            var $table = $('<table id="productTable"  class="table table-bordered"/>');
             $table.append('<thead><tr><th>Mã Hàng Hóa</th><th>Tên Hàng Hóa</th><th>Đơn giá</th><th>Số lượng</th><th>Thành tiền</th><th>Hành Động</th></tr></thead>');
             var $tbody = $('<tbody/>');
             $.each(orderItems, function (i, val) {
@@ -278,8 +277,7 @@ function HideErrorProductName() {
 }
 
 $(document).ready(function () {
-    $('#maHangHoa').on("input", function () {
-        ClearValue();
+    $('#maHangHoa').on("change", function () {
         $.getJSON('/BanHang/LoadThongTinHangHoa',
                     { id: $('#maHangHoa').val() },
                     function (data) {
@@ -288,10 +286,7 @@ $(document).ready(function () {
                                 $("#tenHangHoa").val(row.TenHangHoa);
                                 $("#donGia").val(formatNumber(row.GiaBan));
                             });
-                        }
-                        else {
-
-                        }
+                        } 
                     });
     });
 })

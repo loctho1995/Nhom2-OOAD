@@ -31,20 +31,20 @@ namespace Business.Implements
             _hangHoaBus = new HangHoaBusiness();
         }
 
-        public IList<PhieuXuatKhoViewModel> SearchDanhSachPhieuXuatKho(String key, string trangthai, DateTime tungay, DateTime denngay, string nhanVienCode)
+        public IList<PhieuXuatKhoViewModel> SearchDanhSachPhieuXuatKho(String key, string trangthai, DateTime tungay, DateTime denngay, string userName)
         {
             IQueryable<PhieuXuatKho> danhSachPhieuXuatKho = _phieuXuatKhoRepo.GetAll();
             List<PhieuXuatKhoViewModel> all = new List<PhieuXuatKhoViewModel>();
             List<PhieuXuatKhoViewModel> allForManager = new List<PhieuXuatKhoViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(nhanVienCode) == 5)
+            if (_nhanVienBus.layMaChucVu(userName) == 5)
             {
                 if ((!(tungay == default(DateTime))) && (!(denngay == default(DateTime))))
                 {
                     all = (from phieuxuat in danhSachPhieuXuatKho
                            join nhanvien in _nhanVienRepo.GetAll()
                            on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) 
+                           where (nhanvien.UserName.Equals(userName) 
                                     && phieuxuat.NgayXuat >= tungay.Date && phieuxuat.NgayXuat <= denngay.Date)
                            select new
                            {
@@ -71,7 +71,7 @@ namespace Business.Implements
                     all = (from phieuxuat in danhSachPhieuXuatKho
                            join nhanvien in _nhanVienRepo.GetAll()
                            on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                           where (nhanvien.UserName.Equals(userName) && (
                                      phieuxuat.SoPhieuXuatKho.ToString().Contains(key)
                                   || nhanvien.TenNhanvien.Contains(key)))
                            select new
@@ -99,7 +99,7 @@ namespace Business.Implements
                     all = (from phieuxuat in danhSachPhieuXuatKho
                            join nhanvien in _nhanVienRepo.GetAll()
                            on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
-                           where (nhanvien.NhanVienCode.Equals(nhanVienCode) && (
+                           where (nhanvien.UserName.Equals(userName) && (
                                      phieuxuat.TrangThai.Equals(trangthai)))
                            select new
                            {
@@ -125,7 +125,7 @@ namespace Business.Implements
                 all = (from phieuxuat in danhSachPhieuXuatKho
                        join nhanvien in _nhanVienRepo.GetAll()
                        on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.NhanVienCode.Equals(nhanVienCode) && phieuxuat.TrangThai.Equals(true))
+                       where (nhanvien.UserName.Equals(userName) && phieuxuat.TrangThai.Equals(true))
                        select new
                        {
                            SoPhieuXuatKho = phieuxuat.SoPhieuXuatKho,
@@ -254,6 +254,65 @@ namespace Business.Implements
             }
         }
 
+        public IList<PhieuXuatKhoViewModel> DanhSachPhieuXuatKho(string userName)
+        {
+            IQueryable<PhieuXuatKho> danhSachPhieuXuatKho = _phieuXuatKhoRepo.GetAll();
+            List<PhieuXuatKhoViewModel> all = new List<PhieuXuatKhoViewModel>();
+            List<PhieuXuatKhoViewModel> allForManager = new List<PhieuXuatKhoViewModel>();
+
+            if (_nhanVienBus.layMaChucVu(userName) == 5)
+            {
+                all = (from phieuxuat in danhSachPhieuXuatKho
+                       join nhanvien in _nhanVienRepo.GetAll()
+                       on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
+                       where (nhanvien.UserName.Equals(userName) && phieuxuat.TrangThai.Equals(true))
+                       select new
+                       {
+                           SoPhieuXuatKho = phieuxuat.SoPhieuXuatKho,
+                           NgayXuat = phieuxuat.NgayXuat,
+                           TenNhanVien = nhanvien.TenNhanvien,
+                           TongTien = phieuxuat.TongTien,
+                           LyDoXuat = phieuxuat.LyDoXuat,
+                           TrangThai = phieuxuat.TrangThai,
+
+                       }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
+                       {
+                           soPhieuXuatKho = x.SoPhieuXuatKho,
+                           ngayXuatKho = x.NgayXuat,
+                           tenNhanVien = x.TenNhanVien,
+                           tongTien = x.TongTien,
+                           lyDoXuat = x.LyDoXuat,
+                           trangThai = x.TrangThai,
+                       }).OrderByDescending(x => x.soPhieuXuatKho).ToList();
+                return all;
+            }
+            else
+            {
+                allForManager = (from phieuxuat in danhSachPhieuXuatKho
+                                 join nhanvien in _nhanVienRepo.GetAll()
+                                 on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
+                                 where phieuxuat.TrangThai.Equals(true)
+                                 select new
+                                 {
+                                     SoPhieuXuatKho = phieuxuat.SoPhieuXuatKho,
+                                     NgayXuat = phieuxuat.NgayXuat,
+                                     TenNhanVien = nhanvien.TenNhanvien,
+                                     TongTien = phieuxuat.TongTien,
+                                     LyDoXuat = phieuxuat.LyDoXuat,
+                                     TrangThai = phieuxuat.TrangThai,
+
+                                 }).AsEnumerable().Select(x => new PhieuXuatKhoViewModel()
+                                 {
+                                     soPhieuXuatKho = x.SoPhieuXuatKho,
+                                     ngayXuatKho = x.NgayXuat,
+                                     tenNhanVien = x.TenNhanVien,
+                                     tongTien = x.TongTien,
+                                     lyDoXuat = x.LyDoXuat,
+                                     trangThai = x.TrangThai,
+                                 }).OrderByDescending(x => x.soPhieuXuatKho).ToList();
+                return allForManager;
+            }
+        }
         public int LoadSoPhieuXuatKho()
         {
             var soPhieuXuatKho = from phieuxuatkho in _phieuXuatKhoRepo.GetAll()
@@ -338,11 +397,12 @@ namespace Business.Implements
             PhieuXuatKho phieuXuat = new PhieuXuatKho
             {
                 SoPhieuXuatKho = O.soPhieuXuatKho,
-                SoPhieuXuatKhoCode = "a",
                 NgayXuat = O.ngayXuatKho,
                 MaNhanVien = O.maNhanVien,
                 TongTien = O.tongTien,
-                LyDoXuat = O.lyDoXuat
+                LyDoXuat = O.lyDoXuat,
+                TrangThai = true,
+                NgayChinhSua = DateTime.Now,
             };
 
             DateTime today = DateTime.Now;
@@ -381,6 +441,31 @@ namespace Business.Implements
             {
 
             }
+        }
+
+        public IEnumerable<ThongTinHoatDongViewModel> ThongTinHoatDong()
+        {
+            IQueryable<PhieuXuatKho> danhSachPhieuKiemKho = _phieuXuatKhoRepo.GetAll();
+            List<ThongTinHoatDongViewModel> all = new List<ThongTinHoatDongViewModel>();
+
+            all = (from phieuxuatkho in danhSachPhieuKiemKho
+                   join nhanvien in _nhanVienRepo.GetAll()
+                   on phieuxuatkho.MaNhanVien equals nhanvien.MaNhanVien
+                   orderby phieuxuatkho.NgayChinhSua descending
+                   select new
+                   {
+                       SoPhieuXuatKho = phieuxuatkho.SoPhieuXuatKho,
+                       NgayChinhSua = phieuxuatkho.NgayChinhSua,
+                       TenNhanVien = nhanvien.TenNhanvien,
+                       TrangThai = phieuxuatkho.TrangThai,
+                   }).AsEnumerable().Select(x => new ThongTinHoatDongViewModel()
+                   {
+                       soPhieuXuatKho = x.SoPhieuXuatKho,
+                       ngayChinhSuaXuatKho = x.NgayChinhSua,
+                       tenNhanVienXuatKho = x.TenNhanVien,
+                       trangThaiXuatKho = x.TrangThai,
+                   }).Take(1).ToList();
+            return all;
         }
     }
 }

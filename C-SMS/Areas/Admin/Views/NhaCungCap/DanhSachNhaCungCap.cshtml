@@ -1,60 +1,48 @@
 ﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Common.Models.NhaCungCap>
 
-<table class="table table-hover">
-    <thead class="thead-inverse">
-        <tr>          
-            <th class="width-5">
-                @Html.DisplayName("Tên Nhà Cung Cấp")
-            </th>          
-            <th class="width-5">
-                @Html.DisplayName("Số Điện Thoại")
-            </th>
-            <th class="width-5">
-                @Html.DisplayName("Email")
-            </th>
-            <th class="width-10">
-                @Html.DisplayName("Địa Chỉ")
-            </th>
-            @*<th class="width-5">
-                @Html.DisplayName("Trạng Thái")
-            </th>*@
-            <th class="width-5">
-                Hành động
-            </th>
-        </tr>
-    </thead>
 
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr style="text-align:center">
-                <td>@item.TenNhaCungCap</td>              
-                <td>@item.SoDienThoai</td>
-                <td>@item.Email</td>
-                <td>@item.DiaChi</td>
-                <td>
-                    <div class="btn-group">
-                        <a href="@Url.Action("Edit", new { id = item.MaNhaCungCap })" class="btn btn-default">
-                            <i class="fa fa-pencil" aria-hidden="true"></i> Sửa
-                        </a>
-
-                        @*<a href="@Url.Action("Delete", new { id = item.MaNhaCungCap })" class="btn btn-default">
-                            <i class="fa fa-remove" aria-hidden="true"></i> Xóa
-                        </a>*@
-                    </div>
-                </td>
+<div class="table-responsive">
+    <table class="table table-bordered table-middle table-lilac">
+        <thead>
+            <tr>
+                <th>Tên nhà cung cấp</th>
+                <th>Số điện thoại</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th class="text-center" style="width: 11%;">Hành động</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="border-warning">
 
-<div class="pull-left">
-    Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+                    <td>
+                        @item.TenNhaCungCap
+                    </td>
+                    <td>
+                        @item.SoDienThoai
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        @item.DiaChi
+                    </td>
+
+                    <td class="text-center">
+                        <a href="@Url.Action("Edit", new { id = item.MaNhaCungCap })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-pencil"></i> Sửa</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="pull-left" style="padding-top:20px">
+    <h3 class="panel-title">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount </h3>
 </div>
 <div class="pull-right">
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
-
-<script src="~/Scripts/bootstrap.min.js"></script>
-

@@ -9,6 +9,8 @@ using Common.ViewModels;
 using System.Threading.Tasks;
 using Common.Models;
 using System.Net;
+using System.IO;
+using System.Web.Helpers;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -55,11 +57,23 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             return View();
         }
-
+      
         [HttpPost]
-        public async Task<ActionResult> Create(NhanVienViewModel nhanVien)
-        {
-            if (nhanVien.avatar == null)
+        public async Task<ActionResult> Create(NhanVienViewModel nhanVien, HttpPostedFileBase avatar)
+        { 
+            if (avatar != null && avatar.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/image/user"),
+                                               Path.GetFileName(avatar.FileName));
+                    avatar.SaveAs(path);
+                    nhanVien.avatar = avatar.FileName;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
             {
                 nhanVien.avatar = "default.png";
             }
@@ -112,6 +126,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
             }
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Detail()
+        {
+            return View();
         }
     }
 }

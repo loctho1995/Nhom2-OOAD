@@ -15,10 +15,7 @@ namespace Common.Models
         }
         [Key]
         public int SoPhieuKiemKho { get; set; }
-
-        [StringLength(50)]
-        public string SoPhieuKiemKhoCode { get; set; }
-
+       
         [Column(TypeName = "date")]
         public DateTime NgayKiemKho { get; set; }
 
@@ -28,6 +25,8 @@ namespace Common.Models
         public string GhiChu { get; set; }
 
         public bool TrangThai { get; set; }
+
+        public DateTime NgayChinhSua { get; set; }
          public virtual ICollection<ChiTietPhieuKiemKho> ChiTietPhieuKiemKhos { get; set; }
 
     

@@ -11,6 +11,7 @@ namespace Common.ViewModels
     {
         public int soPhieuKiemKho { get; set; }
         public DateTime ngayKiemKho { get; set; }
+        public DateTime ngayChinhSua { get; set; }
         public int maNhanVien { get; set; }
         public string tenNhanVien { get; set; }
         public string ghiChu { get; set; }

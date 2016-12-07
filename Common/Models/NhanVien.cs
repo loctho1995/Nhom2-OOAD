@@ -13,9 +13,6 @@ namespace Common.Models
         public int MaNhanVien { get; set; }
 
         [StringLength(50)]
-        public string NhanVienCode { get; set; }
-
-        [StringLength(50)]
         public string TenNhanvien { get; set; }
 
         [StringLength(100)]

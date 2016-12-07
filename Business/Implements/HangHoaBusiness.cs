@@ -223,7 +223,6 @@ namespace Business.Implements
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
                 if (result != null)
                 {
-                    result.HangHoaCode = "a";
                     result.GiaBan = Math.Round((result.SoLuongTon * result.GiaBan + soLuongNhap * giaNhap) / (result.SoLuongTon + soLuongNhap));
                     result.SoLuongTon += soLuongNhap;
                     dbContext.SaveChanges();
@@ -249,8 +248,6 @@ namespace Business.Implements
                 {
                     int sl = a.SoLuongTon - soLuongNhap;
 
-                    a.HangHoaCode = "a";
-
                     a.GiaBan = Math.Round((a.GiaBan * a.SoLuongTon - soLuongNhap * giaNhap) / sl);
 
                     a.SoLuongTon -= soLuongNhap;
@@ -275,7 +272,6 @@ namespace Business.Implements
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
                 if (result != null)
                 {
-                    result.HangHoaCode = "a";
                     result.SoLuongTon -= soLuongXuat;
                     dbContext.SaveChanges();
                 }
@@ -392,7 +388,6 @@ namespace Business.Implements
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
                 if (result != null)
                 {
-                    result.HangHoaCode = "a";
                     result.SoLuongTon += soLuongXuat;
                     dbContext.SaveChanges();
                 }
@@ -537,7 +532,6 @@ namespace Business.Implements
             var hangHoa = new HangHoa();
             HangHoaViewModel input = (HangHoaViewModel)model;
 
-            hangHoa.HangHoaCode = "code";
             hangHoa.TenHangHoa = input.tenHangHoa;
             hangHoa.GiaBan = input.giaBan;
             hangHoa.DonViTinh = input.donViTinh;
@@ -609,5 +603,7 @@ namespace Business.Implements
 
             await _hangHoaRepo.EditAsync(editHangHoa);
         }
+
+        
     }
 }

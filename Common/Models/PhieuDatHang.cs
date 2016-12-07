@@ -12,9 +12,6 @@ namespace Common.Models
         [Key]
         public int SoPhieuDatHang { get; set; }
 
-        [StringLength(50)]
-        public string SoPhieuDatHangCode { get; set; }
-
         [Column(TypeName = "date")]
         public DateTime NgayDat { get; set; }
 
@@ -46,6 +43,14 @@ namespace Common.Models
         public bool DaXacNhan { get; set; }
 
         public bool DaThanhToan { get; set; }
+
+        public bool TrangThai { get; set; }
+
+        public DateTime NgayChinhSua { get; set; }
+
+        public string Value { get; set; }
+
+        public int Value1 { get; set; }
 
         public virtual ICollection<ChiTietPhieuDatHang> ChiTetPhieuDatHangs { get; set; }
     }

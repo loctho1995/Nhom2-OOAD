@@ -11,10 +11,6 @@ namespace Common.Models
     {
         [Key]
         public int MaChucVu { get; set; }
-
-        [StringLength(50)]
-        public string ChucVuCode { get; set; }
-
         [StringLength(100)]
         public string TenChucVu { get; set; }
     }
