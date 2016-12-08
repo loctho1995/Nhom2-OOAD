@@ -8,7 +8,7 @@
 });
       
 function createNhanHangDiv(id) {    
-    document.write("<div id=NhanHang" + id + "> Chưa Nhận hàng </div> <a id= 'aNhanHang" + id + "' onclick='onBtNhanHangClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>"  );
+    document.write("<div id=NhanHang" + id + "></div> <a id= 'aNhanHang" + id + "' onclick='onBtNhanHangClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>"  );
 }
 
 function getNhanHangId(id) {
@@ -33,7 +33,7 @@ function onBtNhanHangClicked(id) {
 }
 
 function createThanhToanDiv(id) {
-    document.write("<div id=ThanhToan" + id + "> Chưa thanh toán </div> <a id= 'aThanhToan" + id + "' onclick='onBtThanhToanClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>");
+    document.write("<div id=ThanhToan" + id + "></div> <a id= 'aThanhToan" + id + "' onclick='onBtThanhToanClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>");
 }
 
 function getThanhToanId(id) {
