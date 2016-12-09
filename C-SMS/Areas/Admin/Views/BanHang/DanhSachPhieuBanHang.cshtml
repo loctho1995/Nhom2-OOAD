@@ -34,7 +34,7 @@
 
     <tbody>
         @foreach (var item in Model)
-        {
+        {        
             FormatNumber number = new FormatNumber();
             <tr style="text-align:center">
                 <td>@item.soPhieuBanHang</td>
@@ -44,14 +44,6 @@
                 <td>@item.soDienThoai</td>
                 <td>@number.FormatNumbers(@item.tongTien.ToString())</td>
                 <td>@item.ghiChu</td>
-                @*@if (@item.trangThai == true)
-                    {
-                        <td>Hoàn thành</td>
-                    }
-                    else
-                    {
-                        <td>Đã hủy</td>
-                    }*@
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuBanHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
                     <a href="@Url.Action("Delete", new { id = item.soPhieuBanHang })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>

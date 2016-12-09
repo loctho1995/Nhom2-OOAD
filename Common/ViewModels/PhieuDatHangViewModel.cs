@@ -43,6 +43,10 @@ namespace Common.ViewModels
 
         public string tenNhanVien { get; set; }
 
+        public bool trangThai { get; set; }
+
+        public DateTime ngayChinhSua { get; set; }
+
         public List<ChiTietPhieuDatHang> chiTietPhieuDatHang { get; set; }
     }
 }

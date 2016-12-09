@@ -17,6 +17,8 @@ namespace Common.ViewModels
         public string tenKhachHang { get; set; }
         public string soDienThoai { get; set; }
         public string ghiChu { get; set; }
+        public bool trangThai { get; set; }
+        public DateTime ngayChinhSua { get; set; }
 
         public List<ChiTietPhieuBanHang> chiTietPhieuBanHang { get; set; }
     }

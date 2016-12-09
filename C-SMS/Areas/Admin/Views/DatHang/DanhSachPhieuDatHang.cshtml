@@ -30,9 +30,6 @@
             <th>
                 @Html.DisplayName("Trạng thái thanh toán")
             </th>
-            @*<th>
-                @Html.DisplayName("Ghi chú")
-            </th>*@
             <th class="width-10">
                 Hành động
             </th>
@@ -40,7 +37,7 @@
     </thead>
 
     <tbody>
-        @foreach (var item in Model)
+        @foreach(var item in Model)
         {
             FormatNumber number = new FormatNumber();
             <tr style="text-align:center">
@@ -50,31 +47,34 @@
                 <td>@item.soDienThoai</td>
                 <td>@number.FormatNumbers(@item.tongTien.ToString())</td>
                 <td>@item.hinhThucThanhToan</td>
-               @if (@item.daXacNhan == true)
-               {
-                <td>Đã nhận hàng</td>
-               }
-               else
-               {
-                <td>
-                    <script>createNhanHangDiv(@item.soPhieuDatHang)</script>
-                </td>
-               }
+                @if(@item.daXacNhan == true)
+                {
+                    <td>Đã nhận hàng</td>
+                }
+                else
+                {
+                    <td>
+                        <div onclick='onBtNhanHangClicked(this, @item.soPhieuDatHang)' class='btn btn-default'>
+                            Xác nhận
+                        </div>
+                    </td>
+                }
 
-            @if (@item.daThanhToan == true)
-            {
-                <td>
-                    Đã thanh toán
-                </td>
-            }
-            else
-            {
-                <td>
-                    <script>createThanhToanDiv(@item.soPhieuDatHang)</script>
-                </td>
+                @if(@item.daThanhToan == true)
+                {
+                    <td>
+                        Đã thanh toán
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        <div onclick='onBtThanhToanClicked(this, @item.soPhieuDatHang)' class='btn btn-default'>
+                            Xác nhận
+                        </div>
+                    </td>
+                }
 
-            }
-            @*<td>@item.ghiChu</td>*@
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
                     <a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>

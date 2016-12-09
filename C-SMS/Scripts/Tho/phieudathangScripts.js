@@ -6,24 +6,21 @@
     $('#btThanhToan').click(function () {
     });
 });
-      
+   
 function createNhanHangDiv(id) {    
-    document.write("<div id=NhanHang" + id + "></div> <a id= 'aNhanHang" + id + "' onclick='onBtNhanHangClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>"  );
+    document.innerHTML = "<div id=NhanHang" + id + "></div> <a id= 'aNhanHang" + id + "' onclick='onBtNhanHangClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>";
 }
 
 function getNhanHangId(id) {
     return "NhanHang" + id;
 }
 
-function onBtNhanHangClicked(id) {
+function onBtNhanHangClicked(self, id) {
     var r = confirm("Bạn xác nhận khách hàng đã nhận được hàng?");
 
     if (r) {
-        document.getElementById(getNhanHangId(id)).innerHTML = "Đã nhận hàng";
-
-        var ele = document.getElementById("aNhanHang" + id);
-        ele.outerHTML = "";
-        delete ele;
+        self.innerHTML = "Đã nhận hàng";
+        self.className = "";
 
         xacNhanNhanHang(id);
 
@@ -33,22 +30,19 @@ function onBtNhanHangClicked(id) {
 }
 
 function createThanhToanDiv(id) {
-    document.write("<div id=ThanhToan" + id + "></div> <a id= 'aThanhToan" + id + "' onclick='onBtThanhToanClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>");
+    document.innerHTML = "<div id=ThanhToan" + id + "></div> <a id= 'aThanhToan" + id + "' onclick='onBtThanhToanClicked(" + id + ")' class='btn btn-default'>Xác Nhận</a>";
 }
 
 function getThanhToanId(id) {
     return "ThanhToan" + id;
 }
 
-function onBtThanhToanClicked(id) {
+function onBtThanhToanClicked(self, id) {
     var r = confirm("Bạn xác nhận khách hàng đã thanh toán hóa đơn?");
 
     if (r) {
-        document.getElementById(getThanhToanId(id)).innerHTML = "Đã thanh toán";
-
-        var ele = document.getElementById("aThanhToan" + id);
-        ele.outerHTML = "";
-        delete ele;
+        self.innerHTML = "Đã thanh toán";
+        self.className = "";
 
         xacNhanThanhToan(id);
 

@@ -24,6 +24,10 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.trangthai = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+                                                    new { Value = "false", Text = "Đã hủy" }},
+                                               "Value", "Text");
+
             return View();
         }
 
@@ -100,14 +104,19 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult DanhSachPhieuBanHang(string searchString, int page = 1, int pageSize = 5)
-        {
-            //if(!string.IsNullOrEmpty(searchString))
-            //{
-            //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
-            //}
+        //public ActionResult DanhSachPhieuBanHang(string searchString, int page = 1, int pageSize = 5)
+        //{
+        //    //if(!string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
+        //    //}
 
-            return View(_phieuBanHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+        //    return View(_phieuBanHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+        //}
+
+        public ActionResult DanhSachPhieuBanHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        {
+            return View(_phieuBanHangBUS.SearchDanhSachPhieuBanHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         public ActionResult ThongTinPhieuBanHang(int id)

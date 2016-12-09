@@ -23,6 +23,10 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.trangthai = new SelectList(new[]{ new { Value = "true", Text = "Hoàn thành" },
+                                                    new { Value = "false", Text = "Đã hủy" }},
+                                               "Value", "Text");
+
             return View();
         }
 
@@ -36,16 +40,21 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult DanhSachPhieuDatHang(string searchString, int page = 1, int pageSize = 5)
+        //public ActionResult DanhSachPhieuDatHang(string searchString, int page = 1, int pageSize = 5)
+        //{
+        //    //if(!string.IsNullOrEmpty(searchString))
+        //    //{
+        //    //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
+        //    //}
+
+        //    return View(_phieuDatHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
+
+        //    //return View();
+        //}
+
+        public ActionResult DanhSachPhieuDatHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            //if(!string.IsNullOrEmpty(searchString))
-            //{
-            //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
-            //}
-
-            return View(_phieuDatHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
-
-            //return View();
+            return View(_phieuDatHangBUS.SearchDanhSachPhieuDatHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
         }
 
         public ActionResult ThongTinPhieuDatHang(int id)
@@ -60,25 +69,25 @@ namespace WebBanHang.Areas.Admin.Controllers
             var result = _hangHoaBus.LayThongTinHangHoa(id);
             return Json(result, JsonRequestBehavior.AllowGet);
         }
-        
-        public ActionResult XacNhanNhanHang(int id)
+      
+        public async Task<ActionResult> XacNhanNhanHang(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
-           updatePhieuDatHang.DaXacNhan = true;
+            updatePhieuDatHang.DaXacNhan = true;
 
-            _phieuDatHangBUS.Update(updatePhieuDatHang);
+            await _phieuDatHangBUS.Update(updatePhieuDatHang);
 
-            return Json(updatePhieuDatHang, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index");
         }
 
-        public ActionResult XacNhanThanhToan(int id)
+        public async Task<ActionResult> XacNhanThanhToan(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
             updatePhieuDatHang.DaThanhToan = true;
 
-            _phieuDatHangBUS.Update(updatePhieuDatHang);
+            await _phieuDatHangBUS.Update(updatePhieuDatHang);
 
-            return Json(updatePhieuDatHang, JsonRequestBehavior.AllowGet);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Delete()
