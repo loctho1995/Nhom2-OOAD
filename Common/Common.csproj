@@ -95,6 +95,7 @@
     <Compile Include="ViewModels\NhanVienViewModel.cs" />
     <Compile Include="ViewModels\NhanVien_QuyenViewModel.cs" />
     <Compile Include="ViewModels\PhieuBanHangViewModel.cs" />
+    <Compile Include="ViewModels\PhieuBaoHanhViewModel.cs" />
     <Compile Include="ViewModels\PhieuDatHangViewModel.cs" />
     <Compile Include="ViewModels\PhieuNhapKhoViewModel.cs" />
     <Compile Include="ViewModels\PhieuXuatKhoViewModel.cs" />

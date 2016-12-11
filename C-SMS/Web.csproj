@@ -4891,6 +4891,7 @@
     <Content Include="Scripts\client\js\jquery.flexisel.js" />
     <Content Include="Scripts\client\js\jquery.min.js" />
     <Content Include="Scripts\client\js\jquery.wmuSlider.js" />
+    <Content Include="Scripts\Quang\phieubaohanhScripts.js" />
     <Content Include="Scripts\Son\phieuxuatkhoScripts.js" />
     <Content Include="Scripts\Tho\phieubanhangScripts.js" />
     <Content Include="Scripts\js\jquery.etalage.min.js" />
@@ -6441,6 +6442,9 @@
     <Content Include="Areas\Admin\Views\LoaiHangHoa\ThongTinLoaiHangHoa.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\Home\ThongTinHoatDong.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoHanh\DanhSachPhieuBaoHanh.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoHanh\ThongTinPhieuBaoHanh.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoHanh\Detail.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Reports\ADataSetBaoCao.xsc">
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>

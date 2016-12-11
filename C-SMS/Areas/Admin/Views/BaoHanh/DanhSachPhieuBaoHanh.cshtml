@@ -1,0 +1,59 @@
+﻿@using PagedList.Mvc
+@model PagedList.IPagedList<Common.ViewModels.PhieuBaoHanhViewModel>
+
+<table class="table table-bordered table-middle table-lilac">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Số phiếu bảo hành")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày nhận máy")
+            </th>
+            <th>
+                @Html.DisplayName("Ngày trả máy")
+            </th>
+            <th>
+                @Html.DisplayName("Tên nhân viên")
+            </th>
+            <th>
+                @Html.DisplayName("Tên khách hàng")
+            </th>
+            <th>
+                @Html.DisplayName("Số điện thoại")
+            </th>
+            <th>
+                @Html.DisplayName("Trạng thái giao máy (đã giao or chưa)")
+            </th>
+            <th class="width-10">
+                Hành động
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr style="text-align:center">
+                <td>@item.soPhieuBaoHanh</td>
+                <td>@item.ngayLap.ToString("dd/MM/yyyy")</td>
+                <td>@item.ngayGiao.ToString("dd/MM/yyyy")</td>
+                <td>@item.tenNhanVien</td>
+                <td>@item.tenKhachHang</td>
+                <td>@item.soDienThoai</td>
+                <td>@item.daGiao</td>
+                <td>
+                    <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="pull-left" style="padding-top:20px">
+    <h3 class="panel-title">Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount</h3>
+</div>
+<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+</div>
