@@ -48,6 +48,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
+            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
             Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
             return File(stream, "application/pdf", "BaoCaoPhieuChiRP.pdf");
@@ -55,23 +57,17 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult XuatFileEXE()
         {
-            GridView gv = new GridView();
-            gv.DataSource = _baoCaoPhieuChiBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList();
-
-            gv.DataBind();
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoPhieuChiRP.rpt")));
+            rd.SetDataSource(_baoCaoPhieuChiBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList());
+            Response.Buffer = false;
             Response.ClearContent();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment; filename=CustomerReport.xls");
-            Response.ContentType = "application/ms-excel";
-            Response.Charset = "";
-            StringWriter sw = new StringWriter();
-            HtmlTextWriter htw = new HtmlTextWriter(sw);
-            gv.RenderControl(htw);
-            Response.Output.Write(sw.ToString());
-            Response.Flush();
-            Response.End();
-
-            return RedirectToAction("Index");
+            Response.ClearHeaders();
+            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.Excel);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/xls", "BaoCaoPhieuChiRP.xls");
         }
     }
 }

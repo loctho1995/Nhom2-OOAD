@@ -52,23 +52,15 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult XuatFileEXE()
         {
-            GridView gv = new GridView();
-            gv.DataSource = _baoCaoTonKhoBUS.ListView(HomeController.nhanVienCode, _thang, _nam).ToList();
-
-            gv.DataBind();
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoTonKhoRP.rpt")));
+            rd.SetDataSource(_baoCaoTonKhoBUS.ListView(HomeController.nhanVienCode, _thang, _nam).ToList());
+            Response.Buffer = false;
             Response.ClearContent();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment; filename=CustomerReport.xls");
-            Response.ContentType = "application/ms-excel";
-            Response.Charset = "";
-            StringWriter sw = new StringWriter();
-            HtmlTextWriter htw = new HtmlTextWriter(sw);
-            gv.RenderControl(htw);
-            Response.Output.Write(sw.ToString());
-            Response.Flush();
-            Response.End();
-
-            return RedirectToAction("Index");
+            Response.ClearHeaders();
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.Excel);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/xls", "BaoCaoTonKhoRP.xls");
         }
     }
 }

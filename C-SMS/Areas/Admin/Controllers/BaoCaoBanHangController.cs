@@ -9,6 +9,7 @@ using CrystalDecisions.CrystalReports.Engine;
 using System.IO;
 using System.Web.UI.WebControls;
 using System.Web.UI;
+using WebBanHang.Reports;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -16,8 +17,9 @@ namespace WebBanHang.Areas.Admin.Controllers
     {
         //
         // GET: /Admin/BaoCaoBanHang/
-        static DateTime _dateTo;
+
         static DateTime _dateFrom;
+        static DateTime _dateTo;
 
         readonly BaoCaoBanHangBusiness _baoCaoBanHangBUS = new BaoCaoBanHangBusiness();
         public ActionResult Index()
@@ -45,6 +47,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
+            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
             Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
             stream.Seek(0, SeekOrigin.Begin);
             return File(stream, "application/pdf", "BaoCaoBanHangRP.pdf");
@@ -52,23 +56,34 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult XuatFileEXE()
         {
-            GridView gv = new GridView();
-            gv.DataSource = _baoCaoBanHangBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList();
+            //GridView gv = new GridView();
+            //gv.DataSource = _baoCaoBanHangBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList();
             
-            gv.DataBind();
-            Response.ClearContent();
-            Response.Buffer = true;
-            Response.AddHeader("content-disposition", "attachment; filename=CustomerReport.xls");
-            Response.ContentType = "application/ms-excel";
-            Response.Charset = "";
-            StringWriter sw = new StringWriter();
-            HtmlTextWriter htw = new HtmlTextWriter(sw);
-            gv.RenderControl(htw);
-            Response.Output.Write(sw.ToString());
-            Response.Flush();
-            Response.End();
+            //gv.DataBind();
+            //Response.ClearContent();
+            //Response.Buffer = true;
+            //Response.AddHeader("content-disposition", "attachment; filename=CustomerReport.xls");
+            //Response.ContentType = "application/ms-excel";
+            //Response.Charset = "";
+            //StringWriter sw = new StringWriter();
+            //HtmlTextWriter htw = new HtmlTextWriter(sw);
+            //gv.RenderControl(htw);
+            //Response.Output.Write(sw.ToString());
+            //Response.Flush();
+            //Response.End();
 
-            return RedirectToAction("Index");
+            //return RedirectToAction("Index");
+            ReportDocument rd = new ReportDocument();
+            rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoBanHangRP.rpt")));
+            rd.SetDataSource(_baoCaoBanHangBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList());
+            Response.Buffer = false;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.Excel);
+            stream.Seek(0, SeekOrigin.Begin);
+            return File(stream, "application/xls", "BaoCaoBanHangRP.xls");
         }
     }
 }
