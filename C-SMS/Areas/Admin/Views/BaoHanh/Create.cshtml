@@ -29,7 +29,7 @@
                     </div>
 
                     <div class="panel-body no-padding">
-                        <form class="form-horizontal form-bordered" role="form">
+                        <form class="form-horizontal form-bordered" method="post" role="form">
                             <div class="form-body">
                                 <div class="form-group">
                                     <label for="firstname-1" class="col-sm-3 control-label"> Tên sản phẩm</label>
@@ -53,14 +53,14 @@
                                 <div class="form-group">
                                     <label for="password-1" class="col-sm-3 control-label"> Ngày nhận máy</label>
                                     <div class="col-sm-9">
-                                        <input value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
+                                        <input id="ngayLap" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password-1" class="col-sm-3 control-label"> Ngày trả máy</label>
                                     <div class="col-sm-9">
-                                        <input value="@DateTime.Now.AddDays(14).ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
+                                        <input id="ngayGiao" value="@DateTime.Now.AddDays(14).ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
                                     </div>
                                 </div>
 
@@ -85,14 +85,14 @@
                                 <div class="form-group">
                                     <label for="firstname-1" class="col-sm-4 control-label"> Số phiếu</label>
                                     <div class="col-sm-8">
-                                        <input id="dateFrom" value="@ViewBag.soPhieuBaoHanh" type="text" class="form-control rounded" disabled="disabled" />
+                                        <input id="soPhieuBaoHanh" value="@ViewBag.soPhieuBaoHanh" type="text" class="form-control rounded" disabled="disabled" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password-1" class="col-sm-4 control-label"> Ngày lập</label>
                                     <div class="col-sm-8">
-                                        <input id="dateTo" value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
+                                        <input value="@DateTime.Now.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control rounded" />
                                     </div>
                                 </div>
 

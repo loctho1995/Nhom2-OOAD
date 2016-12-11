@@ -1,5 +1,6 @@
 ﻿@using PagedList.Mvc
 @model List<Common.ViewModels.BaoCaoHangHoaViewModel>
+@using Common.Ultil
 
 <br />
 <table class="table table-bordered table-middle table-lilac">
@@ -25,12 +26,13 @@
     <tbody>
         @foreach (var item in Model)
         {
+            FormatNumber number = new FormatNumber();
             <tr class="border-warning">
                 <td>@item.maHangHoa</td>
                 <td>@item.tenHangHoa</td>
                 <td>@item.tenLoaiHangHoa</td>
-                <td>@item.giaBan</td>
-                <td>@item.giamGia</td>
+                <td>@number.FormatNumbers(@item.giaBan.ToString())</td>
+                <td>@number.FormatNumbers(@item.giamGia.ToString())</td>
             </tr>
         }
     </tbody>

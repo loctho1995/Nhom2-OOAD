@@ -6445,6 +6445,7 @@
     <Content Include="Areas\Admin\Views\BaoHanh\DanhSachPhieuBaoHanh.cshtml" />
     <Content Include="Areas\Admin\Views\BaoHanh\ThongTinPhieuBaoHanh.cshtml" />
     <Content Include="Areas\Admin\Views\BaoHanh\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\BaoHanh\Delete.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Reports\ADataSetBaoCao.xsc">
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>

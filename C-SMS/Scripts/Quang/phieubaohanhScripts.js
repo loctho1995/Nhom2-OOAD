@@ -29,7 +29,7 @@ $(document).ready(function () {
                 TenKhachHang: $('#tenKhachHang').val().trim(),
                 SoDienThoai: $('#soDienThoai').val().trim(),
                 GhiChu: $('#ghiChu').val().trim(),
-                Value: $('#value').val().trim()
+                ModelName: $('#modelName').val().trim()
             }
 
             $(this).val('Please wait...');
@@ -64,3 +64,19 @@ $(document).ready(function () {
         }
     });
 });
+
+function onBtTraMayClicked(self, id) {
+    var r = confirm("Bạn xác nhận khách hàng đã nhận được hàng?");
+    if (r) {
+        self.innerHTML = "Đã nhận hàng";
+        self.className = "";
+        xacNhanTraMay(id);
+    }
+}
+
+function xacNhanTraMay(idx) {
+    $.getJSON('/BaoHanh/XacNhanTraMay',
+                { id: idx },
+                function (data) {
+                });
+}

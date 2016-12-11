@@ -52,7 +52,6 @@ function onBtThanhToanClicked(self, id) {
 }
 
 function xacNhanNhanHang(idx) {
-
     $.getJSON('/DatHang/XacNhanNhanHang',
                 { id: idx },
                 function (data) {
@@ -61,7 +60,6 @@ function xacNhanNhanHang(idx) {
 
 
 function xacNhanThanhToan(idx) {
-
     $.getJSON('/DatHang/XacNhanThanhToan',
                 { id: idx },
                 function (data) {

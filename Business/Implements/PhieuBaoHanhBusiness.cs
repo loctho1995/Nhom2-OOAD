@@ -44,72 +44,6 @@ namespace Business.Implements
             await _phieuBaoHanhRepo.InsertAsync(pbh);
         }
 
-        //public IList<PhieuBaoHanhViewModel> ListView2(string userName)
-        //{
-        //    IQueryable<PhieuBaoHanh> danhSachPhieuBaoHanh = _phieuBaoHanhRepo.GetAll();
-        //    List<PhieuBaoHanhViewModel> all = new List<PhieuBaoHanhViewModel>();
-        //    List<PhieuBaoHanhViewModel> allForManager = new List<PhieuBaoHanhViewModel>();
-
-        //    if (_nhanVienBus.layMaChucVu(userName) == 5)
-        //    {
-        //        all = (from phieuBaoHanh in danhSachPhieuBaoHanh
-        //               join nhanVien in _nhanVienRepo.GetAll()
-        //               on phieuBaoHanh.MaNhanVien equals nhanVien.MaNhanVien
-        //               where (nhanVien.UserName.Equals(userName))
-        //               select new
-        //               {
-        //                   SoPhieuBaoHanh = phieuBaoHanh.SoPhieuBaoHanh,
-        //                   NgayLap = phieuBaoHanh.NgayLap,
-        //                   NgayGiao = phieuBaoHanh.NgayGiao,
-        //                   TenNhanVien = nhanVien.TenNhanvien,
-        //                   TenKhachHang = phieuBaoHanh.TenKhachHang,
-        //                   SoDienThoai = phieuBaoHanh.SoDienThoai,
-        //                   TongTien = phieuBaoHanh.TongTien,
-        //                   GhiChu = phieuBaoHanh.GhiChu,
-        //                   DaGiao = phieuBaoHanh.DaGiao
-        //               }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
-        //               {
-        //                   soPhieuBaoHanh = x.SoPhieuBaoHanh,
-        //                   ngayLap = x.NgayLap,
-        //                   ngayGiao = x.NgayGiao,
-        //                   tenNhanVien = x.TenNhanVien,
-        //                   tenKhachHang = x.TenKhachHang,
-        //                   soDienThoai = x.SoDienThoai,
-        //                   ghiChu = x.GhiChu,
-        //                   daGiao = x.DaGiao
-        //               }).ToList();
-        //        return all;
-        //    }
-        //    else
-        //    {
-        //        allForManager = (from phieuBaoHanh in danhSachPhieuBaoHanh
-        //                         join nhanVien in _nhanVienRepo.GetAll()
-        //                         on phieuBaoHanh.MaNhanVien equals nhanVien.MaNhanVien
-        //                         select new
-        //                         {
-        //                             SoPhieuBaoHanh = phieuBaoHanh.SoPhieuBaoHanh,
-        //                             NgayLap = phieuBaoHanh.NgayLap,
-        //                             NgayGiao = phieuBaoHanh.NgayGiao,
-        //                             TenNhanVien = nhanVien.TenNhanvien,
-        //                             TenKhachHang = phieuBaoHanh.TenKhachHang,
-        //                             SoDienThoai = phieuBaoHanh.SoDienThoai,
-        //                             TongTien = phieuBaoHanh.TongTien,
-        //                             GhiChu = phieuBaoHanh.GhiChu,
-        //                             DaGiao = phieuBaoHanh.DaGiao
-        //                         }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
-        //                         {
-        //                             soPhieuBaoHanh = x.SoPhieuBaoHanh,
-        //                             ngayLap = x.NgayLap,
-        //                             ngayGiao = x.NgayGiao,
-        //                             tenNhanVien = x.TenNhanVien,
-        //                             tenKhachHang = x.TenKhachHang,
-        //                             soDienThoai = x.SoDienThoai,
-        //                             ghiChu = x.GhiChu,
-        //                             daGiao = x.DaGiao
-        //                         }).ToList();
-        //        return allForManager;
-        //    }
-        //}
 
         public IList<PhieuBaoHanhViewModel> SearchDanhSachPhieuDatHang(String key, string trangthai, DateTime tungay, DateTime denngay, string userName)
         {
@@ -136,6 +70,7 @@ namespace Business.Implements
                                TenNhanVien = nhanVien.TenNhanvien,
                                TenKhachHang = phieuBaoHanh.TenKhachHang,
                                SoDienThoai = phieuBaoHanh.SoDienThoai,
+                               TrangThai = phieuBaoHanh.TrangThai,
                                DaGiao = phieuBaoHanh.DaGiao
 
                            }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -146,6 +81,7 @@ namespace Business.Implements
                                tenNhanVien = x.TenNhanVien,
                                tenKhachHang = x.TenKhachHang,
                                soDienThoai = x.SoDienThoai,
+                               trangThai = x.TrangThai,
                                daGiao = x.DaGiao
                            }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                     return all;
@@ -164,6 +100,7 @@ namespace Business.Implements
                                TenNhanVien = nhanVien.TenNhanvien,
                                TenKhachHang = phieuBaoHanh.TenKhachHang,
                                SoDienThoai = phieuBaoHanh.SoDienThoai,
+                               TrangThai = phieuBaoHanh.TrangThai,
                                DaGiao = phieuBaoHanh.DaGiao
 
                            }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -174,6 +111,7 @@ namespace Business.Implements
                                tenNhanVien = x.TenNhanVien,
                                tenKhachHang = x.TenKhachHang,
                                soDienThoai = x.SoDienThoai,
+                               trangThai = x.TrangThai,
                                daGiao = x.DaGiao
                            }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                     return all;
@@ -191,6 +129,7 @@ namespace Business.Implements
                            TenNhanVien = nhanVien.TenNhanvien,
                            TenKhachHang = phieuBaoHanh.TenKhachHang,
                            SoDienThoai = phieuBaoHanh.SoDienThoai,
+                           TrangThai = phieuBaoHanh.TrangThai,
                            DaGiao = phieuBaoHanh.DaGiao
 
                        }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -201,6 +140,7 @@ namespace Business.Implements
                            tenNhanVien = x.TenNhanVien,
                            tenKhachHang = x.TenKhachHang,
                            soDienThoai = x.SoDienThoai,
+                           trangThai = x.TrangThai,
                            daGiao = x.DaGiao
                        }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                 return all;
@@ -221,6 +161,7 @@ namespace Business.Implements
                                          TenNhanVien = nhanVien.TenNhanvien,
                                          TenKhachHang = phieuBaoHanh.TenKhachHang,
                                          SoDienThoai = phieuBaoHanh.SoDienThoai,
+                                         TrangThai = phieuBaoHanh.TrangThai,
                                          DaGiao = phieuBaoHanh.DaGiao
 
                                      }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -231,6 +172,7 @@ namespace Business.Implements
                                          tenNhanVien = x.TenNhanVien,
                                          tenKhachHang = x.TenKhachHang,
                                          soDienThoai = x.SoDienThoai,
+                                         trangThai = x.TrangThai,
                                          daGiao = x.DaGiao
                                      }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                     return allForManager;
@@ -250,6 +192,7 @@ namespace Business.Implements
                                          TenNhanVien = nhanVien.TenNhanvien,
                                          TenKhachHang = phieuBaoHanh.TenKhachHang,
                                          SoDienThoai = phieuBaoHanh.SoDienThoai,
+                                         TrangThai = phieuBaoHanh.TrangThai,
                                          DaGiao = phieuBaoHanh.DaGiao
 
                                      }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -260,6 +203,7 @@ namespace Business.Implements
                                          tenNhanVien = x.TenNhanVien,
                                          tenKhachHang = x.TenKhachHang,
                                          soDienThoai = x.SoDienThoai,
+                                         trangThai = x.TrangThai,
                                          daGiao = x.DaGiao
                                      }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                     return allForManager;
@@ -278,6 +222,7 @@ namespace Business.Implements
                                          TenNhanVien = nhanVien.TenNhanvien,
                                          TenKhachHang = phieuBaoHanh.TenKhachHang,
                                          SoDienThoai = phieuBaoHanh.SoDienThoai,
+                                         TrangThai = phieuBaoHanh.TrangThai,
                                          DaGiao = phieuBaoHanh.DaGiao
 
                                      }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -288,6 +233,7 @@ namespace Business.Implements
                                          tenNhanVien = x.TenNhanVien,
                                          tenKhachHang = x.TenKhachHang,
                                          soDienThoai = x.SoDienThoai,
+                                         trangThai = x.TrangThai,
                                          daGiao = x.DaGiao
                                      }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                     return allForManager;
@@ -305,6 +251,7 @@ namespace Business.Implements
                                      TenNhanVien = nhanVien.TenNhanvien,
                                      TenKhachHang = phieuBaoHanh.TenKhachHang,
                                      SoDienThoai = phieuBaoHanh.SoDienThoai,
+                                     TrangThai = phieuBaoHanh.TrangThai,
                                      DaGiao = phieuBaoHanh.DaGiao
 
                                  }).AsEnumerable().Select(x => new PhieuBaoHanhViewModel()
@@ -315,6 +262,7 @@ namespace Business.Implements
                                      tenNhanVien = x.TenNhanVien,
                                      tenKhachHang = x.TenKhachHang,
                                      soDienThoai = x.SoDienThoai,
+                                     trangThai = x.TrangThai,
                                      daGiao = x.DaGiao
                                  }).OrderByDescending(x => x.soPhieuBaoHanh).ToList();
                 return allForManager;
@@ -383,6 +331,16 @@ namespace Business.Implements
                                  orderby phieuBaoHanh.SoPhieuBaoHanh descending
                                  select phieuBaoHanh.SoPhieuBaoHanh;
             return (soPhieuBaoHanh.First() + 1);
+        }
+
+        public PhieuBaoHanh LayPhieuBaoHanh(int soPhieuBaoHanh)
+        {
+            return dbContext.PhieuBaoHanhs.Find(soPhieuBaoHanh);
+        }
+
+        public async Task Update(PhieuBaoHanh entity)
+        {
+            await _phieuBaoHanhRepo.EditAsync(entity);
         }
     }
 }

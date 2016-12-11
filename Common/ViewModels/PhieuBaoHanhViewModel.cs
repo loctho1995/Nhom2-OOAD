@@ -16,8 +16,8 @@ namespace Common.ViewModels
         public string tenKhachHang { get; set; }
         public string soDienThoai { get; set; }
         public string ghiChu { get; set; }
+        public bool trangThai { get; set; }
         public bool daGiao { get; set; }
-        //public string tenSanPham { get; set; }
         public string modelName { get; set; }
     }
 }

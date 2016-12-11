@@ -28,6 +28,12 @@ namespace WebBanHang.Areas.Admin.Controllers
                                                "Value", "Text");
             return View();
         }
+
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<ActionResult> Delete(int id)
         {
@@ -91,23 +97,13 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpPost]
-        public async Task<ActionResult> Create(PhieuBaoHanhViewModel pbh)
+        public async Task<ActionResult> XacNhanTraMay(int id)
         {
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
-            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
-            ViewBag.soPhieuBaoHanh = _phieuBaoHanhBus.LoadSoPhieuBaoHanh();
+            var updatePhieuDatHang = _phieuBaoHanhBus.LayPhieuBaoHanh(id);
+            updatePhieuDatHang.DaGiao = true;
 
-            try
-            {
-                await _phieuBaoHanhBus.Create(pbh);
-                SetAlert("Đã thêm hàng hóa thành công!!!", "success");
-            }
-            catch (Exception)
-            {
-                SetAlert("Đã xảy ra lỗi! Bạn hãy thêm lại", "error");
-            }
+            await _phieuBaoHanhBus.Update(updatePhieuDatHang);
+
             return RedirectToAction("Index");
         }
 

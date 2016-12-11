@@ -23,7 +23,10 @@
                 @Html.DisplayName("Số điện thoại")
             </th>
             <th>
-                @Html.DisplayName("Trạng thái giao máy (đã giao or chưa)")
+                @Html.DisplayName("Trạng thái")
+            </th>
+            <th>
+                @Html.DisplayName("Đã giao máy")
             </th>
             <th class="width-10">
                 Hành động
@@ -41,7 +44,21 @@
                 <td>@item.tenNhanVien</td>
                 <td>@item.tenKhachHang</td>
                 <td>@item.soDienThoai</td>
-                <td>@item.daGiao</td>
+                @if (@item.trangThai == true)
+                {
+                    <td>Đang xử lý</td>
+                }
+                else
+                {
+                    <td>Đã huỷ</td>
+                }@if (@item.daGiao == true)
+                {
+                    <td>Đã trả máy</td>
+                }
+                else
+                {
+                    <td><div onclick='onBtTraMayClicked(this, @item.soPhieuBaoHanh)' class='btn btn-default'>Xác nhận</div></td>
+                }
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
                     <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
