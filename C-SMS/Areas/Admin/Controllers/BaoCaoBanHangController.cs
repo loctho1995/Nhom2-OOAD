@@ -81,7 +81,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             Response.ClearHeaders();
             rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
             rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.Excel);
+            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.ExcelWorkbook);
             stream.Seek(0, SeekOrigin.Begin);
             return File(stream, "application/xls", "BaoCaoBanHangRP.xls");
         }
