@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Common.ViewModels.PhieuBaoHanhViewModel>
+
+@{
+    ViewBag.Title = "Xác Nhận Đã Trả Máy";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
+
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Phiếu Bảo Hành</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            @using (Html.BeginForm("Confirm", "BaoHanh"))
+            {
+                <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
+                    <i class="fa fa-trash"></i> Xác Nhận
+                </button>
+            }
+        </div>
+    </div>
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="alert alert-danger fade in">
+                <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có muốn xác nhận trả máy?</span>
+            </div>
+
+            @{Html.RenderAction("ThongTinPhieuBaoHanh", "BaoHanh");}
+        </div>
+    </div>
+</section>

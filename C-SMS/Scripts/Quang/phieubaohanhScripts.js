@@ -63,20 +63,7 @@ $(document).ready(function () {
             });
         }
     });
+
+    
 });
 
-function onBtTraMayClicked(self, id) {
-    var r = confirm("Bạn xác nhận khách hàng đã nhận được hàng?");
-    if (r) {
-        self.innerHTML = "Đã nhận hàng";
-        self.className = "";
-        xacNhanTraMay(id);
-    }
-}
-
-function xacNhanTraMay(idx) {
-    $.getJSON('/BaoHanh/XacNhanTraMay',
-                { id: idx },
-                function (data) {
-                });
-}

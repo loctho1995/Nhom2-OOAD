@@ -5,7 +5,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Số phiếu bảo hành")
+                @Html.DisplayName("Số phiếu")
             </th>
             <th>
                 @Html.DisplayName("Ngày nhận máy")
@@ -46,22 +46,24 @@
                 <td>@item.soDienThoai</td>
                 @if (@item.trangThai == true)
                 {
-                    <td>Đang xử lý</td>
+                    <td>Hoàn thành</td>
                 }
                 else
                 {
                     <td>Đã huỷ</td>
                 }@if (@item.daGiao == true)
                 {
-                    <td>Đã trả máy</td>
+                    <td>Đã xác nhận</td>
                 }
                 else
                 {
-                    <td><div onclick='onBtTraMayClicked(this, @item.soPhieuBaoHanh)' class='btn btn-default'>Xác nhận</div></td>
+                     <td>Chưa xác nhận</td>
+                    @*<td><div onclick='onBtTraMayClicked(this, @item.soPhieuBaoHanh)' class='btn btn-default'>Xác nhận</div></td>*@
                 }
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
                     <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                    <a href="@Url.Action("Confirm", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Xác nhận</a>
                 </td>
             </tr>
         }

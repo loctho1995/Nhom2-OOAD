@@ -28,13 +28,15 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
         public ActionResult DanhSachBaoCaoBanHang(string dateFrom, string dateTo)
         {
-            if (dateFrom!="")
+            _dateFrom = Convert.ToDateTime(dateFrom);
+            if (_dateFrom == default(DateTime))
             {
-                _dateFrom = Convert.ToDateTime(dateFrom);
+                _dateFrom = Convert.ToDateTime("1/" + DateTime.Now.Month + "/" + DateTime.Now.Year);
             }
-            if (dateTo!="")
+            _dateTo = Convert.ToDateTime(dateTo);
+            if (_dateTo == default(DateTime))
             {
-                _dateTo = Convert.ToDateTime(dateTo);
+                _dateTo = DateTime.Now;
             }
             return View(_baoCaoBanHangBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList());
         }
@@ -58,7 +60,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             //GridView gv = new GridView();
             //gv.DataSource = _baoCaoBanHangBUS.ListView(HomeController.nhanVienCode, _dateFrom, _dateTo).ToList();
-            
+
             //gv.DataBind();
             //Response.ClearContent();
             //Response.Buffer = true;

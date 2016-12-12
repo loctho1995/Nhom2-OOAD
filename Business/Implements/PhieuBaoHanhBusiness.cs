@@ -283,6 +283,15 @@ namespace Business.Implements
             await _phieuBaoHanhRepo.EditAsync(pbh);
         }
 
+        public async Task Confirm(object confirmModel)
+        {
+            PhieuBaoHanh pbh = (PhieuBaoHanh)confirmModel;
+            pbh.NgayChinhSua = DateTime.Now;
+            pbh.DaGiao = true;
+
+            await _phieuBaoHanhRepo.EditAsync(pbh);
+        }
+
         public IEnumerable<PhieuBaoHanhViewModel> ThongTinPhieuBaoHanhTheoMa(int soPhieuBaoHanh)
         {
             IQueryable<PhieuBaoHanh> danhSachPhieuBaoHanh = _phieuBaoHanhRepo.GetAll();
@@ -331,16 +340,6 @@ namespace Business.Implements
                                  orderby phieuBaoHanh.SoPhieuBaoHanh descending
                                  select phieuBaoHanh.SoPhieuBaoHanh;
             return (soPhieuBaoHanh.First() + 1);
-        }
-
-        public PhieuBaoHanh LayPhieuBaoHanh(int soPhieuBaoHanh)
-        {
-            return dbContext.PhieuBaoHanhs.Find(soPhieuBaoHanh);
-        }
-
-        public async Task Update(PhieuBaoHanh entity)
-        {
-            await _phieuBaoHanhRepo.EditAsync(entity);
         }
     }
 }
