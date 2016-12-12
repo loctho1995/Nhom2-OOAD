@@ -4971,8 +4971,6 @@
     <Content Include="Areas\Admin\Views\NhanVien\Create.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhapKho\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PhieuChi\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\PhieuChi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\DanhSachNhanVien.cshtml" />
     <Content Include="Areas\Admin\Views\NhanVien\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\KiemKho\DanhSachPhieuKiemKho.cshtml" />
@@ -6446,6 +6444,12 @@
     <Content Include="Areas\Admin\Views\BaoHanh\ThongTinPhieuBaoHanh.cshtml" />
     <Content Include="Areas\Admin\Views\BaoHanh\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\BaoHanh\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\DanhSachPhieuChi.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\Detail.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\PhieuChi\ThongTinPhieuChi.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Reports\ADataSetBaoCao.xsc">
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>

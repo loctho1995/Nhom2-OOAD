@@ -447,5 +447,15 @@ namespace Business.Implements
                    }).Take(1).ToList();
             return all;
         }
+        public Object LayTongTienPhieuNhap(int maPhieuNhap)
+        {
+            var phieuNhapInfor = from phieunhap in dbContext.PhieuNhaps
+                                 where (phieunhap.SoPhieuNhap == maPhieuNhap && phieunhap.TrangThai == true)
+                                 select new
+                                 {
+                                     phieunhap.TongTien
+                                 };
+            return phieuNhapInfor;
+        }
     }
 }

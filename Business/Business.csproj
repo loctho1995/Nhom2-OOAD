@@ -99,6 +99,7 @@
     <Compile Include="Implements\NhanVienBusiness.cs" />
     <Compile Include="Implements\PhieuBanHangBusiness.cs" />
     <Compile Include="Implements\PhieuBaoHanhBusiness.cs" />
+    <Compile Include="Implements\PhieuChiBusiness.cs" />
     <Compile Include="Implements\PhieuDatHangBusiness.cs" />
     <Compile Include="Implements\PhieuKiemKhoBusiness.cs" />
     <Compile Include="Implements\PhieuNhapKhoBusiness.cs" />
