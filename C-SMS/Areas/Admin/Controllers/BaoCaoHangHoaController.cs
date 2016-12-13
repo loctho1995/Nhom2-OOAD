@@ -28,12 +28,16 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult DanhSachBaoCaoHangHoa()//string trangThai
+        public ActionResult DanhSachBaoCaoHangHoa(string trangThai)
         {
-            //if (trangThai != "")
-            //{
-            //    _trangThai = Convert.ToBoolean(trangThai);
-            //}
+            if (trangThai == null)
+            {
+                _trangThai = true;
+            }
+            else
+            {
+                _trangThai = Convert.ToBoolean(trangThai);
+            }
             return View(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
         }
         
@@ -42,7 +46,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, true).ToList());
+            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
@@ -55,7 +59,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, true).ToList());
+            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
