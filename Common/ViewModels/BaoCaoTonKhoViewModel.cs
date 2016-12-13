@@ -13,6 +13,7 @@ namespace Common.ViewModels
         public int nam { get; set; }
         public int maHangHoa { get; set; }
         public string tenHangHoa { get; set; }
+        public string donViTinh { get; set; }
         public int soLuongTonDau { get; set; }
         public int soLuongNhap { get; set; }
         public int soLuongXuat { get; set; }
