@@ -7,103 +7,105 @@
 <link href="~/Content/Css/InventoryBallotCss.css" rel="stylesheet" />
 <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
 
-<div class="header">
-    <div class="col-sm-4 no-padding-left">
-        <h2>@ViewBag.Title</h2>
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i> Phiếu Chi</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            </button>
+            <button class="btn btn-lg btn-primary btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
+                <i class="fa fa-list"></i>
+                Danh sách Phiếu Chi
+            </button>
+        </div>
     </div>
-    <div class="pull-right">
-        <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-ok"></i> Lưu</button>
-        <button class="btn btn-primary" id="print"><i class="glyphicon glyphicon-print"></i> In</button>
-        <button class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "NhapKho") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </button>
-    </div>
-</div>
 
-
-    <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="x_panel">
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="x_title">
-                            <h2><small>Thông tin phiếu chi</small></h2>
-                            <div class="clearfix"></div>
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Start input fields - basic form -->
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">@ViewBag.Title</h3>
                         </div>
+
+                        <div class="clearfix"></div>
+                    </div><!-- /.panel-heading -->
+
+                    <div class="panel-body no-padding">
                         @using (Html.BeginForm("Create", "PhieuChi", FormMethod.Post))
                         {
-                        <div class="x_content">
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
+                            <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Số phiếu</label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input value="8" type="number" name="sophieuchi" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" readonly="true" />
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Số phiếu</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input value="8" type="number" name="sophieuchi" class="form-control " style="margin-left:5px" readonly="true" />
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Ngày</label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input name="ngaychi" value="@DateTime.Now.ToString(" dd/MM/yyyy")" readonly="true" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ngày</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input name="ngaychi" value="@DateTime.Now.ToString(" dd/MM/yyyy")" readonly="true" type="text" class="form-control " style="margin-left:5px" />
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Nhân viên</label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <input value="@ViewBag.tenNhanVien" name="tenNhanVien" id="tenNhanVien" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" readonly="true" />
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Nhân viên</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <input value="@ViewBag.tenNhanVien" name="tenNhanVien" id="tenNhanVien" type="text" class="form-control " style="margin-left:5px" readonly="true" />
                                         <input value="@ViewBag.maNhanVien" name="manhanvien" id="maNhanVien" type="hidden" class="form-control" style="width:200px" readonly="true" />
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Phiếu Lập</label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        @Html.DropDownList("maphieunhap", new SelectList(ViewBag.maPhieuNhap, "Value", "Text"), new { @id = "maphieunhap", @class = "form-control", @style = "width:120%" })
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Phiếu Lập</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        @Html.DropDownList("maphieunhap", new SelectList(ViewBag.maPhieuNhap, "Value", "Text"), new { @id = "maphieunhap", @class = "form-control", @style = "margin-left:5px" })
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-lg-12 col-sm-12 col-xs-12">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4 col-xs-12">Ghi Chú</label>
-                                    <div class="col-md-8 col-sm-8 col-xs-12">
-                                        <textarea id="ghiChu" name="ghiChu" placeholder="Ghi chú viết tại đây" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%"></textarea>
+                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ghi Chú</label>
+                                    <div class="col-md-10 col-sm-9 col-xs-12">
+                                        <textarea id="ghiChu" name="ghiChu" placeholder="Ghi chú viết tại đây" class="form-control " style="margin-left:5px"></textarea>
                                     </div>
                                 </div>
-                            </div>
 
-                            <!--Thông tin thanh toán-->
-                            <div class="x_title">
-                                <h2><small>Thông tin thanh toán</small></h2>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div class="x_content">
-                                <div class="col-lg-12 col-sm-12 col-xs-12">
+                                <!--Thông tin thanh toán-->
+                                <div class="x_title">
+                                    <h2><small>Thông tin thanh toán</small></h2>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
                                     <div class="form-group">
-                                        <label class="control-label col-md-4 col-sm-4 col-xs-12">Tổng Tiền</label>
-                                        <div class="col-md-8 col-sm-8 col-xs-12">
-                                            <input id="tongTien" name="tongTienChi" type="text" class="form-control col-md-12 col-sm-12 col-xs-12" style="width:120%" />
+                                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Tổng Tiền</label>
+                                        <div class="col-md-10 col-sm-9 col-xs-12">
+                                            <input id="tongTien" name="tongTienChi" type="text" class="form-control " style="margin-left:5px" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-8 col-sm-8 col-xs-12" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-5 col-sm-offset-3 ">
+                                            <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu Phiếu Chi</button>
                                         </div>
                                     </div>
                                 </div>
-
-                                <div class="col-lg-12 col-sm-12 col-xs-12" style="margin-left:0%">
-                                    <label class="control-label col-md-12 col-sm-2 col-xs-12" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
-                                </div>
-                                <button id="formphieuchi" type="submit" hidden="hidden"></button>
+                                <!--/Thông tin thanh toán-->
                             </div>
-                            <!--/Thông tin thanh toán-->
-                        </div>
                         }
-                    </div>
-                </div>
-            </div>
+                    </div><!-- /.panel-body -->
+                </div><!-- /.panel -->
+                <!--/ End input fields - basic form-->
+            </div><!-- /.col-md-6 -->
         </div>
+    </div>
+</section>
 <script type="text/javascript">
     $(function () {
         $('#submit').click(function () {
