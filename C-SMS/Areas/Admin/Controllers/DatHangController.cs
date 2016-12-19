@@ -68,8 +68,24 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             var result = _hangHoaBus.LayThongTinHangHoa(id);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }        
+
+        public ActionResult Delete()
+        {
+            return View();
         }
-      
+
+        public ActionResult XacNhanNhanHang()
+        {
+            return View();
+        }
+
+        public ActionResult XacNhanThanhToan()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public async Task<ActionResult> XacNhanNhanHang(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
@@ -80,6 +96,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
         public async Task<ActionResult> XacNhanThanhToan(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
@@ -88,11 +105,6 @@ namespace WebBanHang.Areas.Admin.Controllers
             await _phieuDatHangBUS.Update(updatePhieuDatHang);
 
             return RedirectToAction("Index");
-        }
-
-        public ActionResult Delete()
-        {
-            return View();
         }
 
         [HttpPost]

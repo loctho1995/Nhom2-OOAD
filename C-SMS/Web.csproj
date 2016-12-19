@@ -6450,6 +6450,8 @@
     <Content Include="Areas\Admin\Views\PhieuChi\Detail.cshtml" />
     <Content Include="Areas\Admin\Views\PhieuChi\Index.cshtml" />
     <Content Include="Areas\Admin\Views\PhieuChi\ThongTinPhieuChi.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\XacNhanNhanHang.cshtml" />
+    <Content Include="Areas\Admin\Views\DatHang\XacNhanThanhToan.cshtml" />
     <None Include="Project_Readme.html" />
     <Content Include="Reports\ADataSetBaoCao.xsc">
       <DependentUpon>ADataSetBaoCao.xsd</DependentUpon>

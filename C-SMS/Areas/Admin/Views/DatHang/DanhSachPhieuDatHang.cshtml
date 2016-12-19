@@ -53,30 +53,31 @@
                 }
                 else
                 {
-                    <td>
-                        <div onclick='onBtNhanHangClicked(this, @item.soPhieuDatHang)' class='btn btn-default'>
-                            Xác nhận
-                        </div>
-                    </td>
+                    <td>Chưa nhận hàng</td>
                 }
 
                 @if(@item.daThanhToan == true)
                 {
-                    <td>
-                        Đã thanh toán
-                    </td>
+                    <td>Đã thanh toán </td>
                 }
                 else
                 {
-                    <td>
-                        <div onclick='onBtThanhToanClicked(this, @item.soPhieuDatHang)' class='btn btn-default'>
-                            Xác nhận
-                        </div>
-                    </td>
+                    <td>Chưa thanh toán</td>
                 }
 
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+
+                    @if(@item.daXacNhan == false)
+                    {
+                        <a href="@Url.Action("XacNhanNhanHang", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> XN nhận hàng</a>
+                    }
+
+                    @if(@item.daThanhToan == false)
+                    {
+                        <a href="@Url.Action("XacNhanThanhToan", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> XN thanh toán</a>
+                    }
+                    
                     <a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
                 </td>
 
