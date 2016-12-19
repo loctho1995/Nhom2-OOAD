@@ -31,7 +31,9 @@
                 {
                     <div class="form-group">
                         <div class="col-md-offset-4 col-sm-offset-3">
-                            <div class="btn btn-dark" onclick="@("window.location.href='" + @Url.Action("Index", "HangHoa") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
+                            <button class="btn btn-primary" onclick="@("window.location.href='" + @Url.Action("Index", "HangHoa") + "'"); ">
+                                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+                            </button>
                             <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Xóa Hàng Hóa</button>
                         </div>
                     </div>

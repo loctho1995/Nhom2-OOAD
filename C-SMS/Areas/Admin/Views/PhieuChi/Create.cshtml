@@ -11,6 +11,7 @@
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i> Phiếu Chi</h2>
         <div class="breadcrumb-wrapper hidden-xs">
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submitOver"><i class="glyphicon glyphicon-save"></i>Lưu Phiếu Chi</button>
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
                 <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
             </button>
@@ -92,7 +93,7 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-offset-5 col-sm-offset-3 ">
-                                            <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-save"></i>Lưu Phiếu Chi</button>
+                                            <button class="btn btn-primary" id="submit" hidden="hidden"><i class="glyphicon glyphicon-save"></i></button>
                                         </div>
                                     </div>
                                 </div>
@@ -109,8 +110,12 @@
 <script type="text/javascript">
     $(function () {
         $('#submit').click(function () {
-            console.log("submit")
             $('#formphieuchi').click();
+        })
+    })
+    $(function () {
+        $('#submitOver').click(function () {
+            $('#submit').click();
         })
     })
 

@@ -94,14 +94,24 @@
                         </div>
                     </div>
         
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Hình Ảnh
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <img id="preview" src ="@item.hinhAnh" width="300px" />
-                        </div>
-                    </div>
+                     <div class="form-group">
+                                <label class="control-label col-md-2 col-sm-3 col-xs-12">Hình Ảnh</label>
+                                <div class="col-md-10 col-sm-9 col-xs-12">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-preview thumbnail" name="avatar" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                                            <img src=@item.hinhAnh style="width: 200px; height: 150px;">
+                                        </div>
+                                        <div>
+                                            <span class="btn btn-info btn-file">
+                                                <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
+                                                <input type="file" name="avatar" id="fileUpload">
+                                                <input type="hidden" id="file" name="hinhanh" class="form-control" style="margin-left:5px">
+                                            </span>
+                                            <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                    <div class="form-group">
                     <label class="control-label col-md-2 col-sm-3 col-xs-12">
