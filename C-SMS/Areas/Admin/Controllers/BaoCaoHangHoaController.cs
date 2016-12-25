@@ -30,13 +30,11 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult DanhSachBaoCaoHangHoa(string trangThai)
         {
-<<<<<<< HEAD
             //if (trangThai != "")
             //{
             //    _trangThai = Convert.ToBoolean(trangThai);
             //}
-            return View(_baoCaoHangHoaBUS.ListView(HomeController.userName, _trangThai).ToList());
-=======
+
             if (trangThai == null)
             {
                 _trangThai = true;
@@ -45,8 +43,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 _trangThai = Convert.ToBoolean(trangThai);
             }
-            return View(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
->>>>>>> origin/master
+
+            return View(_baoCaoHangHoaBUS.ListView(HomeController.userName, _trangThai).ToList());
         }
         
         //xét cứng trạng thái true
@@ -54,11 +52,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-<<<<<<< HEAD
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.userName, true).ToList());
-=======
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
->>>>>>> origin/master
+            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.userName, true).ToList());   
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
@@ -71,11 +65,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-<<<<<<< HEAD
             rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.userName, true).ToList());
-=======
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
->>>>>>> origin/master
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
