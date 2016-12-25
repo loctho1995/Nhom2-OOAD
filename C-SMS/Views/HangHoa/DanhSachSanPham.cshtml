@@ -6,38 +6,90 @@
     ViewBag.Title = "Danh Sách Sản Phẩm";
     Layout = "~/Views/Layout/HomeLayout.cshtml";
 }
-<div class="products">
-    @foreach (var item in ViewBag.tenLoaiHangHoa)
-    {
-        <h5 class="latest-product" >@item.tenLoaiHangHoa có @Model.Count sản phẩm</h5>
-    }
-</div>
-<div class="">
-    <!-- grids_of_4 -->
-    @foreach (var item in Model)
-    {
-        FormatNumber number = new FormatNumber();
-        var url = "/HangHoa/" + "ChiTietSanPham/" + @item.maHangHoa;
-        <div class="grid-product">
-            <div class="  product-grid">
-                <div class="content_box">
-                    <a href="@url">
-                        <div class="left-grid-view grid-view-left">
-                            <img src="~/Content/client/images/@item.hinhAnh" class="img-responsive watch-right" alt="" style="height:285px" />
-                        </div>
-                    </a>
-                </div>
-                <h4><a href="@url">@item.tenHangHoa</a></h4>
-                <div class="left-n">@number.FormatNumbers(@item.giamGia.ToString()) đ</div>
-                <span class="reducedfrom">@number.FormatNumbers(@item.giaBan.ToString()) đ</span>
-                <div style="padding-right:100px">
-                    <a class="now-get get-cart" href="/PhieuDatHang/DatHang?maHangHoa=@item.maHangHoa&soLuong=1">Thêm vào giỏ hàng</a>
-                </div>
+
+<div id="vnt-container" class="container">
+    <section class="newshot-block row">
+        <div class="col-md-6 col-sm-6 col-xs-12 block">
+            <div class="block-inner">
+                <a class='table' href='#' target='_self' title='LG V10: Điện thoại thời trang'>
+                    <div class='inner'>
+                        <h3>LG V10: Điện thoại thời trang</h3>
+                        <span></span>
+                        <i class='fa fa-angle-right'></i>
+                    </div>
+                </a><figure>
+                    <div class="frame"><span> </span></div>
+                    <img src="~/Content/client/vnt_upload/weblink/banner/v10_1.png" alt="LG V10: Điện thoại thời trang" />
+                </figure>
             </div>
         </div>
-    }
+        <div class="col-md-6 col-sm-6 col-xs-12 block last">
+            <div class="block-inner">
+                <a class='table' href='#' target='_self' title='Chuyên các dòng Samsung độc nhất'>
+                    <div class='inner'>
+                        <h3>Chuyên các dòng Samsung độc nhất</h3>
+                        <span></span>
+                        <i class='fa fa-angle-right'></i>
+                    </div>
+                </a><figure><div class="frame"><span> </span></div><img src="~/Content/client/vnt_upload/weblink/banner/DSC_8642.jpg" alt="Chuyên các dòng Samsung độc nhất" /> </figure>
+            </div>
+        </div>
+    </section>
+
+    <div id="vnt-content">
+        <div class="main row">
+            <div class="sort">
+                <div class="filter-bound">
+                </div>
+
+                <div class="search-fast-bound">
+                    <div class="search-fast">
+                        @foreach (var item in ViewBag.tenLoaiHangHoa)
+                        {
+                            <strong><span>@item.tenLoaiHangHoa có @Model.Count sản phẩm</span></strong>
+                        }
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div id="List_Product" class="List_Product Cat_pro_sub grid-bound grid-bound-home">
+                @foreach (var item in Model)
+                {
+                    FormatNumber number = new FormatNumber();
+                    var url = "/HangHoa/" + "ChiTietSanPham/" + @item.maHangHoa;
+                    <div class='item1 nopadding product-grid'>
+                        <div class='boxItem'>
+                            <a href="@url" title='@item.tenHangHoa'>
+                                <img src="~/Content/client/product/@item.hinhAnh" alt='@item.tenHangHoa' title='@item.tenHangHoa' />
+                            </a>
+                            <h3>@item.tenHangHoa</h3>
+                            <p class="price">@number.FormatNumbers(@item.giaBan.ToString()) đ</p>
+                            <div class="product-hover">
+                                <a href="#" title="Samsung Galaxy A8 (2016)">
+                                    <h3 title="Samsung Galaxy A8 (2016)">@item.tenHangHoa</h3>
+                                    <p class="price">@number.FormatNumbers(@item.giaBan.ToString()) đ</p>
+                                    <div class="km"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>            
+            @Html.PagedListPager(Model, page => Url.Action("DanhSachSanPham", new { page }))
+        </div>
+        <div class="clear"></div>
+    </div>
 </div>
 
-<div class="pull-left">
-   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-</div>
+@*<div class="pull-right">
+    @Html.PagedListPager(Model, page => Url.Action("DanhSachSanPham",
+        new { page, searchString = ViewBag.SearchString, status = ViewBag.Status }),
+        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "list" }))
+</div>*@
+
+
+
+   
+

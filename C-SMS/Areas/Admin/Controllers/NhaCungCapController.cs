@@ -43,11 +43,11 @@ namespace WebBanHang.Areas.Admin.Controllers
             try
             {
                 await _nhaCungCapBus.Create(nhaCungCap);
-                SetAlert("Đã thêm nhà cung cấp thành công!!!", "success");
+                SetAlert("Đã tạo mới nhà cung cấp thành công!!!", "success");
             }
             catch
             {
-                SetAlert("Đã xảy ra lỗi! Bạn hãy thêm lại", "error");
+                SetAlert("Đã xảy ra lỗi! Bạn hãy tạo lại", "error");
 
             }
             return RedirectToAction("Index");

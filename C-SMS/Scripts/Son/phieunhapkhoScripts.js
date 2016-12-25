@@ -19,13 +19,19 @@
             $('#tenHangHoa').siblings('span.error').css('visibility', 'hidden');
         }
 
-        if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim()))) {
-            isValidItem = false;
-            $('#soLuongNhap').siblings('span.error').css('visibility', 'visible');
-        }
-        else {
-            $('#soLuongNhap').siblings('span.error').css('visibility', 'hidden');
-        }
+        //if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim()))) {
+        //    isValidItem = false;
+        //    $('#soLuongNhap').siblings('span.error').css('visibility', 'visible');
+        //}
+        //else {
+        //    $('#soLuongNhap').siblings('span.error').css('visibility', 'hidden');
+        //}
+
+        var errorQuantity = 0;
+        var errorPrice = 0;
+        errorPrice = CheckPrice(errorPrice);
+        errorQuantity = CheckQuantity(errorQuantity);
+        var error = errorQuantity + errorPrice;
 
         if (!($('#giaNhap').val().trim() != '' && !isNaN($('#giaNhap').val().trim()))) {
             isValidItem = false;
@@ -407,4 +413,21 @@ function Multiplica() {
         //    }
         //}
     }
+}
+
+function CheckQuantity(error) {
+    if ($("#soLuong").val() == '') {
+        $(".messageErrorinputQuantity").text("Nhập số lượng!");
+        $(".notifyinputQuantity").slideDown(250).removeClass("hidden");
+        $("#soLuong").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputQuantity").addClass("hidden");
+        $("#soLuong").removeClass("error");
+    }
+    $("#soLuong").blur(function () {
+        $("#soLuong").val($("#soLuong").val().trim());
+    });
+    return error;
 }

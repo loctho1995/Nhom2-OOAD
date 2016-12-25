@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /* ========================================================================
  * TABLE OF CONTENTS
  * ========================================================================
@@ -1636,6 +1636,8 @@ ul.days li span {
   border-color: #d7e9c3;
   color: #587f2e;
   padding: 10px;
+  margin-left:224px;
+  width:83%;
 }
 .alert-success .alert-icon {
   background-color: #659234;
@@ -1687,6 +1689,8 @@ ul.days li span {
   border-color: #f9cfc8;
   color: #ae2a14;
   padding: 10px;
+  margin-left:224px;
+  width:83%;
 }
 .alert-danger .alert-icon {
   background-color: #c52f17;
@@ -1698,6 +1702,26 @@ ul.days li span {
 .alert-danger .notification-sender a {
   color: #ae2a14;
 }
+
+/*-------*/
+.alert-danger1 {
+  background-color: #f9cfc8;
+  border-color: #f9cfc8;
+  color: #ae2a14;
+  padding-top: 10px;
+ 
+}
+.alert-danger1 .alert-icon {
+  background-color: #c52f17;
+}
+.alert-danger1 .alert-link, .alert-danger1 a {
+  color: #801f0f !important;
+  font-weight: bold;
+}
+.alert-danger1 .notification-sender a {
+  color: #ae2a14;
+}
+
 
 .alert-lilac {
   background-color: #d1bad3;

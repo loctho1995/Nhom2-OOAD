@@ -7,7 +7,7 @@
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Loại hàng hóa</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i> Lưu</button>
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "LoaiHangHoa") + "'"); ">
                 <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
             </button>
@@ -37,15 +37,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label">Phần trăm lợi nhuận</label>
+                                    <label class="control-label">Phần trăm lợi nhuận (%)</label>
                                     <input type="text" name="phantramloinhuan" class="form-control rounded" required />
                                 </div>
                             </div><!-- /.form-body -->
-                            <div class="form-group">
-                                <div class="col-md-offset-5 col-sm-offset-3 ">
-                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-saved"></i> Lưu</button>
-                                </div>
-                            </div>
+                           
                         }
 
                     </div>
@@ -55,3 +51,8 @@
     </div>
 </section>
 <script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $('#submit').click(function () {
+        $('#basic-validate').submit();
+    });
+</script>

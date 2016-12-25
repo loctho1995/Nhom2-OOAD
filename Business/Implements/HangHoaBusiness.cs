@@ -1,4 +1,5 @@
 ﻿using Common.Models;
+using Common.Ultil;
 using Common.ViewModels;
 using Data.Implements;
 using System;
@@ -20,6 +21,7 @@ namespace Business.Implements
         private readonly HangHoaRepository _hangHoaRepo;
         private readonly LoaiHangHoaRepository _loaiHangHoaRepo;
         private NhanVienBusiness _nhanVienBus;
+        ConvertToUnSign unSign = new ConvertToUnSign();
 
         public HangHoaBusiness()
         {
@@ -62,6 +64,11 @@ namespace Business.Implements
             return producInfor;
         }
 
+        public List<string> ListName(string keyword)
+        {      
+            return dbContext.HangHoas.Where(x => x.TenHangHoa.Contains(keyword)).Select(x => x.TenHangHoa).ToList();
+        }
+
         public IEnumerable<HangHoa> DanhSachHangHoaMoiNhat()
         {
             IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
@@ -77,6 +84,7 @@ namespace Business.Implements
                        HinhAnh = hanghoa.HinhAnh,
                        GiaBan = hanghoa.GiaBan,
                        GiamGia = hanghoa.GiamGia,
+                       XuatXu = hanghoa.XuatXu,
                    }).AsEnumerable().Select(x => new HangHoa()
                    {
                        MaHangHoa = x.MaHangHoa,
@@ -84,6 +92,7 @@ namespace Business.Implements
                        HinhAnh = x.HinhAnh,
                        GiaBan = x.GiaBan,
                        GiamGia = x.GiamGia,
+                       XuatXu = x.XuatXu,
                    }).Take(6).ToList();
             return all;
         }
@@ -102,6 +111,7 @@ namespace Business.Implements
                               TenHangHoa = hanghoa.TenHangHoa,
                               GiaBan = hanghoa.GiaBan,
                               GiamGia = hanghoa.GiamGia,
+                              XuatXu = hanghoa.XuatXu,
 
                           }).AsEnumerable().Select(x => new HangHoa()
                           {
@@ -111,18 +121,47 @@ namespace Business.Implements
                               HinhAnh = x.HinhAnh,
                               GiamGia = x.GiamGia,
                               GiaBan = x.GiaBan,
+                              XuatXu = x.XuatXu,
                           }).Distinct().Take(6).ToList();
 
             return orders;
         }
 
-        public IEnumerable<HangHoa> TimKiemHangHoa(string key)
+        public IEnumerable<HangHoa> DanhSachHangHoaGiamGia()
         {
             IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
             List<HangHoa> all = new List<HangHoa>();
 
             all = (from hanghoa in danhSachHangHoa
-                   where hanghoa.TenHangHoa.Equals(key)
+                   where (hanghoa.TrangThai == true && hanghoa.GiamGia > 0)
+                   orderby hanghoa.MaHangHoa descending
+                   select new
+                   {
+                       MaHangHoa = hanghoa.MaHangHoa,
+                       TenHangHoa = hanghoa.TenHangHoa,
+                       HinhAnh = hanghoa.HinhAnh,
+                       GiaBan = hanghoa.GiaBan,
+                       GiamGia = hanghoa.GiamGia,
+                       XuatXu = hanghoa.XuatXu,
+                   }).AsEnumerable().Select(x => new HangHoa()
+                   {
+                       MaHangHoa = x.MaHangHoa,
+                       TenHangHoa = x.TenHangHoa,
+                       HinhAnh = x.HinhAnh,
+                       GiaBan = x.GiaBan,
+                       GiamGia = x.GiamGia,
+                       XuatXu = x.XuatXu,
+                   }).Take(6).ToList();
+            return all;
+        }
+
+        public IList<HangHoa> TimKiemHangHoa(string key)
+        {
+            IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
+            List<HangHoa> all = new List<HangHoa>();
+
+            all = (from hanghoa in danhSachHangHoa
+                   where hanghoa.TenHangHoa.ToLower().Contains(key)
                    select new
                    {
                        MaHangHoa = hanghoa.MaHangHoa,
@@ -270,7 +309,9 @@ namespace Business.Implements
         {
             try
             {
+                var a = _hangHoaRepo.GetAll().Where(x => x.MaHangHoa == maHangHoa);
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
+                
                 if (result != null)
                 {
                     result.SoLuongTon -= soLuongXuat;
@@ -604,7 +645,5 @@ namespace Business.Implements
 
             await _hangHoaRepo.EditAsync(editHangHoa);
         }
-
-        
     }
 }

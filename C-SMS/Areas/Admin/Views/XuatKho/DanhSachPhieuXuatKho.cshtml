@@ -6,25 +6,25 @@
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayName("Số Phiếu Xuất Kho")
+            <th style="text-align:center">
+                @Html.DisplayName("Số phiếu xuất kho")
             </th>
-            <th>
-                @Html.DisplayName("Ngày Xuất Kho")
+            <th style="text-align:center">
+                @Html.DisplayName("Ngày xuất")
             </th>
-            <th>
-                @Html.DisplayName("Tên Nhân Viên")
+            <th style="text-align:center">
+                @Html.DisplayName("Nhân viên")
             </th>
-            <th>
-                @Html.DisplayName("Tổng Tiền (VND)")
+            <th style="text-align:center">
+                @Html.DisplayName("Tổng tiền (VNĐ)")
             </th>
-            <th>
-                @Html.DisplayName("Lý Do Xuất")
+            <th style="text-align:center">
+                @Html.DisplayName("Ghi chú")
             </th>
-            <th>
-                @Html.DisplayName("Trạng Thái")
+            <th style="text-align:center">
+                @Html.DisplayName("Trạng thái")
             </th>
-            <th class="width-10">
+            <th style="text-align:center">
                 Hành động
             </th>
         </tr>
@@ -43,21 +43,22 @@
                 @if (@item.trangThai == true)
                 {
                     <td>Hoàn thành</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        @if (@item.ngayXuatKho.ToString("dd/MM/yyyy") == @DateTime.Now.ToString("dd/MM/yyyy"))
+                        {
+                            <a href="@Url.Action("Delete", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                        }
+                    </td>
                 }
                 else
                 {
                     <td>Đã hủy</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    </td>
                 }
-                <td>
-                    <a href="@Url.Action("Detail", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-
-                    @if ((@item.ngayXuatKho.Month >= @DateTime.Now.Month) && (@item.ngayXuatKho.Year == @DateTime.Now.Year))
-                    {
-                        <a href="@Url.Action("Delete", new { id = item.soPhieuXuatKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
-
-                    }
-
-                </td>
+               
             </tr>
         }
     </tbody>

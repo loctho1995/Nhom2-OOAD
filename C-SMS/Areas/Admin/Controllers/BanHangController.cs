@@ -12,7 +12,7 @@ using Common.Models;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
-    public class BanHangController :BaseController
+    public class BanHangController : BaseController
     {
         //
         // GET: /Admin/BanHang/
@@ -41,7 +41,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             PhieuBanHang deletePhieuBanHang = (PhieuBanHang)await _phieuBanHangBUS.Find(id);
 
-            if(deletePhieuBanHang == null)
+            if (deletePhieuBanHang == null)
             {
                 return HttpNotFound();
             }
@@ -51,12 +51,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _phieuBanHangBUS.Delete(deletePhieuBanHang);
-                    SetAlert("Đã xóa phiếu bán hàng thành công!!!", "success");
-
+                    SetAlert("Đã hủy phiếu bán hàng thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
                 }
             }
             return RedirectToAction("Index");
@@ -67,23 +66,16 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             bool status = false;
 
-            try
+            if (ModelState.IsValid)
             {
-                if(ModelState.IsValid)
-                {
-                    await _phieuBanHangBUS.Create(phieuBanHang);
-                    status = true;
-                    SetAlert("Đã lưu phiếu bán hàng thành công!", "success");
-                }
-                else
-                {
-                    status = false;
-                    SetAlert("Đã xảy ra lỗi! xin hãy tạo lại phiếu bán hàng", "error");
-                }
+                await _phieuBanHangBUS.Create(phieuBanHang);
+                status = true;
+                SetAlert("Đã lưu phiếu bán hàng thành công!", "success"); 
             }
-            catch(Exception ex)
+            else
             {
-                SetAlert(ex.ToString(), "success");
+                status = false;
+                SetAlert("Đã xảy ra lỗi! xin hãy tạo lại phiếu bán hàng", "error");
             }
 
             return new JsonResult { Data = new { status = status } };
@@ -96,27 +88,17 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             ViewBag.soPhieuBanHang = _phieuBanHangBUS.LoadSoPhieuBanHang();
 
             return View();
         }
 
-        //public ActionResult DanhSachPhieuBanHang(string searchString, int page = 1, int pageSize = 5)
-        //{
-        //    //if(!string.IsNullOrEmpty(searchString))
-        //    //{
-        //    //    return View(_phieuBanHangBUS.SearchDanhSachPhieuKiemKho(searchString, HomeController.nhanVienCode).ToPagedList(page, pageSize));
-        //    //}
-
-        //    return View(_phieuBanHangBUS.ListView(HomeController.nhanVienCode).ToPagedList(page, pageSize));
-        //}
-
-        public ActionResult DanhSachPhieuBanHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuBanHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
-            return View(_phieuBanHangBUS.SearchDanhSachPhieuBanHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuBanHangBUS.SearchDanhSachPhieuBanHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
         public ActionResult ThongTinPhieuBanHang(int id)

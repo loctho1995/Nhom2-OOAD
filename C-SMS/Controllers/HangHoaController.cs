@@ -25,7 +25,7 @@ namespace WebBanHang.Controllers
             return View(a);
         }
 
-        public ActionResult DanhSachSanPham(int id, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachSanPham(int id, int page = 1, int pageSize = 6)
         {
             ViewBag.tenLoaiHangHoa = _hangHoaBus.TenLoaiHangHoaTheoMaLoaiHangHoa(id);
             var a = _hangHoaBus.DanhSachHangHoaTheoMaLoaiHangHoa(id).ToPagedList(page, pageSize);

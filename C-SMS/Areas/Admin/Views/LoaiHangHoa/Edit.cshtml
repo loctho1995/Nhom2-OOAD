@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Sửa Loại Hàng Hóa";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
@@ -8,12 +7,15 @@
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Loại Hàng Hóa</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            <button class="btn btn-lg btn-danger btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "LoaiHangHoa") + "'"); ">
-                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
-            </button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i> Lưu</button>
+
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "LoaiHangHoa") + "'"); ">
-                <i class="glyphicon glyphicon-saved"></i>
+                <i class="glyphicon glyphicon-edit"></i>
                 Tạo mới loại hàng hóa
+            </button>
+
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "LoaiHangHoa") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
             </button>
 
         </div>
@@ -37,12 +39,6 @@
                         {
                             <div class="form-body">
                                 @{Html.RenderAction("ThongTinLoaiHangHoa", "LoaiHangHoa");}
-
-                            </div>
-                            <div class="form-footer">
-                                <div class="col-md-offset-5 col-sm-offset-3 ">
-                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-edit"></i>Sửa</button>
-                                </div>
                             </div>
                         }
                     </div>
@@ -53,4 +49,10 @@
 </section>
 
 <script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $('#submit').click(function () {
+        $('#basic-validate').submit();
+    });
+</script>
+
 

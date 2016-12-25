@@ -28,14 +28,14 @@ namespace WebBanHang.Areas.Admin.Controllers
         PhieuBanHangBusiness _phieuBanHangBus = new PhieuBanHangBusiness();
         ChucVuBusiness _chucVuBus = new ChucVuBusiness();
 
-        public static string nhanVienCode = string.Empty;
+        public static string userName = string.Empty;
 
         public ActionResult Index()
         {
             curController = this;
             if (Session["Account"] != null && Session["Account"].ToString() == "Error")
             {
-                TempData["notify"] = "ID hoặc Password không đúng!!!";
+                TempData["notify"] = "Username hoặc Password không đúng!!!";
             }
             ViewBag.soPhieuDatHang = _phieuDatHangBus.LaySoDonDatHang();
             
@@ -73,12 +73,12 @@ namespace WebBanHang.Areas.Admin.Controllers
                     string aut = _nhanVienBus.Authority(account);
                     Decentralization(account.maNhanVien.ToString(), aut);
                     Session["Account"] = account;
-                    nhanVienCode = Username;
+                    userName = Username;
                 }
             }
             else
             {
-                TempData["notify"] = "ID hoặc Password không đúng!!!";
+                TempData["notify"] = "Username hoặc Password không đúng!!!";
             }
             return RedirectToAction("Index");
         }

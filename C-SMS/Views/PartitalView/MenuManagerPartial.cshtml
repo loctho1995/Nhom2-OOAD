@@ -1,15 +1,24 @@
 ﻿@model IEnumerable<Common.Models.LoaiHangHoa>
 
-<div class=" top-nav rsidebar span_1_of_left">
-    <h3 class="cate">Danh Mục Sản Phẩm</h3>
-    <ul class="menu">
-        @foreach (var item in Model)
-        {
-            var url = "/HangHoa/" + "DanhSachSanPham/" + @item.MaLoaiHangHoa;
-            <ul class="kid-menu ">               
-                <li><a href="@url">@item.TenLoaiHangHoa</a></li>            
+<div id="vnt-menutop" class="header_nav">
+    <div class="container">
+        <div class="menutop row">
+            <ul class="dropdown">
+                <li id="nav_home">
+                    <a href="@Url.Action("Index", "Home")" class="nav_main_item current">Trang chủ</a>
+                </li>
+                @foreach (var item in Model)
+                {
+                    var url = "/HangHoa/" + "DanhSachSanPham/" + @item.MaLoaiHangHoa;
+                    <li id='menu_2'>
+                        <a href="@url" target="_self">@item.TenLoaiHangHoa</a> 
+                    </li>
+                }
+                <li id='menu_1'><a href="#" target="_self">DỊCH VỤ</a></li>
+                <li id='menu_1'><a href="#" target="_self">Tin tức</a></li>
+                <li id='menu_1'><a href="#" target="_self">Liên hệ</a></li>
+                <li id='menu_1'><a href="#" target="_self">Khuyến Mãi<span class="saleoff">sale off</span></a></li>
             </ul>
-        }            
-    </ul>
+        </div>
+    </div>
 </div>
-

@@ -75,6 +75,7 @@
     <Compile Include="Models\ThamSo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ultil\CodeMasterGen.cs" />
+    <Compile Include="Ultil\ConvertToUnSign.cs" />
     <Compile Include="Ultil\FindController.cs" />
     <Compile Include="Ultil\FormatNumber.cs" />
     <Compile Include="Ultil\Md5Encode.cs" />

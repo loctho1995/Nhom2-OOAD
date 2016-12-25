@@ -32,9 +32,8 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.soPhieuXuatKhoTuTang = _phieuXuatKhoBus.LoadSoPhieuXuatKho();
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             return View();
@@ -46,22 +45,21 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DanhSachPhieuXuatKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuXuatKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
 
             if (!string.IsNullOrEmpty(searchString)
                 || !string.IsNullOrEmpty(trangthai))
             {
-                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
             }
             if (!string.IsNullOrEmpty(dateFrom)
                 && !string.IsNullOrEmpty(dateTo))
             {
-                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai,Convert.ToDateTime(dateFrom),Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+                return View(_phieuXuatKhoBus.SearchDanhSachPhieuXuatKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
             }
 
-            return View(_phieuXuatKhoBus.DanhSachPhieuXuatKho(HomeController.nhanVienCode).ToPagedList(page, pageSize));
-
+            return View(_phieuXuatKhoBus.DanhSachPhieuXuatKho(HomeController.userName).ToPagedList(page, pageSize));
         }
 
         [HttpPost]

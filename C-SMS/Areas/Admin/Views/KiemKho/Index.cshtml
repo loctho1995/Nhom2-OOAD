@@ -10,7 +10,7 @@
         <h2><i class="fa fa-list-alt"></i>Phiếu kiểm kho</h2>
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "KiemKho") + "'"); ">
-                <i class="fa fa-save"></i>
+                <i class="glyphicon glyphicon-edit"></i>
                 Tạo mới phiếu kiểm kho
             </button>
 
@@ -30,16 +30,15 @@
 
                     <div class="panel-body">
                         <div class="form-body">
-                            @using (Ajax.BeginForm("DanhSachPhieuKiemKho", "KiemKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                            @using (Ajax.BeginForm("DanhSachPhieuKiemKho", "KiemKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }))
                             {
-
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <label class="control-label">Từ ngày</label>
+                                        <label>Từ ngày</label>
                                         <input type="date" id="dateFrom" name="dateFrom" data-date-format="dd/mm/yyyy" required class="form-control rounded" />
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Đến ngày</label>
+                                        <label>Đến ngày</label>
                                         <div class="input-group">
                                             <input type="date" id="dateTo" name="dateTo" required class="form-control rounded" />
                                             <span class="input-group-btn">
@@ -50,7 +49,7 @@
                                 </div>
 
                             }
-                            @using (Ajax.BeginForm("DanhSachPhieuXuatKho", "XuatKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                            @using (Ajax.BeginForm("DanhSachPhieuKiemKho", "KiemKho", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
                             {
                                 <div class="form-group">
                                     <div class="col-md-6">
@@ -58,7 +57,7 @@
                                         @Html.DropDownList("trangthai", new SelectList(ViewBag.trangthai, "Value", "Text"), new { @class = "form-control rounded" })
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Tìm Kiếm</label>
+                                        <label>Tìm Kiếm</label>
                                         <div class="input-group">
                                             @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm" })
                                             <span class="input-group-btn">

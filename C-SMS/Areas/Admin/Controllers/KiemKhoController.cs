@@ -30,8 +30,8 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.soPhieuKiemKhoTuTang = _phieuKiemKhoBus.LoadSoPhieuKiemKho();
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             return View();
@@ -41,6 +41,16 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             var result = _hangHoaBus.LayThongTinHangHoa(id);
             return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult ListName(string q)
+        {
+            var data = _hangHoaBus.ListName(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -61,9 +71,9 @@ namespace WebBanHang.Areas.Admin.Controllers
             return new JsonResult { Data = new { status = status } };
         }
 
-        public ActionResult DanhSachPhieuKiemKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
-        {           
-            return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+        public ActionResult DanhSachPhieuKiemKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
+        {
+            return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
         public ActionResult Delete()

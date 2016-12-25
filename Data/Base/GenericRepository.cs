@@ -10,6 +10,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Data.Interfaces;
+using System.Collections.Generic;
 
 namespace Data.Base
 {
@@ -75,6 +76,11 @@ namespace Data.Base
         public async Task SaveChanges()
         {
             await _dbContext.SaveChangesAsync();
+        }
+
+        public IEnumerable<TEntity> GetList()
+        {
+            return DbSet;
         }
 
         public void Dispose()

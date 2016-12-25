@@ -1,0 +1,29 @@
+﻿
+.btn {
+    border-radius: 3px;
+}
+
+button {
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #0097fb;
+    border-color: #0097fb;
+}
+
+.error {
+    border: red;
+    background: white;
+}
+
+.messageError {
+    text-align: center;
+    padding-top: 5px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ff531a;
+    margin-bottom: -40px;
+}

@@ -5,22 +5,22 @@
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
-            <th>
+            <th class="text-center">
                 @Html.DisplayName("Số Phiếu Kiểm Kho")
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayName("Ngày kiểm kho")
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayName("Nhân Viên")
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayName("Ghi Chú")
             </th>
-            <th>
+            <th class="text-center">
                 @Html.DisplayName("Trạng Thái")
             </th>
-            <th class="width-10">
+            <th class="text-center">
                 Hành động
             </th>
         </tr>
@@ -37,16 +37,18 @@
                 @if (@item.trangThai == true)
                 {
                     <td>Hoàn thành</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        <a href="@Url.Action("Delete", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                    </td>
                 }
                 else
                 {
                     <td>Đã hủy</td>
-                }              
-                <td>
-                    <a href="@Url.Action("Detail", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                   <a href="@Url.Action("Delete", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
-
-                </td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    </td>
+                }
             </tr>
         }
     </tbody>

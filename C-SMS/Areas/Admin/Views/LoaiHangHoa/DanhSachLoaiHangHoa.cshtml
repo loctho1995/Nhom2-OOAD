@@ -5,16 +5,16 @@
     <table class="table table-bordered table-middle table-lilac">
         <thead>
             <tr>
-                <th class="width-5">
+                <th class="text-center">
                     @Html.DisplayName("Mã Loại Hàng Hóa")
                 </th>
-                <th class="width-5">
+                <th class="text-center">
                     @Html.DisplayName("Tên Loại Hàng Hóa")
                 </th>
-                <th class="width-5">
+                <th class="text-center">
                     @Html.DisplayName("Phần Trăm Lợi Nhuận (%)")
                 </th>
-                <th class="width-5">
+                <th class="text-center">
                     Hành động
                 </th>
             </tr>
@@ -22,7 +22,7 @@
         <tbody>
             @foreach (var item in Model)
             {
-                <tr class="border-warning">
+                <tr class="border-warning" style="text-align:center">
                     <td>@item.MaLoaiHangHoa</td>
                     <td>@item.TenLoaiHangHoa</td>
                     <td>@item.PhanTramLoiNhuan</td>     

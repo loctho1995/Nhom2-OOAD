@@ -29,8 +29,8 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
             ViewBag.soPhieuChiTuTang = _phieuChiBus.LoadSoPhieuChi();
             ViewBag.maPhieuNhap = new SelectList(_phieuChiBus.LoadSoPhieuNhapKho(), "Value", "Text");
 
@@ -78,7 +78,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             catch (Exception)
             {
             }
-            return View(_phieuChiBus.SearchDanhSachPhieuChi(searchString, trangthai, tungay, denngay, HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuChiBus.SearchDanhSachPhieuChi(searchString, trangthai, tungay, denngay, HomeController.userName).ToPagedList(page, pageSize));
         }
         public ActionResult ThongTinPhieuChi(int id)
         {

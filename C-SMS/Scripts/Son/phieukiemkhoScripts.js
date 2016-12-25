@@ -5,32 +5,20 @@
         //Check validation of inventory ballot detail
         var isValidItem = true;
 
-        if ($('#maHangHoa').val().trim() == '') {
+        if ($('#tenHangHoa').val() == '') {
             isValidItem = false;
-            $('#maHangHoa').siblings('span.error').css('visibility', 'visible');
+            $('#productItemError').text('Chưa có sản phẩm nào được chọn!');
         }
         else {
-            $('#maHangHoa').siblings('span.error').css('visibility', 'hidden');
+            $('#productItemError').hide();
         }
 
-        if ($('#tenHangHoa').val().trim() == '') {
-            isValidItem = false;
-            $('#tenHangHoa').siblings('span.error').css('visibility', 'visible');
-        }
-        else {
-            $('#tenHangHoa').siblings('span.error').css('visibility', 'hidden');
-        }
-
-        if (!($('#soLuongKiemTra').val().trim() != '' && !isNaN($('#soLuongKiemTra').val().trim()))) {
-            isValidItem = false;
-            $('#soLuongKiemTra').siblings('span.error').css('visibility', 'visible');
-        }
-        else {
-            $('#soLuongKiemTra').siblings('span.error').css('visibility', 'hidden');
-        }
+        var errorQuantity = 0;
+        errorQuantity = CheckQuantity(errorQuantity);
+        var error = errorQuantity;
 
         //Add product to list if valid
-        if (isValidItem) {
+        if (isValidItem == true && error == 0) {
 
             var i, j;
             var string_value_product = $('#maHangHoa').val().trim();
@@ -124,7 +112,12 @@
 
         var popupWin = window.open('', '_blank', 'width=800,height=500'); //create new page     
         popupWin.document.open(); //open new page
-        popupWin.document.write('<html><title>Phiếu kiểm kho</title><body onload="window.print()">')
+        popupWin.document.write('<html><body onload="window.print()">')
+
+        popupWin.document.write('<p style="text-align:center"><img src="/Content/image/header.png" class="img-responsive watch-right"  /></p>')
+
+        popupWin.document.write('<p style="text-align:center; font-weight: bold; font-size: 30px">Phiếu Kiểm Kho</p>')
+
         popupWin.document.write('<table style="border:solid; width:100%"; text-align:center">')
         popupWin.document.write('Thông tin phiếu kiểm kho');
         popupWin.document.write('<tr><td>')
@@ -150,11 +143,11 @@
         popupWin.document.write('</table>')
 
         popupWin.document.write('<br>');
-        popupWin.document.write('Danh sách hàng hóa');
+        popupWin.document.write('Danh sách sản phẩm');
         popupWin.document.write(toPrint.innerHTML);
 
-        popupWin.document.write('<p style="text-align:right">')
-        popupWin.document.write('Nhân viên kiểm kho')
+        popupWin.document.write('<p style="text-align:center">')
+        popupWin.document.write('Nhân viên kho')
         popupWin.document.write('<br>')
         popupWin.document.write('(Ký tên)')
         popupWin.document.write('</p>')
@@ -280,12 +273,27 @@ $(document).ready(function () {
     });
 })
 
-function ClearValue() {
-    $("#productName").val('');
-    $("#unitName").val('');
-    $("#currentQuantity").val('');
+$(document).ready(function () {
+    $("#soLuongKiemTra").on('keyup input propertychange paste change', function () {
+        CheckQuantity();
+    });
+});
 
-    $('#productID').siblings('span.error').css('visibility', 'hidden');
-    $('#productName').siblings('span.error').css('visibility', 'hidden');
-    $('#checkQuantity').siblings('span.error').css('visibility', 'hidden');
+// check quantity input
+function CheckQuantity(error) {
+    if (!($('#soLuongKiemTra').val().trim() != '' && !isNaN($('#soLuongKiemTra').val().trim()))) {
+    //if ($("#soLuongKiemTra").val() == '') {
+        $(".messageErrorinputQuantity").text("Nhập số lượng!");
+        $(".notifyinputQuantity").slideDown(250).removeClass("hidden");
+        $("#soLuongKiemTra").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputQuantity").addClass("hidden");
+        $("#soLuongKiemTra").removeClass("error");
+    }
+    $("#soLuongKiemTra").blur(function () {
+        $("#soLuongKiemTra").val($("#soLuongKiemTra").val().trim());
+    });
+    return error;
 }

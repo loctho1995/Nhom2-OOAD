@@ -34,14 +34,14 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 _nam = Convert.ToInt32(nam);
             }
-            return View(_baoCaoTonKhoBUS.ListView(HomeController.nhanVienCode, _thang, _nam).ToList());
+            return View(_baoCaoTonKhoBUS.ListView(HomeController.userName, _thang, _nam).ToList());
         }
 
         public ActionResult XuatFilePDF()
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoTonKhoRP.rpt")));
-            rd.SetDataSource(_baoCaoTonKhoBUS.ListView(HomeController.nhanVienCode, _thang, _nam).ToList());
+            rd.SetDataSource(_baoCaoTonKhoBUS.ListView(HomeController.userName, _thang, _nam).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
@@ -54,7 +54,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoTonKhoRP.rpt")));
-            rd.SetDataSource(_baoCaoTonKhoBUS.ListView(HomeController.nhanVienCode, _thang, _nam).ToList());
+            rd.SetDataSource(_baoCaoTonKhoBUS.ListView(HomeController.userName, _thang, _nam).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();

@@ -34,7 +34,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             //{
             //    _trangThai = Convert.ToBoolean(trangThai);
             //}
-            return View(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, _trangThai).ToList());
+            return View(_baoCaoHangHoaBUS.ListView(HomeController.userName, _trangThai).ToList());
         }
         
         //xét cứng trạng thái true
@@ -42,7 +42,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, true).ToList());
+            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.userName, true).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();
@@ -55,7 +55,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ReportDocument rd = new ReportDocument();
             rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoHangHoaRP.rpt")));
-            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.nhanVienCode, true).ToList());
+            rd.SetDataSource(_baoCaoHangHoaBUS.ListView(HomeController.userName, true).ToList());
             Response.Buffer = false;
             Response.ClearContent();
             Response.ClearHeaders();

@@ -33,8 +33,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.nhaCungCap = _nhanCungCapBus.LoadNhaCungCap();
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.soPhieuNhapKhoTuTang = _phieuNhapKhoBus.LoadSoPhieuNhapKho();
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             return View();
@@ -52,7 +52,7 @@ namespace WebBanHang.Areas.Admin.Controllers
      
         public ActionResult DanhSachPhieuNhapKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
         [HttpPost]

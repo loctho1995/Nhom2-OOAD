@@ -54,7 +54,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult DanhSachPhieuDatHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuDatHangBUS.SearchDanhSachPhieuDatHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuDatHangBUS.SearchDanhSachPhieuDatHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
         public ActionResult ThongTinPhieuDatHang(int id)

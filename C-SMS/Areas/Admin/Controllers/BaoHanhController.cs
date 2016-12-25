@@ -45,8 +45,8 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.nhanVienCode);
-            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.nhanVienCode);
+            ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+            ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             ViewBag.soPhieuBaoHanh = _phieuBaoHanhBus.LoadSoPhieuBaoHanh();
 
@@ -127,7 +127,7 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult DanhSachPhieuBaoHanh(string searchString, string trangThai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
         {
-            return View(_phieuBaoHanhBus.SearchDanhSachPhieuDatHang(searchString, trangThai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.nhanVienCode).ToPagedList(page, pageSize));
+            return View(_phieuBaoHanhBus.SearchDanhSachPhieuDatHang(searchString, trangThai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
         public ActionResult ThongTinPhieuBaoHanh(int id)

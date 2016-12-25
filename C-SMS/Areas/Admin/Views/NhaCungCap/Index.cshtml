@@ -9,7 +9,7 @@
         <h2><i class="fa fa-list-alt"></i> Nhà cung cấp</h2>
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "NhaCungCap") + "'"); ">
-                <i class="fa fa-save"></i>
+                <i class="glyphicon glyphicon-edit"></i>
                 Tạo mới nhà cung cấp
             </button>
         </div>
@@ -32,7 +32,7 @@
                             @using (Ajax.BeginForm("DanhSachNhaCungCap", "NhaCungCap", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
                             {
                                 <div class="form-group">
-                                    <label class="control-label">Tìm Kiếm</label>
+                                    <label>Tìm Kiếm</label>
                                     <div class="input-group">
                                         @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm theo tên nhà cung cấp hoặc số điện thoại hoặc email" })
                                         <span class="input-group-btn">

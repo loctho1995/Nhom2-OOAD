@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
 
 namespace WebBanHang.Controllers
 {
@@ -16,6 +17,7 @@ namespace WebBanHang.Controllers
         {
             ViewBag.hangHoaMoiNhat = _hangHoaBus.DanhSachHangHoaMoiNhat();
             ViewBag.hangHoaBanChayNhat = _hangHoaBus.DanhSachHangHoaBanChayNhat();
+            ViewBag.hangHoaGiamGia = _hangHoaBus.DanhSachHangHoaGiamGia();
             return View();
         }
 
@@ -25,10 +27,21 @@ namespace WebBanHang.Controllers
             return PartialView("~/Views/PartitalView/MenuManagerPartial.cshtml", menuLoaiHangHoa);
         }
 
-        public ActionResult TimKiemSanPham(string SearchString)
+        public ActionResult TimKiemSanPham(string searchString, int page = 1, int pageSize = 12)
         {
-            ViewBag.TimKiemSanPham = _hangHoaBus.TimKiemHangHoa(SearchString);
-            return View();
+            ViewBag.TimKiemSanPham = _hangHoaBus.TimKiemHangHoa(searchString);
+            ViewBag.SearchString = searchString;
+            return View(_hangHoaBus.TimKiemHangHoa(searchString).ToPagedList(page, pageSize));
+        }
+
+        public JsonResult ListTenHangHoa(string q)
+        {
+            var data = _hangHoaBus.ListName(q);
+            return Json(new
+            {
+                data = data,
+                status = true
+            }, JsonRequestBehavior.AllowGet);
         }
     }
 }
