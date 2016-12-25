@@ -6,6 +6,7 @@
     }
     <link href="~/Content/Css/SonCustomWebgird.css" rel="stylesheet" />
 
+<<<<<<< HEAD
     <section id="page-content">
         <div class="header-content">
             <h2><i class="fa fa-list-alt"></i> Hàng hóa</h2>
@@ -19,49 +20,54 @@
                     Danh sách hàng hóa
                 </button>
             </div>
+=======
+    <div class="page-title">
+        <div class="title_left">
+            <h2>@ViewBag.Title</h2>
+>>>>>>> parent of fc66e93... fix layout hàng hóa
         </div>
+    </div>
 
-        <div class="body-content animated fadeIn">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Start input fields - basic form -->
-                    <div class="panel rounded shadow">
-                        <div class="panel-heading">
-                            <div class="pull-left">
-                                <h3 class="panel-title">@ViewBag.Title</h3>
-                            </div>
-
-                            <div class="clearfix"></div>
-                        </div><!-- /.panel-heading -->
-
-                        <div class="panel-body no-padding">
-                            @using (Html.BeginForm())
-                            {
-                                <div class="form-horizontal">
+    <div class="x_panel">
+        <div class="x_title">
+            <h2>Thông Tin Hàng Hóa</h2>
+            <div class="clearfix"></div>
+        </div>
+        <div class="x_content">
+            <div class="main-content">
+                @using (Html.BeginForm())
+                {
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <div class="x_panel">
                                     <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <div class="x_panel">
-                                                <div class="row">
-                                                    @{Html.RenderAction("ThongTinHangHoa", "HangHoa");}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @{Html.RenderAction("ThongTinHangHoa", "HangHoa");}
                                     </div>
+                                </div>
+                            </div>
+                        </div>
 
+<<<<<<< HEAD
                                     <div class="form-group">
                                         <div class="col-md-offset-5 col-sm-offset-3 ">
                                             <input id="submit" type="submit" hidden="hidden"/>
                                         </div>
                                     </div>
+=======
+                        <div class="form-group">
+                            <div class="col-md-offset-5 col-sm-offset-3 ">
+                                <input type="submit" value="Sửa Hàng Hóa" class="btn btn-primary" />
+                                @Html.ActionLink("Quay Lại", "Index", null, new { @class = "btn btn-default" })
+                            </div>
+                        </div>
+>>>>>>> parent of fc66e93... fix layout hàng hóa
 
-                                </div>
-                            }
-                        </div><!-- /.panel-body -->
-                    </div><!-- /.panel -->
-                    <!--/ End input fields - basic form-->
-                </div><!-- /.col-md-6 -->
+                    </div>
+                }
             </div>
         </div>
+<<<<<<< HEAD
     </section>
     <script type="text/javascript">
         $(function () {
@@ -75,3 +81,7 @@
             })
         })
     </script>
+=======
+    </div>
+
+>>>>>>> parent of fc66e93... fix layout hàng hóa
