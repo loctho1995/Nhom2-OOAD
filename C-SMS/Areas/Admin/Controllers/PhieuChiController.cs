@@ -52,7 +52,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 status = false;
                 SetAlert("Đã Xảy Ra Lỗi! Bạn Hãy Tạo Lại Phiếu Chi", "error");
             }
-            return new JsonResult { Data = new { status = status } };
+            return RedirectToAction("Index");
         }
         public ActionResult LayTongTienPhieuNhap(int id)
         {

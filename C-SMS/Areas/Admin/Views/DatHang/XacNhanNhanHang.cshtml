@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuDatHangViewModel>
 
 @{
-    ViewBag.Title = "Hủy Phiếu Đặt Hàng";
+    ViewBag.Title = "Xác nhận phiếu đặt hàng";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
@@ -10,10 +10,10 @@
         <h2><i class="fa fa-list-alt"></i>Phiếu Đặt Hàng</h2>
         <div class="breadcrumb-wrapper hidden-xs">
 
-            @using (Html.BeginForm("Delete", "DatHang"))
+            @using(Html.BeginForm("XacNhanNhanHang", "DatHang"))
             {
-                <button class="btn btn-sm btn-danger btn-xs btn-push">
-                    <i class="fa fa-trash"></i> Hủy Phiếu Đặt Hàng
+                <button class="btn btn-sm btn-success btn-xs btn-push">
+                    <i class="fa fa-eye"></i> Xác nhận phiếu đặt hàng
                 </button>
             }
 
@@ -22,7 +22,7 @@
     <div class="body-content animated fadeIn">
         <div class="row">
             <div class="alert alert-danger fade in">
-                <span><i class="fa fa-bullhorn"></i>Bạn có chắc chắn muốn hủy?</span>
+                <span><i class="fa fa-bullhorn"></i>Bạn muốn xác nhận khách hàng đã nhận hàng?</span>
             </div>
 
             @{Html.RenderAction("ThongTinPhieuDatHang", "DatHang");}
