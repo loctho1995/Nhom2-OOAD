@@ -6,10 +6,13 @@
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
-            <th class="text-center" style="width: 22%;">
+            <th class="text-center" style="width: 4%;">
+                @Html.DisplayName("Mã sản phẩm")
+            </th>
+            <th class="text-center" style="width: 20%;">
                 @Html.DisplayName("Sản phẩm")
             </th>
-            <th class="text-center" style="width: 7%;">
+            <th class="text-center" style="width: 6%;">
                 @Html.DisplayName("Số lượng tồn")
             </th>
             <th class="text-center" style="width: 4%;">
@@ -38,6 +41,7 @@
         {
             FormatNumber number = new FormatNumber();
             <tr class="border-warning">
+                <td>@item.maHangHoa</td>
                 <td>
                     <img src="~/Content/client/product/@item.hinhAnh" width="50" height="50" class="img-circle img-bordered-theme">
                     <span>@item.tenHangHoa</span>

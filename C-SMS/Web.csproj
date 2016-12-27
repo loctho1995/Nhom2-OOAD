@@ -5416,6 +5416,7 @@
     <Content Include="Content\client\skins\default\style\global.css" />
     <Content Include="Content\client\skins\default\style\screen.css" />
     <Content Include="Content\client\skins\default\style\style.css" />
+    <Content Include="Content\client\template\neworder.html" />
     <Content Include="Content\client\vnt_upload\about\thumbs\%2895x95%29_crop_10511345_610938062359469_4888914226589311592_n.jpg" />
     <Content Include="Content\client\vnt_upload\about\thumbs\%2895x95%29_crop_10620602_508167115991736_631325350120658482_n.jpg" />
     <Content Include="Content\client\vnt_upload\about\thumbs\%2895x95%29_crop_10703685_10202563678805461_1294930024203397003_n.jpg" />

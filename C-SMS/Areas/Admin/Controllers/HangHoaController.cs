@@ -33,7 +33,24 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.loaihanghoa = _loaiHangHoaKhoBus.LoadLoaiHangHoa();
+            var a = _hangHoaKhoBus.GetAllModelName();
             return View();
+        }
+
+        [HttpGet]
+        public JsonResult CheckModelName(string modelname)
+        {
+            var isDuplicate = false;
+
+            foreach (var user in _hangHoaKhoBus.GetAllModelName())
+            {
+                if (user.ModelName == modelname)
+                    isDuplicate = true;
+            }
+
+            var jsonData = new { isDuplicate };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult DanhSachHangHoa(string searchString, string trangthai, string loaihanghoa, int page = 1, int pageSize = 10)

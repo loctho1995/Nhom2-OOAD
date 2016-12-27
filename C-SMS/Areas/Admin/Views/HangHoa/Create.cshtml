@@ -3,6 +3,7 @@
     ViewBag.Title = "Tạo Sản Phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
+<link href="~/Content/assets/css/generalMessageError.css" rel="stylesheet" />
 
 <section id="page-content">
     <div class="header-content">
@@ -38,7 +39,9 @@
 
                                 <div class="form-group">
                                     <label>Model name</label>
-                                    <input type="text" name="modelname" class="form-control rounded" required />
+                                    <input type="text" id="modelname" name="modelname" class="form-control rounded" required />
+                                  
+                                    <h3 style="margin-top:0%" hidden class="error  notifyinputModelName messageErrorinputModelName">Model name đã tồn tại!</h3>
                                 </div>
 
                                 <div class="form-group">
@@ -67,6 +70,8 @@
                                         Thời Gian Bảo Hành
                                     </label>
                                     <input type="text" name="thoigianbaohanh" class="form-control rounded" />
+
+                                    <input type="hidden" id="checkmodelname" name="checkmodelname" class="form-control rounded" />
                                 </div>
 
                                 <div class="form-group">
@@ -76,7 +81,7 @@
                                         <div>
                                             <span class="btn btn-info btn-file">
                                                 <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
-                                                <input type="file" name="hinhanh" id="fileUpload">
+                                                <input type="file"  name="hinhanh" id="fileUpload">
                                                 <input type="hidden" id="file" name="hinhanh" class="form-control" style="margin-left:5px">
                                             </span>
                                             <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
@@ -113,53 +118,37 @@
         </div>
     </div>
 </section>
-
-@*<script type="text/javascript">
-        File.prototype.convertToBase64 = function (callback) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                callback(e.target.result)
-            };
-            reader.onerror = function (e) {
-                callback(null);
-            };
-            reader.readAsDataURL(this);
-        };
-        $(function () {
-            $('#fileUpload').on('change', function () {
-                var selectedFile = this.files[0];
-                selectedFile.convertToBase64(function (base64) {
-                    $('#preview').attr("src", base64);
-                    $('#file').val(base64);
-                    $('#preview').show();
-                })
-            });
-        });
-
-        $(function () {
-            $('#submit').click(function () {
-                $('#formphieuchi').click();
-            })
-        })
-        $(function () {
-            $('#submitOver').click(function () {
-                $('#submit').click();
-            })
-        })
-    </script>*@
-
 <script>
     $('#submit').click(function () {
         $('#basic-validate').submit();
     });
 </script>
 
-<script src="~/Scripts/bootstrap.min.js"></script>
 
+<script src="~/Scripts/bootstrap.min.js"></script>
 <script src="~/Content/assets/ckeditor/ckeditor.js"></script>
 <script>
     $(document).ready(function () {
         CKEDITOR.replace('mota', { filebrowserBrowseUrl: '#' });
         CKEDITOR.replace('thongsokythuat', { filebrowserBrowseUrl: '#' });
+    });
+</script>
+
+<script>
+    $("#modelname").on('keyup input propertychange paste change', function () {
+        $.getJSON('@Url.Action("CheckModelName", "HangHoa")', { modelname: $(this).val() }, function (data) {
+            if (data.isDuplicate) {
+                $(".messageErrorinputModelName").text("Model name đã tồn tại!");
+                $(".notifyinputModelName").slideDown(250).removeClass("hidden");
+                var str1 = document.getElementById("modelname").value;
+                $('#checkmodelname').val(str1);
+                document.getElementById("submit").disabled = true;
+            }
+            else {
+                $(".notifyinputModelName").addClass("hidden");
+                document.getElementById("submit").disabled = false;
+            }
+
+        });
     });
 </script>

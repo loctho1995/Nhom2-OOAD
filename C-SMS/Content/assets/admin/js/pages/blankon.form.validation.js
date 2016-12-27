@@ -9,6 +9,8 @@
             BlankonFormValidation.jqueryValidation();
         },
 
+
+
         // =========================================================================
         // JQUERY VALIDATION
         // =========================================================================
@@ -138,10 +140,11 @@
                         },
 
                         modelname: {
-                            required: "Chưa nhập model !",
+                            required: "Chưa nhập model name!",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
+                      
                         xuatxu: {
                             required: "Chưa nhập xuất xứ !",
                             remote: jQuery.validator.format("{0} is already in use")

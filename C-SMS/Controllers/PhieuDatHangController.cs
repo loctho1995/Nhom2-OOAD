@@ -1,8 +1,10 @@
 ﻿using Business.Implements;
 using Common.Models;
+using Common.Ultil;
 using Common.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -165,12 +167,28 @@ namespace WebBanHang.Controllers
                    // total += (item.giaBan * item.soLuong);
                 }
                 phieuDatHang.TongTien = total;
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/client/template/neworder.html"));
+
+                content = content.Replace("{{CustomerName}}", datHang.tenKhachHang);
+                content = content.Replace("{{Phone}}", datHang.soDienThoai);
+                content = content.Replace("{{Email}}", datHang.email);
+                content = content.Replace("{{Address}}", datHang.diaChi);
+                content = content.Replace("{{Total}}", total.ToString("N0"));
+                content = content.Replace("{{Method}}", datHang.hinhThucThanhToan);
+                content = content.Replace("{{Note}}", datHang.ghiChu);
+
+                String subject = "Đơn hàng mới từ BK Computer!!!";
+                //String message = "Hello " + phieuDatHang.TenKhachHang + "!!! <br/><br/>Your ID:<br/>Your password: <br/>Please go to <a href='http://localhost:54962/'>here</a> to change this automatic password!!!";
+                SentMail.Sent(subject, datHang.email, "csms.project.fpt@gmail.com", "T12345678", content);
+
                 await _phieuDatHangBus.Update(phieuDatHang);
+
+               
             }
             catch (Exception)
             {
                 SetAlert("Đã xảy ra lỗi trong quá trình đặt hàng! Vui lòng thực hiện lại!!!", "error");
-                return RedirectToAction("Index");
+                return RedirectToAction("ThanhToan");
             }
             Session[CartSession] = null; 
             return RedirectToAction("ThongBaoThanhCong");

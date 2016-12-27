@@ -99,10 +99,10 @@ var BlankonDashboardRetail = function () {
         // COUNTER OVERVIEW
         // =========================================================================
         counterOverview: function () {
-            $('.counter').counterUp({
+            //$('.counter').counterUp({
                 //delay: 10,
                // time: 4000
-            });
+           // });
         },
 
         // =========================================================================

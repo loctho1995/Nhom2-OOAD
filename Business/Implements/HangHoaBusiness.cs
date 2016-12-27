@@ -785,5 +785,19 @@ namespace Business.Implements
                        }).Distinct().Count();
             return all;
         }
+
+        public IEnumerable<HangHoa> GetAllModelName()
+        {
+            IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
+            var all = (from hanghoa in danhSachHangHoa
+                       select new
+                       {
+                           ModelName = hanghoa.ModelName,
+                       }).AsEnumerable().Select(x => new HangHoa()
+                       {
+                           ModelName = x.ModelName,
+                       }).ToList();
+            return all;
+        }
     }
 }
