@@ -3,28 +3,28 @@
 @foreach (var item in Model)
 {
     <div class="form-group">
-        <label class="control-label">Mã Nhà Cung Cấp</label>
+        <label >Mã Nhà Cung Cấp</label>
         <input type="text" name="manhacungcap" value="@item.MaNhaCungCap" class="form-control rounded" disabled="disabled" />
     </div>
 
 
     <div class="form-group">
-        <label class="control-label">Tên Nhà Cung Cấp</label>
+        <label >Tên Nhà Cung Cấp</label>
         <input type="text" name="tennhacungcap" value="@item.TenNhaCungCap" class="form-control rounded" required="required" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Địa Chỉ </label>
+        <label >Địa Chỉ </label>
         <input type="text" name="diachi" value="@item.DiaChi" class="form-control rounded" required="required" maxlength="100" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Số Điện Thoại  </label>
+        <label >Số Điện Thoại  </label>
         <input type="text" name="sodienthoai" value="@item.SoDienThoai" class="form-control rounded" required="required" maxlength="15" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Email   </label>
+        <label>Email   </label>
         <input type="text" name="email" value="@item.Email" class="form-control rounded" required maxlength="30" />
     </div>
 }

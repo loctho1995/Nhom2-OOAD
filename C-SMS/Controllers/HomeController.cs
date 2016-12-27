@@ -27,7 +27,7 @@ namespace WebBanHang.Controllers
             return PartialView("~/Views/PartitalView/MenuManagerPartial.cshtml", menuLoaiHangHoa);
         }
 
-        public ActionResult TimKiemSanPham(string searchString, int page = 1, int pageSize = 12)
+        public ActionResult TimKiemSanPham(string searchString, int page = 1, int pageSize = 8)
         {
             ViewBag.TimKiemSanPham = _hangHoaBus.TimKiemHangHoa(searchString);
             ViewBag.SearchString = searchString;

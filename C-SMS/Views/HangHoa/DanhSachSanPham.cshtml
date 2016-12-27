@@ -8,6 +8,7 @@
 }
 
 <div id="vnt-container" class="container">
+    <div class="navation row"><a href="#" class="home">Trang chủ</a> <span>&nbsp;/&nbsp;</span><span>@ViewBag.tenLoaiHangHoa</span></div>
     <section class="newshot-block row">
         <div class="col-md-6 col-sm-6 col-xs-12 block">
             <div class="block-inner">
@@ -44,39 +45,46 @@
 
                 <div class="search-fast-bound">
                     <div class="search-fast">
-                        @foreach (var item in ViewBag.tenLoaiHangHoa)
-                        {
-                            <strong><span>@item.tenLoaiHangHoa có @Model.Count sản phẩm</span></strong>
-                        }
+                        <strong><span>@ViewBag.tenLoaiHangHoa có @ViewBag.tongSanPham sản phẩm</span></strong>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
 
-            <div id="List_Product" class="List_Product Cat_pro_sub grid-bound grid-bound-home">
+            <div id="List_Product" class="List_Product grid-bound grid-bound-km">
                 @foreach (var item in Model)
                 {
                     FormatNumber number = new FormatNumber();
                     var url = "/HangHoa/" + "ChiTietSanPham/" + @item.maHangHoa;
+
                     <div class='item1 nopadding product-grid'>
                         <div class='boxItem'>
                             <a href="@url" title='@item.tenHangHoa'>
                                 <img src="~/Content/client/product/@item.hinhAnh" alt='@item.tenHangHoa' title='@item.tenHangHoa' />
                             </a>
-                            <h3>@item.tenHangHoa</h3>
-                            <p class="price">@number.FormatNumbers(@item.giaBan.ToString()) đ</p>
-                            <div class="product-hover">
-                                <a href="#" title="Samsung Galaxy A8 (2016)">
-                                    <h3 title="Samsung Galaxy A8 (2016)">@item.tenHangHoa</h3>
-                                    <p class="price">@number.FormatNumbers(@item.giaBan.ToString()) đ</p>
-                                    <div class="km"></div>
-                                </a>
+                            <h3><a href="@url" title='@item.tenHangHoa'>@item.tenHangHoa</a> </h3>
+                            <h3 title="@item.tenHangHoa">Xuất Xứ: @item.xuatXu</h3>
+                            <p class="price">
+                                @if (@item.giamGia > 0)
+                                {
+                                    <span class="price-promotion">@number.FormatNumbers(@item.giamGia.ToString()) đ &nbsp;</span>
+                                    <span class="price-primary price-old">@number.FormatNumbers(@item.giaBan.ToString()) đ</span>
+                                }
+                                else
+                                {
+                                    <span class="price-promotion">@number.FormatNumbers(@item.giaBan.ToString()) đ &nbsp;</span>
+                                }
+                                
+                            </p>
+                            <div class="btn-km-bound">
+                                <div class="btn-order-bound"><a class="btn-order-link" href="/PhieuDatHang/DatHang?maHangHoa=@item.maHangHoa&soLuong=1">Đặt ngay</a></div>
+                                <div class="btn-view-bound"><a class="btn-view-link" href="@url">Xem ngay</a></div>
                             </div>
                         </div>
                     </div>
                 }
 
-            </div>            
+            </div>
             @Html.PagedListPager(Model, page => Url.Action("DanhSachSanPham", new { page }))
         </div>
         <div class="clear"></div>
@@ -84,12 +92,12 @@
 </div>
 
 @*<div class="pull-right">
-    @Html.PagedListPager(Model, page => Url.Action("DanhSachSanPham",
-        new { page, searchString = ViewBag.SearchString, status = ViewBag.Status }),
-        PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "list" }))
-</div>*@
+        @Html.PagedListPager(Model, page => Url.Action("DanhSachSanPham",
+            new { page, searchString = ViewBag.SearchString, status = ViewBag.Status }),
+            PagedListRenderOptions.EnableUnobtrusiveAjaxReplacing(new AjaxOptions() { HttpMethod = "GET", UpdateTargetId = "list" }))
+    </div>*@
 
 
 
-   
+
 

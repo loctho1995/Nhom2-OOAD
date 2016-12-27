@@ -35,14 +35,7 @@
                             <button id="do_submit" name="do_submit" type="submit" class="btn_search" value="Tìm kiếm"></button>
                         </span>
                     }
-                    @*<form id="formSearch" name="formSearch" method="post" action="" autocomplete="off">
-                            <input name="do_search" value="1" type="hidden" />
-                            <input name="keyword" id="search-keyword" type="text" class="text_search" placeholder="Bạn muốn tìm gì ?" value="" autocomplete="off" onkeydown="CheckTimer()" onkeyup="SuggestSearch(event);" />
-                            <input type="hidden" id="fpc_id" name="fpc_id" />
-                            <span class="input-group-btn">
-                                <button id="do_submit" name="do_submit" type="submit" class="btn_search" value="Tìm kiếm"></button>
-                            </span>
-                        </form>*@
+                   
                     <div id="SuggestSearch"></div>
                     <div class="clear"></div>
                 </div>
@@ -51,7 +44,7 @@
                 <div class="col-md-3 col-sm-3 col-xs-12 nopadding-left">
                     <a data-original-title="Miễn Phí 100% Phí Vận Chuyển 64 Tỉnh Thành. Nhận Hàng rồi Thanh Toán tiền. Giao Hàng Nội Thành trong Hồ Chí Minh chỉ 60 Phút" data-placement="bottom" data-toggle="tooltip">
                         <img src="~/Content/client/skins/default/images/icon_giaohang.png" title="Vận Chuyển Miễn Phí" />
-                        <span>Vận Chuyển Miễn Phí</span>
+                        <span>Vận chuyển miễn phí</span>
                     </a>
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 nopadding">
@@ -60,19 +53,18 @@
                         <span>30 ngày đổi trả hàng</span>
                     </a>
                 </div>
-                <div class="col-md-3 col-sm-3 col-xs-12 nopadding-right">
-                    <a data-original-title="Chúng tôi sẽ cài đặt phần mềm cho bạn hoàn toàn miễn phí trọn đời" data-placement="bottom" data-toggle="tooltip">
-                        <img src="~/Content/client/skins/default/images/icon_caidat.png" title="Cài đặt miễn phí 100%" />
-                        <span>Cài đặt miễn phí 100%</span>
-                    </a>
-                </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 nopadding">
                     <a data-original-title="Chúng tôi sẽ mang lại sự hài lòng cho bạn" data-placement="bottom" data-toggle="tooltip">
                         <img src="~/Content/client/skins/default/images/icon_camket.png" title="Cam kết hài lòng 100%" />
                         <span>Cam kết hài lòng 100%</span>
                     </a>
                 </div>
-
+                <div class="col-md-3 col-sm-3 col-xs-12 nopadding">
+                    <a href="@Url.Action("Index", "PhieuDatHang")" data-placement="bottom" data-toggle="tooltip">
+                        <img src="~/Content/client/skins/default/images/iconcart.png" title="Giỏ hàng" />
+                        <span>Giỏ hàng</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -96,7 +88,6 @@
 </style>
 
 <link href="~/Content/client/jquery-ui.css" rel="stylesheet" type="text/css" />
-@*<script type="text/javascript" src="~/Content/client/jquery.min.js"></script>*@
 <script type="text/javascript" src="~/Content/client/jquery-ui.min.js"></script>
 
 <script>

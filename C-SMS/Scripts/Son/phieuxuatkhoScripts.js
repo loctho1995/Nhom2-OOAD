@@ -166,7 +166,7 @@
     $('#submit').click(function () {
         var isAllValid = true;
         if (orderItems.length == 0) {
-            $('#orderItems').html('<span style="color:red;">Phải có ít nhất 1 hàng hóa</span>');
+            $('#orderItems').html('<span class="messageError" style="color:red;">Phải có ít nhất 1 hàng hóa</span>');
             isAllValid = false;
         }
 
@@ -275,12 +275,6 @@ function checkNumber(e, element) {
     return true;
 }
 
-//hidden error when user enter into textbox productID
-function HideErrorProductName() {
-    if (document.getElementById('tenHangHoa').value != '') {
-        $('#tenHangHoa').siblings('span.error').css('visibility', 'hidden');
-    }
-}
 
 $(document).ready(function () {
     $('#maHangHoa').on("change", function () {

@@ -66,11 +66,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _phieuBaoHanhBus.Delete(delPhieuBaoHanh);
-                    SetAlert("Đã xóa phiếu bảo hành thành công!!!", "success");
+                    SetAlert("Đã hủy phiếu bảo hành thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
                 }
             }
             return RedirectToAction("Index");
@@ -89,11 +89,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _phieuBaoHanhBus.Confirm(confirmPhieuBaoHanh);
-                    SetAlert("Đã xóa phiếu bảo hành thành công!!!", "success");
+                    SetAlert("Đã xác nhận phiếu bảo hành thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy xác nhận lại", "error");
                 }
             }
             return RedirectToAction("Index");
@@ -114,7 +114,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 else
                 {
                     status = false;
-                    SetAlert("Đã xảy ra lỗi! xin hãy tạo lại phiếu bán hàng", "error");
+                    SetAlert("Đã xảy ra lỗi! xin hãy tạo lại phiếu bảo hành", "error");
                 }
             }
             catch (Exception ex)
@@ -125,7 +125,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return new JsonResult { Data = new { status = status } };
         }
 
-        public ActionResult DanhSachPhieuBaoHanh(string searchString, string trangThai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuBaoHanh(string searchString, string trangThai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
             return View(_phieuBaoHanhBus.SearchDanhSachPhieuDatHang(searchString, trangThai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }

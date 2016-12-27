@@ -8,26 +8,23 @@
 <section id="page-content">
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Phiếu Nhập Kho</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
+            @using (Html.BeginForm("Delete", "NhapKho"))
+            {
+                <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
+                    <i class="fa fa-trash"></i> Hủy Phiếu Nhập Kho
+                </button>
+            }
+        </div>
     </div>
     <div class="body-content animated fadeIn">
         <div class="row">
-            <div class="alert alert-danger fade in">
-                <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn hủy?</span>
+            <div class="alert alert-danger1 fade in">
+                <span><i class="fa fa-bullhorn"></i> Bạn có chắc chắn muốn hủy?</span>
             </div>
 
             @{Html.RenderAction("ThongTinPhieuNhapKho", "NhapKho");}
         </div>
-        @using (Html.BeginForm("Delete", "NhapKho"))
-        {
-            <div class="form-group">
-                <div class="col-md-offset-4 col-sm-offset-3">
-                    <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
-                        <i class="fa fa-trash"></i> Hủy Phiếu Nhập Kho
-                    </button>
-                </div>
-            </div>
-        }
+
     </div>
 </section>
-
-<script src="~/Scripts/bootstrap.min.js"></script>

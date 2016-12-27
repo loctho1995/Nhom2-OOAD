@@ -3,17 +3,18 @@
 @using Common.Ultil
 <script src="~/Scripts/Tho/phieudathangScripts.js"></script>
 
+<br />
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Số Phiếu")
+                @Html.DisplayName("Số phiếu")
             </th>
             <th>
                 @Html.DisplayName("Ngày đặt")
             </th>
             <th>
-                @Html.DisplayName("Tên Khách hàng")
+                @Html.DisplayName("Tên khách hàng")
             </th>
             <th>
                 @Html.DisplayName("Số điện thoại")
@@ -22,13 +23,13 @@
                 @Html.DisplayName("Tổng tiền")
             </th>
             <th>
-                @Html.DisplayName("Hình thức thanh toán")
+                @Html.DisplayName("Xác nhận")
             </th>
             <th>
-                @Html.DisplayName("Trạng thái nhận hàng")
+                @Html.DisplayName("Thanh toán")
             </th>
             <th>
-                @Html.DisplayName("Trạng thái thanh toán")
+                @Html.DisplayName("Trạng thái")
             </th>
             <th class="width-10">
                 Hành động
@@ -37,7 +38,7 @@
     </thead>
 
     <tbody>
-        @foreach(var item in Model)
+        @foreach (var item in Model)
         {
             FormatNumber number = new FormatNumber();
             <tr style="text-align:center">
@@ -46,41 +47,113 @@
                 <td>@item.tenKhachHang</td>
                 <td>@item.soDienThoai</td>
                 <td>@number.FormatNumbers(@item.tongTien.ToString())</td>
-                <td>@item.hinhThucThanhToan</td>
-                @if(@item.daXacNhan == true)
+
+                @if (@item.trangThai == true)
                 {
-                    <td>Đã nhận hàng</td>
+                    if (@item.daXacNhan == true && @item.daThanhToan == true)
+                    {
+                        <td>Đã xác nhận</td>
+                        <td>Đã thanh toán</td>
+                        <td>Hoàn thành</td>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })"><i class="fa fa-eye"></i> Xem</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    }
+                    if (@item.daXacNhan == false && @item.daThanhToan == true)
+                    {
+                        <td>Chưa xác nhận</td>
+                        <td>Đã thanh toán</td>
+                        <td>Hoàn thành</td>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })"><i class="fa fa-eye"></i> Xem</a></li>
+                                    <li><a href="@Url.Action("XacNhanNhanHang", new { id = item.soPhieuDatHang })"><i class="fa fa-check"></i> Xác nhận</a></li>
+                                    <li><a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })"><i class="fa fa-trash"></i> Hủy</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    }
+
+                    if (@item.daXacNhan == true && @item.daThanhToan == false)
+                    {
+                        <td>Đã xác nhận</td>
+                        <td>Chưa thanh toán</td>
+                        <td>Hoàn thành</td>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })"><i class="fa fa-eye"></i> Xem</a></li>
+                                    <li><a href="@Url.Action("XacNhanThanhToan", new { id = item.soPhieuDatHang })"><i class="fa fa-credit-card"></i> Thanh toán</a></li>
+                                    <li><a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })"><i class="fa fa-trash"></i> Hủy</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    }
+
+                    if (@item.daXacNhan == false && @item.daThanhToan == false)
+                    {
+                        <td>Chưa xác nhận</td>
+                        <td>Chưa thanh toán</td>
+                        <td>Hoàn thành</td>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })"><i class="fa fa-eye"></i> Xem</a></li>
+                                    <li><a href="@Url.Action("XacNhanNhanHang", new { id = item.soPhieuDatHang })"><i class="fa fa-check"></i> Xác nhận</a></li>
+                                    @*<li><a href="@Url.Action("XacNhanThanhToan", new { id = item.soPhieuDatHang })"><i class="fa fa-credit-card"></i> Thanh toán</a></li>*@
+                                    <li><a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })"><i class="fa fa-trash"></i> Hủy</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    }
                 }
                 else
                 {
-                    <td>Chưa nhận hàng</td>
-                }
-
-                @if(@item.daThanhToan == true)
-                {
-                    <td>Đã thanh toán </td>
-                }
-                else
-                {
-                    <td>Chưa thanh toán</td>
-                }
-
-                <td>
-                    <a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-
-                    @if(@item.daXacNhan == false)
+                    if (@item.daXacNhan == true || @item.daThanhToan == true)
                     {
-                        <a href="@Url.Action("XacNhanNhanHang", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> XN nhận hàng</a>
+                        <td>Đã xác nhận</td>
+                        <td>Đã thanh toán</td>
                     }
-
-                    @if(@item.daThanhToan == false)
+                    else
                     {
-                        <a href="@Url.Action("XacNhanThanhToan", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> XN thanh toán</a>
+                        <td>Chưa xác nhận</td>
+                        <td>Chưa thanh toán</td>
                     }
-                    
-                    <a href="@Url.Action("Delete", new { id = item.soPhieuDatHang })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
-                </td>
+                    <td>Đã hủy</td>
+                    <td>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("Detail", new { id = item.soPhieuDatHang })"><i class="fa fa-eye"></i> Xem</a></li>
 
+                            </ul>
+                        </div>
+                    </td>
+                }
             </tr>
         }
     </tbody>

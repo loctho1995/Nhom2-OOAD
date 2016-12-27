@@ -27,12 +27,12 @@
                             {
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <label class="control-label">Từ ngày</label>
+                                        <label>Từ ngày</label>
                                         <input type="date" id="dateFrom" name="dateFrom" data-date-format="dd/mm/yyyy" required class="form-control rounded" />
 
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Đến ngày</label>
+                                        <label>Đến ngày</label>
                                         <div class="input-group">
                                             <input type="date" id="dateTo" name="dateTo" required class="form-control rounded" />
                                             <span class="input-group-btn">
@@ -51,7 +51,7 @@
                                         @Html.DropDownList("trangthai", new SelectList(ViewBag.trangthai, "Value", "Text"), new { @class = "form-control rounded" })
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Tìm Kiếm</label>
+                                        <label>Tìm Kiếm</label>
                                         <div class="input-group">
                                             @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm" })
                                             <span class="input-group-btn">

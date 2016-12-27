@@ -4,13 +4,14 @@ using Common.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Script.Serialization;
 
 namespace WebBanHang.Controllers
 {
-    public class PhieuDatHangController : Controller
+    public class PhieuDatHangController : BaseController
     {
         readonly HangHoaBusiness _hangHoaBus = new HangHoaBusiness();
         readonly PhieuDatHangBusiness _phieuDatHangBus = new PhieuDatHangBusiness();
@@ -120,7 +121,7 @@ namespace WebBanHang.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThanhToan(PhieuDatHangViewModel datHang)
+        public async Task<ActionResult> ThanhToan(PhieuDatHangViewModel datHang)
         {
             var phieuDatHang = new PhieuDatHang();
             phieuDatHang.NgayDat = DateTime.Now;
@@ -130,6 +131,10 @@ namespace WebBanHang.Controllers
             phieuDatHang.Email = datHang.email;
             phieuDatHang.HinhThucThanhToan = datHang.hinhThucThanhToan;
             phieuDatHang.Ghichu = datHang.ghiChu;
+            phieuDatHang.NgayChinhSua = DateTime.Now;
+            phieuDatHang.DaThanhToan = false;
+            phieuDatHang.DaXacNhan = false;
+            phieuDatHang.TrangThai = true;
 
             try
             {
@@ -160,13 +165,14 @@ namespace WebBanHang.Controllers
                    // total += (item.giaBan * item.soLuong);
                 }
                 phieuDatHang.TongTien = total;
-                _phieuDatHangBus.Update(phieuDatHang);
+                await _phieuDatHangBus.Update(phieuDatHang);
             }
             catch (Exception)
             {
+                SetAlert("Đã xảy ra lỗi trong quá trình đặt hàng! Vui lòng thực hiện lại!!!", "error");
                 return RedirectToAction("Index");
             }
-            Session[CartSession] = null;
+            Session[CartSession] = null; 
             return RedirectToAction("ThongBaoThanhCong");
         }
 

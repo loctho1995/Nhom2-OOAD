@@ -1,133 +1,102 @@
 ﻿@model IEnumerable<Common.ViewModels.HangHoaViewModel>
 @using Common.Ultil
 
-    @foreach (var item in Model)
-    {
-        FormatNumber number = new FormatNumber();
-     <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Tên Hàng Hóa
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="tenhanghoa" value="@item.tenHangHoa" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
+@foreach (var item in Model)
+{
+    FormatNumber number = new FormatNumber();
+    <div class="form-group">
+        <label>Tên sản phẩm</label>
+        <input type="text" name="tenhanghoa" value="@item.tenHangHoa" class="form-control rounded" />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Gía Bán
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="giaban" value="@number.FormatNumbers(@item.giaBan.ToString())" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-        
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                           Giảm giá
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="giaban" value="@item.giamGia" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-        
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Số lượng tồn
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="giaban" value="@item.soLuongTon" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
+    <div class="form-group">
+        <label>Model</label>
+        <input type="text" name="modelname" value="@item.modelName" class="form-control rounded"  />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Đơn vị tính
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="donvitinh" value="@item.donViTinh" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
+    <div class="form-group">
+        <label>Giá bán</label>
+        <input type="text" name="giaban" value="@item.giaBan" class="form-control rounded"  />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Mô Tả
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <textarea type="text" name="mota"  class="form-control" style="margin-left:5px">@item.moTa</textarea>
-                        </div>
-                    </div>
+    <div class="form-group">
+        <label>Giảm giá</label>
+        <input type="text" name="giamgia" value="@item.giamGia" class="form-control rounded" />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Xuất Xứ
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="xuatxu" value="@item.xuatXu" class="form-control"  style="margin-left:5px" />
-                        </div>
-                    </div>
+    <div class="form-group">
+        <label>Số lượng tồn</label>
+        <input type="text" name="soluongton" value="@item.soLuongTon" class="form-control rounded"  />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Thời Gian Bảo Hành
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="number" name="thoigianbaohanh" value="@item.thoiGianBaoHanh" min=0 class="numericOnly form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
-            
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Xuất Xứ
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <input type="text" name="giaban" value="@item.xuatXu" class="form-control" style="margin-left:5px" />
-                        </div>
-                    </div>
+    <div class="form-group">
+        <label>Đơn vị tính</label>
+        <input type="text" value="@item.donViTinh" class="form-control rounded"  />
+    </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                            Thông Số Kỹ Thuật
-                        </label>
-                        <div class="col-md-10 col-sm-9 col-xs-12">
-                            <textarea type="text" name="thongsokythuat" class="form-control" style="margin-left:5px">@item.thongSoKyThuat</textarea>
-                        </div>
-                    </div>
-        
-                     <div class="form-group">
-                                <label class="control-label col-md-2 col-sm-3 col-xs-12">Hình Ảnh</label>
-                                <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-preview thumbnail" name="avatar" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                                            <img src=@item.hinhAnh style="width: 200px; height: 150px;">
-                                        </div>
-                                        <div>
-                                            <span class="btn btn-info btn-file">
-                                                <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
-                                                <input type="file" name="avatar" id="fileUpload">
-                                                <input type="hidden" id="file" name="hinhanh" class="form-control" style="margin-left:5px">
-                                            </span>
-                                            <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+    <div class="form-group">
+        <label>Xuất xứ</label>
+        <input type="text" name="xuatxu" value="@item.xuatXu" class="form-control rounded" />
+    </div>
 
-                   <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                        Loại Hàng Hóa
-                    </label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        @Html.DropDownList("loaihanghoa", new SelectList(ViewBag.loaihanghoa, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
-                    </div>
-                </div>
+    <div class="form-group">
+        <label>Thời gian bảo hành (Tháng)</label>
+        <input type="text" name="thoigianbaohanh" value="@item.thoiGianBaoHanh" class="form-control rounded"  />
+    </div>
 
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">
-                        Trạng Thái
-                    </label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
-                    </div>
-                </div>
-    }
+    <div class="form-group">
+        <label>Loại sản phẩm</label>
+        @Html.DropDownList("maloaihanghoa", new SelectList(ViewBag.loaihanghoa, "Value", "Text"), new { @class = "form-control rounded" })
+    </div>
+
+
+    <div class="form-group">
+        <label>Hình Ảnh</label>
+        <div class="fileinput fileinput-new" data-provides="fileinput">
+            <div class="fileinput-preview thumbnail" name="hinhanh" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                <img src="~/Content/client/product/@item.hinhAnh" style="width: 200px; height: 150px;">
+            </div>
+            <div>
+                <span class="btn btn-info btn-file">
+                    <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
+                    <input type="file" name="hinhanh" id="fileUpload">
+                    <input type="hidden" id="file" name="hinhanh" class="form-control" style="margin-left:5px">
+                </span>
+                <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Thông Số Kỹ Thuật
+        </label>
+
+        <div class="form-group">
+            <textarea id="thongsokythuat" name="thongsokythuat" class="form-control rounded" rows="10" >@item.thongSoKyThuat</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Mô Tả
+        </label>
+
+        <div class="form-group">
+            <textarea id="mota" name="mota" class="form-control rounded" rows="10">@item.moTa</textarea>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Trạng thái</label>
+        @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control rounded" })
+    </div>
+}
+
+<script src="~/Content/assets/ckeditor/ckeditor.js"></script>
+<script>
+    $(document).ready(function () {
+        CKEDITOR.replace('mota', { filebrowserBrowseUrl: '#' });
+        CKEDITOR.replace('thongsokythuat', { filebrowserBrowseUrl: '#' });
+    });
+</script>

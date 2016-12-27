@@ -399,7 +399,7 @@ namespace Business.Implements
         {
             var soPhieuKiemKho = from phieuBanHang in _phieuBanHangRepo.GetAll()
                                  orderby phieuBanHang.SoPhieuBanHang descending
-                                 select phieuBanHang.SoPhieuBanHang;
+                                select phieuBanHang.SoPhieuBanHang;
 
             int demSoPhieu = _phieuBanHangRepo.GetAll().Count();
             if(demSoPhieu == 0)
@@ -431,7 +431,51 @@ namespace Business.Implements
                        ngayChinhSuaBanHang = x.NgayChinhSua,
                        tenNhanVienBanHang = x.TenNhanVien,
                        trangThaiBanHang = x.TrangThai,
-                   }).Take(1).ToList();
+                   }).Take(2).ToList();
+            return all;
+        }
+        public object TongTienBanHang()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
+            var all = (from phieubanhang in danhSachPhieuBanHang
+                   orderby phieubanhang.NgayChinhSua descending
+                  where phieubanhang.NgayBan.Day.Equals(ngay) 
+                        && phieubanhang.NgayBan.Month.Equals(thang) 
+                        && phieubanhang.NgayBan.Year.Equals(nam)
+                   select new
+                   {
+                       TongTien = phieubanhang.TongTien,
+                   }).AsEnumerable().Select(x => new PhieuBanHangViewModel()
+                   {
+                       tongTien = x.TongTien,
+                   }).Sum(x => x.tongTien);
+            return all;
+        }
+
+        public object SoDonBanHang()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
+            var all = (from phieubanhang in danhSachPhieuBanHang
+                       where phieubanhang.NgayBan.Day.Equals(ngay)
+                             && phieubanhang.NgayBan.Month.Equals(thang)
+                             && phieubanhang.NgayBan.Year.Equals(nam)
+                       select new
+                       {
+                           SoPhieuBanHang = phieubanhang.SoPhieuBanHang,
+                       }).AsEnumerable().Select(x => new PhieuBanHangViewModel()
+                       {
+                           soPhieuBanHang = x.SoPhieuBanHang,
+                       }).Count();
             return all;
         }
     }

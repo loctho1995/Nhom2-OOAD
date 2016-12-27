@@ -4534,7 +4534,7 @@ ul.days li span {
  * DROPDOWN
  * ======================================================================== */
 .dropdown-menu {
-  padding: 0px;
+  /*padding: 0px;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
   border-radius: 0px;
@@ -4542,7 +4542,7 @@ ul.days li span {
   border: 1px solid #DDD;
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
-  box-shadow: none;
+  box-shadow: none;*/
 }
 .dropdown-menu .dropdown-header {
   background-color: #FBFBFB;
@@ -8520,6 +8520,7 @@ table.dataTable thead .sorting, table.dataTable thead .sorting_asc, table.dataTa
 .dropdown-menu > li > a {
   padding: 3px 8px;
 }
+
 
 /* ========================================================================
  * FULLSCREEN MODE

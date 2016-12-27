@@ -1,68 +1,51 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuChiViewModel>
 
-    @{
-        ViewBag.Title = "Thông Tin Chi Tiết Phiếu Chi";
-        Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
-    }
+@{
+    ViewBag.Title = "Thông Tin Chi Tiết Phiếu Chi";
+    Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
+}
 
-    <link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+<section id="page-content">
+    <div class="header-content">
+        <h2><i class="fa fa-list-alt"></i>Loại Hàng Hóa</h2>
+        <div class="breadcrumb-wrapper hidden-xs">
 
-    <section id="page-content">
-        <div class="header-content">
-            <h2><i class="fa fa-list-alt"></i>Phiếu Chi</h2>
-            <div class="breadcrumb-wrapper hidden-xs">
-                <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
-                    <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
+            @using (Html.BeginForm("Delete", "PhieuChi"))
+            {
+                <button class="btn btn-sm btn-danger btn-xs btn-push" id="submit">
+                    <i class="fa fa-trash"></i> Hủy Phiếu Chi
                 </button>
-                <button class="btn btn-lg btn-primary btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
-                    <i class="fa fa-list"></i>
-                    Danh sách phiếu chi
-                </button>
+            }
+
+        </div>
+    </div>
+
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <div class="alert alert-danger1 fade in">
+                <span><i class="fa fa-bullhorn"></i> Bạn có chắc chắn muốn hủy?</span>
+            </div>
+            <div class="col-md-12">
+                <!-- Start input fields - basic form -->
+                <div class="panel rounded shadow">
+                    <div class="panel-heading">
+                        <div class="pull-left">
+                            <h3 class="panel-title">@ViewBag.Title</h3>
+                        </div>
+
+                        <div class="clearfix"></div>
+                    </div><!-- /.panel-heading -->
+
+                    <div class="panel-body no-padding">
+
+                        <div class="form-body">
+                            @{Html.RenderAction("ThongTinPhieuChi", "PhieuChi");}
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="body-content animated fadeIn">
-            <div class="row">
-                <div class="col-md-12">
-                    <!-- Start input fields - basic form -->
-                    <div class="panel rounded shadow">
-                        <div class="panel-heading">
-
-                            <div class="clearfix"></div>
-                        </div><!-- /.panel-heading -->
-
-                        <div class="panel-body no-padding">
-                            @using (Html.BeginForm())
-                            {
-                                <div class="form-horizontal">
-                                    <div class="row">
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
-                                            <div class="x_panel">
-                                                <div class="row">
-                                                    @{Html.RenderAction("ThongTinPhieuChi", "PhieuChi");}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group">
-                                        @using (Html.BeginForm("Delete", "PhieuChi"))
-                                        {
-                                            <div class="form-group">
-                                                <div class="col-md-12 col-sm-12 col-xs-12">
-                                                    <div class="btn btn-dark"  onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); "><i class="glyphicon glyphicon-arrow-left"></i> Quay lại </div>
-                                                    <button class="btn btn-primary" id="submit"><i class="glyphicon glyphicon-remove"></i> Hủy Phiếu Chi</button>
-                                                </div>
-                                            </div>
-                                        }
-                                    </div>
-
-                                </div>
-                            }
-                        </div><!-- /.panel-body -->
-                    </div><!-- /.panel -->
-                    <!--/ End input fields - basic form-->
-                </div><!-- /.col-md-6 -->
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
+<script src="~/Scripts/bootstrap.min.js"></script>

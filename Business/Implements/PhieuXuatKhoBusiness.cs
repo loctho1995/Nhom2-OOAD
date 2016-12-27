@@ -464,7 +464,7 @@ namespace Business.Implements
                        ngayChinhSuaXuatKho = x.NgayChinhSua,
                        tenNhanVienXuatKho = x.TenNhanVien,
                        trangThaiXuatKho = x.TrangThai,
-                   }).Take(1).ToList();
+                   }).Take(2).ToList();
             return all;
         }
     }

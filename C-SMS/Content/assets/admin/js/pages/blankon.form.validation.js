@@ -13,15 +13,15 @@
         // JQUERY VALIDATION
         // =========================================================================
         jqueryValidation: function () {
-            if($('#basic-validate').length){
+            if ($('#basic-validate').length) {
 
                 $.mockjax({
                     url: 'users.action',
-                    response: function(settings) {
+                    response: function (settings) {
                         var user = settings.data.bv_username,
                             users = ["john", "peter", "bill", "jokowi"];
                         this.responseText = "true";
-                        if ( $.inArray( user, users ) !== -1 ) {
+                        if ($.inArray(user, users) !== -1) {
                             this.responseText = 'false';
                         }
                     },
@@ -29,9 +29,9 @@
                 });
 
                 $('#basic-validate').validate({
-                    rules:{
-                        bv_required:{
-                            required:true
+                    rules: {
+                        bv_required: {
+                            required: true
                         },
                         email: {
                             required: true,
@@ -51,13 +51,13 @@
                             max: 100
                         },
                         tennhacungcap: {
-                            required:true,
+                            required: true,
                         },
 
                         tennhanvien: {
                             required: true,
                         },
-                        tendangnhap: {
+                        username: {
                             required: true,
                         },
                         makhau: {
@@ -68,11 +68,48 @@
                         },
 
                         diachi: {
-                            required:true,
+                            required: true,
                         },
                         sodienthoai: {
-                            required: true,  
+                            required: true,
                         },
+
+                        tenhanghoa: {
+                            required: true,
+                        },
+
+                        modelname: {
+                            required: true,
+                        },
+
+                        xuatxu: {
+                            required: true,
+                        },
+
+                        thoigianbaohanh: {
+                            required: true,
+                            number: true,
+                            min: 0
+                        },
+
+                        giaban: {
+                            required: true,
+                            number: true,
+                            min: 0
+                        },
+
+                        giamgia: {
+                            required: true,
+                            number: true,
+                            min: 0
+                        },
+
+                        soluongton: {
+                            required: true,
+                            number: true,
+                            min: 0
+                        },
+
                         bv_username: {
                             required: true,
                             minlength: 2,
@@ -91,16 +128,60 @@
                         },
 
                         tenloaihanghoa: {
-                            required: "Chưa nhập tên loại hàng hóa !",
+                            required: "Chưa nhập tên loại sản phẩm!",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
+
+                        tenhanghoa: {
+                            required: "Chưa nhập tên sản phẩm !",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        modelname: {
+                            required: "Chưa nhập model !",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        xuatxu: {
+                            required: "Chưa nhập xuất xứ !",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        thoigianbaohanh: {
+                            required: "Chưa nhập thời gian bảo hành !",
+                            number: "Hãy nhập số !",
+                            min: "Nhập số lớn hơn hoặc bằng 0",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        giaban: {
+                            required: "Chưa nhập giá bán !",
+                            number: "Hãy nhập số !",
+                            min: "Nhập số lớn hơn hoặc bằng 0",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        giamgia: {
+                            required: "Chưa nhập giảm giá !",
+                            number: "Hãy nhập số !",
+                            min: "Nhập số lớn hơn hoặc bằng 0",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
+                        soluongton: {
+                            required: "Chưa nhập số lượng !",
+                            number: "Hãy nhập số !",
+                            min: "Nhập số lớn hơn hoặc bằng 0",
+                            remote: jQuery.validator.format("{0} is already in use")
+                        },
+
 
                         tennhanvien: {
                             required: "Chưa nhập tên nhân viên !",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
-                        tendangnhap: {
+                        username: {
                             required: "Chưa nhập tên đăng nhập!",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
@@ -114,7 +195,6 @@
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
-
                         phantramloinhuan: {
                             required: "Chưa nhập phần trăm lợi nhuận !",
                             number: "Hãy nhập số!",
@@ -127,7 +207,7 @@
                             required: "Nhập số lượng!",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
-                       
+
                         diachi: {
                             required: "Chưa nhập địa chỉ !",
                             remote: jQuery.validator.format("{0} is already in use")
@@ -136,15 +216,15 @@
                             required: "Chưa nhập số điện thoại !",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
-                        
+
                         bv_username: {
                             remote: jQuery.validator.format("{0} is already in use")
                         }
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
                     //submitHandler: function() {
@@ -153,115 +233,117 @@
                 });
             }
 
-            if($('#number-validate').length){
+            if ($('#number-validate').length) {
                 $('#number-validate').validate({
-                    rules:{
-                        nv_number:{
-                            required:true,
-                            number:true
-                        },
-                        nv_min:{
+                    rules: {
+                        nv_number: {
                             required: true,
-                            min:5
+                            number: true
                         },
-                        nv_max:{
-                            required:true,
-                            max:5
+                        nv_min: {
+                            required: true,
+                            min: 5
+                        },
+                        nv_max: {
+                            required: true,
+                            max: 5
                         }
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
-                        alert("submitted!");
-                    }
+                    //submitHandler: function () {
+                    //    alert("submitted!");
+                    //}
                 });
             }
 
-            if($('#password-validate').length){
+            if ($('#password-validate').length) {
                 $('#password-validate').validate({
-                    rules:{
-                        pv_password:{
+                    rules: {
+                        pv_password: {
                             required: true,
-                            minlength:5,
-                            maxlength:20
+                            minlength: 5,
+                            maxlength: 20
                         },
-                        pv_password2:{
-                            required:true,
-                            minlength:5,
-                            maxlength:20,
-                            equalTo:"#pv_password"
-                        }
+                        pv_password2: {
+                            required: true,
+                            minlength: 5,
+                            maxlength: 20,
+                            equalTo: "#pv_password"
+                        },
+
+                       
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
+                    submitHandler: function () {
                         alert("submitted!");
                     }
                 });
             }
 
-            if($('#checkbox-radio-validate').length){
+            if ($('#checkbox-radio-validate').length) {
                 $('#checkbox-radio-validate').validate({
-                    rules:{
-                        cr_gender:{
+                    rules: {
+                        cr_gender: {
                             required: true
                         },
-                        cr_skill:{
-                            required:true,
+                        cr_skill: {
+                            required: true,
                             minlength: 2
                         }
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
+                    submitHandler: function () {
                         alert("submitted!");
                     }
                 });
             }
 
-            if($('#select-validate').length){
+            if ($('#select-validate').length) {
                 $('#select-validate').validate({
-                    rules:{
-                        sv_skill_programming:{
+                    rules: {
+                        sv_skill_programming: {
                             required: true
                         },
-                        sv_position:{
+                        sv_position: {
                             required: true
                         }
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
+                    submitHandler: function () {
                         alert("submitted!");
                     }
                 });
             }
 
-            if($('#sample-validation-1').length){
+            if ($('#sample-validation-1').length) {
 
                 $.mockjax({
                     url: 'emails.action2',
-                    response: function(settings) {
+                    response: function (settings) {
                         var email = settings.data.sv1_email,
                             emails = ["jokowi@jk.co.id", "george@bush.gov", "bill@gates.com"];
                         this.responseText = "true";
-                        if ( $.inArray( email, emails ) !== -1 ) {
+                        if ($.inArray(email, emails) !== -1) {
                             this.responseText = 'false';
                         }
                     },
@@ -270,11 +352,11 @@
 
                 $.mockjax({
                     url: 'users.action2',
-                    response: function(settings) {
+                    response: function (settings) {
                         var user = settings.data.sv1_username,
                             users = ["john", "peter", "bill", "jokowi"];
                         this.responseText = "true";
-                        if ( $.inArray( user, users ) !== -1 ) {
+                        if ($.inArray(user, users) !== -1) {
                             this.responseText = 'false';
                         }
                     },
@@ -299,11 +381,29 @@
                             minlength: 5,
                             equalTo: "#password"
                         },
+                        
+                        matkhaucu: {
+                            required: true,
+                        },
+
+                        matkhaumoi: {
+                            required: true,
+                            minlength: 6
+                        },
+
+                        xacnhanmatkhau: {
+                            required: true,
+                            minlength: 6,
+                            equalTo: "#matkhaumoi"
+                        },
+
+
                         sv1_email: {
                             required: true,
                             email: true,
                             remote: "emails.action2"
                         },
+                       
                         sv1_gender: "required",
                         sv1_terms: "required"
                     },
@@ -324,6 +424,24 @@
                             minlength: jQuery.validator.format("Enter at least {0} characters"),
                             equalTo: "Enter the same password as above"
                         },
+
+                        matkhaucu: {
+                            required: "Nhập mật khẩu cũ!",
+                            rangelength: jQuery.validator.format("Enter at least {0} characters")
+                        },
+
+                        matkhaumoi: {
+                            required: "Nhập mật khẩu mới!",
+                            minlength: "Mật khẩu phải lớn hơn 5 ký tự"
+                            //rangelength: jQuery.validator.format("Enter at least {0} characters")
+                        },
+                        xacnhanmatkhau: {
+                            required: "Nhập mật khẩu xác nhận!",
+                            minlength: "Mật khẩu xác nhận phải lớn hơn 5 ký tự",
+                           // minlength: jQuery.validator.format("Enter at least {0} characters"),
+                            equalTo: "Mật khẩu xác nhận không trùng khớp!"
+                        },
+
                         sv1_email: {
                             required: "Email không hợp lệ",
                             minlength: "Email không hợp lệ",
@@ -332,19 +450,19 @@
                         sv1_gender: "Choose your gender",
                         sv1_terms: "Please check our terms of use again"
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
-                        alert("submitted!");
-                    }
+                    //submitHandler: function () {
+                    //    alert("submitted!");
+                    //}
                 });
             }
 
-            if($('#sample-validation-2').length){
+            if ($('#sample-validation-2').length) {
                 $("#sample-validation-2").validate({
                     rules: {
                         sv2_company_name: "required",
@@ -412,15 +530,15 @@
                             minlength: jQuery.validator.format("Enter at least {0} credit card")
                         }
                     },
-                    highlight:function(element) {
+                    highlight: function (element) {
                         $(element).parents('.form-group').addClass('has-error has-feedback');
                     },
-                    unhighlight: function(element) {
+                    unhighlight: function (element) {
                         $(element).parents('.form-group').removeClass('has-error');
                     },
-                    submitHandler: function() {
-                        alert("submitted!");
-                    }
+                    //submitHandler: function () {
+                    //    alert("submitted!");
+                    //}
                 });
             }
         }

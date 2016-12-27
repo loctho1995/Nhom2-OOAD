@@ -3,51 +3,51 @@
 @foreach (var item in Model)
 {
     <div class="form-group">
-        <label class="control-label">Mã Nhân Viên</label>
+        <label>Mã Nhân Viên</label>
         <input type="text" name="manhanvien" value="@item.maNhanVien" class="form-control rounded" disabled="disabled" />
     </div>
 
 
     <div class="form-group">
-        <label class="control-label">Tên Nhân Viên</label>
+        <label>Tên Nhân Viên</label>
         <input type="text" name="tennhanvien" value="@item.tenNhanVien" class="form-control rounded" required="required" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Tên Đăng Nhập </label>
-        <input type="text" name="tendangnhap" value="@item.userName" class="form-control rounded" required="required" maxlength="100" />
+        <label >Tên Đăng Nhập </label>
+        <input type="text" name="username" value="@item.userName" class="form-control rounded" required="required" maxlength="100" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Số Điện Thoại  </label>
+        <label >Số Điện Thoại  </label>
         <input type="text" name="sodienthoai" value="@item.soDienThoai" class="form-control rounded" required="required" maxlength="15" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Email   </label>
+        <label >Email   </label>
         <input type="text" name="email" value="@item.email" class="form-control rounded" required maxlength="30" />
     </div>
     <div class="form-group">
-        <label class="control-label">Địa Chỉ   </label>
+        <label >Địa Chỉ   </label>
         <input type="text" name="diachi" value="@item.diaChi" class="form-control rounded" required maxlength="30" />
     </div>
     <div class="form-group">
-        <label class="control-label">CMND   </label>
+        <label >CMND   </label>
         <input type="text" name="cmnd" value="@item.CMND" class="form-control rounded" required maxlength="30" />
     </div>
 
     <div class="form-group">
-        <label class="control-label">Chức Vụ </label>
+        <label>Chức Vụ </label>
             @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control rounded" })
     </div>
 
     <div class="form-group">
-        <label class="control-label">Trạng Thái</label>
+        <label >Trạng Thái</label>
         @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
     </div>
 
     <div class="form-group">
-        <label class="control-label">Hình Đại Diện</label>
+        <label >Hình Đại Diện</label>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-preview thumbnail" name="avatar"  data-trigger="fileinput" style="width: 200px; height: 150px;">
                 <img src="~/Content/image/user/@item.avatar" style="width: 200px; height: 150px;">

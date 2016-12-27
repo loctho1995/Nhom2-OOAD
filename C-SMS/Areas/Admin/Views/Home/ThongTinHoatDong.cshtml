@@ -20,7 +20,7 @@
                 @if (@item.trangThaiBanHang == true)
                 {
                     <p>
-                        @item.tenNhanVienBanHang đã tạo phiếu bán hàng số @item.soPhieuBanHang vào ngày <span class="text-muted">@item.ngayChinhSuaBanHang</span>  
+                        @item.tenNhanVienBanHang đã tạo phiếu bán hàng số @item.soPhieuBanHang vào ngày <span class="text-muted">@item.ngayChinhSuaBanHang</span>
                     </p>
                 }
                 else
@@ -51,14 +51,14 @@
                 @if (@item.trangThaiKiemKho == true)
                 {
                     <p>
-                        @item.tenNhanVienKiemKho đã tạo mới phiếu kiểm kho số @item.soPhieuKiemKho vào ngày 
+                        @item.tenNhanVienKiemKho đã tạo mới phiếu kiểm kho số @item.soPhieuKiemKho vào ngày
                         <span class="text-muted">@item.ngayChinhSuaKiemKho</span>
                     </p>
                 }
                 else
                 {
                     <p>
-                        @item.tenNhanVienKiemKho đã hủy phiếu kiểm kho số @item.soPhieuKiemKho vào ngày 
+                        @item.tenNhanVienKiemKho đã hủy phiếu kiểm kho số @item.soPhieuKiemKho vào ngày
                         <span class="text-muted">@item.ngayChinhSuaKiemKho</span>
                     </p>
                 }
@@ -118,56 +118,56 @@
         </div>
         @foreach (var item in ViewBag.thongTinHoatDongNhapKho)
         {
-        <div class="recent-activity-body-content">
-            @if (@item.trangThaiNhapKho == true)
+            <div class="recent-activity-body-content">
+                @if (@item.trangThaiNhapKho == true)
                 {
-                <p>
-                    @item.tenNhanVienNhapKho đã tạo mới phiếu nhập kho số @item.soPhieuNhapKho vào ngày
-                    <span class="text-muted"> @item.ngayChinhSuaXuatKho</span>
-                </p>
+                    <p>
+                        @item.tenNhanVienNhapKho đã tạo mới phiếu nhập kho số @item.soPhieuNhapKho vào ngày
+                        <span class="text-muted"> @item.ngayChinhSuaXuatKho</span>
+                    </p>
                 }
                 else
                 {
-                <p>
-                    @item.tenNhanVienXuatKho đã hủy phiếu nhập kho số @item.soPhieuNhapKho vào ngày
-                    <span class="text-muted"> @item.ngayChinhSuaNhapKho</span>
-                </p>
+                    <p>
+                        @item.tenNhanVienXuatKho đã hủy phiếu nhập kho số @item.soPhieuNhapKho vào ngày
+                        <span class="text-muted"> @item.ngayChinhSuaNhapKho</span>
+                    </p>
                 }
-        </div>
+            </div>
         }
     </div>
 </div>
 
 <!-- End recent activity item -->
 <!-- Start recent activity item -->
-@*<div class="recent-activity-item recent-activity-danger">
+<div class="recent-activity-item recent-activity-success">
     <div class="recent-activity-badge">
         <span class="recent-activity-badge-userpic"></span>
     </div>
     <div class="recent-activity-body">
         <div class="recent-activity-body-head">
             <div class="recent-activity-body-head-caption">
-                <h3 class="recent-activity-body-title">Chi</h3>
+                <h3 class="recent-activity-body-title">Chi Tiêu</h3>
             </div>
         </div>
         @foreach (var item in ViewBag.thongTinHoatDongChi)
         {
-        <div class="recent-activity-body-content">
-            @if (@item.trangThaiChi == true)
+            <div class="recent-activity-body-content">
+                @if (@item.trangThaiChi == true)
                 {
-                <p>
-                    @item.tenNhanVienChi đã chi @item.tongTienChi cho phiếu nhập số @item.soPhieuNhapKho
+                    <p>
+                        @item.tenNhanVienChi đã chi @item.tongTienChi cho phiếu nhập số @item.maPhieuNhap
                     <span class="text-block text-muted">vào ngày @item.ngayChinhSuaChi</span>
                 </p>
                 }
                 else
                 {
-                <p>
-                    @item.tenNhanVienChi đã hủy phiếu chi số @item.soPhieuChi
+                    <p>
+                        @item.tenNhanVienChi đã hủy phiếu chi số @item.soPhieuChi
                         <span class="text-block text-muted">vào ngày @item.ngayChinhSuaChi</span>
                     </p>
                 }
-        </div>
+            </div>
         }
     </div>
-</div>*@
+</div>

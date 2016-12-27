@@ -185,6 +185,8 @@
         errorSoDienThoai = CheckSoDienThoai(errorSoDienThoai);
         var error = errorTenKhachHang + errorSoDienThoai;
 
+
+
         //Save if valid
         if (isAllValid == true && error == 0) {
             var data = {

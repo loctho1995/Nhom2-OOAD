@@ -85,5 +85,10 @@ namespace Business.Implements
 
             await _loaiHangHoaRepo.EditAsync(editLoaiHangHoa);
         }
+
+        public object TongLoaiSanPham()
+        {
+            return _loaiHangHoaRepo.GetAll().Count();
+        }
     }
 }

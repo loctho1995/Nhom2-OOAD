@@ -19,10 +19,15 @@
     </div>
     <div class="body-content animated fadeIn">
         <div class="row">
-            <div class="alert alert-danger fade in">
-                <span><i class="fa fa-bullhorn" style="padding-right: 7px" aria-hidden="true"></i>Bạn có chắc chắn muốn hủy?</span>
+            <div class="alert alert-danger1 fade in">
+                <span><i class="fa fa-bullhorn"></i> Bạn có chắc chắn muốn hủy?</span>
             </div>
+
             @{Html.RenderAction("ThongTinPhieuBaoHanh", "BaoHanh");}
         </div>
+
     </div>
 </section>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+

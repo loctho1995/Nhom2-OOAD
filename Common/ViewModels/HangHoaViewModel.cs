@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Common.ViewModels
 {
@@ -15,7 +16,11 @@ namespace Common.ViewModels
         public decimal giamGia { get; set; }
         public int soLuongTon { get; set; }
         public string donViTinh { get; set; }
+
+        public string modelName { get; set; }
+        [AllowHtml]
         public string moTa { get; set; }
+        [AllowHtml]
         public string thongSoKyThuat { get; set; }
         public string xuatXu { get; set; }
         public int thoiGianBaoHanh { get; set; }

@@ -50,8 +50,41 @@
                     <div class="mess_result" style="padding:10px; text-align:center;">
                         Tìm thấy <b class=font_err>@ViewBag.TimKiemSanPham.Count</b> sản phẩm
                     </div>
+                    <div id="List_Product" class="List_Product grid-bound grid-bound-km">
+                        @foreach (var item in Model)
+                        {
+                            FormatNumber number = new FormatNumber();
+                            var url = "/HangHoa/" + "ChiTietSanPham/" + @item.MaHangHoa;
 
-                    <div id="List_Product" class="List_Product Cat_pro_sub grid-bound grid-bound-home">
+                            <div class='item1 nopadding product-grid'>
+                                <div class='boxItem'>
+                                    <a href="@url" title='@item.TenHangHoa'>
+                                        <img src="~/Content/client/product/@item.HinhAnh" alt='@item.TenHangHoa' title='@item.TenHangHoa' />
+                                    </a>
+                                    <h3><a href="@url" title='@item.TenHangHoa'>@item.TenHangHoa</a> </h3>
+                                    <h3 title="@item.TenHangHoa">Xuất Xứ: @item.XuatXu</h3>
+                                    <p class="price">
+                                        @if (@item.GiamGia > 0)
+                                        {
+                                            <span class="price-promotion">@number.FormatNumbers(@item.GiamGia.ToString()) đ &nbsp;</span>
+                                            <span class="price-primary price-old">@number.FormatNumbers(@item.GiaBan.ToString()) đ</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="price-promotion">@number.FormatNumbers(@item.GiaBan.ToString()) đ &nbsp;</span>
+                                        }
+
+                                    </p>
+                                    <div class="btn-km-bound">
+                                        <div class="btn-order-bound"><a class="btn-order-link" href="/PhieuDatHang/DatHang?maHangHoa=@item.MaHangHoa&soLuong=1">Đặt ngay</a></div>
+                                        <div class="btn-view-bound"><a class="btn-view-link" href="@url">Xem ngay</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    @*<div id="List_Product" class="List_Product Cat_pro_sub grid-bound grid-bound-home">
                         @foreach (var item in Model)
                         {
                             FormatNumber number = new FormatNumber();
@@ -76,7 +109,7 @@
                             </div>
                         }
 
-                    </div>
+                    </div>*@
                     <div class="pull-left">
                         @Html.PagedListPager(Model, page => Url.Action("TimKiemSanPham",
                         new { page, searchString = ViewBag.SearchString, status = ViewBag.Status }),

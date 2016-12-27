@@ -23,8 +23,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Index()
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Đang kinh doanh", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng kinh doanh", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.loaihanghoa = _loaiHangHoaKhoBus.LoadLoaiHangHoa();
             return View();
@@ -36,7 +36,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult DanhSachHangHoa(string searchString, string trangthai, string loaihanghoa, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachHangHoa(string searchString, string trangthai, string loaihanghoa, int page = 1, int pageSize = 10)
         {
             if (!string.IsNullOrEmpty(searchString) || !string.IsNullOrEmpty(trangthai) || !string.IsNullOrEmpty(loaihanghoa))
             {
@@ -48,8 +48,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult ThongTinHangHoa(int id)
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Đang kinh doanh", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng kinh doanh", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.loaihanghoa = _loaiHangHoaKhoBus.LoadLoaiHangHoa();
             ViewBag.thongTinHangHoa = _hangHoaKhoBus.LoadDanhSachHangHoaTheoMa(id).ToList();
@@ -58,12 +58,29 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(HangHoaViewModel hangHoa)
+        public async Task<ActionResult> Create(HangHoaViewModel hangHoa, HttpPostedFileBase hinhAnh)
         {
+            if (hinhAnh != null && hinhAnh.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/client/product"),
+                                               Path.GetFileName(hinhAnh.FileName));
+                    hinhAnh.SaveAs(path);
+                    hangHoa.hinhAnh = hinhAnh.FileName;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                hangHoa.hinhAnh = "default.png";
+            }
+
             try
             {
                 await _hangHoaKhoBus.Create(hangHoa);
-                SetAlert("Đã thêm hàng hóa thành công!!!", "success");
+                SetAlert("Đã thêm sản phẩm thành công!!!", "success");
             }
             catch
             {
@@ -75,16 +92,32 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang hoạt động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Đang kinh doanh", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng kinh doanh", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.loaihanghoa = _loaiHangHoaKhoBus.LoadLoaiHangHoa();
             return View(_hangHoaKhoBus.LoadDanhSachHangHoaTheoMa(id).ToList());
         }
 
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, HangHoaViewModel HangHoa)
+        public async Task<ActionResult> Edit(int id, HangHoaViewModel HangHoa, HttpPostedFileBase hinhAnh)
         {
+            if (hinhAnh != null && hinhAnh.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/client/product"),
+                                               Path.GetFileName(hinhAnh.FileName));
+                    hinhAnh.SaveAs(path);
+                    HangHoa.hinhAnh = hinhAnh.FileName;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                HangHoa.hinhAnh = "default.png";
+            }
             //Get nhân viên muốn update (find by ID)
             HangHoa edit = (HangHoa)await _hangHoaKhoBus.Find(id);
             if (edit == null)
@@ -97,7 +130,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _hangHoaKhoBus.Update(HangHoa, edit);
-                    SetAlert("Đã cập nhật hàng hóa thành công!!!", "success");
+                    SetAlert("Đã cập nhật sản phẩm thành công!!!", "success");
 
                 }
                 catch
@@ -128,7 +161,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _hangHoaKhoBus.Delete(edit);
-                    SetAlert("Đã xóa hàng hóa thành công!!!", "success");
+                    SetAlert("Đã hủy sản phẩm thành công!!!", "success");
 
                 }
                 catch
@@ -141,8 +174,8 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult ViewInfo(int id)
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang hoạt động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Đang kinh doanh", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng kinh doanh", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.loaihanghoa = _loaiHangHoaKhoBus.LoadLoaiHangHoa();
             return View(_hangHoaKhoBus.LoadDanhSachHangHoaTheoMa(id).ToList());

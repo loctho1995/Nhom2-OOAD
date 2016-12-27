@@ -40,16 +40,13 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> Create(PhieuChiViewModel phieuChi)
         {
-            bool status = false;
             if (ModelState.IsValid)
             {
                 await _phieuChiBus.Create(phieuChi);
-                status = true;
                 SetAlert("Đã Lưu Phiếu Chi Thành Công!!!", "success");
             }
             else
             {
-                status = false;
                 SetAlert("Đã Xảy Ra Lỗi! Bạn Hãy Tạo Lại Phiếu Chi", "error");
             }
             return RedirectToAction("Index");
@@ -60,7 +57,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult DanhSachPhieuChi(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuChi(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
             DateTime tungay = Convert.ToDateTime(null);
             DateTime denngay = Convert.ToDateTime(null);
@@ -108,7 +105,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _phieuChiBus.HuyPhieuChi(deletePhieuChi);
-                    SetAlert("Đã hủy phiếu nhập kho thành công!!!", "success");
+                    SetAlert("Đã hủy phiếu chi thành công!!!", "success");
                 }
                 catch
                 {

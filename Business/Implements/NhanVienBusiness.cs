@@ -229,6 +229,12 @@ namespace Business.Implements
         {
             return await _nhanVienRepo.GetByIdAsync(ID);
         }
+        public string MatKhau(int ID)
+        {
+            IQueryable<NhanVien> tatCaNhanVien = _nhanVienRepo.GetAll();
+            return tatCaNhanVien.FirstOrDefault(x => x.MaNhanVien.Equals(ID)).PassWord;
+        }
+
 
         public async Task Update(object inputModel, object editModel)
         {
@@ -243,6 +249,7 @@ namespace Business.Implements
             editNhanVien.SoDienThoai = input.soDienThoai;
             editNhanVien.TrangThai = input.trangThai;
             editNhanVien.UserName = input.userName;
+            editNhanVien.Avatar = input.avatar;
 
             await _nhanVienRepo.EditAsync(editNhanVien);
         }

@@ -12,58 +12,66 @@ $(document).ready(function () {
                     });
     });
 })
-//
+
+function CheckTenKhachHang(error) {
+    if ($("#tenKhachHang").val() == '') {
+        $(".messageErrorinputTenKhachHang").text("Nhập tên khách hàng!");
+        $(".notifyinputTenKhachHang").slideDown(250).removeClass("hidden");
+        error++;
+    }
+    else {
+        $(".notifyinputTenKhachHang").addClass("hidden");
+        $("#tenKhachHang").removeClass("error");
+    }
+    $("#tenKhachHang").blur(function () {
+        $("#tenKhachHang").val($("#tenKhachHang").val().trim());
+    });
+    return error;
+}
+
+function CheckSoDienThoai(error) {
+    if ($("#soDienThoai").val() == '') {
+        $(".messageErrorinputSoDienThoai").text("Nhập số điện thoại!");
+        $(".notifyinputSoDienThoai").slideDown(250).removeClass("hidden");
+        error++;
+    }
+    else {
+        $(".notifyinputSoDienThoai").addClass("hidden");
+        $("#soDienThoai").removeClass("error");
+    }
+    $("#soDienThoai").blur(function () {
+        $("#soDienThoai").val($("#soDienThoai").val().trim());
+    });
+    return error;
+}
+
+function CheckModelName(error) {
+    if ($("#modelName").val() == '') {
+        $(".messageErrorinputModelName").text("Chọn sản phẩm!");
+        $(".notifyinputModelName").slideDown(250).removeClass("hidden");
+        error++;
+    }
+    else {
+        $(".notifyinputModelName").addClass("hidden");
+        $("#modelName").removeClass("error");
+    }
+    $("#modelName").blur(function () {
+        $("#modelName").val($("#modelName").val().trim());
+    });
+    return error;
+}
+
 $(document).ready(function () {
-    $('#submit').click(function () {
-        //validation of inventory ballot detail
-        var isAllValid = true;
-
-        //Save if valid
-        if (isAllValid) {
-            var data = {
-                SoPhieuBaoHanh: $('#soPhieuBaoHanh').val().trim(),
-                NgayLap: $('#ngayLap').val().trim(),
-                NgayGiao: $('#ngayGiao').val().trim(),
-                MaNhanVien: $('#maNhanVien').val().trim(),
-                TenNhanVien: $('#tenNhanVien').val().trim(),
-                TenKhachHang: $('#tenKhachHang').val().trim(),
-                SoDienThoai: $('#soDienThoai').val().trim(),
-                GhiChu: $('#ghiChu').val().trim(),
-                ModelName: $('#modelName').val().trim()
-            }
-
-            $(this).val('Please wait...');
-
-            $.ajax({
-                url: "/BaoHanh/LuuPhieuBaoHanh",
-                type: "POST",
-                data: JSON.stringify(data),
-                dataType: "JSON",
-                contentType: "application/json",
-                success: function (d) {
-                    //check is successfully save to database                    
-                    if (d.status == true) {
-                        //will send status from server side
-                        //clear form
-                        $('#soPhieuBaoHanh').val('');
-                        $('#ngayLap').val('');
-                        $('#tenNhanVien').val('');
-                        $('#ghiChu').val('');
-                        window.location.href = '/Admin/BaoHanh/';
-                    }
-                    else {
-                        alert("Something wrong! Please try again", "error");
-                    }
-                    $('#submit').val('Lưu Phiếu Bảo Hành');
-                },
-                error: function () {
-                    alert('Error. Please try again.');
-                    $('#submit').val('Lưu Phiếu Bảo Hành');
-                }
-            });
-        }
+   
+    $("#tenKhachHang").on('keyup input propertychange paste change', function () {
+        CheckTenKhachHang();
     });
 
-    
-});
+    $("#soDienThoai").on('keyup input propertychange paste change', function () {
+        CheckSoDienThoai();
+    });
 
+    $("#modelName").on('keyup input propertychange paste change', function () {
+        CheckModelName();
+    });
+});

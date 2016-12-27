@@ -50,7 +50,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
      
-        public ActionResult DanhSachPhieuNhapKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuNhapKho(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
             return View(_phieuNhapKhoBus.SearchDanhSachPhieuNhapKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
@@ -91,8 +91,6 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                 try
                 {
-                    //_phieuNhapKhoBus.DeleteChiTietPhieuNhapKho(id);
-                    //await _phieuNhapKhoBus.DeletePhieuNhapKho(deletePhieuNhapKho);
                     await _phieuNhapKhoBus.HuyPhieuNhapKho(deletePhieuNhapKho);
                     SetAlert("Đã hủy phiếu nhập kho thành công!!!", "success");
                 }

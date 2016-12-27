@@ -6,19 +6,28 @@
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayName("Tên Hàng Hóa")
+            <th class="text-center" style="width: 22%;">
+                @Html.DisplayName("Sản phẩm")
             </th>
-            <th>
-                @Html.DisplayName("Giá Bán")
+            <th class="text-center" style="width: 7%;">
+                @Html.DisplayName("Số lượng tồn")
             </th>
-            <th>
-                @Html.DisplayName("Mô Tả")
+            <th class="text-center" style="width: 4%;">
+                @Html.DisplayName("Giá bán")
             </th>
-            <th>
+            <th class="text-center" style="width: 4%;">
+                @Html.DisplayName("Giảm giá")
+            </th>
+            <th class="text-center" style="width: 6%;">
                 @Html.DisplayName("Xuất Xứ")
             </th>
-            <th class="width-5">
+            <th class="text-center" style="width: 6%;">
+                @Html.DisplayName("Bảo hành")
+            </th>
+            <th class="text-center" style="width: 9%;">
+                @Html.DisplayName("Trạng thái")
+            </th>
+            <th class="text-center" style="width: 9%;">
                 Hành động
             </th>
         </tr>
@@ -28,18 +37,32 @@
         @foreach (var item in Model)
         {
             FormatNumber number = new FormatNumber();
-            <tr style="text-align:center">
-                <td>@item.tenHangHoa</td>
-                <td>@number.FormatNumbers(@item.giaBan.ToString())</td>
-                <td>@item.moTa</td>
-                <td>@item.xuatXu</td>
-
+            <tr class="border-warning">
                 <td>
-                    <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                    <a href="@Url.Action("Edit", new { id = item.maHangHoa })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-pencil"></i> Sửa</a>
-                    <a href="@Url.Action("Delete", new { id = item.maHangHoa })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                    <img src="~/Content/client/product/@item.hinhAnh" width="50" height="50" class="img-circle img-bordered-theme">
+                    <span>@item.tenHangHoa</span>
                 </td>
+                <td>@item.soLuongTon</td>
+                <td>@number.FormatNumbers(@item.giaBan.ToString())</td>
+                <td>@number.FormatNumbers(@item.giamGia.ToString())</td>
+                <td>@item.xuatXu</td>
+                <td>@item.thoiGianBaoHanh tháng</td>
+                @if (@item.trangThai == true)
+                {
+                    <td>Đang kinh doanh</td>
+                    <td >
+                        <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
 
+                        <a href="@Url.Action("Edit", new { id = item.maHangHoa })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-trash"></i> Sửa</a>
+                    </td>
+                }
+                else
+                {
+                    <td>Ngừng kinh doanh</td>
+                    <td>
+                        <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    </td>
+                }
             </tr>
         }
     </tbody>

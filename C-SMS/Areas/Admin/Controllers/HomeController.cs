@@ -26,7 +26,10 @@ namespace WebBanHang.Areas.Admin.Controllers
         PhieuXuatKhoBusiness _phieuXuatKhoBus = new PhieuXuatKhoBusiness();
         PhieuNhapKhoBusiness _phieuNhapKhoBus = new PhieuNhapKhoBusiness();
         PhieuBanHangBusiness _phieuBanHangBus = new PhieuBanHangBusiness();
+        PhieuChiBusiness _phieuChiBus = new PhieuChiBusiness();
         ChucVuBusiness _chucVuBus = new ChucVuBusiness();
+        HangHoaBusiness _hangHoaBus = new HangHoaBusiness();
+        LoaiHangHoaBusiness _loaiHangHoaBus = new LoaiHangHoaBusiness();
 
         public static string userName = string.Empty;
 
@@ -38,7 +41,27 @@ namespace WebBanHang.Areas.Admin.Controllers
                 TempData["notify"] = "Username hoặc Password không đúng!!!";
             }
             ViewBag.soPhieuDatHang = _phieuDatHangBus.LaySoDonDatHang();
-            
+            ViewBag.tongTienBanHang = _phieuBanHangBus.TongTienBanHang();
+            ViewBag.tongTienDatHang = _phieuDatHangBus.TongTienDatHang();
+
+            ViewBag.soDonDatHang = _phieuDatHangBus.SoDonDatHang();
+            ViewBag.soDonBanHang = _phieuBanHangBus.SoDonBanHang();
+            ViewBag.soDonDatDaXacNhan = _phieuDatHangBus.DonHangDaXacNhan();
+            ViewBag.soDonDatDaThanhToan = _phieuDatHangBus.DonHangDaThanhToan();
+
+            ViewBag.soPhieuChi = _phieuChiBus.SoPhieuChi();
+            ViewBag.tongTienChi = _phieuChiBus.TongTienChi();
+
+            ViewBag.sanPhamHetHang = _hangHoaBus.SanPhamHetHang();
+            ViewBag.sanPhamSapHetHang = _hangHoaBus.SanPhamSapHetHang();
+
+            ViewBag.tongSanPham = _hangHoaBus.TongSanPham();
+            ViewBag.tongLoaiSanPham = _loaiHangHoaBus.TongLoaiSanPham();
+            ViewBag.sanPhamDangKinhDoanh = _hangHoaBus.SanPhamDangKinhDoanh();
+            ViewBag.sanPhamNgungKinhDoanh = _hangHoaBus.SanPhamNgungKinhDoanh();
+
+            ViewBag.sanPhamBanChayNhat = _hangHoaBus.SanPhamBanChayNhat();
+           
             return View();
         }
 
@@ -49,7 +72,8 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.thongTinHoatDongXuatKho = _phieuXuatKhoBus.ThongTinHoatDong();
             ViewBag.thongTinHoatDongNhapKho = _phieuNhapKhoBus.ThongTinHoatDong();
             ViewBag.thongTinHoatDongBanHang = _phieuBanHangBus.ThongTinHoatDong();
-           
+            ViewBag.thongTinHoatDongChi = _phieuChiBus.ThongTinHoatDong();
+
             return PartialView();
         }
 
@@ -114,24 +138,33 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return View();
             }
             else
-                return RedirectToAction("PermissionError", "Home");
+                return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        public async Task<ActionResult> UpdatePassword(String PassWord)
+        public async Task<ActionResult> UpdatePassword(String matkhaumoi, string matkhaucu)
         {
+            var pass = _nhanVienBus.MatKhau(((NhanVienViewModel)(Session["Account"])).maNhanVien);
+            var mk = Md5Encode.EncodePassword(matkhaucu).ToLower();
+            if (mk != pass)
+            {
+                SetAlert("Mật khẩu cũ nhập không đúng! Vui lòng nhập lại", "error");
+                return RedirectToAction("UpdatePassword");
+            }
+
             NhanVien editEmployee = (NhanVien)await _nhanVienBus.Find(((NhanVienViewModel)(Session["Account"])).maNhanVien);
 
             try
             {
-                await _nhanVienBus.UpdatePassword(editEmployee, Md5Encode.EncodePassword(PassWord));
-                SetAlert("Successfull!!!", "success");
+                await _nhanVienBus.UpdatePassword(editEmployee, Md5Encode.EncodePassword(matkhaumoi));
+                SetAlert("Bạn đã cập nhật mật khẩu thành công!!!", "success");
             }
             catch
             {
                 SetAlert("Đã xảy ra lỗi! Bạn hãy cập nhật lại", "error");
+                return RedirectToAction("UpdatePassword");
             }
-            return RedirectToAction("UpdatePassword");
+            return RedirectToAction("Index");
         }
 
         protected void SetAlert(string message, string type)

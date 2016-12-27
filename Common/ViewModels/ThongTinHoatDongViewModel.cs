@@ -31,8 +31,12 @@ namespace Common.ViewModels
         public string tenNhanVienBanHang { get; set; }
 
         public int soPhieuChi { get; set; }
+
+        public int maPhieuNhap { get; set; }
+
         public DateTime ngayChinhSuaChi { get; set; }
         public bool trangThaiChi { get; set; }
         public string tenNhanVienChi { get; set; }
+        public decimal tongTienChi { get; set; }
     }
 }

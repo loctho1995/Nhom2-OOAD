@@ -5,12 +5,13 @@
 }
 
 <script src="~/Scripts/Son/phieunhapkhoScripts.js"></script>
+<link href="~/Content/assets/css/generalMessageError.css" rel="stylesheet" />
 
 <section id="page-content">
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Phiếu Nhập Kho</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-saved"></i> Lưu</button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i> Lưu</button>
             <button class="btn btn-lg btn-success btn-xs btn-push" id="print"><i class="glyphicon glyphicon-print"></i> In</button>
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhapKho") + "'"); ">
                 <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
@@ -33,7 +34,7 @@
                     <div class="panel-body no-padding">
                         <div class="form-body">
                             <div class="form-group">
-                                <label for="gender" class="col-sm-2 control-label">Sản phẩm</label>
+                                <label for="gender" class="col-sm-2 control-label">Sản Phẩm</label>
                                 <div class="col-sm-12">
                                     <select id="maHangHoa" class="chosen-select">
                                         @foreach (var item in ViewBag.danhSachHangHoa)
@@ -55,36 +56,32 @@
 
                                 <tr class="mycontainer" id="mainrow">
                                     <td>
-                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control rounded" oninput="HideErrorTenHangHoa()" />
-                                        <span class="error">Chưa có hàng hóa</span>
+                                        <input id="tenHangHoa" disabled="disabled" type="text" class="form-control rounded" />
                                     </td>
                                     <td>
                                         <input type="text" id="donViTinh" class="form-control rounded" disabled="disabled" />
-                                        @*<input type="hidden" id="donViTinh" class="form-control rounded" style="width:100%" disabled="disabled" />
-                                            <input type="text" id="soLuongTon" class="form-control rounded" disabled="disabled" />*@
+                                       
                                     </td>
                                     <td>
-                                        <input type="text" id="soLuongNhap" name="soLuongNhap" class="form-control rounded" required oninput="HideErrorSoLuongNhap()" onkeypress="return checkNumber(event, this)" maxlength="4" />
-                                        @*<span class="error">Nhập số lượng</span>
-                                            <input type="text" id="soLuongXuat" name="soLuongXuat" class="form-control rounded" required oninput="HideErrorSoLuongXuat()" onkeypress="    return checkNumber(event, this)" maxlength="4" />*@
+                                        <input type="text" id="soLuongNhap" name="soLuongNhap" class="form-control rounded" required  onkeypress="return checkNumber(event, this)" maxlength="4" />
+                                        <h3 style="margin-top:-1%" hidden class="messageError  notifyinputQuantity messageErrorinputQuantity">Nhập số lượng!</h3>
                                     </td>
                                     <td>
-                                        <input type="text" id="giaNhap" class="form-control rounded" oninput="HideErrorGiaNhap()" onkeypress="return checkNumber(event, this)" />
-                                        @*<span class="error">Nhập giá</span>
-                                            <input type="text" id="gia" class="form-control rounded" disabled="disabled" />*@
+                                        <input type="text" id="giaNhap" class="form-control rounded"onkeypress="return checkNumber(event, this)" />
+                                        <h3 style="margin-top:-1%" hidden class="messageError  notifyinputPrice messageErrorinputPrice">Nhập giá!</h3>
                                     </td>
 
                                     <td>
                                         <input type="text" id="thanhTien" disabled="disabled" class="form-control rounded" />
-                                        @*<input type="text" id="thanhTien" disabled="disabled" class="form-control rounded" />*@
+                                       
                                     </td>
                                     <td>
-                                        <input type="button" id="add" value="Thêm" class="btn btn-success" />
+                                        <input type="button" id="add" value="Thêm" style="padding:4px" class="btn btn-lg btn-success btn-xs btn-push" />
                                     </td>
                                 </tr>
                             </table>
-
-                            <div id="orderItems" class="table-responsive"></div>
+                            <span id="productItemError" class="messageError" style="color:red"></span>
+                            <div id="orderItems" class="table-responsive" style="padding-top:15px"></div>
                             <div id="Items" hidden class="table-responsive"></div>
                             <input value="@ViewBag.maNhanVien" id="maNhanVien" type="hidden" class="form-control" style="width:200px" disabled="disabled" />
                         </div>
@@ -121,7 +118,7 @@
                                     <label for="firstname-1" class="col-sm-4 control-label">Nhân viên</label>
                                     <div class="col-sm-8">
                                         <input value="@ViewBag.tenNhanVien" id="tenNhanVien" type="text" class="form-control rounded" disabled="disabled" />
-                                        @*<input value="@ViewBag.tenNhanVien" id="tenNhanVien" type="text" class="form-control rounded" disabled="disabled" />*@
+                                       
                                     </div>
                                 </div>
 
@@ -153,7 +150,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="firstname-1" class="col-sm-11 control-label" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
+                                    <label for="firstname-1" class="col-sm-12 control-label" style="color:red; font-weight: bold;">(*) Lưu ý tiền được tính theo VNĐ</label>
                                 </div>
 
                             </div>

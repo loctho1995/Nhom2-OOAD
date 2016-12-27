@@ -8,12 +8,15 @@
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Nhân Viên</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            <button class="btn btn-lg btn-danger btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhanVien") + "'"); ">
-                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
-            </button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i> Lưu</button>
+
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "NhanVien") + "'"); ">
-                <i class="glyphicon glyphicon-saved"></i>
+                <i class="glyphicon glyphicon-edit"></i>
                 Tạo mới nhân viên
+            </button>
+
+            <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhanVien") + "'"); ">
+                <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
             </button>
 
         </div>
@@ -33,17 +36,13 @@
                     </div><!-- /.panel-heading -->
 
                     <div class="panel-body no-padding">
-                        @using (Html.BeginForm("Edit", "NhanVien", FormMethod.Post, new { id = "basic-validate" }))
-                        {
+                       @using (Html.BeginForm("Edit", "NhanVien", FormMethod.Post, new { id = "basic-validate", enctype = "multipart/form-data" }))
+                       {
                             <div class="form-body">
                                 @{Html.RenderAction("ThongTinNhanVien", "NhanVien");}
 
                             </div>
-                            <div class="form-footer">
-                                <div class="col-md-offset-5 col-sm-offset-3 ">
-                                    <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-edit"></i>Sửa</button>
-                                </div>
-                            </div>
+                           
                         }
                     </div>
                 </div>
@@ -53,4 +52,9 @@
 </section>
 
 <script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+    $('#submit').click(function () {
+        $('#basic-validate').submit();
+    });
+</script>
   

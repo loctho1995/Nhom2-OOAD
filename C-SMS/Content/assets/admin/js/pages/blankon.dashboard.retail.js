@@ -31,18 +31,18 @@ var BlankonDashboardRetail = function () {
 
                     // Gritter notification intro 1
                     setTimeout(function () {
-                        var unique_id = $.gritter.add({
+                        //var unique_id = $.gritter.add({
                             // (string | mandatory) the heading of the notification
-                            title: 'Welcome to Blankon',
+                           // title: 'Welcome to Blankon',
                             // (string | mandatory) the text inside the notification
-                            text: 'Blankon is a theme fullpack admin template powered by Twitter bootstrap 3 front-end framework.',
+                           // text: 'Blankon is a theme fullpack admin template powered by Twitter bootstrap 3 front-end framework.',
                             // (string | optional) the image to display on the left
-                            image: globalImgPath+'/icon/64/contact.png',
+                           // image: globalImgPath+'/icon/64/contact.png',
                             // (bool | optional) if you want it to fade out on its own or just sit there
-                            sticky: false,
+                          //  sticky: false,
                             // (int | optional) the time you want it to be alive for before fading out
-                            time: ''
-                        });
+                           // time: ''
+                        //});
 
                         // You can have it return a unique id, this can be used to manually remove it later using
                         setTimeout(function () {
@@ -50,24 +50,24 @@ var BlankonDashboardRetail = function () {
                                 fade: true,
                                 speed: 'slow'
                             });
-                        }, 12000);
-                    }, 5000);
+                        }, 1200000);
+                    }, 500000);
 
                     // Gritter notification intro 2
                     setTimeout(function () {
-                        $.gritter.add({
+                       // $.gritter.add({
                             // (string | mandatory) the heading of the notification
-                            title: 'Playing sounds',
+                         //   title: 'Playing sounds',
                             // (string | mandatory) the text inside the notification
-                            text: 'Blankon made for playing small sounds, will help you with this task. Please make your sound system is active',
+                          //  text: 'Blankon made for playing small sounds, will help you with this task. Please make your sound system is active',
                             // (string | optional) the image to display on the left
-                            image: globalImgPath+'/icon/64/sound.png',
+                          //  image: globalImgPath+'/icon/64/sound.png',
                             // (bool | optional) if you want it to fade out on its own or just sit there
-                            sticky: true,
+                           // sticky: true,
                             // (int | optional) the time you want it to be alive for before fading out
-                            time: ''
-                        });
-                    }, 8000);
+                           // time: ''
+                      //  });
+                    }, 800000);
 
                     // Set cookie intro
                     $.cookie('intro',1, {expires: 1});
@@ -81,16 +81,16 @@ var BlankonDashboardRetail = function () {
         sessionTimeout: function () {
             if($('.demo-dashboard-session').length){
                 $.sessionTimeout({
-                    title: 'JUST DEMO Your session is about to expire!',
-                    logoutButton: 'Logout',
-                    keepAliveButton: 'Stay Connected',
-                    message: 'Your session will be locked in 2 minute',
+                    title: 'Section của bạn sắp hết!',
+                    logoutButton: 'Đăng xuất',
+                    keepAliveButton: 'Ở lại',
+                    message: 'Section của bạn sẽ bị khoá trong 2 phút',
                     keepAliveUrl: '#',
-                    logoutUrl: 'page-signin.html',
+                    logoutUrl: 'Index',
                     redirUrl: 'page-lock-screen.html',
                     ignoreUserActivity: true,
-                    warnAfter: 120000,
-                    redirAfter: 240000
+                    warnAfter: 12000000,
+                    redirAfter: 24000000
                 });
             }
         },
@@ -100,8 +100,8 @@ var BlankonDashboardRetail = function () {
         // =========================================================================
         counterOverview: function () {
             $('.counter').counterUp({
-                delay: 10,
-                time: 4000
+                //delay: 10,
+               // time: 4000
             });
         },
 

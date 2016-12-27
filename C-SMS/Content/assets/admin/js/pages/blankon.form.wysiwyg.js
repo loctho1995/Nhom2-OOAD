@@ -8,13 +8,14 @@ var BlankonFormWysiwyg = function () {
         init: function () {
             BlankonFormWysiwyg.bootstrapWYSIHTML5();
             BlankonFormWysiwyg.summernote();
+            BlankonFormWysiwyg.summernote1();
         },
 
         // =========================================================================
         // BOOTSTRAP WYSIHTML5
         // =========================================================================
         bootstrapWYSIHTML5: function () {
-            if($('#wysihtml5-textarea').length){
+            if ($('#wysihtml5-textarea').length) {
                 $('#wysihtml5-textarea').wysihtml5();
             }
         },
@@ -23,8 +24,13 @@ var BlankonFormWysiwyg = function () {
         // SUMMERNOTE
         // =========================================================================
         summernote: function () {
-            if($('#summernote-textarea').length){
+            if ($('#summernote-textarea').length) {
                 $('#summernote-textarea').summernote();
+            }
+        },
+        summernote1: function () {
+            if ($('#summernote-textarea1').length) {
+                $('#summernote-textarea1').summernote();
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Common.ViewModels.PhieuBaoHanhViewModel>
 
+<br />
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
@@ -26,7 +27,7 @@
                 @Html.DisplayName("Trạng thái")
             </th>
             <th>
-                @Html.DisplayName("Đã giao máy")
+                @Html.DisplayName("Giao máy")
             </th>
             <th class="width-10">
                 Hành động
@@ -44,27 +45,41 @@
                 <td>@item.tenNhanVien</td>
                 <td>@item.tenKhachHang</td>
                 <td>@item.soDienThoai</td>
-                @if (@item.trangThai == true)
+                @if (@item.trangThai == true && @item.daGiao == false)
                 {
                     <td>Hoàn thành</td>
+                    <td>Chưa xác nhận</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        <a href="@Url.Action("Confirm", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-trash"></i> Xác nhận</a>
+                        <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                    </td>
                 }
-                else
+                @if (@item.trangThai == true && @item.daGiao == true)
                 {
-                    <td>Đã huỷ</td>
-                }@if (@item.daGiao == true)
-                {
+                    <td>Hoàn thành</td>
                     <td>Đã xác nhận</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+
+                    </td>
                 }
-                else
+
+                @if (@item.trangThai == false)
                 {
-                     <td>Chưa xác nhận</td>
-                    @*<td><div onclick='onBtTraMayClicked(this, @item.soPhieuBaoHanh)' class='btn btn-default'>Xác nhận</div></td>*@
+                    <td>Đã hủy</td>
+                    if (@item.daGiao == false)
+                    {
+                        <td>Chưa xác nhận</td>
+                    }
+                    else
+                    {
+                        <td>Đã xác nhận</td>
+                    }
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    </td>
                 }
-                <td>
-                    <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                    <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
-                    <a href="@Url.Action("Confirm", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Xác nhận</a>
-                </td>
             </tr>
         }
     </tbody>

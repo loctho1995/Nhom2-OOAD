@@ -1,69 +1,38 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuChiViewModel>
-    @using Common.Ultil
+@using Common.Ultil
 
-    <div class="col-md-4 col-sm-12 col-xs-12">
-        <div class="x_title">
-            <h2><small>Thông tin phiếu chi</small></h2>
-            <div class="clearfix"></div>
-        </div>
-        @foreach (var a in ViewBag.phieuChi)
-        {
-            FormatNumber Number = new FormatNumber();
-            <div class="x_content">
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Số phiếu</label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        <input value="@a.soPhieuChi" type="text" id="soPhieuChi" class="form-control" style="margin-left:5px" disabled="disabled" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ngày</label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        <input id="ngayNhapKho" value="@a.ngayChi.ToString("dd/MM/yyyy")" disabled="disabled" type="text" class="form-control" style="margin-left:5px" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Nhân viên</label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        <input value="@a.tenNhanVien" id="tenNhanVien" type="text" class="form-control" style="margin-left:5px" disabled="disabled" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Phiếu Nhập</label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        <input value="@a.maPhieuNhap" id="maPhieuNhap" type="text" class="form-control" style="margin-left:5px" disabled="disabled" />
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ghi chú</label>
-                    <div class="col-md-10 col-sm-9 col-xs-12">
-                        <textarea class="form-control" style="margin-left:5px" disabled="disabled">@a.ghiChu</textarea>
-                    </div>
-                </div>
-            </div>
-
-
-    <!--Thông tin thanh toán-->
-            <div class="x_title">
-                <h2><small>Thông tin thanh toán</small></h2>
-                <div class="clearfix"></div>
-            </div>
-    <div class="x_content">
-        <div class="form-group">
-            <label class="control-label col-md-2 col-sm-3 col-xs-12">Tổng Tiền</label>
-            <div class="col-md-10 col-sm-9 col-xs-12">
-                <input id="tongTien" value="@Number.FormatNumbers(@a.tongTienChi.ToString())" disabled="disabled" type="text" class="form-control" style="margin-left:5px" disabled="disabled" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="control-label col-md-8 col-sm-8 col-xs-12" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
-        </div>
+@foreach (var a in ViewBag.phieuChi)
+{
+    FormatNumber Number = new FormatNumber();
+    <div class="form-group">
+        <label class="control-label">Số phiếu chi</label>
+        <input type="text" value="@a.soPhieuChi" class="form-control rounded" disabled="disabled" />
     </div>
-    <!--/Thông tin thanh toán-->
-        }
-        </div>
+
+
+    <div class="form-group">
+        <label class="control-label">Ngày chi</label>
+        <input type="text" value="@a.ngayChi.ToString("dd/MM/yyyy")" class="form-control rounded" disabled="disabled" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Nhân viên</label>
+        <input type="text" value="@a.tenNhanVien" class="form-control rounded" disabled="disabled" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Số phiếu nhập</label>
+        <input type="text" value="@a.maPhieuNhap" class="form-control rounded" disabled="disabled" />
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Tổng tiền (VNĐ)</label>
+        <input type="text" name="phantramloinhuan" value="@Number.FormatNumbers(@a.tongTienChi.ToString())" class="form-control rounded" disabled="disabled" />
+    </div>
+
+
+    <div class="form-group">
+        <label class="control-label">Ghi chú</label>
+        <input type="text" value="@a.ghiChu" class="form-control rounded" disabled="disabled" />
+    </div>
+}

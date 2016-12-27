@@ -7,9 +7,7 @@
 }
 
 <div id="vnt-container" class="container">
-    <div class="navation row" style="margin-left:100px">
-        <a href="#" class="home">Trang chủ</a>  <span> &nbsp;/&nbsp; </span> <a href="#">Điện thoại</a> <span> &nbsp;/&nbsp; </span> IPhone 7
-    </div>
+    
     <section class="newshot-block row">
         <div class="col-md-6 col-sm-6 col-xs-12 block">
             <div class="block-inner">
@@ -23,7 +21,7 @@
             </div>
         </div><div class="col-md-6 col-sm-6 col-xs-12 block last">
             <div class="block-inner">
-                <a class='table' href='danhsach.html' target='_self' title='Chuyên các dòng Samsung độc nhất'>
+                <a class='table' href='#' target='_self' title='Chuyên các dòng Samsung độc nhất'>
                     <div class='inner'>
                         <h3>Chuyên các dòng Samsung độc nhất</h3>
                         <span></span>
@@ -35,10 +33,7 @@
     </section>
     <div id="vnt-content">
         <ul class="item-control">
-            <li id="cp-diem-noi-bat">Điểm <p>nổi bật</p></li>
             <li id="cp-thong-so">Thông <p>số</p></li>
-            <li id="cp-anh-thuc-te">Hình ảnh <p>thực tế</p></li>
-            <li id="cp-video-thuc-te">Video <p>thực tế</p></li>
             <li id="cp-danh-gia">Đánh <p>giá</p></li>
             <li id="cp-binh-luan">Bình <p>luận</p></li>
         </ul>
@@ -91,20 +86,46 @@
                             <div class="col-detail-top2">
                                 <form action="#" name="f_addcart" method="post" id="form_order">
                                     <div itemprop="offers" itemscope=itemscope itemtype="http://schema.org/Offer">
-                                        <div class="div_price_market"></div>
-                                        <div class="prod_dt_price"><span class="price" id="price" itemprop="price" content="21190000">@number.FormatNumbers(@item.GiaBan.ToString()) đ</span></div>
+                                        @if (@item.GiamGia > 0)
+                                        {
+                                            <div class="div_price_market">Giá thị trường: <span class="price_old">14,690,000 đ</span></div>
+                                            <div class="prod_dt_price">Giá bán: @number.FormatNumbers(@item.GiaBan.ToString()) đ</div>
+                                        }
+                                        else
+                                        {
+                                            <div class="prod_dt_price">Giá bán: @number.FormatNumbers(@item.GiaBan.ToString()) đ</div>
+                                        }
+
                                         <div class="product-color"><div class="tit_color">Chọn màu :</div><ul class="color-list-show"><li id="color_id_2"><i id="thumb_2" class="item_color tooltips" style="display:inline-block; width:23px; height:23px; background:#ED008C"></i></li><li id="color_id_9"><i id="thumb_9" class="item_color tooltips" style="display:inline-block; width:23px; height:23px; background:#838383"></i></li><li id="color_id_12"><i id="thumb_12" class="item_color tooltips" style="display:inline-block; width:23px; height:23px; background:#333333"></i></li><li id="color_id_14"><i id="thumb_14" class="item_color tooltips" style="display:inline-block; width:23px; height:23px; background:#e3e3e3"></i></li><li id="color_id_22"><i id="thumb_22" class="item_color tooltips" style="display:inline-block; width:23px; height:23px; background:#f0d87a"></i></li></ul></div>
 
                                     </div>
-                                    <div class="status_pro"><b>Tình Trạng: </b><span class="in_stock">Sắp có hàng</span> </div>
+                                    <div class="status_pro"><b>Tình Trạng: </b>
+                                    @if (@item.SoLuongTon > 0)
+                                    {
+                                        <span class="in_stock">Còn hàng - Trong kho có @item.SoLuongTon sản phẩm</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="in_stock">Hết hàng</span>
+                                    }
+                                   
+                                    </div>
                                     <div class="short">
                                         <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif; text-align: center;">
-                                            <img alt="AYnh_chuYp_MaYn_hiYnh_2016-08-22_luYc_10.31.23_SA" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-08-22_luYc_10.31.23_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 107px; width: 360px;" />
+                                            <img alt="" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-08-22_luYc_10.31.23_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 107px; width: 360px;" />
                                         </p>
 
-                                        <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif; text-align: center;"><iframe allowfullscreen="" frameborder="0" height="203" src="https://www.youtube.com/embed/FdRCE976NHQ?list=PLjWXWa4T_O7ImDZ5vrJP1CdQKLywPiKp8" width="360"></iframe></p>
+                                        <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif; text-align: center;">
+                                        <iframe allowfullscreen="" frameborder="0" height="203" src="https://www.youtube.com/embed/FdRCE976NHQ?list=PLjWXWa4T_O7ImDZ5vrJP1CdQKLywPiKp8" width="360"></iframe>
+                                        </p>
 
-                                        <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif;"><span style="box-sizing: border-box; font-size: 16px;"><strong style="box-sizing: border-box; font-size: 14px;">✔ Mới 100%,&nbsp;</strong><strong style="box-sizing: border-box; font-size: 14px;">Nguyên hộp:</strong><span style="box-sizing: border-box;">&nbsp;1 máy, 1 cable, 1 sạc, 1 tai nghe, tài liệu hướng dẫn, 1 cây chọt sim.</span></span></p>
+                                        <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif;">
+                                        <span style="box-sizing: border-box; font-size: 16px;">
+                                            <strong style="box-sizing: border-box; font-size: 14px;">✔ Mới 100%,&nbsp;</strong>
+                                            <strong style="box-sizing: border-box; font-size: 14px;">Nguyên hộp:</strong>
+                                            <span style="box-sizing: border-box;">&nbsp;1 máy, 1 cable, 1 sạc, 1 tai nghe, tài liệu hướng dẫn, 1 cây chọt sim.</span>
+                                            </span>
+                                        </p>
 
                                         <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; font-size: 14px; line-height: 18px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif;">
                                             <span style="box-sizing: border-box; line-height: 20.8px; font-size: 16px;">
@@ -119,7 +140,7 @@
                                                 <span style="box-sizing: border-box; font-size: 16px;">
                                                     <strong style="box-sizing: border-box; line-height: 20.8px;">
                                                         <span style="box-sizing: border-box;">
-                                                            <img alt="AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 17px; width: 20px;" />&nbsp;Chính Hãng Apple
+                                                            <img alt="" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 17px; width: 20px;" />&nbsp;Chính Hãng @item.XuatXu
                                                         </span>
                                                     </strong>
                                                 </span>
@@ -128,7 +149,7 @@
                                             <p style="box-sizing: border-box; margin: 0px; padding: 5px 0px; color: rgb(56, 56, 56); font-family: opensans, Helvetica, Arial, sans-serif; line-height: 20.8px;">
                                                 <strong style="box-sizing: border-box; font-size: 16px; line-height: 20.8px;">
                                                     <span style="box-sizing: border-box;">
-                                                        <img alt="AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 17px; width: 20px;" />&nbsp;1 đổi 1 trong 1 Năm
+                                                        <img alt="AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 17px; width: 20px;" />&nbsp;1 Đổi 1 Trong 1 Năm
                                                     </span>
                                                 </strong>
                                             </p>
@@ -146,14 +167,15 @@
                                                     <span style="box-sizing: border-box;">
                                                         <img alt="AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA" src="~/Content/client/vnt_upload/product/sale_page/AYnh_chuYp_MaYn_hiYnh_2016-07-01_luYc_12.01.50_SA.png" style="box-sizing: border-box; border: 0px; vertical-align: middle; max-width: 100%; height: 17px; opacity: 0.9; width: 20px;" />&nbsp;
                                                     </span>
-                                                </strong><span style="box-sizing: border-box; font-size: 16px;"><strong style="box-sizing: border-box; line-height: 20.8px;"><span style="box-sizing: border-box;">Giao hàng thu tiền&nbsp;mọi miền tổ quốc</span></strong></span>
+                                                </strong><span style="box-sizing: border-box; font-size: 16px;"><strong style="box-sizing: border-box; line-height: 20.8px;"><span style="box-sizing: border-box;">Giao Hàng Thu Tiền&nbsp;Mọi Miền Tổ Quốc</span></strong></span>
                                             </p>
                                         </div>
                                     </div>
-                                    <button class="btn-buy" type="submit">
-                                        Mua Ngay
-                                        <p>Giao hàng tận nơi hoặc tại cửa hàng</p>
+                                    <button class="btn-buy">
+                                        <a class="now-get get-cart-in" href="/PhieuDatHang/DatHang?maHangHoa=@item.MaHangHoa&soLuong=1"> Mua Ngay</a>
+                                        <p><a class="now-get get-cart-in" href="/PhieuDatHang/DatHang?maHangHoa=@item.MaHangHoa&soLuong=1"> Giao hàng tận nơi hoặc tại cửa hàng</a></p>
                                     </button>
+
                                     <input type="hidden" id="p_id" value="472" />
                                     <input type="hidden" id="color_id" value="" />
                                 </form>
@@ -161,40 +183,19 @@
                             </div>
                             <div class="col-detail-top3">
 
-                                <div class="item-review-info" itemprop="aggregateRating" itemscope=itemscope itemtype="http://schema.org/AggregateRating">
-                                    <div class="rating-box">
-                                        <div class="rating" style="width:0%"></div>
-                                        <meta itemprop="ratingValue" content="0.0" />
-                                    </div>
-                                    <strong style="color: red">0.0</strong>
-                                    <span>(<span itemprop="ratingCount" content="0">0</span> Bình luận)</span>
-                                    <div class="view">Lượt xem: 628 lần</div>
-                                    <div class="clear"></div>
-                                </div>
-
-                                <div class="box-bound box-days" style="margin-top: 10px;">
-                                    <a href="#">
-                                        <p class="days">
-                                            <span class="no">30</span>
-                                            <span>NGÀY</span>
-                                        </p>
-                                        <div class="return-desc">
-                                            <h4>Đổi mới sản phẩm lỗi</h4>
-                                            <p>Điều kiện đổi mới sản phẩm bị lỗi?</p>
-                                        </div>
-                                    </a>
-                                </div>
-
                                 <div class="box-bound box-consultancy">
-                                    <div class="pic_consultancy"><a onmousedown="return rwt(this,'advertise',54)" href='#' target='_self' title='tư vấn'> 
-                                                                     <img src='~/Content/client/vnt_upload/weblink/img_consultancy_1.jpg' width='79' alt='tư vấn' class='png' /></a></div>
+                                    <div class="pic_consultancy">
+                                        <a onmousedown="return rwt(this,'advertise',54)" href='#' target='_self' title='tư vấn'>
+                                            <img src='~/Content/client/vnt_upload/weblink/img_consultancy_1.jpg' width='79' alt='tư vấn' class='png' />
+                                        </a>
+                                    </div>
                                     <h3>Hãy để lại số điện thoại để chúng tôi tư vấn miễn phí cho bạn</h3>
                                     <a href="javascript:void(0)" class="more" id="send_consultancy" data-toggle="modal"
                                        data-target="#order-product-old" style="line-height: 30px;">Tư vấn</a>
                                 </div>
 
                                 <div class="box_address_company">
-                                    <h3><a href="javascript:void(0)" id="view_address">Danh sách của hàng XTmobile</a></h3>
+                                    <h3><a href="javascript:void(0)" id="view_address">Danh sách của hàng BK Computer</a></h3>
                                     <div class="address_company">
                                         <p>
                                             <span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, &#39;Trebuchet MS&#39;; font-size: 13px; line-height: 20.8px; background-color: rgb(255, 255, 255);"><strong>+ 650 Lê Hồng Phong, Q.10,&nbsp;</strong></span><strong>TPHCM</strong><span style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, &#39;Trebuchet MS&#39;; font-size: 13px; line-height: 20.8px; background-color: rgb(255, 255, 255);">&nbsp;</span><br style="color: rgb(51, 51, 51); font-family: sans-serif, Arial, Verdana, &#39;Trebuchet MS&#39;; font-size: 13px; line-height: 20.8px; background-color: rgb(255, 255, 255);" />
@@ -205,196 +206,24 @@
                                     </div>
                                 </div>
 
-                                <p>Đặt hàng qua ĐT(8:30 - 21:30): <b style="font-size: 16px;color: red">01649456397</b></p>
+                                <p>Đặt hàng qua ĐT(8:30 - 21:30): <b style="font-size: 16px;color: red">0949512609</b></p>
 
-                                <div class="box box_red">
-                                    <div class="box_title_red"><div class="fTitle"> Ưu đãi Khi mua tại XTmobile</div></div>
-                                    <div class="box-content">
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px;"><span style="box-sizing: border-box; color: rgb(58, 87, 149); font-family: Helvetica, &quot;Times New Roman&quot;, Arial; font-size: 28px; font-weight: bold;">1.&nbsp;</span>Hỗ trợ cài đặt phần mềm miễn phí trọn đời</p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="text-align: justify; box-sizing: border-box; color: rgb(189, 0, 0); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">2.&nbsp;</span><span style="font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; text-align: justify;">Giao hàng&nbsp;60 phút nội thành HCM.</span></p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(0, 150, 136); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">3.&nbsp;</span>Miễn 100% phí vận chuyển 64 tỉnh thành.&nbsp;</span></p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="box-sizing: border-box;"><span style="box-sizing: border-box; color: rgb(255, 87, 34); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">4.</span></span><span style="font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; text-align: justify;">&nbsp;</span>&nbsp;Nhận máy trả tiền COD từ 01/07/2016</p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="box-sizing: border-box;"><span style="color:#0000FF;"><span style="box-sizing: border-box; font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">5</span></span><span style="box-sizing: border-box; color: rgb(0, 150, 136); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">.&nbsp;</span></span>Mua Trả góp thủ tục nhanh chóng.</p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="box-sizing: border-box;"><span style="color:#008000;"><span style="box-sizing: border-box; font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">6</span></span><span style="box-sizing: border-box; color: rgb(255, 87, 34); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">. </span></span><span style="font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; text-align: justify;">Cam kết chất lượng sản phẩm là số 01</span><span style="font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; text-align: justify;">.</span></p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="box-sizing: border-box; font-family: &#39;huymobile bold&#39;, Helvetica, &#39;Times New Roman&#39;, Arial;"><span style="box-sizing: border-box; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial;"><span style="box-sizing: border-box; color: rgb(233, 30, 99); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">7.&nbsp;</span>Đổi trả sản phẩm theo nhu cầu</span></span></p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="text-align: justify; box-sizing: border-box; color: rgb(233, 30, 99); font-family: Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 28px; font-weight: bold;">8.&nbsp;</span>Đổi trả 30 ngày áp dụng từ 01/10/2016</p>
-
-                                        <p style="box-sizing: border-box; margin: 0px 0px 8px; line-height: 16px; text-align: justify; font-family: &#39;huymobile Regular&#39;, Helvetica, &#39;Times New Roman&#39;, Arial; font-size: 14px; padding: 2px 0px;"><span style="text-align: justify; box-sizing: border-box; color: rgb(0, 150, 136); font-family: Helvetica, &quot;Times New Roman&quot;, Arial; font-size: 28px; font-weight: bold;">9.</span><span style="font-family: &quot;huymobile Regular&quot;, Helvetica, &quot;Times New Roman&quot;, Arial; font-size: 14px; text-align: justify;">.Áp dụng 1 đổi 1 &nbsp;cho IPhone từ 01/10/2016</span></p>
+                                <div id="parameter">
+                                    <h3 class="title2"><b>Thông số <span>kỹ thuật</span></b></h3>
+                                    <div class="option_focus">
+                                        <span>@Html.Raw(@item.ThongSoKyThuat)</span>
                                     </div>
                                 </div>
-
-
 
                             </div>
                             <div class="clear"></div>
                         </div>
-
-                        <div class="row nopadding">
-
-                            <!-- dac diem noi bat -->
-                            <div id="diem-noi-bat" class="col-md-8 nopadding grid-first10">
-                                <h3 class="title2"><b>Đặc điểm <span>nổi bật</span></b></h3>
-
-                                <div id="slide-dnb" class="slider-pro">
-                                    <div class="sp-slides">
-                                        <div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_4_7.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_4_7.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_5_7.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_5_7.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_org_7.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_plus_256gb_org_7.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider01a_7.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider01a_7.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider02a_8.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider02a_8.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider03a_8.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider03a_8.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider04a_8.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider04a_8.jpg" />
-                                        </div><div class="sp-slide">
-                                            <img class="sp-image" data-src="~/Content/client/vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider05a_8.jpg" data-retina="vnt_upload/product/11_2016/thumbs/(900x500)_crop_iphone_7_slider05a_8.jpg" />
-                                        </div>
-                                    </div>
-                                    <div class="sp-thumbnails">
-
-                                    </div>
-
-                                </div>
-
-                                <script>
-                                    jQuery("#slide-dnb").sliderPro({
-                                        width: 770,
-                                        height: 428,
-                                        arrows: true,
-                                        buttons: false,
-                                        waitForLayers: true,
-                                        thumbnailWidth: 770,
-                                        thumbnailPointer: true,
-                                        autoplay: false,
-                                        autoScaleLayers: false,
-                                        breakpoints: {
-                                            500: {
-                                                thumbnailWidth: 500,
-                                            }
-                                        }
-                                    });
-                                </script>
-                            </div>
-                            <!-- dac diem noi bat -->
-
-                            <div id="parameter" class="col-md-4 nopadding grid-last10">
-                                <h3 class="title2"><b>Thông số <span>kỹ thuật</span></b></h3>
-                                <div class="option_focus">
-                                    <ul class="parametdesc">
-                                        <li>
-                                            <span>Màn hình:</span>
-                                            <strong>LED-backlit IPS LCD, capacitive touchscreen, 16M colors</strong>
-                                        </li>
-                                        <li>
-                                            <span>CPU:</span>
-                                            <strong>64-bit, Apple A10 Fusion, Quad-core 2.23 GHz</strong>
-                                        </li>
-                                        <li>
-                                            <span>RAM:</span>
-                                            <strong>2GB</strong>
-                                        </li>
-                                        <li>
-                                            <span>Camera chính:</span>
-                                            <strong>12 MP, f/1.8, phase detection autofocus, OIS, quad-LED (dual tone) flash</strong>
-                                        </li>
-                                        <li>
-                                            <span>Camera phụ:</span>
-                                            <strong>7 MP, f/2.2, 1080p@30fps, 720p@240fps</strong>
-                                        </li>
-                                        <li>
-                                            <span>Bộ nhớ trong:</span>
-                                            <strong>32/128/256GB</strong>
-                                        </li>
-                                        <li>
-                                            <span>Thẻ nhớ ngoài:</span>
-                                            <strong>Không có</strong>
-                                        </li>
-                                        <li>
-                                            <span>Dung lượng pin:</span>
-                                            <strong>Non-removable Li-Ion 1960 mAh</strong>
-                                        </li>
-                                        <li>
-                                            <span>Hệ điều hành:</span>
-                                            <strong>iOS 10</strong>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="btn_show_more_info"><b class="btn-paraexpand" data-toggle="modal" data-target="#parameter-detail" style="margin-top: 5px;">Xem chi tiết thông số kỹ thuật</b></div>
-                            </div>
-                        </div>
-
-                        <div id="video_picture">
-                            <div class="col-md-8 nopadding grid-first10">
-                                <h3 class="title2"><b>Hình ảnh, Video <span>thực tế</span></b></h3>
-                                <div class="subscribe_youtube">
-                                    <i class="lable_subcriber">Bấm Subcribers để theo dõi kênh <br />Video của XTmobilie</i>
-                                    <script src="https://apis.google.com/js/platform.js"></script>
-                                    <div class="g-ytsubscribe" data-channelid="UCbCgSFR33DeMGa9aOCeCSLw" data-layout="default" data-count="default"></div>
-                                </div>
-
-
-                                <div id="albumAtt">
-                                    <div class="albumAtt"
-                                         data-fit="scaledown"
-                                         data-nav=""
-                                         data-allowfullscreen="true"
-                                         data-arrows="false"
-                                         data-click="false"
-                                         data-swipe="true"
-                                         data-autoplay="3000"
-                                         data-width="100%">
-
-
-
-                                    </div>
-                                    <script>jQuery('.albumAtt').fotorama();</script>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-md-4 nopadding grid-last10">
-                            <h3 class="title2"><b>Bài viết <span>liên quan</span></b></h3>
-                            <div class='box_news_related'>Đang cập nhật...</div>
-                            <div class="compare_product"><a class="more" href="#">So sánh với sản phẩm khác</a> </div>
-                        </div>
-                        <div class="clear"></div>
                     </div>
 
                     <div id="danh-gia">
                         <h3 class="title2"><b>Đánh giá <span>chi tiết</span></b></h3>
-                        Đang cập nhật...
-
+                        <span>@Html.Raw(@item.MoTa)</span>
                         <div class="clear"></div>
-
-                    </div>
-
-
-
-                    <div id="other_product">
-                        <h3 class="title2"><b>Điện thoại <span>cùng cấp</span></b></h3>
-                        <div class="box_accessories">
-                            <div class="content_accessories">
-                                <div id="owl-accessories">
-                                    <div class="item"><a href="#"><img src="~/Content/client/vnt_upload/product/dienthoai2016/IPhone_7/thumbs/(400x400)_crop_iphone_7_plus.png" alt='iPhone 7 Plus 32GB - Bản Hàn Quốc' title='iPhone 7 Plus 32GB - Bản Hàn Quốc' /><h3>iPhone 7 Plus 32GB - Bản Hàn Quốc</h3><p class="price">18,990,000 đ</p></a></div>
-                                    <div class="item"><a href="#"><img src="~/Content/client/vnt_upload/product/dienthoai2016/IPhone_7/thumbs/(400x400)_crop_iphone_7.png" alt='iPhone 7 32GB - Hàng Chính Hãng FPT' title='iPhone 7 32GB - Hàng Chính Hãng FPT' /><h3>iPhone 7 32GB - Hàng Chính Hãng FPT</h3><p class="price">18,390,000 đ</p></a></div>
-                                    <div class="item"><a href="#"><img src="~/Content/client/vnt_upload/product/dienthoai2016/IPhone_7/thumbs/(400x400)_crop_iphone_7_plus.png" alt='iPhone 7 Plus 32GB - Hàng Chính Hãng FPT' title='iPhone 7 Plus 32GB - Hàng Chính Hãng FPT' /><h3>iPhone 7 Plus 32GB - Hàng Chính Hãng FPT</h3><p class="price">21,990,000 đ</p></a></div>
-                                    <div class="item"><a href="#"><img src="~/Content/client/vnt_upload/product/dienthoai2016/IPhone_7/thumbs/(400x400)_crop_iphone_7_plus.png" alt='iPhone 7 Plus 128GB - Hàng Chính hãng FPT' title='iPhone 7 Plus 128GB - Hàng Chính hãng FPT' /><h3>iPhone 7 Plus 128GB - Hàng Chính hãng FPT</h3><p class="price">25,090,000 đ</p></a></div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!--Modal tu van-->
@@ -410,11 +239,9 @@
                                     </button>
 
                                     <div class="modal-body" style="overflow: hidden;">
-
-
                                         <div class="col-md-5">
-                                            <p style="text-align: center;"><img src="~/Content/client/vnt_upload/product/dienthoai2016/IPhone_7/thumbs/120_iphone_7.png" alt='images' /></p>
-                                            <p style="font-size: 16px;font-weight: bold;">iPhone 7 128GB - Hàng Chính Hãng FPT</p>
+                                            <p style="text-align: center;"><img src="~/Content/client/product/@item.HinhAnh" alt='images' /></p>
+                                            <p style="font-size: 16px;font-weight: bold;">@item.TenHangHoa</p>
                                         </div>
                                         <div class="col-md-7">
                                             <h4 class="title_popup">Thông tin người đăng ký</h4>
@@ -508,118 +335,7 @@
 
                     <!--Modal tu van-->
                     <!--Modal parameter -->
-                    <div class="modal fade" id="parameter-detail" style="z-index: 99999;" tabindex="-1" role="dialog" aria-labelledby="showroom1Label" aria-hidden="true">
-                        <div class="modal-dialog modal-md">
-                            <div class="modal-content">
-                                <div class="modal-body">
-                                    <div class="parameter-detail">
-                                        <ul class="paraexpand">
-                                            <li class="paraexpand-caption"><b>Thông tin chung</b></li>
-                                            <li>
-                                                <span>Hệ điều hành</span>
-                                                <strong>iOS 10</strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Chụp hình &amp; Quay Phim</b></li>
-                                            <li>
-                                                <span>Camera sau</span>
-                                                <strong>Camera kép 12MP</strong>
-                                            </li>
-                                            <li>
-                                                <span>Camera trước</span>
-                                                <strong>7MP, f/.2.2, quay phim Full-HD và HD</strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>CPU &amp; RAM</b></li>
-                                            <li>
-                                                <span>RAM</span>
-                                                <strong>3GB</strong>
-                                            </li>
-                                            <li>
-                                                <span>Chip đồ họa (GPU)</span>
-                                                <strong>6 lõi</strong>
-                                            </li>
-                                            <li>
-                                                <span>Chipset</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>Số nhân</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Bộ nhớ & Lưu trữ</b></li>
-                                            <li>
-                                                <span>Bộ nhớ trong (ROM)</span>
-                                                <strong>32/128/256GB</strong>
-                                            </li>
-                                            <li>
-                                                <span>Thẻ nhớ ngoài</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Thiết kế &amp; Trọng lượng</b></li>
-                                            <li>
-                                                <span>Kích thước</span>
-                                                <strong>158,2 x 77,9 x 7,3 mm</strong>
-                                            </li>
-                                            <li>
-                                                <span>Trọng lượng (g)</span>
-                                                <strong>188G</strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Thông tin pin</b></li>
-                                            <li>
-                                                <span>Loại pin</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>Dung lượng pin</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>Pin có thể tháo rời</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Kết nối &amp; Cổng giao tiếp</b></li>
-                                            <li>
-                                                <span>Loại Sim</span>
-                                                <strong>Một SIM, chuẩn Nano SIM</strong>
-                                            </li>
-                                            <li>
-                                                <span>Wifi</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>GPS</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>Bluetooth</span>
-                                                <strong>Bluetooth 4.2</strong>
-                                            </li>
-                                            <li>
-                                                <span>Jack tai nghe</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li>
-                                                <span>NFC</span>
-                                                <strong></strong>
-                                            </li>
-                                            <li class="paraexpand-caption"><b>Màn hình</b></li>
-                                            <li>
-                                                <span>Loại màn hình</span>
-                                                <strong>IPS LCD</strong>
-                                            </li>
-                                            <li>
-                                                <span>Độ phân giải</span>
-                                                <strong>Full-HD (1080 x 1920 pixel)</strong>
-                                            </li>
-                                            <li>
-                                                <span>Màn hình rộng</span>
-                                                <strong></strong>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     <!--Modal parameter -->
                     <!-- nhận xét bình luận -->
                     <div id="binh-luan">
@@ -731,17 +447,10 @@
                                                         </div>
 
                                                     </div>
-
-
                                                 </form>
                                             </div>
-
-
                                         </div>
-
-
                                     </div>
-
                                 </div>
 
                                 <div class="col-md-3 col-sm-4 col-xs-12 col-lg-3 nopadding-left col_rating">

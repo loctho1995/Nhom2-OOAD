@@ -7,25 +7,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Số Phiếu Nhập Kho")
+                @Html.DisplayName("Số phiếu")
             </th>
             <th>
-                @Html.DisplayName("Ngày Nhập Kho")
+                @Html.DisplayName("Ngày nhập")
             </th>
             <th>
-                @Html.DisplayName("Tên Nhân Viên")
+                @Html.DisplayName("Nhân viên")
             </th>
             <th>
-                @Html.DisplayName("Nhà Cung Cấp")
+                @Html.DisplayName("Nhà cung cấp")
             </th>
             <th>
-                @Html.DisplayName("Tổng Tiền (VND)")
+                @Html.DisplayName("Tổng tiền (VND)")
             </th>
             <th>
-                @Html.DisplayName("Ghi Chú")
+                @Html.DisplayName("Ghi chú")
             </th>
             <th>
-                @Html.DisplayName("Trạng Thái")
+                @Html.DisplayName("Trạng thái")
             </th>
             <th class="width-10">
                 Hành động
@@ -55,7 +55,7 @@
                 <td>
                     <a href="@Url.Action("Detail", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
 
-                    @if ((@item.ngayNhapKho.Month >= @DateTime.Now.Month) && (@item.ngayNhapKho.Year == @DateTime.Now.Year))
+                    @if (@item.ngayNhapKho.ToString("dd/MM/yyyy") == @DateTime.Now.ToString("dd/MM/yyyy"))
                     {
                         <a href="@Url.Action("Delete", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
 

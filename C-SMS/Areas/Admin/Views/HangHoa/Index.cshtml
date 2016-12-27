@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<Common.ViewModels.HangHoaViewModel>
 
 @{
-    ViewBag.Title = "Danh Sách Hàng Hóa";
+    ViewBag.Title = "Danh Sách Sản Phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
 <section id="page-content">
     <div class="header-content">
-        <h2><i class="fa fa-list-alt"></i>Hàng Hóa</h2>
+        <h2><i class="fa fa-list-alt"></i>Sản Phẩm</h2>
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "HangHoa") + "'"); ">
-                <i class="fa fa-save"></i>
+                <i class="glyphicon glyphicon-edit"></i>
                 Tạo mới hàng hóa
             </button>
 
@@ -23,7 +23,7 @@
                 <div class="panel rounded shadow">
                     <div class="panel-heading">
                         <div class="pull-left">
-                            <h3 class="panel-title">Danh sách hàng hóa</h3>
+                            <h3 class="panel-title">Danh sách sản phẩm</h3>
                         </div>
                         <div class="clearfix"></div>
                     </div><!-- /.panel-heading -->
@@ -34,11 +34,11 @@
                             {
                                 <div class="form-group">
                                     <div class="col-md-6">
-                                        <label class="control-label">Trạng thái</label>
+                                        <label>Trạng thái</label>
                                         @Html.DropDownList("trangthai", new SelectList(ViewBag.data, "Value", "Text"), new { @class = "form-control rounded" })
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="control-label">Tìm Kiếm</label>
+                                        <label>Tìm Kiếm</label>
                                         <div class="input-group">
                                             @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm" })
                                             <span class="input-group-btn">

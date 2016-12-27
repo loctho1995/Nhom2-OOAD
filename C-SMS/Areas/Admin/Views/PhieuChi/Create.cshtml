@@ -4,20 +4,16 @@
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
-<link href="~/Content/Css/InventoryBallotCss.css" rel="stylesheet" />
-<link href="~/Content/Css/Webgird.css" rel="stylesheet" />
+<link href="~/Content/assets/css/generalMessageError.css" rel="stylesheet" />
 
 <section id="page-content">
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i> Phiếu Chi</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            <button class="btn btn-lg btn-success btn-xs btn-push" id="submitOver"><i class="glyphicon glyphicon-save"></i>Lưu Phiếu Chi</button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="submit"><i class="glyphicon glyphicon-save"></i> Lưu</button>
+            <button class="btn btn-lg btn-success btn-xs btn-push" id="print"><i class="glyphicon glyphicon-print"></i> In</button>
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
                 <i class="glyphicon glyphicon-arrow-left"></i> Quay lại
-            </button>
-            <button class="btn btn-lg btn-primary btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "PhieuChi") + "'"); ">
-                <i class="fa fa-list"></i>
-                Danh sách Phiếu Chi
             </button>
         </div>
     </div>
@@ -36,88 +32,56 @@
                     </div><!-- /.panel-heading -->
 
                     <div class="panel-body no-padding">
-                        @using (Html.BeginForm("Create", "PhieuChi", FormMethod.Post))
+                        @using (Html.BeginForm("Create", "PhieuChi", FormMethod.Post, new { id = "basic-validate" }))
                         {
-                            <div class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Số phiếu</label>
-                                    <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input value="8" type="number" name="sophieuchi" class="form-control " style="margin-left:5px" readonly="true" />
-                                    </div>
-                                </div>
+                            <div class="form-body">
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ngày</label>
-                                    <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input name="ngaychi" value="@DateTime.Now.ToString(" dd/MM/yyyy")" readonly="true" type="text" class="form-control " style="margin-left:5px" />
-                                    </div>
+                                    <label>Số phiếu</label>
+                                    <input type="text" id="sophieuchi" name="sophieuchi" value="@ViewBag.soPhieuChiTuTang " class="form-control rounded" maxlength="50" readonly="true" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Nhân viên</label>
-                                    <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <input value="@ViewBag.tenNhanVien" name="tenNhanVien" id="tenNhanVien" type="text" class="form-control " style="margin-left:5px" readonly="true" />
-                                        <input value="@ViewBag.maNhanVien" name="manhanvien" id="maNhanVien" type="hidden" class="form-control" style="width:200px" readonly="true" />
-                                    </div>
+                                    <label>Ngày chi</label>
+                                    <input type="text" id="ngaychi" name="ngaychi" value="@DateTime.Now.ToString("dd/MM/yyyy")" class="form-control rounded" readonly="true" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Phiếu Nhập</label>
-                                    <div class="col-md-10 col-sm-9 col-xs-12">
-                                        @Html.DropDownList("maphieunhap", new SelectList(ViewBag.maPhieuNhap, "Value", "Text"), new { @id = "maphieunhap", @class = "form-control", @style = "margin-left:5px" })
-                                    </div>
+                                    <label>Nhân viên</label>
+                                    <input value="@ViewBag.tenNhanVien" name="tenNhanVien" id="tenNhanVien" type="text" class="form-control rounded " readonly="true" />
+                                    <input value="@ViewBag.maNhanVien" name="manhanvien" id="maNhanVien" type="hidden" class="form-control rounded" readonly="true" />
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-2 col-sm-3 col-xs-12">Ghi Chú</label>
-                                    <div class="col-md-10 col-sm-9 col-xs-12">
-                                        <textarea id="ghiChu" name="ghiChu" placeholder="Ghi chú viết tại đây" class="form-control " style="margin-left:5px"></textarea>
-                                    </div>
+                                    <label>Phiếu Nhập</label>
+
+                                    @Html.DropDownList("maphieunhap", new SelectList(ViewBag.maPhieuNhap, "Value", "Text"), new { @id = "maphieunhap", @class = "form-control rounded" })
+
                                 </div>
 
-                                <!--Thông tin thanh toán-->
-                                <div class="x_title">
-                                    <h2><small>Thông tin thanh toán</small></h2>
-                                    <div class="clearfix"></div>
+                                <div class="form-group">
+                                    <label>Tổng Tiền (VNĐ)</label>
+                                    <input id="tongTien" name="tongTienChi" type="hidden" class="form-control rounded" />
+                                    <input id="tongTien1" name="tongTienChi1" type="text" class="form-control rounded" readonly />
+                                    <span id="productItemError" class="messageError" style="color:red"></span>
                                 </div>
-                                <div class="x_content">
-                                    <div class="form-group">
-                                        <label class="control-label col-md-2 col-sm-3 col-xs-12">Tổng Tiền</label>
-                                        <div class="col-md-10 col-sm-9 col-xs-12">
-                                            <input id="tongTien" name="tongTienChi" type="text" class="form-control " style="margin-left:5px" />
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label class="control-label col-md-8 col-sm-8 col-xs-12" style="color:red">(*) Lưu ý tiền được tính theo VNĐ</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="col-md-offset-5 col-sm-offset-3 ">
-                                            <button class="btn btn-primary" id="submit" hidden="hidden"><i class="glyphicon glyphicon-save"></i></button>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label>Ghi Chú</label>
+                                    <textarea id="ghiChu" name="ghiChu" placeholder="Ghi chú viết tại đây" class="form-control rounded"></textarea>
                                 </div>
-                                <!--/Thông tin thanh toán-->
                             </div>
                         }
-                    </div><!-- /.panel-body -->
-                </div><!-- /.panel -->
-                <!--/ End input fields - basic form-->
-            </div><!-- /.col-md-6 -->
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <script type="text/javascript">
-    $(function () {
-        $('#submit').click(function () {
-            $('#formphieuchi').click();
-        })
-    })
-    $(function () {
-        $('#submitOver').click(function () {
-            $('#submit').click();
-        })
-    })
+    function formatNumber(num) {
+        return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+    }
 
     $(function () {
         $('#maphieunhap').change(function () {
@@ -125,9 +89,82 @@
             $.getJSON('/PhieuChi/LayTongTienPhieuNhap', { id: $('#maphieunhap').val() }, function (data) {
                 $.each(data, function (i, row) {
                     $('#tongTien').val(row.TongTien)
+                    $('#tongTien1').val(formatNumber(row.TongTien))
                 });
             });
 
         });
     });
 </script>
+
+<script>
+    $('#submit').click(function () {
+        if ($('#tongTien1').val() == '') {
+            $('#productItemError').text('Phải chọn phiếu nhập!');
+        }
+        else {
+            $('#productItemError').hide();
+            $('#basic-validate').submit();
+        }
+    });
+</script>
+
+<script>
+    $('#print').click(function () {
+        Print();
+    });
+
+    //Function print inventory ballot
+    function Print() {
+        var popupWin = window.open('', '_blank', 'width=800,height=600'); //create new page
+        popupWin.document.open(); //open new page
+        popupWin.document.write('<html><body onload="window.print()">')
+
+        popupWin.document.write('<p style="text-align:center"><img src="/Content/image/header.png" class="img-responsive watch-right"  /></p>')
+
+        popupWin.document.write('<p style="text-align:center; font-weight: bold; font-size: 30px">Phiếu Chi</p>')
+
+        popupWin.document.write('<table style="border:solid; width:100%"; text-align:center">')
+        popupWin.document.write('Thông tin phiếu chi');
+        popupWin.document.write('<tr><td>')
+        popupWin.document.write('Số phiếu chi: ');
+        popupWin.document.write($('#sophieuchi').val().trim());
+        popupWin.document.write('</td>')
+
+        popupWin.document.write('<td>')
+        popupWin.document.write('Ngày chi: ');
+        popupWin.document.write($('#ngaychi').val().trim());
+        popupWin.document.write('</td></tr>')
+
+        popupWin.document.write('<tr><td>')
+        popupWin.document.write('Nhân viên: ');
+        popupWin.document.write($('#tenNhanVien').val().trim());
+        popupWin.document.write('</td>')
+
+        popupWin.document.write('<td>')
+        popupWin.document.write('Ghi chú: ');
+        popupWin.document.write($('#ghiChu').val().trim());
+        popupWin.document.write('</td></tr>')
+
+        popupWin.document.write('<tr><td>')
+        popupWin.document.write('Chi cho số phiếu nhập: ');
+        popupWin.document.write($('#maphieunhap').val().trim());
+        popupWin.document.write('</td>')
+
+        popupWin.document.write('<td>')
+        popupWin.document.write('Tổng tiền chi: ');
+        popupWin.document.write($('#tongTien').val().trim() + " VNĐ");
+        popupWin.document.write('</td></tr>')
+
+        popupWin.document.write('</table>')
+
+        popupWin.document.write('<p style="text-align:center">')
+        popupWin.document.write('Nhân viên tài chính')
+        popupWin.document.write('<br>')
+        popupWin.document.write('(Ký tên)')
+        popupWin.document.write('</p>')
+        popupWin.document.write('</html>');
+        popupWin.document.close();
+    }
+</script>
+

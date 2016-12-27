@@ -39,7 +39,10 @@
                     <td>Hoàn thành</td>
                     <td>
                         <a href="@Url.Action("Detail", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                        <a href="@Url.Action("Delete", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                        @if (@item.ngayKiemKho.ToString("dd/MM/yyyy") == @DateTime.Now.ToString("dd/MM/yyyy"))
+                        {
+                            <a href="@Url.Action("Delete", new { id = item.soPhieuKiemKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                        }
                     </td>
                 }
                 else

@@ -25,15 +25,19 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
             trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             return View();
         }
 
-        public ActionResult DanhSachNhanVien(string searchString, string trangthai, string chucvu , int page = 1, int pageSize = 5)
+        public ActionResult DanhSachNhanVien(string searchString, string trangthai, string chucvu , int page = 1, int pageSize = 10)
         {
-            if (!string.IsNullOrEmpty(searchString) || !string.IsNullOrEmpty(trangthai) || !string.IsNullOrEmpty(chucvu))
+            if (!string.IsNullOrEmpty(searchString) || !string.IsNullOrEmpty(chucvu))
+            {
+                return View(_nhanVienKhoBus.SearchDanhSachNhanVien(searchString, trangthai, chucvu).ToPagedList(page, pageSize));
+            }
+            if (!string.IsNullOrEmpty(trangthai))
             {
                 return View(_nhanVienKhoBus.SearchDanhSachNhanVien(searchString, trangthai, chucvu).ToPagedList(page, pageSize));
             }
@@ -45,7 +49,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
             trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
-            trangThai.Add(new SelectListItem { Text = "Không Hoạt Động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             ViewBag.thongTinNhanVien = _nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList();
@@ -94,16 +98,32 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Edit(int id)
         {
             List<SelectListItem> trangThai = new List<SelectListItem>();
-            trangThai.Add(new SelectListItem { Text = "Đang hoạt động", Value = "1" });
-            trangThai.Add(new SelectListItem { Text = "Không hoạt động", Value = "false" });
+            trangThai.Add(new SelectListItem { Text = "Đang Hoạt Động", Value = "true" });
+            trangThai.Add(new SelectListItem { Text = "Ngừng Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
             return View(_nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList());
         }
        
         [HttpPost]
-        public async Task<ActionResult> Edit(int id, NhanVienViewModel nhanVien)
+        public async Task<ActionResult> Edit(int id, NhanVienViewModel nhanVien, HttpPostedFileBase avatar)
         {
+            if (avatar != null && avatar.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Content/image/user"),
+                                               Path.GetFileName(avatar.FileName));
+                    avatar.SaveAs(path);
+                    nhanVien.avatar = avatar.FileName;
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                nhanVien.avatar = "default.png";
+            }
              //Get nhân viên muốn update (find by ID)
             NhanVien edit = (NhanVien)await _nhanVienKhoBus.Find(id);
             if (edit == null)

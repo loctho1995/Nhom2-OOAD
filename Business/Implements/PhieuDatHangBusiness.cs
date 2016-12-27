@@ -512,5 +512,93 @@ namespace Business.Implements
         {
             return _phieuDatHangRepo.GetAll().Where(i => i.DaXacNhan == false).Count();
         }
+
+        public object TongTienDatHang()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuDatHang> danhSachPhieuDatHang = _phieuDatHangRepo.GetAll();
+            var all = (from phieudathang in danhSachPhieuDatHang
+                       where phieudathang.NgayDat.Day.Equals(ngay)
+                             && phieudathang.NgayDat.Month.Equals(thang)
+                             && phieudathang.NgayDat.Year.Equals(nam)
+                       select new
+                       {
+                           TongTien = phieudathang.TongTien,
+                       }).AsEnumerable().Select(x => new PhieuDatHangViewModel()
+                       {
+                           tongTien = x.TongTien,
+                       }).Sum(x => x.tongTien);
+            return all;
+        }
+
+        public object SoDonDatHang()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuDatHang> danhSachPhieuDatHang = _phieuDatHangRepo.GetAll();
+            var all = (from phieudathang in danhSachPhieuDatHang
+                       where phieudathang.NgayDat.Day.Equals(ngay)
+                             && phieudathang.NgayDat.Month.Equals(thang)
+                             && phieudathang.NgayDat.Year.Equals(nam)
+                       select new
+                       {
+                           SoPhieuDatHang = phieudathang.SoPhieuDatHang,
+                       }).AsEnumerable().Select(x => new PhieuDatHangViewModel()
+                       {
+                           soPhieuDatHang = x.SoPhieuDatHang,
+                       }).Count();
+            return all;
+        }
+
+        public object DonHangDaXacNhan()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuDatHang> danhSachPhieuDatHang = _phieuDatHangRepo.GetAll();
+            var all = (from phieudathang in danhSachPhieuDatHang
+                       where phieudathang.NgayDat.Day.Equals(ngay)
+                             && phieudathang.NgayDat.Month.Equals(thang)
+                             && phieudathang.NgayDat.Year.Equals(nam) && phieudathang.DaXacNhan.Equals(true)
+                       select new
+                       {
+                           SoPhieuDatHang = phieudathang.SoPhieuDatHang,
+                       }).AsEnumerable().Select(x => new PhieuDatHangViewModel()
+                       {
+                           soPhieuDatHang = x.SoPhieuDatHang,
+                       }).Count();
+            return all;
+        }
+
+        public object DonHangDaThanhToan()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuDatHang> danhSachPhieuDatHang = _phieuDatHangRepo.GetAll();
+            var all = (from phieudathang in danhSachPhieuDatHang
+                       where phieudathang.NgayDat.Day.Equals(ngay)
+                             && phieudathang.NgayDat.Month.Equals(thang)
+                             && phieudathang.NgayDat.Year.Equals(nam) && phieudathang.DaThanhToan.Equals(true)
+                       select new
+                       {
+                           SoPhieuDatHang = phieudathang.SoPhieuDatHang,
+                       }).AsEnumerable().Select(x => new PhieuDatHangViewModel()
+                       {
+                           soPhieuDatHang = x.SoPhieuDatHang,
+                       }).Count();
+            return all;
+        }
     }
 }

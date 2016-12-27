@@ -25,10 +25,18 @@ namespace WebBanHang.Controllers
             return View(a);
         }
 
-        public ActionResult DanhSachSanPham(int id, int page = 1, int pageSize = 6)
+        public ActionResult DanhSachSanPham(int id, int page = 1, int pageSize = 8)
         {
             ViewBag.tenLoaiHangHoa = _hangHoaBus.TenLoaiHangHoaTheoMaLoaiHangHoa(id);
+            ViewBag.tongSanPham = _hangHoaBus.TongSanPhamTheoLoaiHang(id);
             var a = _hangHoaBus.DanhSachHangHoaTheoMaLoaiHangHoa(id).ToPagedList(page, pageSize);
+            return View(a);
+        }
+
+        public ActionResult SanPhamKhuyenMai(int page = 1, int pageSize = 8)
+        {
+            ViewBag.tongSanPham = _hangHoaBus.TongSanPhamKhuyenMai();
+            var a = _hangHoaBus.SanPhamKhuyenMai().ToPagedList(page, pageSize);
             return View(a);
         }
     }

@@ -3,44 +3,21 @@
     $('#add').click(function () {
         var isValidItem = true;
 
-        if ($('#maHangHoa').val().trim() == '') {
+        if ($('#tenHangHoa').val() == '') {
             isValidItem = false;
-            $('#maHangHoa').siblings('span.error').css('visibility', 'visible');
+            $('#productItemError').text('Chưa có sản phẩm nào được chọn!');
         }
         else {
-            $('#maHangHoa').siblings('span.error').css('visibility', 'hidden');
+            $('#productItemError').hide();
         }
-
-        if ($('#tenHangHoa').val().trim() == '') {
-            isValidItem = false;
-            $('#tenHangHoa').siblings('span.error').css('visibility', 'visible');
-        }
-        else {
-            $('#tenHangHoa').siblings('span.error').css('visibility', 'hidden');
-        }
-
-        //if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim()))) {
-        //    isValidItem = false;
-        //    $('#soLuongNhap').siblings('span.error').css('visibility', 'visible');
-        //}
-        //else {
-        //    $('#soLuongNhap').siblings('span.error').css('visibility', 'hidden');
-        //}
 
         var errorQuantity = 0;
         var errorPrice = 0;
         errorPrice = CheckPrice(errorPrice);
         errorQuantity = CheckQuantity(errorQuantity);
         var error = errorQuantity + errorPrice;
-
-        if (!($('#giaNhap').val().trim() != '' && !isNaN($('#giaNhap').val().trim()))) {
-            isValidItem = false;
-            $('#giaNhap').siblings('span.error').css('visibility', 'visible');
-        }
-        else {
-            $('#giaNhap').siblings('span.error').css('visibility', 'hidden');
-        }
-        if (isValidItem) {
+  
+        if (isValidItem == true && error == 0) {
 
             var i, j;
             var string_value_product = $('#maHangHoa').val().trim();
@@ -132,9 +109,14 @@
         $table.append($tbody);
         $('#Items').html($table);
 
-        var popupWin = window.open('', '_blank', 'width=800,height=500'); //create new page     
+        var popupWin = window.open('', '_blank', 'width=800,height=600'); //create new page     
         popupWin.document.open(); //open new page
-        popupWin.document.write('<html><title>Phiếu nhập kho</title><body onload="window.print()">')
+        popupWin.document.write('<html><body onload="window.print()">')
+
+        popupWin.document.write('<p style="text-align:center"><img src="/Content/image/header.png" class="img-responsive watch-right"  /></p>')
+
+        popupWin.document.write('<p style="text-align:center; font-weight: bold; font-size: 30px">Phiếu Nhập Kho</p>')
+
         popupWin.document.write('<table style="border:solid; width:100%"; text-align:center">')
         popupWin.document.write('Thông tin phiếu nhập kho');
         popupWin.document.write('<tr><td>')
@@ -170,8 +152,8 @@
         popupWin.document.write('Danh sách hàng hóa');
         popupWin.document.write(toPrint.innerHTML);
 
-        popupWin.document.write('<p style="text-align:right">')
-        popupWin.document.write('Nhân viên nhập kho')
+        popupWin.document.write('<p style="text-align:center">')
+        popupWin.document.write('Nhân viên kho')
         popupWin.document.write('<br>')
         popupWin.document.write('(Ký tên)')
         popupWin.document.write('</p>')
@@ -184,7 +166,7 @@
         //validation of inventory ballot detail
         var isAllValid = true;
         if (orderItems.length == 0) {
-            $('#orderItems').html('<span style="color:red;">Phải có ít nhất 1 hàng hóa</span>');
+            $('#orderItems').html('<span class="messageError" style="color:red;">Phải có ít nhất 1 hàng hóa</span>');
             isAllValid = false;
         }
 
@@ -415,19 +397,47 @@ function Multiplica() {
     }
 }
 
+$(document).ready(function () {
+    $("#soLuongNhap").on('keyup input propertychange paste change', function () {
+        CheckQuantity();
+    });
+
+    $("#giaNhap").on('keyup input propertychange paste change', function () {
+        CheckPrice();
+    });
+});
+
+// check quantity input
 function CheckQuantity(error) {
-    if ($("#soLuong").val() == '') {
+    if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim()))) {
         $(".messageErrorinputQuantity").text("Nhập số lượng!");
         $(".notifyinputQuantity").slideDown(250).removeClass("hidden");
-        $("#soLuong").addClass("error");
+        $("#soLuongNhap").addClass("error");
         error++;
     }
     else {
         $(".notifyinputQuantity").addClass("hidden");
-        $("#soLuong").removeClass("error");
+        $("#soLuongNhap").removeClass("error");
     }
-    $("#soLuong").blur(function () {
-        $("#soLuong").val($("#soLuong").val().trim());
+    $("#soLuongNhap").blur(function () {
+        $("#soLuongNhap").val($("#soLuongNhap").val().trim());
+    });
+    return error;
+}
+
+function CheckPrice(error) {
+    if (!($('#giaNhap').val().trim() != '' && !isNaN($('#giaNhap').val().trim()))) {
+        $(".messageErrorinputPrice").text("Nhập giá!");
+        $(".notifyinputPrice").slideDown(250).removeClass("hidden");
+        $("#giaNhap").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputPrice").addClass("hidden");
+        $("#giaNhap").removeClass("error");
+    }
+    $("#giaNhap").blur(function () {
+        $("#giaNhap").val($("#giaNhap").val().trim());
     });
     return error;
 }

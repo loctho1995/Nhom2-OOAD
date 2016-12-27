@@ -444,7 +444,7 @@ namespace Business.Implements
                        ngayChinhSuaNhapKho = x.NgayChinhSua,
                        tenNhanVienNhapKho = x.TenNhanVien,
                        trangThaiNhapKho = x.TrangThai,
-                   }).Take(1).ToList();
+                   }).Take(2).ToList();
             return all;
         }
         public Object LayTongTienPhieuNhap(int maPhieuNhap)

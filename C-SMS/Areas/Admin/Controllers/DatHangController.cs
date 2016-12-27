@@ -52,7 +52,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         //    //return View();
         //}
 
-        public ActionResult DanhSachPhieuDatHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachPhieuDatHang(string searchString, string trangthai, string dateFrom, string dateTo, int page = 1, int pageSize = 10)
         {
             return View(_phieuDatHangBUS.SearchDanhSachPhieuDatHang(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }

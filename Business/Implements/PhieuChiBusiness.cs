@@ -17,6 +17,7 @@ namespace Business.Implements
         private readonly PhieuChiRepository _phieuChiRepo;
         private readonly NhanVienRepository _nhanVienRepo;
         private NhanVienBusiness _nhanVienBus;
+        private readonly PhieuNhapKhoRepository _phieuNhapKhoRepo;
 
         public PhieuChiBusiness()
         {
@@ -24,13 +25,14 @@ namespace Business.Implements
             _phieuChiRepo = new PhieuChiRepository(dbContext);
             _nhanVienRepo = new NhanVienRepository(dbContext);
             _nhanVienBus = new NhanVienBusiness();
+            _phieuNhapKhoRepo = new PhieuNhapKhoRepository(dbContext);
         }
         public async Task Create(PhieuChiViewModel O)
         {
             DateTime today = DateTime.Now;
             PhieuChi phieuChi = new PhieuChi
             {
-                SoPhieuChi = O.soPhieuChi,
+                //SoPhieuChi = O.soPhieuChi,
                 NgayChi = O.ngayChi,
                 MaNhanVien = O.maNhanVien,
                 MaPhieuNhap = O.maPhieuNhap,
@@ -56,16 +58,27 @@ namespace Business.Implements
         }
         public List<Object> LoadSoPhieuNhapKho()
         {
-            var list = (from phieunhap in dbContext.PhieuNhaps
-                        where (phieunhap.TrangThai == true)
-                        select new SelectListItem
-                        {
-                            Text = phieunhap.SoPhieuNhap.ToString(),
-                            Value = phieunhap.SoPhieuNhap.ToString(),
-                        }).Distinct().ToList();
+            var list = from pc in _phieuChiRepo.GetAll()
+                       select new
+                       {
+                           pc.MaPhieuNhap
+                       }.MaPhieuNhap;
 
-            return new List<Object>(list);
+            var pn = _phieuNhapKhoRepo.GetAll();
+
+            var result = from n in pn
+                         where !list.Contains(n.SoPhieuNhap) && n.TrangThai.Equals(true)
+                       select new SelectListItem
+                       {
+                           Text = n.SoPhieuNhap.ToString(),
+                           Value = n.SoPhieuNhap.ToString(),
+                       };
+
+            return new List<Object>(result);
         }
+
+
+
         public IList<PhieuChiViewModel> SearchDanhSachPhieuChi(String key, string trangthai, DateTime tungay, DateTime denngay, string maNhanVien)
         {
             IQueryable<PhieuChi> dsPhieuChi = _phieuChiRepo.GetAll();
@@ -298,6 +311,7 @@ namespace Business.Implements
                        TongTienChi = phieuchi.TongTienChi,
                        GhiChu = phieuchi.GhiChu,
                        TrangThai = phieuchi.TrangThai,
+                       MaPhieuNhap = phieuchi.MaPhieuNhap,
                    }).AsEnumerable().Select(x => new PhieuChiViewModel()
                    {
                        soPhieuChi = x.SoPhieuchi,
@@ -305,6 +319,7 @@ namespace Business.Implements
                        tenNhanVien = x.TenNhanVien,
                        tongTienChi = x.TongTienChi,
                        ghiChu = x.GhiChu,
+                       maPhieuNhap = x.MaPhieuNhap,
                    }).ToList();
             return all;
         }
@@ -326,6 +341,79 @@ namespace Business.Implements
             {
 
             }
+        }
+
+        public IEnumerable<ThongTinHoatDongViewModel> ThongTinHoatDong()
+        {
+            IQueryable<PhieuChi> danhSachPhieuChi = _phieuChiRepo.GetAll();
+            List<ThongTinHoatDongViewModel> all = new List<ThongTinHoatDongViewModel>();
+
+            all = (from phieuchi in danhSachPhieuChi
+                   join nhanvien in _nhanVienRepo.GetAll()
+                   on phieuchi.MaNhanVien equals nhanvien.MaNhanVien
+                   orderby phieuchi.NgayChinhSua descending
+                   select new
+                   {
+                       SoPhieuChi = phieuchi.SoPhieuChi,
+                       NgayChinhSua = phieuchi.NgayChinhSua,
+                       TenNhanVien = nhanvien.TenNhanvien,
+                       TrangThai = phieuchi.TrangThai,
+                       TongTienChi = phieuchi.TongTienChi,
+                       MaPhieuNhap = phieuchi.MaPhieuNhap,
+                   }).AsEnumerable().Select(x => new ThongTinHoatDongViewModel()
+                   {
+                       soPhieuChi = x.SoPhieuChi,
+                       ngayChinhSuaChi = x.NgayChinhSua,
+                       tenNhanVienChi = x.TenNhanVien,
+                       trangThaiChi = x.TrangThai,
+                       tongTienChi = x.TongTienChi,
+                       maPhieuNhap = x.MaPhieuNhap,
+                   }).Take(2).ToList();
+            return all;
+        }
+
+        public object TongTienChi()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuChi> danhSachPhieuChi = _phieuChiRepo.GetAll();
+            var all = (from phieuchi in danhSachPhieuChi
+                       where phieuchi.NgayChi.Day.Equals(ngay)
+                             && phieuchi.NgayChi.Month.Equals(thang)
+                             && phieuchi.NgayChi.Year.Equals(nam)
+                       select new
+                       {
+                           TongTien = phieuchi.TongTienChi,
+                       }).AsEnumerable().Select(x => new PhieuChi()
+                       {
+                           TongTienChi = x.TongTien,
+                       }).Sum(x => x.TongTienChi);
+            return all;
+        }
+
+        public object SoPhieuChi()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuChi> danhSachPhieuChi = _phieuChiRepo.GetAll();
+            var all = (from phieuchi in danhSachPhieuChi
+                       where phieuchi.NgayChi.Day.Equals(ngay)
+                             && phieuchi.NgayChi.Month.Equals(thang)
+                             && phieuchi.NgayChi.Year.Equals(nam)
+                       select new
+                       {
+                           SoPhieuChi = phieuchi.SoPhieuChi,
+                       }).AsEnumerable().Select(x => new PhieuChi()
+                       {
+                           SoPhieuChi = x.SoPhieuChi,
+                       }).Count();
+            return all;
         }
     }
 }
