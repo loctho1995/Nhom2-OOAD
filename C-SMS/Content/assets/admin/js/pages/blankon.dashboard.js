@@ -221,7 +221,7 @@ var BlankonDashboard = function () {
                         }
                     );
                     $('#modal-bootstrap-tour-end').on('hide.bs.modal', function () {
-                        BlankonDashboard.sessionTimeout();
+                        //BlankonDashboard.sessionTimeout();
                     });
                 },
                 onShow: function (tour) {},
@@ -269,7 +269,7 @@ var BlankonDashboard = function () {
                 if (!$.cookie('intro')) {
 
                     // Gritter notification intro 1
-                    setTimeout(function () {
+                   // setTimeout(function () {
                         //var unique_id = $.gritter.add({
                             // (string | mandatory) the heading of the notification
                             //title: 'Welcome to Blankon',
@@ -284,16 +284,16 @@ var BlankonDashboard = function () {
                        // });
 
                         // You can have it return a unique id, this can be used to manually remove it later using
-                        setTimeout(function () {
-                            $.gritter.remove(unique_id, {
-                                fade: true,
-                                speed: 'slow'
-                            });
-                        }, 120000);
-                    }, 500000);
+                    //    setTimeout(function () {
+                    //        $.gritter.remove(unique_id, {
+                    //            fade: true,
+                    //            speed: 'slow'
+                    //        });
+                    //    }, 120000);
+                    //}, 500000);
 
                     // Gritter notification intro 2
-                    setTimeout(function () {
+                    //setTimeout(function () {
                         //$.gritter.add({
                             // (string | mandatory) the heading of the notification
                             //title: 'Playing sounds',
@@ -306,10 +306,10 @@ var BlankonDashboard = function () {
                             // (int | optional) the time you want it to be alive for before fading out
                             //time: ''
                         //});
-                    }, 800000);
+                   // }, 800000);
 
                     // Set cookie intro
-                    $.cookie('intro',1, {expires: 1});
+                   // $.cookie('intro',1, {expires: 1});
                 }
             }
         },
@@ -483,21 +483,21 @@ var BlankonDashboard = function () {
         // SESSION TIMEOUT
         // =========================================================================
         sessionTimeout: function () {
-            if($('.demo-dashboard-session').length){
-                $.sessionTimeout({
-                    title: 'JUST DEMO Your session is about to expire!',
-                    logoutButton: 'Đăng xuất',
-                    keepAliveButton: 'Ở lại trang',
-                    countdownMessage: 'Your session will be redirecting in {timer} seconds.',
-                    countdownBar: true,
-                    keepAliveUrl: '#',
-                    logoutUrl: '/Home/Login',
-                    redirUrl: '/Home/Login',
-                    ignoreUserActivity: true,
-                    warnAfter: 5000000,
-                    redirAfter: 6500000
-                });
-            }
+            //if($('.demo-dashboard-session').length){
+            //    $.sessionTimeout({
+            //        title: 'JUST DEMO Your session is about to expire!',
+            //        logoutButton: 'Đăng xuất',
+            //        keepAliveButton: 'Ở lại trang',
+            //        countdownMessage: 'Your session will be redirecting in {timer} seconds.',
+            //        countdownBar: true,
+            //        keepAliveUrl: '#',
+            //        logoutUrl: '/Home/Login',
+            //        redirUrl: '/Home/Login',
+            //        ignoreUserActivity: true,
+            //        warnAfter: 5000000,
+            //        redirAfter: 6500000
+            //    });
+            //}
         },
 
         // =========================================================================

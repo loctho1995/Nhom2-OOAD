@@ -148,16 +148,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         [HttpPost]
         public async Task<ActionResult> UpdatePassword(String matkhaumoi, string matkhaucu)
         {
-            var pass = _nhanVienBus.MatKhau(((NhanVienViewModel)(Session["Account"])).maNhanVien);
-            var mk = Md5Encode.EncodePassword(matkhaucu).ToLower();
-            if (mk != pass)
-            {
-                SetAlert("Mật khẩu cũ nhập không đúng! Vui lòng nhập lại", "error");
-                return RedirectToAction("UpdatePassword");
-            }
-
             NhanVien editEmployee = (NhanVien)await _nhanVienBus.Find(((NhanVienViewModel)(Session["Account"])).maNhanVien);
-
             try
             {
                 await _nhanVienBus.UpdatePassword(editEmployee, Md5Encode.EncodePassword(matkhaumoi));

@@ -1,12 +1,12 @@
 ﻿//Lay model name theo ten san pham
 $(document).ready(function () {
-    $('#maHangHoa').on("change", function () {
+    $('#modelName').on("change", function () {
         $.getJSON('/BaoHanh/LoadThongTinHangHoa',
-                    { id: $('#maHangHoa').val() },
+                    { id: $('#modelName').val() },
                     function (data) {
                         if (data != null) {
                             $.each(data, function (index, row) {
-                                $("#modelName").val(row.ModelName);
+                                $("#maHangHoa").val(row.TenHangHoa);
                             });
                         }
                     });
@@ -46,17 +46,17 @@ function CheckSoDienThoai(error) {
 }
 
 function CheckModelName(error) {
-    if ($("#modelName").val() == '') {
-        $(".messageErrorinputModelName").text("Chọn sản phẩm!");
+    if ($("#maHangHoa").val() == '') {
+        $(".messageErrorinputModelName").text("Chọn model name!");
         $(".notifyinputModelName").slideDown(250).removeClass("hidden");
         error++;
     }
     else {
         $(".notifyinputModelName").addClass("hidden");
-        $("#modelName").removeClass("error");
+        $("#maHangHoa").removeClass("error");
     }
-    $("#modelName").blur(function () {
-        $("#modelName").val($("#modelName").val().trim());
+    $("#maHangHoa").blur(function () {
+        $("#maHangHoa").val($("#maHangHoa").val().trim());
     });
     return error;
 }
@@ -71,7 +71,7 @@ $(document).ready(function () {
         CheckSoDienThoai();
     });
 
-    $("#modelName").on('keyup input propertychange paste change', function () {
+    $("#maHangHoa").on('keyup input propertychange paste change', function () {
         CheckModelName();
     });
 });

@@ -30,7 +30,7 @@ var BlankonDashboardRetail = function () {
                 if (!$.cookie('intro')) {
 
                     // Gritter notification intro 1
-                    setTimeout(function () {
+                    //setTimeout(function () {
                         //var unique_id = $.gritter.add({
                             // (string | mandatory) the heading of the notification
                            // title: 'Welcome to Blankon',
@@ -45,16 +45,16 @@ var BlankonDashboardRetail = function () {
                         //});
 
                         // You can have it return a unique id, this can be used to manually remove it later using
-                        setTimeout(function () {
-                            $.gritter.remove(unique_id, {
-                                fade: true,
-                                speed: 'slow'
-                            });
-                        }, 1200000);
-                    }, 500000);
+                    //    setTimeout(function () {
+                    //        $.gritter.remove(unique_id, {
+                    //            fade: true,
+                    //            speed: 'slow'
+                    //        });
+                    //    }, 1200000);
+                    //}, 500000);
 
                     // Gritter notification intro 2
-                    setTimeout(function () {
+                   // setTimeout(function () {
                        // $.gritter.add({
                             // (string | mandatory) the heading of the notification
                          //   title: 'Playing sounds',
@@ -67,10 +67,10 @@ var BlankonDashboardRetail = function () {
                             // (int | optional) the time you want it to be alive for before fading out
                            // time: ''
                       //  });
-                    }, 800000);
+                   // }, 800000);
 
                     // Set cookie intro
-                    $.cookie('intro',1, {expires: 1});
+                   // $.cookie('intro',1, {expires: 1});
                 }
             }
         },
@@ -79,20 +79,20 @@ var BlankonDashboardRetail = function () {
         // SESSION TIMEOUT
         // =========================================================================
         sessionTimeout: function () {
-            if($('.demo-dashboard-session').length){
-                $.sessionTimeout({
-                    title: 'Section của bạn sắp hết!',
-                    logoutButton: 'Đăng xuất',
-                    keepAliveButton: 'Ở lại',
-                    message: 'Section của bạn sẽ bị khoá trong 2 phút',
-                    keepAliveUrl: '#',
-                    logoutUrl: 'Index',
-                    redirUrl: 'page-lock-screen.html',
-                    ignoreUserActivity: true,
-                    warnAfter: 12000000,
-                    redirAfter: 24000000
-                });
-            }
+            //if($('.demo-dashboard-session').length){
+            //    $.sessionTimeout({
+            //        title: 'Section của bạn sắp hết!',
+            //        logoutButton: 'Đăng xuất',
+            //        keepAliveButton: 'Ở lại',
+            //        message: 'Section của bạn sẽ bị khoá trong 2 phút',
+            //        keepAliveUrl: '#',
+            //        logoutUrl: 'Home/Index',
+            //        redirUrl: 'page-lock-screen.html',
+            //        ignoreUserActivity: true,
+            //        warnAfter: 120000,
+            //        redirAfter: 240000
+            //    });
+            //}
         },
 
         // =========================================================================

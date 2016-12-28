@@ -48,6 +48,20 @@ namespace Business.Implements
             return new List<Object>(list);
         }
 
+        public List<Object> LoadSanhSachModelName()
+        {
+            var list = (from hanghoa in dbContext.HangHoas
+                        //where (hanghoa.TrangThai == true && hanghoa.SoLuongTon > 0)
+                        select new SelectListItem
+                        {
+                            //Text = hanghoa.TenHangHoa,
+                            Text = hanghoa.ModelName,
+                            Value = hanghoa.MaHangHoa.ToString(),
+                        }).Distinct().ToList();
+
+            return new List<Object>(list);
+        }
+
         public List<Object> LoadSanhSachHangHoaKho()
         {
             var list = (from hanghoa in dbContext.HangHoas
@@ -88,7 +102,7 @@ namespace Business.Implements
             List<HangHoa> all = new List<HangHoa>();
 
             all = (from hanghoa in danhSachHangHoa
-                   where (hanghoa.TrangThai == true) && hanghoa.GiamGia == 0
+                   where (hanghoa.TrangThai == true) && (hanghoa.GiamGia == 0 && hanghoa.GiaBan > 0)
                    orderby hanghoa.MaHangHoa descending
                    select new
                    {

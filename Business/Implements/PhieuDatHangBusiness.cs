@@ -55,6 +55,23 @@ namespace Business.Implements
             await _phieuDatHangRepo.EditAsync(entity);
         }
 
+        public bool UpdateTongTien(PhieuDatHang entity)
+        {
+            try
+            {
+                var user = dbContext.PhieuDatHangs.Find(entity.SoPhieuDatHang);
+                user.TongTien = entity.TongTien;
+
+                dbContext.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+            }
+
+            return true;
+        }
+
         public async Task Update(PhieuDatHangViewModel model, PhieuDatHang phieu)
         {
             PhieuDatHang edit = phieu;
@@ -256,17 +273,20 @@ namespace Business.Implements
                 if(!string.IsNullOrEmpty(key))
                 {
                     all = (from phieudathang in danhSachPhieuBanHang
-                           join nhanvien in _nhanVienRepo.GetAll()
-                           on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
-                           where (nhanvien.UserName.Equals(userName) && (
+                           //join nhanvien in _nhanVienRepo.GetAll()
+                           //on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                           where (
                                      phieudathang.SoPhieuDatHang.ToString().Contains(key)
-                                  || nhanvien.TenNhanvien.Contains(key)
-                                  || phieudathang.TrangThai.ToString().Equals(trangthai)))
+                                    || phieudathang.TrangThai.ToString().Equals(trangthai)
+                                    || phieudathang.TenKhachHang.Contains(key)
+                                     || phieudathang.SoDienThoai.Contains(key)
+                                     || phieudathang.Email.Contains(key)
+                                     || phieudathang.Diachi.Contains(key))
                            select new
                            {
                                SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                NgayDat = phieudathang.NgayDat,
-                               TenNhanVien = nhanvien.TenNhanvien,
+                               //TenNhanVien = nhanvien.TenNhanvien,
                                TrangThai = phieudathang.TrangThai,
                                ChuThich = phieudathang.Ghichu,
                                DaXacNhan = phieudathang.DaXacNhan,
@@ -280,7 +300,7 @@ namespace Business.Implements
                            {
                                soPhieuDatHang = x.SoPhieuDatHang,
                                ngayDat = x.NgayDat,
-                               tenNhanVien = x.TenNhanVien,
+                               //tenNhanVien = x.TenNhanVien,
                                trangThai = x.TrangThai,
                                ghiChu = x.ChuThich,
                                daXacNhan = x.DaXacNhan,
@@ -295,14 +315,14 @@ namespace Business.Implements
                 if(!string.IsNullOrEmpty(trangthai))
                 {
                     all = (from phieudathang in danhSachPhieuBanHang
-                           join nhanvien in _nhanVienRepo.GetAll()
-                           on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
-                           where (nhanvien.UserName.Equals(userName) && phieudathang.TrangThai.ToString().Equals(trangthai))
+                           //join nhanvien in _nhanVienRepo.GetAll()
+                           //on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                           where phieudathang.TrangThai.ToString().Equals(trangthai)
                            select new
                            {
                                SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                NgayDat = phieudathang.NgayDat,
-                               TenNhanVien = nhanvien.TenNhanvien,
+                               //TenNhanVien = nhanvien.TenNhanvien,
                                TrangThai = phieudathang.TrangThai,
                                ChuThich = phieudathang.Ghichu,
                                DaXacNhan = phieudathang.DaXacNhan,
@@ -316,7 +336,7 @@ namespace Business.Implements
                            {
                                soPhieuDatHang = x.SoPhieuDatHang,
                                ngayDat = x.NgayDat,
-                               tenNhanVien = x.TenNhanVien,
+                              // tenNhanVien = x.TenNhanVien,
                                trangThai = x.TrangThai,
                                ghiChu = x.ChuThich,
                                daXacNhan = x.DaXacNhan,
@@ -330,14 +350,14 @@ namespace Business.Implements
                 }
 
                 all = (from phieudathang in danhSachPhieuBanHang
-                       join nhanvien in _nhanVienRepo.GetAll()
-                       on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
-                       where (nhanvien.UserName.Equals(userName) && phieudathang.TrangThai.Equals(true))
+                       //join nhanvien in _nhanVienRepo.GetAll()
+                      // on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                       where phieudathang.TrangThai.Equals(true)
                        select new
                        {
                            SoPhieudatHang = phieudathang.SoPhieuDatHang,
                            NgayDat = phieudathang.NgayDat,
-                           TenNhanVien = nhanvien.TenNhanvien,
+                           //TenNhanVien = nhanvien.TenNhanvien,
                            TrangThai = phieudathang.TrangThai,
                            ChuThich = phieudathang.Ghichu,
                            DaXacNhan = phieudathang.DaXacNhan,
@@ -351,7 +371,7 @@ namespace Business.Implements
                        {
                            soPhieuDatHang = x.SoPhieudatHang,
                            ngayDat = x.NgayDat,
-                           tenNhanVien = x.TenNhanVien,
+                          // tenNhanVien = x.TenNhanVien,
                            trangThai = x.TrangThai,
                            ghiChu = x.ChuThich,
                            daXacNhan = x.DaXacNhan,
@@ -368,14 +388,14 @@ namespace Business.Implements
                 if((!(tungay == default(DateTime))) && (!(denngay == default(DateTime))))
                 {
                     allForManager = (from phieudathang in danhSachPhieuBanHang
-                                     join nhanvien in _nhanVienRepo.GetAll()
-                                     on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                                     //join nhanvien in _nhanVienRepo.GetAll()
+                                     //on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
                                      where (phieudathang.NgayDat >= tungay.Date && phieudathang.NgayDat <= denngay.Date)
                                      select new
                                      {
                                          SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                          NgayDat = phieudathang.NgayDat,
-                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         //TenNhanVien = nhanvien.TenNhanvien,
                                          TrangThai = phieudathang.TrangThai,
                                          ChuThich = phieudathang.Ghichu,
                                          DaXacNhan = phieudathang.DaXacNhan,
@@ -389,7 +409,7 @@ namespace Business.Implements
                                      {
                                          soPhieuDatHang = x.SoPhieuDatHang,
                                          ngayDat = x.NgayDat,
-                                         tenNhanVien = x.TenNhanVien,
+                                        // tenNhanVien = x.TenNhanVien,
                                          trangThai = x.TrangThai,
                                          ghiChu = x.ChuThich,
                                          daXacNhan = x.DaXacNhan,
@@ -404,15 +424,19 @@ namespace Business.Implements
                 if(!string.IsNullOrEmpty(key))
                 {
                     allForManager = (from phieudathang in danhSachPhieuBanHang
-                                     join nhanvien in _nhanVienRepo.GetAll()
-                                     on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
-                                     where (phieudathang.SoPhieuDatHang.ToString().Contains(key)
-                                            || nhanvien.TenNhanvien.Contains(key))
+                                     //join nhanvien in _nhanVienRepo.GetAll()
+                                    // on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                                     where phieudathang.SoPhieuDatHang.ToString().Contains(key)
+                                     || phieudathang.TenKhachHang.Contains(key)
+                                     || phieudathang.SoDienThoai.Contains(key)
+                                     || phieudathang.Email.Contains(key)
+                                     || phieudathang.Diachi.Contains(key)
+                  
                                      select new
                                      {
                                          SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                          NgayDat = phieudathang.NgayDat,
-                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         //TenNhanVien = nhanvien.TenNhanvien,
                                          TrangThai = phieudathang.TrangThai,
                                          ChuThich = phieudathang.Ghichu,
                                          DaXacNhan = phieudathang.DaXacNhan,
@@ -426,7 +450,7 @@ namespace Business.Implements
                                      {
                                          soPhieuDatHang = x.SoPhieuDatHang,
                                          ngayDat = x.NgayDat,
-                                         tenNhanVien = x.TenNhanVien,
+                                        // tenNhanVien = x.TenNhanVien,
                                          trangThai = x.TrangThai,
                                          ghiChu = x.ChuThich,
                                          daXacNhan = x.DaXacNhan,
@@ -441,14 +465,14 @@ namespace Business.Implements
                 if(!string.IsNullOrEmpty(trangthai))
                 {
                     allForManager = (from phieudathang in danhSachPhieuBanHang
-                                     join nhanvien in _nhanVienRepo.GetAll()
-                                     on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                                    // join nhanvien in _nhanVienRepo.GetAll()
+                                    // on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
                                      where phieudathang.TrangThai.ToString().Equals(trangthai)
                                      select new
                                      {
                                          SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                          NgayDat = phieudathang.NgayDat,
-                                         TenNhanVien = nhanvien.TenNhanvien,
+                                         //TenNhanVien = nhanvien.TenNhanvien,
                                          TrangThai = phieudathang.TrangThai,
                                          ChuThich = phieudathang.Ghichu,
                                          DaXacNhan = phieudathang.DaXacNhan,
@@ -462,7 +486,7 @@ namespace Business.Implements
                                      {
                                          soPhieuDatHang = x.SoPhieuDatHang,
                                          ngayDat = x.NgayDat,
-                                         tenNhanVien = x.TenNhanVien,
+                                         //tenNhanVien = x.TenNhanVien,
                                          trangThai = x.TrangThai,
                                          ghiChu = x.ChuThich,
                                          daXacNhan = x.DaXacNhan,
@@ -476,14 +500,14 @@ namespace Business.Implements
                 }
 
                 allForManager = (from phieudathang in danhSachPhieuBanHang
-                                 join nhanvien in _nhanVienRepo.GetAll()
-                                 on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
+                                // join nhanvien in _nhanVienRepo.GetAll()
+                                // on phieudathang.MaNhanVien equals nhanvien.MaNhanVien
                                  where phieudathang.TrangThai.Equals(true)
                                  select new
                                  {
                                      SoPhieuDatHang = phieudathang.SoPhieuDatHang,
                                      NgayDat = phieudathang.NgayDat,
-                                     TenNhanVien = nhanvien.TenNhanvien,
+                                     //TenNhanVien = nhanvien.TenNhanvien,
                                      TrangThai = phieudathang.TrangThai,
                                      ChuThich = phieudathang.Ghichu,
                                      DaXacNhan = phieudathang.DaXacNhan,
@@ -497,7 +521,7 @@ namespace Business.Implements
                                  {
                                      soPhieuDatHang = x.SoPhieuDatHang,
                                      ngayDat = x.NgayDat,
-                                     tenNhanVien = x.TenNhanVien,
+                                     //tenNhanVien = x.TenNhanVien,
                                      trangThai = x.TrangThai,
                                      ghiChu = x.ChuThich,
                                      daXacNhan = x.DaXacNhan,

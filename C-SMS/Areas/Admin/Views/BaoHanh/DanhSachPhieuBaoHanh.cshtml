@@ -49,19 +49,36 @@
                 {
                     <td>Hoàn thành</td>
                     <td>Chưa xác nhận</td>
+                 
                     <td>
-                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                        <a href="@Url.Action("Confirm", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-trash"></i> Xác nhận</a>
-                        <a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })"><i class="fa fa-eye"></i> Xem</a></li>
+                                <li><a href="@Url.Action("Confirm", new { id = item.soPhieuBaoHanh })" ><i class="fa fa-check"></i> Xác nhận</a></li>
+                                <li><a href="@Url.Action("Delete", new { id = item.soPhieuBaoHanh })"><i class="fa fa-trash"></i> Hủy</a></li>
+                            </ul>
+                        </div>
                     </td>
                 }
                 @if (@item.trangThai == true && @item.daGiao == true)
                 {
                     <td>Hoàn thành</td>
                     <td>Đã xác nhận</td>
+                  
                     <td>
-                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })"><i class="fa fa-eye"></i> Xem</a></li>
+                            </ul>
+                        </div>
                     </td>
                 }
 
@@ -76,8 +93,17 @@
                     {
                         <td>Đã xác nhận</td>
                     }
+                   
                     <td>
-                        <a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("Detail", new { id = item.soPhieuBaoHanh })"><i class="fa fa-eye"></i> Xem</a></li>
+                            </ul>
+                        </div>
                     </td>
                 }
             </tr>

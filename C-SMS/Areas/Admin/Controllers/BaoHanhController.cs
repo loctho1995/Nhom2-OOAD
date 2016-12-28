@@ -47,7 +47,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         {
             ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
-            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
+            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachModelName(), "Value", "Text");
             ViewBag.soPhieuBaoHanh = _phieuBaoHanhBus.LoadSoPhieuBaoHanh();
 
             return View();

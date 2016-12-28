@@ -33,21 +33,22 @@
                         <form class="form-horizontal form-bordered" method="post" role="form">
                             <div class="form-body">
                                 <div class="form-group">
-                                    <label for="firstname-1" class="col-sm-3 control-label"> Tên sản phẩm</label>
+                                    <label for="firstname-1" class="col-sm-3 control-label"> Model name</label>
                                     <div class="col-sm-9">
-                                            <select id="maHangHoa" class="chosen-select">
-                                                @foreach (var item in ViewBag.danhSachHangHoa)
-                                                {
-                                                    <option value="@item.Value">@item.Text</option>
-                                                }
-                                            </select>
+                                        <select id="modelName" class="chosen-select">
+                                            @foreach (var item in ViewBag.danhSachHangHoa)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+                                            }
+                                        </select>
+                                       
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="firstname-1" class="col-sm-3 control-label"> Model name</label>
+                                    <label for="firstname-1" class="col-sm-3 control-label"> Tên sản phẩm</label>
                                     <div class="col-sm-9">
-                                        <input id="modelName" type="text" class="form-control rounded" disabled="disabled" />
+                                        <input id="maHangHoa" type="text" class="form-control rounded" disabled="disabled" />
                                         <h3 style="margin-top:0%" hidden class="messageError  notifyinputModelName messageErrorinputModelName"></h3>
                                     </div>
                                 </div>
@@ -187,12 +188,12 @@
 
         popupWin.document.write('<tr><td>')
         popupWin.document.write('Sản phẩm: ');
-        popupWin.document.write($('#maHangHoa').find("option:selected").text());
+        popupWin.document.write($('#maHangHoa').val().trim());
         popupWin.document.write('</td>')
 
         popupWin.document.write('<td>')
         popupWin.document.write('Model: ');
-        popupWin.document.write($('#modelName').val().trim());
+        popupWin.document.write($('#modelName').find("option:selected").text());
         popupWin.document.write('</td></tr>')
 
         popupWin.document.write('<tr><td>')
@@ -239,7 +240,8 @@
                 TenKhachHang: $('#tenKhachHang').val().trim(),
                 SoDienThoai: $('#soDienThoai').val().trim(),
                 GhiChu: $('#ghiChu').val().trim(),
-                ModelName: $('#modelName').val().trim()
+                //ModelName: $('#modelName').val().trim()
+                ModelName: $('#modelName').find("option:selected").text(),
             }
 
             $(this).val('Please wait...');
