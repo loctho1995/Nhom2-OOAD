@@ -33,7 +33,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.soPhieuKiemKhoTuTang = _phieuKiemKhoBus.LoadSoPhieuKiemKho();
-            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
+            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoaKho(), "Value", "Text");
             return View();
         }
 
@@ -76,7 +76,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View(_phieuKiemKhoBus.SearchDanhSachPhieuKiemKho(searchString, trangthai, Convert.ToDateTime(dateFrom), Convert.ToDateTime(dateTo), HomeController.userName).ToPagedList(page, pageSize));
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int id)
         {
             return View();
         }
@@ -87,12 +87,14 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Deletes(int id)
         {
             PhieuKiemKho huyPhieuKiemKho = (PhieuKiemKho)await _phieuKiemKhoBus.Find(id);
+
             if (huyPhieuKiemKho == null)
             {
-                return HttpNotFound();
+                SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                return RedirectToAction("Edit");
             }
             else
             {
@@ -109,12 +111,13 @@ namespace WebBanHang.Areas.Admin.Controllers
             }
             return RedirectToAction("Index");
         }
-       
+
         public ActionResult ThongTinPhieuKiemKho(int id)
         {
             ViewBag.chiTietPhieuKiemKho = _phieuKiemKhoBus.thongTinChiTietPhieuKiemKhoTheoMa(id).ToList();
             ViewBag.phieuKiemKho = _phieuKiemKhoBus.thongTinPhieuKiemKhoTheoMa(id).ToList();
             return View();
         }
-    }
+
+    } 
 }

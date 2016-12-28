@@ -36,7 +36,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
             ViewBag.soPhieuNhapKhoTuTang = _phieuNhapKhoBus.LoadSoPhieuNhapKho();
-            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
+            ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoaKho(), "Value", "Text");
             return View();
         }
         public ActionResult Detail()
@@ -73,30 +73,36 @@ namespace WebBanHang.Areas.Admin.Controllers
             return new JsonResult { Data = new { status = status } };
         }
 
+        [HttpGet]
         public ActionResult Delete()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Deletes(int id)
         {
             PhieuNhap deletePhieuNhapKho = (PhieuNhap)await _phieuNhapKhoBus.Find(id);
 
             if (deletePhieuNhapKho == null)
             {
-                return HttpNotFound();
+                SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                return RedirectToAction("Edit");
             }
             else
             {
                 try
                 {
-                    await _phieuNhapKhoBus.HuyPhieuNhapKho(deletePhieuNhapKho);
-                    SetAlert("Đã hủy phiếu nhập kho thành công!!!", "success");
+                    if (ModelState.IsValid)
+                    {
+                        await _phieuNhapKhoBus.HuyPhieuNhapKho(deletePhieuNhapKho);
+                        SetAlert("Đã hủy phiếu nhập kho thành công!!!", "success");
+                    }
                 }
                 catch
                 {
                     SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                    return RedirectToAction("Edit");
                 }
             }
             return RedirectToAction("Index");

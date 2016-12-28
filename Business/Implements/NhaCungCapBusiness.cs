@@ -47,7 +47,7 @@ namespace Business.Implements
                                      select nhacungcap;
             }
 
-            return danhSachNhaCungCap.ToList();
+            return danhSachNhaCungCap.OrderByDescending(x => x.MaNhaCungCap).ToList();
         }
 
         public IList<NhaCungCap> LoadDanhSachNhaCungCapTheoMa(int maNhaCungCap)

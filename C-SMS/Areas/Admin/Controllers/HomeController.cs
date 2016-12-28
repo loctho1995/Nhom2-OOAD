@@ -45,7 +45,11 @@ namespace WebBanHang.Areas.Admin.Controllers
             ViewBag.tongTienDatHang = _phieuDatHangBus.TongTienDatHang();
 
             ViewBag.soDonDatHang = _phieuDatHangBus.SoDonDatHang();
+            ViewBag.soDonDatHangHuy = _phieuDatHangBus.SoDonDatHangHuy();
+
             ViewBag.soDonBanHang = _phieuBanHangBus.SoDonBanHang();
+            ViewBag.soDonBanHangHuy = _phieuBanHangBus.SoDonBanHangHuy();
+
             ViewBag.soDonDatDaXacNhan = _phieuDatHangBus.DonHangDaXacNhan();
             ViewBag.soDonDatDaThanhToan = _phieuDatHangBus.DonHangDaThanhToan();
 
@@ -113,7 +117,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             var ticket = new FormsAuthenticationTicket(1,
                                           userName,
                                           DateTime.Now,
-                                          DateTime.Now.AddHours(180),
+                                          DateTime.Now.AddHours(180000),
                                           false,
                                           aut,
                                           FormsAuthentication.FormsCookiePath);
@@ -165,6 +169,23 @@ namespace WebBanHang.Areas.Admin.Controllers
                 return RedirectToAction("UpdatePassword");
             }
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public JsonResult CheckPassword(string matkhaucu)
+        {
+            var isDuplicate = false;
+            var mk = Md5Encode.EncodePassword(matkhaucu).ToLower();
+
+            foreach (var user in _nhanVienBus.GetAllPassword(((NhanVienViewModel)(Session["Account"])).maNhanVien))
+            {
+                if (user.PassWord.ToLower() != mk)
+                    isDuplicate = true;
+            }
+
+            var jsonData = new { isDuplicate };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
         protected void SetAlert(string message, string type)

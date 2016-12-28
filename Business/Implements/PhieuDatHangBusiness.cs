@@ -19,6 +19,7 @@ namespace Business.Implements
         private readonly HangHoaRepository _hangHoaRepo;
 
         private NhanVienBusiness _nhanVienBus;
+        private HangHoaBusiness _hangHoaBus;
 
         public PhieuDatHangBusiness()
         {
@@ -28,6 +29,7 @@ namespace Business.Implements
             _nhanVienRepo = new NhanVienRepository(dbContext);
             _hangHoaRepo = new HangHoaRepository(dbContext);
             _nhanVienBus = new NhanVienBusiness();
+            _hangHoaBus = new HangHoaBusiness();
         }
 
         public int Insert(PhieuDatHang order)
@@ -39,6 +41,17 @@ namespace Business.Implements
 
         public async Task Update(PhieuDatHang entity)
         {
+            DateTime today = DateTime.Now;
+            int thang = today.Month;
+            int nam = today.Year;
+
+            foreach (var i in entity.ChiTetPhieuDatHangs)
+            {
+                //Sơn
+                _hangHoaBus.CapNhatHangHoaKhiTaoPhieuBanHang(i.MaHangHoa, i.SoLuong);
+                _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuBanHang(i.MaHangHoa, i.SoLuong, thang, nam);
+            }
+
             await _phieuDatHangRepo.EditAsync(entity);
         }
 
@@ -500,12 +513,23 @@ namespace Business.Implements
 
         public async Task DeletePhieuDatHang(object deleteModel)
         {
-            PhieuDatHang xoaPhieuKiemKho = (PhieuDatHang)deleteModel;
-            xoaPhieuKiemKho.TrangThai = false;
-            xoaPhieuKiemKho.NgayChinhSua = DateTime.Now;
+            PhieuDatHang xoaPhieuDatHang = (PhieuDatHang)deleteModel;
+            xoaPhieuDatHang.TrangThai = false;
+            xoaPhieuDatHang.NgayChinhSua = DateTime.Now;
 
-            await _phieuDatHangRepo.EditAsync(xoaPhieuKiemKho);
-            //await _phieuDatHangRepo.DeleteAsync(xoaPhieuKiemKho);
+            //Sơn
+            var phieuDatHang = dbContext.ChiTietPhieuDatHangs.Where(x => x.SoPhieuDatHang == xoaPhieuDatHang.SoPhieuDatHang);
+            int thang = dbContext.PhieuDatHangs.SingleOrDefault(x => x.SoPhieuDatHang == xoaPhieuDatHang.SoPhieuDatHang).NgayDat.Month;
+            int nam = dbContext.PhieuDatHangs.SingleOrDefault(x => x.SoPhieuDatHang == xoaPhieuDatHang.SoPhieuDatHang).NgayDat.Year;
+
+            foreach (var i in phieuDatHang)
+            {
+                _hangHoaBus.CapNhatHangHoaKhiXoaPhieuBanHang(i.MaHangHoa, i.SoLuong);
+                _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuBanHang(i.MaHangHoa, i.SoLuong, thang, nam);
+            }
+
+            await _phieuDatHangRepo.EditAsync(xoaPhieuDatHang);
+           
         }
 
         public int LaySoDonDatHang()
@@ -525,6 +549,7 @@ namespace Business.Implements
                        where phieudathang.NgayDat.Day.Equals(ngay)
                              && phieudathang.NgayDat.Month.Equals(thang)
                              && phieudathang.NgayDat.Year.Equals(nam)
+                             && phieudathang.TrangThai.Equals(true)
                        select new
                        {
                            TongTien = phieudathang.TongTien,
@@ -535,6 +560,7 @@ namespace Business.Implements
             return all;
         }
 
+       
         public object SoDonDatHang()
         {
             DateTime a = DateTime.Now;
@@ -547,6 +573,28 @@ namespace Business.Implements
                        where phieudathang.NgayDat.Day.Equals(ngay)
                              && phieudathang.NgayDat.Month.Equals(thang)
                              && phieudathang.NgayDat.Year.Equals(nam)
+                       select new
+                       {
+                           SoPhieuDatHang = phieudathang.SoPhieuDatHang,
+                       }).AsEnumerable().Select(x => new PhieuDatHangViewModel()
+                       {
+                           soPhieuDatHang = x.SoPhieuDatHang,
+                       }).Count();
+            return all;
+        }
+        public object SoDonDatHangHuy()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuDatHang> danhSachPhieuDatHang = _phieuDatHangRepo.GetAll();
+            var all = (from phieudathang in danhSachPhieuDatHang
+                       where phieudathang.NgayDat.Day.Equals(ngay)
+                             && phieudathang.NgayDat.Month.Equals(thang)
+                             && phieudathang.NgayDat.Year.Equals(nam) 
+                             && phieudathang.TrangThai.Equals(false)
                        select new
                        {
                            SoPhieuDatHang = phieudathang.SoPhieuDatHang,

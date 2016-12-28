@@ -11,13 +11,13 @@
                 <th class="text-center" style="width: 12%;">Số điện thoại</th>
                 <th class="text-center" style="width: 12%;">Email</th>
                 <th class="text-center" style="width: 12%;">Trạng thái</th>
-                <th class="text-center" style="width: 12%;">Hành động</th>
+                <th class="text-center" style="width: 10%;">Hành động</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr class="border-warning" style="text-align:center">
+                <tr class="border-warning">
 
                     <td>
                         <img src="~/Content/image/user/@item.avatar" width="50" height="50" class="img-circle img-bordered-theme">
@@ -30,17 +30,36 @@
                     @if (@item.trangThai == true)
                     {
                         <td>Đang hoạt động</td>
-                        <td class="text-center">
-                            <a href="@Url.Action("Detail", new { id = item.maNhanVien })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-                            <a href="@Url.Action("Edit", new { id = item.maNhanVien })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-pencil"></i> Sửa</a>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.maNhanVien })"><i class="fa fa-eye"></i> Xem</a></li>
+                                    <li><a href="@Url.Action("Edit", new { id = item.maNhanVien })"><i class="fa fa-edit"></i> Sửa</a></li>
+                                </ul>
+                            </div>
                         </td>
+
                     }
                     else
                     {
                         <td>Ngừng hoạt động</td>
-                        <td class="text-center">
-                            <a href="@Url.Action("Detail", new { id = item.maNhanVien })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        <td>
+                            <div class="input-group-btn">
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                                <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu pull-right" role="menu">
+                                    <li><a href="@Url.Action("Detail", new { id = item.maNhanVien })"><i class="fa fa-eye"></i> Xem</a></li>
+
+                                </ul>
+                            </div>
                         </td>
+
                     }
 
                 </tr>

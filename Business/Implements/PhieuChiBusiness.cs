@@ -67,7 +67,7 @@ namespace Business.Implements
             var pn = _phieuNhapKhoRepo.GetAll();
 
             var result = from n in pn
-                         where !list.Contains(n.SoPhieuNhap) && n.TrangThai.Equals(true)
+                         where !list.Contains(n.SoPhieuNhap) && n.TrangThai.Equals(true) 
                        select new SelectListItem
                        {
                            Text = n.SoPhieuNhap.ToString(),

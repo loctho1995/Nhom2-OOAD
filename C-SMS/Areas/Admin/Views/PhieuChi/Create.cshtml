@@ -56,7 +56,7 @@
                                     <label>Phiếu Nhập</label>
 
                                     @Html.DropDownList("maphieunhap", new SelectList(ViewBag.maPhieuNhap, "Value", "Text"), new { @id = "maphieunhap", @class = "form-control rounded" })
-
+                                    <h3 style="margin-top:0%" hidden class="error  notifyinputModelName messageErrorinputModelName">Model name đã tồn tại!</h3>
                                 </div>
 
                                 <div class="form-group">
@@ -78,6 +78,7 @@
         </div>
     </div>
 </section>
+<script src="~/Scripts/bootstrap.min.js"></script>
 <script type="text/javascript">
     function formatNumber(num) {
         return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
@@ -106,6 +107,9 @@
             $('#productItemError').hide();
             $('#basic-validate').submit();
         }
+    });
+    $("#maphieunhap").on('click keyup input propertychange paste change', function () {
+        $('#productItemError').hide();
     });
 </script>
 

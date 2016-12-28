@@ -39,7 +39,7 @@ namespace Business.Implements
                                             || loaihanghoa.PhanTramLoiNhuan.ToString().Contains(key))
                                       select loaihanghoa;
             }
-            return danhSachLoaiHangHoa.ToList();
+            return danhSachLoaiHangHoa.OrderByDescending(x => x.MaLoaiHangHoa).ToList();
         }
 
         public async Task Create(object model)

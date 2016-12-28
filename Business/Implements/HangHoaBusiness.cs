@@ -38,6 +38,19 @@ namespace Business.Implements
         public List<Object> LoadSanhSachHangHoa()
         {
             var list = (from hanghoa in dbContext.HangHoas
+                        where (hanghoa.TrangThai == true && hanghoa.SoLuongTon > 0)
+                        select new SelectListItem
+                        {
+                            Text = hanghoa.TenHangHoa,
+                            Value = hanghoa.MaHangHoa.ToString(),
+                        }).Distinct().ToList();
+
+            return new List<Object>(list);
+        }
+
+        public List<Object> LoadSanhSachHangHoaKho()
+        {
+            var list = (from hanghoa in dbContext.HangHoas
                         where (hanghoa.TrangThai == true)
                         select new SelectListItem
                         {
@@ -280,15 +293,27 @@ namespace Business.Implements
             return loaiHangHoa.FirstOrDefault(x => x.MaLoaiHangHoa.Equals(maLoaiHangHoa)).TenLoaiHangHoa;
         }
      
-
+        //Đúng rồi
         public bool CapNhatHangHoaKhiTaoPhieuNhap(int maHangHoa, int soLuongNhap, decimal giaNhap)
         {
             try
             {
+                var loinhuan = from loaihanghoa in dbContext.LoaiHangHoas
+                               join hanghoa in _hangHoaRepo.GetAll()
+                               on loaihanghoa.MaLoaiHangHoa equals hanghoa.MaLoaiHangHoa
+                               where hanghoa.MaHangHoa.Equals(maHangHoa)
+                               select new
+                               {
+                                    loaihanghoa.PhanTramLoiNhuan
+                               };
+                int phantramloinhuan = loinhuan.FirstOrDefault().PhanTramLoiNhuan;
+
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
+         
                 if (result != null)
                 {
                     result.GiaBan = Math.Round((result.SoLuongTon * result.GiaBan + soLuongNhap * giaNhap) / (result.SoLuongTon + soLuongNhap));
+                    result.GiaBan = Math.Round(result.GiaBan + result.GiaBan * phantramloinhuan / 100);
                     result.SoLuongTon += soLuongNhap;
                     dbContext.SaveChanges();
 
@@ -305,6 +330,18 @@ namespace Business.Implements
         {
             try
             {
+                var loinhuan = from loaihanghoa in dbContext.LoaiHangHoas
+                               join hanghoa in _hangHoaRepo.GetAll()
+                               on loaihanghoa.MaLoaiHangHoa equals hanghoa.MaLoaiHangHoa
+                               where hanghoa.MaHangHoa.Equals(maHangHoa)
+                               select new
+                               {
+                                   loaihanghoa.PhanTramLoiNhuan
+                               };
+                decimal phantramloinhuan = loinhuan.FirstOrDefault().PhanTramLoiNhuan;
+
+                decimal phantram = 1 + phantramloinhuan / 100;
+
                 var result = dbContext.ChiTietPhieuNhaps.FirstOrDefault(x => x.SoPhieuNhap == soPhieuNhap && x.MaHangHoa == maHangHoa);
 
                 var a = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
@@ -312,13 +349,22 @@ namespace Business.Implements
                 if (result != null)
                 {
                     int sl = a.SoLuongTon - soLuongNhap;
+                    if(sl != 0)
+                    {
+                        decimal giaChuaTinhLoiNhuan = Math.Round(a.GiaBan / phantram);
 
-                    a.GiaBan = Math.Round((a.GiaBan * a.SoLuongTon - soLuongNhap * giaNhap) / sl);
+                        a.GiaBan = Math.Round((giaChuaTinhLoiNhuan * (a.SoLuongTon) - giaNhap * soLuongNhap) / (a.SoLuongTon - soLuongNhap));
 
-                    a.SoLuongTon -= soLuongNhap;
+                        a.SoLuongTon = a.SoLuongTon - soLuongNhap;
 
-                    dbContext.SaveChanges();
-
+                        dbContext.SaveChanges();
+                    }
+                    else
+                    {
+                        a.GiaBan = 0;
+                        a.SoLuongTon = 0;
+                        dbContext.SaveChanges();
+                    }
                 }
                 return true;
             }
@@ -328,7 +374,7 @@ namespace Business.Implements
             }
         }
 
-        public bool CapNhatHangHoaKhiTaoPhieuXuat(int maHangHoa, int soLuongXuat)
+        public bool CapNhatHangHoaKhiTaoPhieuBanHang(int maHangHoa, int soLuongXuat)
         {
             try
             {
@@ -374,7 +420,7 @@ namespace Business.Implements
             }
         }
 
-        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuXuat(int maHangHoa, int soLuongXuat, int thang, int nam)
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuBanHang(int maHangHoa, int soLuongXuat, int thang, int nam)
         {
             try
             {
@@ -446,7 +492,7 @@ namespace Business.Implements
             }
         }
 
-        public bool CapNhatHangHoaKhiXoaPhieuXuat(int maHangHoa, int soLuongXuat)
+        public bool CapNhatHangHoaKhiXoaPhieuBanHang(int maHangHoa, int soLuongXuat)
         {
             try
             {
@@ -464,7 +510,7 @@ namespace Business.Implements
             }
         }
 
-        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuXuat(int maHangHoa, int soLuongXuat, int thang, int nam)
+        public bool CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuBanHang(int maHangHoa, int soLuongXuat, int thang, int nam)
         {
             try
             {
@@ -548,7 +594,7 @@ namespace Business.Implements
                        hinhAnh = x.HinhAnh,
                        tenLoaiHangHoa = x.TenLoaiHangHoa,
                        trangThai = x.TrangThai
-                   }).ToList();
+                   }).OrderByDescending(x => x.maHangHoa).ToList();
             return all;
         }
         public IEnumerable<HangHoaViewModel> LoadDanhSachHangHoa()
@@ -590,7 +636,7 @@ namespace Business.Implements
                        hinhAnh = x.HinhAnh,
                        trangThai = x.TrangThai,
                        tenLoaiHangHoa = x.TenLoaiHangHoa
-                   }).ToList();
+                   }).OrderByDescending(x => x.maHangHoa).ToList();
             return all;
 
         }

@@ -33,7 +33,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             try
             {
                 await _loaiHangHoaBus.Create(loaiHangHoa);
-                SetAlert("Đã thêm loại hàng hóa thành công!!!", "success");
+                SetAlert("Đã thêm loại sản phẩm thành công!!!", "success");
             }
             catch
             {
@@ -43,7 +43,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult DanhSachLoaiHangHoa(string searchString, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachLoaiHangHoa(string searchString, int page = 1, int pageSize = 10)
         {
             return View(_loaiHangHoaBus.LoadDanhSachLoaiHangHoa(searchString).ToPagedList(page, pageSize));
         }
@@ -73,7 +73,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 try
                 {
                     await _loaiHangHoaBus.Update(loaiHangHoa, edit);
-                    SetAlert("Đã cập nhật loại hàng hóa thành công!!!", "success");
+                    SetAlert("Đã cập nhật loại sản phẩm thành công!!!", "success");
 
                 }
                 catch

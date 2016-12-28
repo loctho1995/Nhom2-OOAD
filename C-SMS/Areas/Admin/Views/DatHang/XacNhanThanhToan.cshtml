@@ -14,7 +14,8 @@
                 <button class="btn btn-sm btn-success btn-xs btn-push" id="submit">
                     <i class="fa fa-check"></i> Xác nhận thanh toán phiếu đặt hàng
                 </button>
-            }
+                <input value="" type="hidden" id="id" name="id" class="form-control input-sm" />
+           }
         </div>
     </div>
     <div class="body-content animated fadeIn">
@@ -30,3 +31,10 @@
 </section>
 
 <script src="~/Scripts/bootstrap.min.js"></script>
+
+<script>
+    $("#submit").on('click keyup input propertychange paste change', function () {
+        var str1 = document.getElementById("soPhieuKiemKho").value;
+        $('#id').val(str1);
+    });
+</script>

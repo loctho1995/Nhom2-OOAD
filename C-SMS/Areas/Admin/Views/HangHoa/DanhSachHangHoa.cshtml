@@ -1,6 +1,7 @@
 ﻿@using PagedList.Mvc
 @model PagedList.IPagedList<Common.ViewModels.HangHoaViewModel>
 @using Common.Ultil
+@using Common.ViewModels
 
 <br />
 <table class="table table-bordered table-middle table-lilac">
@@ -12,17 +13,17 @@
             <th class="text-center" style="width: 20%;">
                 @Html.DisplayName("Sản phẩm")
             </th>
-            <th class="text-center" style="width: 6%;">
+            <th class="text-center" style="width: 7%;">
                 @Html.DisplayName("Số lượng tồn")
             </th>
             <th class="text-center" style="width: 4%;">
                 @Html.DisplayName("Giá bán")
             </th>
-            <th class="text-center" style="width: 4%;">
+            <th class="text-center" style="width: 5%;">
                 @Html.DisplayName("Giảm giá")
             </th>
-            <th class="text-center" style="width: 6%;">
-                @Html.DisplayName("Xuất Xứ")
+            <th class="text-center" style="width: 5%;">
+                @Html.DisplayName("Xuất xứ")
             </th>
             <th class="text-center" style="width: 6%;">
                 @Html.DisplayName("Bảo hành")
@@ -30,7 +31,7 @@
             <th class="text-center" style="width: 9%;">
                 @Html.DisplayName("Trạng thái")
             </th>
-            <th class="text-center" style="width: 9%;">
+            <th class="text-center" style="width: 5%;">
                 Hành động
             </th>
         </tr>
@@ -54,17 +55,37 @@
                 @if (@item.trangThai == true)
                 {
                     <td>Đang kinh doanh</td>
-                    <td >
-                        <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
 
-                        <a href="@Url.Action("Edit", new { id = item.maHangHoa })" class="btn btn-sm btn-primary btn-xs btn-push"><i class="fa fa-trash"></i> Sửa</a>
+                    <td>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })"><i class="fa fa-eye"></i> Xem</a></li>
+                                @if (((NhanVienViewModel)Session["Account"]).maChucVu == 3 || ((NhanVienViewModel)Session["Account"]).maChucVu == 5)
+                                {
+                                    <li><a href="@Url.Action("Edit", new { id = item.maHangHoa })"><i class="fa fa-edit"></i> Sửa</a></li>
+                                }
+                            </ul>
+                        </div>
                     </td>
                 }
                 else
                 {
                     <td>Ngừng kinh doanh</td>
                     <td>
-                        <a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" tabindex="-1">Thao tác</button>
+                            <button type="button" class="btn btn-lg btn btn-danger btn-xs btn-push pull-right" data-toggle="dropdown" tabindex="-1">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu pull-right" role="menu">
+                                <li><a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })"><i class="fa fa-eye"></i> Xem</a></li>
+
+                            </ul>
+                        </div>
                     </td>
                 }
             </tr>

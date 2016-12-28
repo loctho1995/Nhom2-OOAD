@@ -62,7 +62,7 @@
                         username: {
                             required: true,
                         },
-                        makhau: {
+                        password: {
                             required: true,
                         },
                         cmnd: {
@@ -189,7 +189,7 @@
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
-                        matkhau: {
+                        password: {
                             required: "Chưa nhập mật khẩu !",
                             remote: jQuery.validator.format("{0} is already in use")
                         },

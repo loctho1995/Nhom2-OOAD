@@ -22,5 +22,6 @@ namespace Common.ViewModels
         public string avatar { get; set; }    
         public string tenChucVu { get; set; }
 
+        public string checkImage { get; set; }
     }
 }

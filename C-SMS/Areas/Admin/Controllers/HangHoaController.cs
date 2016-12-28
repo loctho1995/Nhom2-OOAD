@@ -133,7 +133,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
             else
             {
-                HangHoa.hinhAnh = "default.png";
+                HangHoa.hinhAnh = HangHoa.checkImage;
             }
             //Get nhân viên muốn update (find by ID)
             HangHoa edit = (HangHoa)await _hangHoaKhoBus.Find(id);

@@ -259,5 +259,41 @@ namespace Business.Implements
             editEmployee.PassWord = PassWord;
             await _nhanVienRepo.EditAsync(editEmployee);
         }
+
+        public IEnumerable<NhanVien> GetAllUserName()
+        {
+            IQueryable<NhanVien> danhSachNhanVien = _nhanVienRepo.GetAll();
+            var all = (from nhanvien in danhSachNhanVien
+                       select new
+                       {
+                           UserName = nhanvien.UserName,
+                           SoDienThoai = nhanvien.SoDienThoai,
+                           Email = nhanvien.Email,
+                           CMDN = nhanvien.CMND,
+                       }).AsEnumerable().Select(x => new NhanVien()
+                       {
+                           UserName = x.UserName,
+                           SoDienThoai = x.SoDienThoai,
+                           Email = x.Email,
+                           CMND = x.CMDN,
+                       }).ToList();
+            return all;
+        }
+
+        public IEnumerable<NhanVien> GetAllPassword(int maNhanVien)
+        {
+            IQueryable<NhanVien> danhSachNhanVien= _nhanVienRepo.GetAll();
+            var all = (from nhanvien in danhSachNhanVien
+                       where nhanvien.MaNhanVien.Equals(maNhanVien)
+                       select new
+                       {
+                           PassWord = nhanvien.PassWord,
+                       }).AsEnumerable().Select(x => new NhanVien()
+                       {
+                           PassWord = x.PassWord,
+                       }).ToList();
+            return all;
+        }
+
     }
 }

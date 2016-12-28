@@ -86,7 +86,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> XacNhanNhanHang(int id)
+        public async Task<ActionResult> XacNhanNhanHangs(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
             updatePhieuDatHang.DaXacNhan = true;
@@ -97,7 +97,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> XacNhanThanhToan(int id)
+        public async Task<ActionResult> XacNhanThanhToans(int id)
         {
             var updatePhieuDatHang = _phieuDatHangBUS.LayPhieuDatHang(id);
             updatePhieuDatHang.DaThanhToan = true;
@@ -108,7 +108,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult>  Delete(int id)
+        public async Task<ActionResult>  Deletes(int id)
         {
             PhieuDatHang deletePhieu = (PhieuDatHang)await _phieuDatHangBUS.Find(id);
 
@@ -122,11 +122,11 @@ namespace WebBanHang.Areas.Admin.Controllers
                 {
                     await _phieuDatHangBUS.DeletePhieuDatHang(deletePhieu);
 
-                    SetAlert("Đã xóa phiếu đặt hàng thành công!!!", "success");
+                    SetAlert("Đã hủy phiếu đặt hàng thành công!!!", "success");
                 }
                 catch
                 {
-                    SetAlert("Đã xảy ra lỗi! Bạn hãy xóa lại", "error");
+                    SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
                 }
             }
 

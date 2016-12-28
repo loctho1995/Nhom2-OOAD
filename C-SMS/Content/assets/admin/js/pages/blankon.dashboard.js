@@ -289,8 +289,8 @@ var BlankonDashboard = function () {
                                 fade: true,
                                 speed: 'slow'
                             });
-                        }, 12000);
-                    }, 5000);
+                        }, 120000);
+                    }, 500000);
 
                     // Gritter notification intro 2
                     setTimeout(function () {
@@ -306,7 +306,7 @@ var BlankonDashboard = function () {
                             // (int | optional) the time you want it to be alive for before fading out
                             //time: ''
                         //});
-                    }, 8000);
+                    }, 800000);
 
                     // Set cookie intro
                     $.cookie('intro',1, {expires: 1});
@@ -494,8 +494,8 @@ var BlankonDashboard = function () {
                     logoutUrl: '/Home/Login',
                     redirUrl: '/Home/Login',
                     ignoreUserActivity: true,
-                    warnAfter: 50000,
-                    redirAfter: 65000
+                    warnAfter: 5000000,
+                    redirAfter: 6500000
                 });
             }
         },

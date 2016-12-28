@@ -11,7 +11,8 @@
 
     <div class="form-group">
         <label>Model</label>
-        <input type="text" name="modelname" value="@item.modelName" class="form-control rounded"  />
+        <input type="text" id="modelname" name="modelname" value="@item.modelName" class="form-control rounded" />
+        <h3 style="margin-top:0%" hidden class="error  notifyinputModelName messageErrorinputModelName">Model name đã tồn tại!</h3>
     </div>
 
     <div class="form-group">
@@ -31,7 +32,7 @@
 
     <div class="form-group">
         <label>Đơn vị tính</label>
-        <input type="text" value="@item.donViTinh" class="form-control rounded"  />
+        <input type="text" value="@item.donViTinh" name="donViTinh" class="form-control rounded"  />
     </div>
 
     <div class="form-group">
@@ -42,6 +43,7 @@
     <div class="form-group">
         <label>Thời gian bảo hành (Tháng)</label>
         <input type="text" name="thoigianbaohanh" value="@item.thoiGianBaoHanh" class="form-control rounded"  />
+        <input type="hidden" id="checkmodelname" name="checkmodelname" class="form-control rounded" />
     </div>
 
     <div class="form-group">
@@ -49,9 +51,15 @@
         @Html.DropDownList("maloaihanghoa", new SelectList(ViewBag.loaihanghoa, "Value", "Text"), new { @class = "form-control rounded" })
     </div>
 
-
+    <input type="hidden" id="checkImage" name="checkImage" value="@item.hinhAnh" class="form-control rounded" />
     <div class="form-group">
         <label>Hình Ảnh</label>
+        <p id="error1" style="display:none; color:#FF0000;">
+            Định dạng ảnh không hợp lệ! Định dạng hình ảnh phải là: JPG, JPEG, PNG.
+        </p>
+        <p id="error2" style="display:none; color:#FF0000;">
+            Kích thước file hình phải nhỏ hơn 1MB.
+        </p>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <div class="fileinput-preview thumbnail" name="hinhanh" data-trigger="fileinput" style="width: 200px; height: 150px;">
                 <img src="~/Content/client/product/@item.hinhAnh" style="width: 200px; height: 150px;">
@@ -59,10 +67,10 @@
             <div>
                 <span class="btn btn-info btn-file">
                     <span class="fileinput-new">Chọn hình ảnh</span><span class="fileinput-exists">Thay đổi</span>
-                    <input type="file" name="hinhanh" id="fileUpload">
+                    <input type="file" name="hinhanh" id="fileUpload" accept="image/*">
                     <input type="hidden" id="file" name="hinhanh" class="form-control" style="margin-left:5px">
                 </span>
-                <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">Xóa</a>
+                <a href="#" class="btn btn-danger fileinput-exists" id="xoa" data-dismiss="fileinput">Xóa</a>
             </div>
         </div>
     </div>

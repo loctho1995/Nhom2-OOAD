@@ -11,6 +11,7 @@ using Common.Models;
 using System.Net;
 using System.IO;
 using System.Web.Helpers;
+using Common.Ultil;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
@@ -31,6 +32,30 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpGet]
+        public JsonResult CheckUserName(string username, string email, string sodienthoai, string cmnd)
+        {
+            var isDuplicate = false;
+
+            foreach (var user in _nhanVienKhoBus.GetAllUserName())
+            {
+                if (user.UserName == username)
+                    isDuplicate = true;
+                if (user.Email == email)
+                    isDuplicate = true;
+                if (user.SoDienThoai == sodienthoai)
+                    isDuplicate = true;
+                if (user.CMND == cmnd)
+                    isDuplicate = true;
+             
+            }
+
+            var jsonData = new { isDuplicate };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
+
+       
         public ActionResult DanhSachNhanVien(string searchString, string trangthai, string chucvu , int page = 1, int pageSize = 10)
         {
             if (!string.IsNullOrEmpty(searchString) || !string.IsNullOrEmpty(chucvu))
@@ -84,6 +109,15 @@ namespace WebBanHang.Areas.Admin.Controllers
 
             try
             {
+                string content = System.IO.File.ReadAllText(Server.MapPath("~/Content/client/template/themnhanvien.html"));
+
+                content = content.Replace("{{TenNhanVien}}", nhanVien.tenNhanVien);
+                content = content.Replace("{{Username}}", nhanVien.userName);
+                content = content.Replace("{{Password}}", nhanVien.password);
+
+                String subject = "Thông tin từ cửa hàng BK Computer!!!";
+                SentMail.Sent(subject, nhanVien.email, "csms.project.fpt@gmail.com", "T12345678", content);
+
                 await _nhanVienKhoBus.Create(nhanVien);
                 SetAlert("Đã thêm nhân viên thành công!!!", "success");
             }
@@ -122,7 +156,8 @@ namespace WebBanHang.Areas.Admin.Controllers
                 }
             else
             {
-                nhanVien.avatar = "default.png";
+               // nhanVien.avatar = "default.png";
+                nhanVien.avatar = nhanVien.checkImage;
             }
              //Get nhân viên muốn update (find by ID)
             NhanVien edit = (NhanVien)await _nhanVienKhoBus.Find(id);

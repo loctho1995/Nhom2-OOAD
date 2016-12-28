@@ -27,8 +27,7 @@
     <link href="~/Content/assets/global/plugins/bower_components/horizontal-chart/build/css/horizBarChart.css" rel="stylesheet">
 </head>
 <!--/ END HEAD -->
-<!--
--->
+
 <body class="page-sound">
     @if (Session["Account"] == null)
     {
@@ -91,7 +90,7 @@
                             </div>
                             <span class="text-uppercase text-block text-center">Số đơn đặt hàng</span>
                             <h3 class="text-strong text-center"><span class="counter">@ViewBag.soDonDatHang</span></h3>
-
+                            
                             <div class="meta-stat">
                                 <span class="pull-left text-strong" style="font-size:120%">Xác nhận: <span class="counter"> @ViewBag.soDonDatDaXacNhan</span></span>
                                 <span class="pull-right text-strong" style="font-size:120%">Thanh toán: <span class="counter"> @ViewBag.soDonDatDaThanhToan</span></span>
@@ -108,7 +107,8 @@
                             <h3 class="text-strong text-center"><span class="counter">@number.FormatNumbers(@ViewBag.tongTienBanHang.ToString())</span></h3>
                            
                             <div class="meta-stat">
-                                <span class=" text-block text-center" style="font-size:120%; font-weight:bold">Tổng số phiếu: <span class="counter"> @ViewBag.soDonBanHang</span> </span>
+                                <span class="pull-left text-strong" style="font-size:120%; font-weight:bold">Tổng số phiếu: <span class="counter"> @ViewBag.soDonBanHang</span> </span>
+                                <span class="pull-right text-strong" style="font-size:120%; font-weight:bold">Hủy: <span class="counter"> @ViewBag.soDonBanHangHuy</span> </span>
                                 <span class="clearfix"></span>
                             </div>
                         </div>
@@ -121,7 +121,8 @@
                             <span class="text-uppercase text-block text-center">Tiền bán online</span>
                             <h3 class="text-strong text-center"><span class="counter">@number.FormatNumbers(@ViewBag.tongTienDatHang.ToString())</span></h3>
                             <div class="meta-stat">
-                                <span class=" text-block text-center" style="font-size:120%; font-weight:bold">Tổng số phiếu: <span class="counter"> @ViewBag.soDonDatHang</span> </span>
+                                <span class="pull-left text-strong" style="font-size:120%; font-weight:bold">Tổng số phiếu: <span class="counter"> @ViewBag.soDonDatHang</span> </span>
+                                <span class="pull-right text-strong" style="font-size:120%; font-weight:bold">Hủy: <span class="counter"> @ViewBag.soDonDatHangHuy</span> </span>
                                 <span class="clearfix"></span>
                             </div>
                         </div>

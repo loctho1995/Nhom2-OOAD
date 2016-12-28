@@ -46,8 +46,9 @@
                             <table class="table table-responsive">
                                 <tr>
                                     <td>Sản Phẩm</td>
+                                    <td>Số Lượng Tồn</td>
+                                    <td>Số Lượng Xuất</td>
                                     <td>Đơn Giá</td>
-                                    <td>Số Lượng</td>
                                     <td>Thành Tiền</td>
                                     <td></td>
                                 </tr>
@@ -57,13 +58,15 @@
                                         <input id="tenHangHoa" disabled="disabled" type="text" class="form-control rounded" />
                                     </td>
                                     <td>
-                                        <input type="hidden" id="donViTinh" class="form-control rounded" disabled="disabled" />
-                                        <input type="text" id="donGia" class="form-control rounded" disabled="disabled" />
+                                        <input type="text" id="soLuongTon" class="form-control rounded" disabled="disabled" />
                                     </td>
-
                                     <td>
                                         <input onkeypress="return checkNumber(event, this)" maxlength="3" id="soLuong" type="text" class="form-control rounded" />
                                         <h3 style="margin-top:-1%" hidden class="messageError  notifyinputQuantity messageErrorinputQuantity">Nhập số lượng!</h3>
+                                    </td>
+                                    <td>
+                                        <input type="hidden" id="donViTinh" class="form-control rounded" disabled="disabled" />
+                                        <input type="text" id="donGia" class="form-control rounded" disabled="disabled" />
                                     </td>
 
                                     <td>

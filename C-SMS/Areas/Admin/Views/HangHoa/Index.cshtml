@@ -4,16 +4,19 @@
     ViewBag.Title = "Danh Sách Sản Phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
-
+@using Common.ViewModels
 <section id="page-content">
     <div class="header-content">
         <h2><i class="fa fa-list-alt"></i>Sản Phẩm</h2>
         <div class="breadcrumb-wrapper hidden-xs">
-            <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "HangHoa") + "'"); ">
-                <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới hàng hóa
-            </button>
-
+            @if (((NhanVienViewModel)Session["Account"]).maChucVu == 3 || ((NhanVienViewModel)Session["Account"]).maChucVu == 5)
+            {
+                <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "HangHoa") + "'"); ">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Tạo mới hàng hóa
+                </button>
+            }
+            
         </div>
     </div>
 
@@ -31,13 +34,25 @@
                     <div class="panel-body">
                         <div class="form-body">
                             @using (Ajax.BeginForm("DanhSachHangHoa", "HangHoa", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                           
                             {
                                 <div class="form-group">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label>Trạng thái</label>
-                                        @Html.DropDownList("trangthai", new SelectList(ViewBag.data, "Value", "Text"), new { @class = "form-control rounded" })
+                                        <div class="input-group">
+                                            @Html.DropDownList("trangthai", new SelectList(ViewBag.data, "Value", "Text"), new { @class = "form-control rounded" })
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-default" id="submit" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6">
+                                   
+                                </div>
+                            }
+                            @using (Ajax.BeginForm("DanhSachHangHoa", "HangHoa", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "list", HttpMethod = "Get" }, new { id = "filter_div" }))
+                            {
+                                <div class="form-group">
+                                    <div class="col-md-12">
                                         <label>Tìm Kiếm</label>
                                         <div class="input-group">
                                             @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm" })
@@ -53,7 +68,7 @@
                                 @{Html.RenderAction("DanhSachHangHoa", "HangHoa");}
                             </div>
                         </div><!-- /.form-body -->
-
+                       
                     </div><!-- /.panel-body -->
                 </div><!-- /.panel -->
                 <!--/ End input fields - basic form-->

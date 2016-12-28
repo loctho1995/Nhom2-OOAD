@@ -37,7 +37,7 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Deletes(int id)
         {
             PhieuBanHang deletePhieuBanHang = (PhieuBanHang)await _phieuBanHangBUS.Find(id);
 
@@ -56,6 +56,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 catch
                 {
                     SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                    return RedirectToAction("Delete");
                 }
             }
             return RedirectToAction("Index");
@@ -89,7 +90,9 @@ namespace WebBanHang.Areas.Admin.Controllers
         public ActionResult Create()
         {
             ViewBag.maNhanVien = _nhanVienBus.LoadMaNhanVien(HomeController.userName);
+
             ViewBag.tenNhanVien = _nhanVienBus.LoadTenNhanVien(HomeController.userName);
+
             ViewBag.danhSachHangHoa = new SelectList(_hangHoaBus.LoadSanhSachHangHoa(), "Value", "Text");
             ViewBag.soPhieuBanHang = _phieuBanHangBUS.LoadSoPhieuBanHang();
 

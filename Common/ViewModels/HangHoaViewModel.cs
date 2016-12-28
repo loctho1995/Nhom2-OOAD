@@ -29,5 +29,7 @@ namespace Common.ViewModels
         public string tenLoaiHangHoa { get; set; }
 
         public bool trangThai { get; set; }
+
+        public string checkImage { get; set; }
     }
 }

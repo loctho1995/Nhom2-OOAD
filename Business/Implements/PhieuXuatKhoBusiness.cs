@@ -405,15 +405,15 @@ namespace Business.Implements
                 NgayChinhSua = DateTime.Now,
             };
 
-            DateTime today = DateTime.Now;
-            int thang = today.Month;
-            int nam = today.Year;
+            //DateTime today = DateTime.Now;
+            //int thang = today.Month;
+            //int nam = today.Year;
 
             foreach (var i in O.chiTietPhieuXuatKho)
             {
                 phieuXuat.ChiTietPhieuXuatKhos.Add(i);
-                _hangHoaBus.CapNhatHangHoaKhiTaoPhieuXuat(i.MaHangHoa, i.SoLuong);
-                _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuXuat(i.MaHangHoa, i.SoLuong, thang, nam);
+                //_hangHoaBus.CapNhatHangHoaKhiTaoPhieuXuat(i.MaHangHoa, i.SoLuong);
+                //_hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuXuat(i.MaHangHoa, i.SoLuong, thang, nam);
             }
             await _phieuXuatKhoRepo.InsertAsync(phieuXuat);
         }
@@ -426,15 +426,15 @@ namespace Business.Implements
                 editPhieuXuatKho.TrangThai = false;
                 await _phieuXuatKhoRepo.EditAsync(editPhieuXuatKho);
 
-                var phieuXuatKho = dbContext.ChiTietPhieuXuatKhoes.Where(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho);
-                int thang = dbContext.PhieuXuatKhoes.SingleOrDefault(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho).NgayXuat.Month;
-                int nam = dbContext.PhieuXuatKhoes.SingleOrDefault(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho).NgayXuat.Year;
+                //var phieuXuatKho = dbContext.ChiTietPhieuXuatKhoes.Where(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho);
+                //int thang = dbContext.PhieuXuatKhoes.SingleOrDefault(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho).NgayXuat.Month;
+                //int nam = dbContext.PhieuXuatKhoes.SingleOrDefault(x => x.SoPhieuXuatKho == editPhieuXuatKho.SoPhieuXuatKho).NgayXuat.Year;
 
-                foreach (var i in phieuXuatKho)
-                {
-                    _hangHoaBus.CapNhatHangHoaKhiXoaPhieuXuat(i.MaHangHoa, i.SoLuong);
-                    _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuXuat(i.MaHangHoa, i.SoLuong, thang, nam);
-                }
+                //foreach (var i in phieuXuatKho)
+                //{
+                //    _hangHoaBus.CapNhatHangHoaKhiXoaPhieuXuat(i.MaHangHoa, i.SoLuong);
+                //    _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuXuat(i.MaHangHoa, i.SoLuong, thang, nam);
+                //}
                
             }
             catch (Exception)

@@ -5,7 +5,7 @@
 <table class="table table-bordered table-middle table-lilac">
     <thead>
         <tr>
-            <th class="text-center">
+            <th class="text-center" >
                 @Html.DisplayName("Số Phiếu Kiểm Kho")
             </th>
             <th class="text-center">
@@ -29,7 +29,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr style="text-align:center" class="border-warning">
+            <tr style="text-align:center" class="border-warning" >
                 <td>@item.soPhieuKiemKho</td>
                 <td>@item.ngayKiemKho.ToString("dd/MM/yyyy")</td>
                 <td>@item.tenNhanVien</td>

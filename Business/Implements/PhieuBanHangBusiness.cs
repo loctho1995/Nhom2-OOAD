@@ -16,6 +16,7 @@ namespace Business.Implements
         //private readonly ChiTietPhieuBanHang _chiTietPhieuKiemKhoRepo;
         private readonly NhanVienRepository _nhanVienRepo;
         private readonly HangHoaRepository _hangHoaRepo;
+        private HangHoaBusiness _hangHoaBus;
 
         private NhanVienBusiness _nhanVienBus;
 
@@ -26,6 +27,7 @@ namespace Business.Implements
             _nhanVienRepo = new NhanVienRepository(dbContext);
             _hangHoaRepo = new HangHoaRepository(dbContext);           
             _nhanVienBus = new NhanVienBusiness();
+            _hangHoaBus = new HangHoaBusiness();
         }
 
         public async Task Create(PhieuBanHangViewModel obj)
@@ -45,9 +47,16 @@ namespace Business.Implements
 
             order.ChiTetPhieuBanHangs = new List<ChiTietPhieuBanHang>();
 
+            DateTime today = DateTime.Now;
+            int thang = today.Month;
+            int nam = today.Year;
+
             foreach(var i in obj.chiTietPhieuBanHang)
             {
                 order.ChiTetPhieuBanHangs.Add(i);
+                //Sơn
+                _hangHoaBus.CapNhatHangHoaKhiTaoPhieuBanHang(i.MaHangHoa, i.SoLuong);
+                _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiTaoPhieuBanHang(i.MaHangHoa, i.SoLuong, thang, nam);
             }
 
             await _phieuBanHangRepo.InsertAsync(order);
@@ -355,6 +364,17 @@ namespace Business.Implements
             xoaPhieuBanHang.NgayChinhSua = DateTime.Now;
             xoaPhieuBanHang.TrangThai = false;
 
+            //Sơn
+            var phieuBanHang = dbContext.ChiTietPhieuBanHangs.Where(x => x.SoPhieuBanHang == xoaPhieuBanHang.SoPhieuBanHang);
+            int thang = dbContext.PhieuBanHangs.SingleOrDefault(x => x.SoPhieuBanHang == xoaPhieuBanHang.SoPhieuBanHang).NgayBan.Month;
+            int nam = dbContext.PhieuBanHangs.SingleOrDefault(x => x.SoPhieuBanHang == xoaPhieuBanHang.SoPhieuBanHang).NgayBan.Year;
+
+            foreach (var i in phieuBanHang)
+            {
+                _hangHoaBus.CapNhatHangHoaKhiXoaPhieuBanHang(i.MaHangHoa, i.SoLuong);
+                _hangHoaBus.CapNhatHangHoaVaoBaoCaoTonKhoKhiXoaPhieuBanHang(i.MaHangHoa, i.SoLuong, thang, nam);
+            }
+
             await _phieuBanHangRepo.EditAsync(xoaPhieuBanHang);
             //await _phieuBanHangRepo.DeleteAsync(xoaPhieuBanHang);
         }
@@ -447,6 +467,7 @@ namespace Business.Implements
                   where phieubanhang.NgayBan.Day.Equals(ngay) 
                         && phieubanhang.NgayBan.Month.Equals(thang) 
                         && phieubanhang.NgayBan.Year.Equals(nam)
+                        && phieubanhang.TrangThai.Equals(true)
                    select new
                    {
                        TongTien = phieubanhang.TongTien,
@@ -469,6 +490,29 @@ namespace Business.Implements
                        where phieubanhang.NgayBan.Day.Equals(ngay)
                              && phieubanhang.NgayBan.Month.Equals(thang)
                              && phieubanhang.NgayBan.Year.Equals(nam)
+                       select new
+                       {
+                           SoPhieuBanHang = phieubanhang.SoPhieuBanHang,
+                       }).AsEnumerable().Select(x => new PhieuBanHangViewModel()
+                       {
+                           soPhieuBanHang = x.SoPhieuBanHang,
+                       }).Count();
+            return all;
+        }
+
+        public object SoDonBanHangHuy()
+        {
+            DateTime a = DateTime.Now;
+            int ngay = a.Day;
+            int thang = a.Month;
+            int nam = a.Year;
+
+            IQueryable<PhieuBanHang> danhSachPhieuBanHang = _phieuBanHangRepo.GetAll();
+            var all = (from phieubanhang in danhSachPhieuBanHang
+                       where phieubanhang.NgayBan.Day.Equals(ngay)
+                             && phieubanhang.NgayBan.Month.Equals(thang)
+                             && phieubanhang.NgayBan.Year.Equals(nam)
+                             && phieubanhang.TrangThai.Equals(false)
                        select new
                        {
                            SoPhieuBanHang = phieubanhang.SoPhieuBanHang,

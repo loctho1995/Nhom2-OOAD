@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 
 namespace WebBanHang.Areas.Admin.Controllers
 {
-    public class BaoCaoPhieuChiController : Controller
+    public class BaoCaoPhieuChiController : BaseController
     {
         //
         // GET: /Admin/BaoCaoPhieuChi/
@@ -42,32 +42,50 @@ namespace WebBanHang.Areas.Admin.Controllers
 
         public ActionResult XuatFilePDF()
         {
-            ReportDocument rd = new ReportDocument();
-            rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoPhieuChiRP.rpt")));
-            rd.SetDataSource(_baoCaoPhieuChiBUS.ListView(HomeController.userName, _dateFrom, _dateTo).ToList());
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
-            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-            stream.Seek(0, SeekOrigin.Begin);
-            return File(stream, "application/pdf", "BaoCaoPhieuChiRP.pdf");
+            try
+            {
+                ReportDocument rd = new ReportDocument();
+                rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoPhieuChiRP.rpt")));
+                rd.SetDataSource(_baoCaoPhieuChiBUS.ListView(HomeController.userName, _dateFrom, _dateTo).ToList());
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+                rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/pdf", "BaoCaoPhieuChiRP.pdf");
+            }
+            catch
+            {
+                SetAlert("Dữ liệu không có! Bạn hãy lọc lại dữ liệu", "error");
+                return RedirectToAction("Index");
+            }
+           
         }
 
         public ActionResult XuatFileEXE()
         {
-            ReportDocument rd = new ReportDocument();
-            rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoPhieuChiRP.rpt")));
-            rd.SetDataSource(_baoCaoPhieuChiBUS.ListView(HomeController.userName, _dateFrom, _dateTo).ToList());
-            Response.Buffer = false;
-            Response.ClearContent();
-            Response.ClearHeaders();
-            rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
-            rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
-            Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.ExcelWorkbook);
-            stream.Seek(0, SeekOrigin.Begin);
-            return File(stream, "application/xls", "BaoCaoPhieuChiRP.xls");
+            try
+            {
+                ReportDocument rd = new ReportDocument();
+                rd.Load(Path.Combine(Server.MapPath("~/Reports/BaoCaoPhieuChiRP.rpt")));
+                rd.SetDataSource(_baoCaoPhieuChiBUS.ListView(HomeController.userName, _dateFrom, _dateTo).ToList());
+                Response.Buffer = false;
+                Response.ClearContent();
+                Response.ClearHeaders();
+                rd.SetParameterValue("txtDateFrom", _dateFrom.ToString("dd/MM/yyyy"));
+                rd.SetParameterValue("txtDateTo", _dateTo.ToString("dd/MM/yyyy"));
+                Stream stream = rd.ExportToStream(CrystalDecisions.Shared.ExportFormatType.ExcelWorkbook);
+                stream.Seek(0, SeekOrigin.Begin);
+                return File(stream, "application/xls", "BaoCaoPhieuChiRP.xls");
+            }
+            catch
+            {
+                SetAlert("Dữ liệu không có! Bạn hãy lọc lại dữ liệu", "error");
+                return RedirectToAction("Index");
+            }
+           
         }
     }
 }

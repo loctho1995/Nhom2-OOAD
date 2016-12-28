@@ -98,13 +98,14 @@ namespace WebBanHang.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Deletes(int id)
         {
             PhieuXuatKho deletePhieuXuatKho = (PhieuXuatKho)await _phieuXuatKhoBus.Find(id);
 
             if (deletePhieuXuatKho == null)
             {
-                return HttpNotFound();
+                SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                return RedirectToAction("Edit");
             }
             else
             {
@@ -116,6 +117,7 @@ namespace WebBanHang.Areas.Admin.Controllers
                 catch
                 {
                     SetAlert("Đã xảy ra lỗi! Bạn hãy hủy lại", "error");
+                    return RedirectToAction("Edit");
                 }
             }
             return RedirectToAction("Index");

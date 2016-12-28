@@ -55,6 +55,7 @@
                     $('#donGia').val('');
                     $('#soLuong').val('');
                     $('#thanhTien').val('');
+                    $('#soLuongTon').val('');
 
                     //populate inventory ballot detail
                     GeneratedItemsTable();
@@ -78,6 +79,7 @@
                 $('#donGia').val('');
                 $('#soLuong').val('');
                 $('#thanhTien').val('');
+                $('#soLuongTon').val('');
 
                 //populate inventory ballot detail
                 GeneratedItemsTable();
@@ -292,6 +294,7 @@ $(document).ready(function () {
                             $.each(data, function (index, row) {
                                 $("#tenHangHoa").val(row.TenHangHoa);
                                 $("#donGia").val(formatNumber(row.GiaBan));
+                                $("#soLuongTon").val(formatNumber(row.SoLuongTon));
                             });
                         }
                     });
@@ -322,6 +325,16 @@ function Multiplica() {
         
         if (!isNaN(result)) {
             document.getElementById('thanhTien').value = formatNumber(result);
+        }
+
+        var quantityInventory = document.getElementById('soLuongTon').value;
+        if (quantity > (parseInt(quantityInventory))) {
+            document.getElementById('soLuong').value = quantityInventory;
+
+            var result_ = parseInt(unitPrice) * parseInt(quantity);
+            if (!isNaN(result_)) {
+                document.getElementById('thanhTien').value = formatNumber(result_);
+            }
         }
     }
 }

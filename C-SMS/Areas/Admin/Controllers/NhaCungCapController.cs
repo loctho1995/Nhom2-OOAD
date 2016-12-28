@@ -26,7 +26,7 @@ namespace WebBanHang.Areas.Admin.Controllers
             return View();
         }
 
-        public ActionResult DanhSachNhaCungCap(string searchString, int page = 1, int pageSize = 5)
+        public ActionResult DanhSachNhaCungCap(string searchString, int page = 1, int pageSize = 10)
         {
             return View(_nhaCungCapBus.SearchDanhSachNhaCungCap(searchString).ToPagedList(page, pageSize));
         }
