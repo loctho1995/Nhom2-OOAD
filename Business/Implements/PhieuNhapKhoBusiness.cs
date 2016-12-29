@@ -95,7 +95,6 @@ namespace Business.Implements
                            on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
                            where (nhanvien.UserName.Equals(userName) && (
                                      phieunhap.SoPhieuNhap.ToString().Contains(key)
-                                  || nhanvien.TenNhanvien.Contains(key)
                                   || nhacungcap.TenNhaCungCap.Contains(key)))
                            select new
                            {
@@ -219,7 +218,6 @@ namespace Business.Implements
                                      join nhacungcap in _nhaCungCapRepo.GetAll()
                                      on phieunhap.MaNhaCungCap equals nhacungcap.MaNhaCungCap
                                      where (phieunhap.SoPhieuNhap.ToString().Contains(key)
-                                            || nhanvien.TenNhanvien.Contains(key)
                                             || nhacungcap.TenNhaCungCap.Contains(key))
                                      select new
                                      {

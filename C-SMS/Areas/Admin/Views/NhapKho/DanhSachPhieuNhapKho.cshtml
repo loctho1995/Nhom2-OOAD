@@ -47,22 +47,24 @@
                 @if (@item.trangThai == true)
                 {
                     <td>Hoàn thành</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+
+                        @if (@item.ngayNhapKho.ToString("dd/MM/yyyy") == @DateTime.Now.ToString("dd/MM/yyyy"))
+                        {
+                            <a href="@Url.Action("Delete", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
+
+                        }
+
+                    </td>
                 }
                 else
                 {
                     <td>Đã hủy</td>
+                    <td>
+                        <a href="@Url.Action("Detail", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
+                    </td>
                 }
-                <td>
-                    <a href="@Url.Action("Detail", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-success btn-xs btn-push"><i class="fa fa-eye"></i> Xem</a>
-
-                    @if (@item.ngayNhapKho.ToString("dd/MM/yyyy") == @DateTime.Now.ToString("dd/MM/yyyy"))
-                    {
-                        <a href="@Url.Action("Delete", new { id = item.soPhieuNhapKho })" class="btn btn-sm btn-danger btn-xs btn-push"><i class="fa fa-trash"></i> Hủy</a>
-
-                    }
-
-                </td>
-                
             </tr>
         }
     </tbody>

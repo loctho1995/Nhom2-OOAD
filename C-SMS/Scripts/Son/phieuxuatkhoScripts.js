@@ -13,7 +13,11 @@
 
         var errorQuantity = 0;
         errorQuantity = CheckQuantity(errorQuantity);
-        var error = errorQuantity;
+
+        var errorQuantity1 = 0;
+        errorQuantity1 = CheckQuantity1(errorQuantity1);
+
+        var error = errorQuantity + errorQuantity1;
 
         if (isValidItem == true && error == 0) {
 
@@ -362,6 +366,7 @@ function Multiplica() {
 $(document).ready(function () {
     $("#soLuongXuat").on('keyup input propertychange paste change', function () {
         CheckQuantity();
+        CheckQuantity1();
     });
 });
 
@@ -376,6 +381,23 @@ function CheckQuantity(error) {
     }
     else {
         $(".notifyinputQuantity").addClass("hidden");
+        $("#soLuongXuat").removeClass("error");
+    }
+    $("#soLuongXuat").blur(function () {
+        $("#soLuongXuat").val($("#soLuongXuat").val().trim());
+    });
+    return error;
+}
+
+function CheckQuantity1(error) {
+    if (($('#soLuongXuat').val().trim() == '0') || ($('#soLuongXuat').val().trim() == '00') || ($('#soLuongXuat').val().trim() == '000') || ($('#soLuongXuat').val().trim() == '0000')) {
+        $(".messageErrorinputQuantity1").text("Nhập số lượng lớn hơn 0!");
+        $(".notifyinputQuantity1").slideDown(250).removeClass("hidden");
+        $("#soLuongXuat").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputQuantity1").addClass("hidden");
         $("#soLuongXuat").removeClass("error");
     }
     $("#soLuongXuat").blur(function () {

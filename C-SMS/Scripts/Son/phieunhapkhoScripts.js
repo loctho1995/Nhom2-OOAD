@@ -15,7 +15,10 @@
         var errorPrice = 0;
         errorPrice = CheckPrice(errorPrice);
         errorQuantity = CheckQuantity(errorQuantity);
-        var error = errorQuantity + errorPrice;
+
+        var errorQuantity1 = 0;
+        errorQuantity1 = CheckQuantity1(errorQuantity1);
+        var error = errorQuantity + errorPrice + errorQuantity1 ;
   
         if (isValidItem == true && error == 0) {
 
@@ -400,6 +403,7 @@ function Multiplica() {
 $(document).ready(function () {
     $("#soLuongNhap").on('keyup input propertychange paste change', function () {
         CheckQuantity();
+        CheckQuantity1();
     });
 
     $("#giaNhap").on('keyup input propertychange paste change', function () {
@@ -409,7 +413,7 @@ $(document).ready(function () {
 
 // check quantity input
 function CheckQuantity(error) {
-    if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim()))) {
+    if (!($('#soLuongNhap').val().trim() != '' && !isNaN($('#soLuongNhap').val().trim())) ) {
         $(".messageErrorinputQuantity").text("Nhập số lượng!");
         $(".notifyinputQuantity").slideDown(250).removeClass("hidden");
         $("#soLuongNhap").addClass("error");
@@ -426,7 +430,7 @@ function CheckQuantity(error) {
 }
 
 function CheckPrice(error) {
-    if (!($('#giaNhap').val().trim() != '' && !isNaN($('#giaNhap').val().trim()))) {
+    if (!($('#giaNhap').val().trim() != '' && !isNaN($('#giaNhap').val().trim())) ) {
         $(".messageErrorinputPrice").text("Nhập giá!");
         $(".notifyinputPrice").slideDown(250).removeClass("hidden");
         $("#giaNhap").addClass("error");
@@ -438,6 +442,23 @@ function CheckPrice(error) {
     }
     $("#giaNhap").blur(function () {
         $("#giaNhap").val($("#giaNhap").val().trim());
+    });
+    return error;
+}
+
+function CheckQuantity1(error) {
+    if (($('#soLuongNhap').val().trim() == '0') || ($('#soLuongNhap').val().trim() == '00') || ($('#soLuongNhap').val().trim() == '000') || ($('#soLuongNhap').val().trim() == '0000')) {
+        $(".messageErrorinputQuantity1").text("Nhập số lượng lớn hơn 0!");
+        $(".notifyinputQuantity1").slideDown(250).removeClass("hidden");
+        $("#soLuongNhap").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputQuantity1").addClass("hidden");
+        $("#soLuongNhap").removeClass("error");
+    }
+    $("#soLuongNhap").blur(function () {
+        $("#soLuongNhap").val($("#soLuongNhap").val().trim());
     });
     return error;
 }

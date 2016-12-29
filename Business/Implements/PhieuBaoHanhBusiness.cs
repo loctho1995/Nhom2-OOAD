@@ -51,7 +51,7 @@ namespace Business.Implements
             List<PhieuBaoHanhViewModel> all = new List<PhieuBaoHanhViewModel>();
             List<PhieuBaoHanhViewModel> allForManager = new List<PhieuBaoHanhViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(userName) == 5)
+            if (_nhanVienBus.layMaChucVu(userName) == 6)
             {
                 if (!string.IsNullOrEmpty(key))
                 {
@@ -60,8 +60,8 @@ namespace Business.Implements
                            on phieuBaoHanh.MaNhanVien equals nhanVien.MaNhanVien
                            where (nhanVien.UserName.Equals(userName) && (
                                      phieuBaoHanh.SoPhieuBaoHanh.ToString().Contains(key)
-                                  || nhanVien.TenNhanvien.Contains(key)
-                                  || phieuBaoHanh.TrangThai.ToString().Equals(trangthai)))
+                                     ||phieuBaoHanh.TenKhachHang.Contains(key)
+                                     || phieuBaoHanh.SoDienThoai.Contains(key)))
                            select new
                            {
                                SoPhieuBaoHanh = phieuBaoHanh.SoPhieuBaoHanh,
@@ -183,7 +183,8 @@ namespace Business.Implements
                                      join nhanVien in _nhanVienRepo.GetAll()
                                      on phieuBaoHanh.MaNhanVien equals nhanVien.MaNhanVien
                                      where (phieuBaoHanh.SoPhieuBaoHanh.ToString().Contains(key)
-                                            || nhanVien.TenNhanvien.Contains(key))
+                                            || phieuBaoHanh.TenKhachHang.Contains(key)
+                                            || phieuBaoHanh.SoDienThoai.Contains(key))
                                      select new
                                      {
                                          SoPhieuBaoHanh = phieuBaoHanh.SoPhieuBaoHanh,

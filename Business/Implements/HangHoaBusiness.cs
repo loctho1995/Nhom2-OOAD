@@ -320,14 +320,20 @@ namespace Business.Implements
                                {
                                     loaihanghoa.PhanTramLoiNhuan
                                };
-                int phantramloinhuan = loinhuan.FirstOrDefault().PhanTramLoiNhuan;
+                //int phantramloinhuan = loinhuan.FirstOrDefault().PhanTramLoiNhuan;
+
+                decimal phantramloinhuan = loinhuan.FirstOrDefault().PhanTramLoiNhuan;
+
+                decimal phantram = 1 + phantramloinhuan / 100;
 
                 var result = dbContext.HangHoas.FirstOrDefault(x => x.MaHangHoa == maHangHoa);
          
                 if (result != null)
                 {
-                    result.GiaBan = Math.Round((result.SoLuongTon * result.GiaBan + soLuongNhap * giaNhap) / (result.SoLuongTon + soLuongNhap));
-                    result.GiaBan = Math.Round(result.GiaBan + result.GiaBan * phantramloinhuan / 100);
+                    decimal giaChuaTinhLoiNhuan = Math.Round(result.GiaBan / phantram);
+
+                    decimal giaBinhQuan = Math.Round((result.SoLuongTon * giaChuaTinhLoiNhuan + soLuongNhap * giaNhap) / (result.SoLuongTon + soLuongNhap));
+                    result.GiaBan = Math.Round(giaBinhQuan + giaBinhQuan * phantramloinhuan / 100);
                     result.SoLuongTon += soLuongNhap;
                     dbContext.SaveChanges();
 

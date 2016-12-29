@@ -268,7 +268,7 @@ namespace Business.Implements
             List<PhieuDatHangViewModel> all = new List<PhieuDatHangViewModel>();
             List<PhieuDatHangViewModel> allForManager = new List<PhieuDatHangViewModel>();
 
-            if(_nhanVienBus.layMaChucVu(userName) == 5)
+            if(_nhanVienBus.layMaChucVu(userName) == 4)
             {
                 if(!string.IsNullOrEmpty(key))
                 {

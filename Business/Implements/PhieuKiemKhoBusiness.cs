@@ -44,7 +44,6 @@ namespace Business.Implements
                            on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
                            where (nhanvien.UserName.Equals(userName) && (
                                      phieukiemkho.SoPhieuKiemKho.ToString().Contains(key)
-                                  || nhanvien.TenNhanvien.Contains(key)
                                   || phieukiemkho.TrangThai.ToString().Equals(trangthai)))
                            select new
                            {
@@ -142,8 +141,7 @@ namespace Business.Implements
                     allForManager = (from phieukiemkho in danhSachPhieuKiemKho
                                      join nhanvien in _nhanVienRepo.GetAll()
                                      on phieukiemkho.MaNhanVien equals nhanvien.MaNhanVien
-                                     where (phieukiemkho.SoPhieuKiemKho.ToString().Contains(key)
-                                            || nhanvien.TenNhanvien.Contains(key))
+                                     where (phieukiemkho.SoPhieuKiemKho.ToString().Contains(key))
                                      select new
                                      {
                                          SoPhieuKiemKho = phieukiemkho.SoPhieuKiemKho,

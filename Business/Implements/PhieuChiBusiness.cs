@@ -85,7 +85,7 @@ namespace Business.Implements
             List<PhieuChiViewModel> all = new List<PhieuChiViewModel>();
             List<PhieuChiViewModel> allForManager = new List<PhieuChiViewModel>();
 
-            if (_nhanVienBus.layMaChucVu(maNhanVien) == 5)
+            if (_nhanVienBus.layMaChucVu(maNhanVien) == 7)
             {
                 if ((!(tungay == default(DateTime))) && (!(denngay == default(DateTime))))
                 {
@@ -120,8 +120,7 @@ namespace Business.Implements
                            join nhanvien in _nhanVienRepo.GetAll()
                            on phieuchi.MaNhanVien equals nhanvien.MaNhanVien
                            where (nhanvien.MaNhanVien.Equals(maNhanVien) && (
-                                     phieuchi.SoPhieuChi.ToString().Contains(key)
-                                  || nhanvien.TenNhanvien.Contains(key)))
+                                     phieuchi.SoPhieuChi.ToString().Contains(key)))
                            select new
                            {
                                SoPhieuchi = phieuchi.SoPhieuChi,
@@ -223,8 +222,7 @@ namespace Business.Implements
                     allForManager = (from phieuchi in dsPhieuChi
                                      join nhanvien in _nhanVienRepo.GetAll()
                                      on phieuchi.MaNhanVien equals nhanvien.MaNhanVien
-                                     where (phieuchi.SoPhieuChi.ToString().Contains(key)
-                                            || nhanvien.TenNhanvien.Contains(key))
+                                     where (phieuchi.SoPhieuChi.ToString().Contains(key))
                                      select new
                                      {
                                          SoPhieuchi = phieuchi.SoPhieuChi,

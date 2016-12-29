@@ -72,8 +72,7 @@ namespace Business.Implements
                            join nhanvien in _nhanVienRepo.GetAll()
                            on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
                            where (nhanvien.UserName.Equals(userName) && (
-                                     phieuxuat.SoPhieuXuatKho.ToString().Contains(key)
-                                  || nhanvien.TenNhanvien.Contains(key)))
+                                     phieuxuat.SoPhieuXuatKho.ToString().Contains(key)))
                            select new
                            {
                                SoPhieuXuatKho = phieuxuat.SoPhieuXuatKho,
@@ -179,8 +178,7 @@ namespace Business.Implements
                     allForManager = (from phieuxuat in danhSachPhieuXuatKho
                                      join nhanvien in _nhanVienRepo.GetAll()
                                      on phieuxuat.MaNhanVien equals nhanvien.MaNhanVien
-                                     where (phieuxuat.SoPhieuXuatKho.ToString().Contains(key)
-                                            || nhanvien.TenNhanvien.Contains(key))
+                                     where (phieuxuat.SoPhieuXuatKho.ToString().Contains(key))
                                      select new
                                      {
                                          SoPhieuXuatKho = phieuxuat.SoPhieuXuatKho,

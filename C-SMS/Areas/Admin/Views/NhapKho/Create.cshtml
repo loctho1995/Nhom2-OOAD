@@ -63,11 +63,12 @@
                                        
                                     </td>
                                     <td>
-                                        <input type="text" id="soLuongNhap" name="soLuongNhap" class="form-control rounded" required  onkeypress="return checkNumber(event, this)" maxlength="4" />
+                                        <input type="text" id="soLuongNhap" name="soLuongNhap" class="form-control rounded" required  onkeypress="return checkNumber(event, this)" maxlength="4" min="1" />
                                         <h3 style="margin-top:-1%" hidden class="messageError  notifyinputQuantity messageErrorinputQuantity">Nhập số lượng!</h3>
+                                        <h3 style="margin-top:-1%" hidden class="messageError  notifyinputQuantity1 messageErrorinputQuantity1">Nhập số lượng!</h3>
                                     </td>
                                     <td>
-                                        <input type="text" id="giaNhap" class="form-control rounded"onkeypress="return checkNumber(event, this)" />
+                                        <input type="text" id="giaNhap" class="form-control rounded"onkeypress="return checkNumber(event, this)" maxlength="10" />
                                         <h3 style="margin-top:-1%" hidden class="messageError  notifyinputPrice messageErrorinputPrice">Nhập giá!</h3>
                                     </td>
 
@@ -81,7 +82,7 @@
                                 </tr>
                             </table>
                             <span id="productItemError" class="messageError" style="color:red"></span>
-                            <div id="orderItems" class="table-responsive" style="padding-top:15px"></div>
+                            <div id="orderItems" class="table-responsive" style="padding-top:25px"></div>
                             <div id="Items" hidden class="table-responsive"></div>
                             <input value="@ViewBag.maNhanVien" id="maNhanVien" type="hidden" class="form-control" style="width:200px" disabled="disabled" />
                         </div>

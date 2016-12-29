@@ -67,6 +67,7 @@
                         },
                         cmnd: {
                             required: true,
+                            number: true,
                         },
 
                         diachi: {
@@ -195,6 +196,7 @@
                         },
                         cmnd: {
                             required: "Chưa nhập chứng minh nhân dân !",
+                            number: "Hãy nhập số !",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
@@ -202,7 +204,7 @@
                             required: "Chưa nhập phần trăm lợi nhuận !",
                             number: "Hãy nhập số!",
                             min: "Nhập lớn hơn hoặc bằng 0",
-                            max: "Nhập nhỏ hơn 100",
+                            max: "Nhập nhỏ hơn hoặc bằng 100",
                             remote: jQuery.validator.format("{0} is already in use")
                         },
 
