@@ -3,25 +3,25 @@
 @foreach (var item in Model)
 {
     <div class="form-group">
-        <label>Mã Nhân Viên</label>
+        <label>Mã nhân viên</label>
         <input type="text" name="manhanvien" value="@item.maNhanVien" class="form-control rounded" disabled="disabled" />
     </div>
 
 
     <div class="form-group">
-        <label>Tên Nhân Viên</label>
+        <label>Tên nhân viên</label>
         <input type="text" name="tennhanvien" value="@item.tenNhanVien" class="form-control rounded" required="required" />
     </div>
 
     <div class="form-group">
-        <label >Tên Đăng Nhập </label>
+        <label >Tên đăng nhập </label>
         <input type="text" id="username" name="username" value="@item.userName" class="form-control rounded" required="required" maxlength="100" />
         <h3 style="margin-top:0%" hidden class="error  notifyinputUserName messageErrorinputUserName">User name đã tồn tại!</h3>
         <input type="hidden" id="checkusername" name="checkusername" class="form-control rounded" />
     </div>
 
     <div class="form-group">
-        <label >Số Điện Thoại  </label>
+        <label >Số điện thoại  </label>
         <input type="text" id="sodienthoai" name="sodienthoai" value="@item.soDienThoai" class="form-control rounded" required="required" maxlength="15" />
         <h3 style="margin-top:0%" hidden class="error  notifyinputPhone messageErrorinputPhone">Số điện thoại đã tồn tại!</h3>
         <input type="hidden" id="checkphone" name="checkphone" class="form-control rounded" />
@@ -34,29 +34,29 @@
         <input type="hidden" id="checkemail" name="checkemail" class="form-control rounded" />
     </div>
     <div class="form-group">
-        <label >Địa Chỉ   </label>
+        <label >Địa chỉ   </label>
         <input type="text" name="diachi" value="@item.diaChi" class="form-control rounded" required maxlength="30" />
     </div>
     <div class="form-group">
-        <label >CMND   </label>
+        <label >Số CMND   </label>
         <input type="text" id="cmnd" name="cmnd" value="@item.CMND" class="form-control rounded" required maxlength="30" />
         <h3 style="margin-top:0%" hidden class="error  notifyinputCMND messageErrorinputCMND">CMND đã tồn tại!</h3>
         <input type="hidden" id="checkcmnd" name="checkcmnd" class="form-control rounded" />
     </div>
 
     <div class="form-group">
-        <label>Chức Vụ </label>
+        <label>Chức vụ </label>
             @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control rounded" })
     </div>
 
     <div class="form-group">
-        <label >Trạng Thái</label>
+        <label >Trạng thái</label>
         @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
     </div>
 
     <input type="hidden" id="checkImage" name="checkImage" value="@item.avatar" class="form-control rounded" />
     <div class="form-group">
-        <label >Hình Đại Diện</label>
+        <label >Hình đại diện</label>
         <p id="error1" style="display:none; color:#FF0000;">
             Định dạng ảnh không hợp lệ! Định dạng hình ảnh phải là: JPG, JPEG, PNG.
         </p>

@@ -42,7 +42,9 @@ namespace Business.Implements
                                  TenLoaiHangHoa = loaiHangHoa.TenLoaiHangHoa,
                                  GiaBan = hangHoa.GiaBan,
                                  GiamGia = hangHoa.GiamGia,
-                                 TrangThai = hangHoa.TrangThai
+                                 TrangThai = hangHoa.TrangThai,
+                                 SoLuongTon = hangHoa.SoLuongTon,
+                                 ModelName = hangHoa.ModelName
                              }).AsEnumerable().Select(x => new BaoCaoHangHoaViewModel()
                              {
                                  maHangHoa = x.MaHangHoa,
@@ -50,7 +52,9 @@ namespace Business.Implements
                                  tenLoaiHangHoa = x.TenLoaiHangHoa,
                                  giaBan = x.GiaBan,
                                  giamGia = x.GiamGia,
-                                 trangThai = x.TrangThai
+                                 trangThai = x.TrangThai,
+                                 soLuongTon = x.SoLuongTon,
+                                 modelName = x.ModelName
                              }).OrderBy(x => x.maHangHoa).ToList();
             return allForManager;
         }

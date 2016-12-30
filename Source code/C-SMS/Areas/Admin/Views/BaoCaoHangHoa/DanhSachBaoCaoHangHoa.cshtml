@@ -7,19 +7,22 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayName("Mã hàng hoá")
+                @Html.DisplayName("Mã sản phẩm")
             </th>
             <th>
-                @Html.DisplayName("Tên hàng hoá")
+                @Html.DisplayName("Tên sản phẩm")
             </th>
             <th>
-                @Html.DisplayName("Tên loại hàng hoá")
+                @Html.DisplayName("Model name")
             </th>
             <th>
-                @Html.DisplayName("Giá bán")
+                @Html.DisplayName("Số lượng tồn")
             </th>
             <th>
-                @Html.DisplayName("Giảm giá")
+                @Html.DisplayName("Giá bán (VNĐ)")
+            </th>
+            <th>
+                @Html.DisplayName("Giảm giá (VNĐ)")
             </th>
         </tr>
     </thead>
@@ -30,7 +33,8 @@
             <tr class="border-warning">
                 <td>@item.maHangHoa</td>
                 <td>@item.tenHangHoa</td>
-                <td>@item.tenLoaiHangHoa</td>
+                <td>@item.modelName</td>
+                <td>@item.soLuongTon</td>
                 <td>@number.FormatNumbers(@item.giaBan.ToString())</td>
                 <td>@number.FormatNumbers(@item.giamGia.ToString())</td>
             </tr>

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuChiViewModel>
 @using Common.ViewModels
 @{
-    ViewBag.Title = "Danh Sách Phiếu Chi";
+    ViewBag.Title = "Danh sách phiếu chi";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
@@ -11,7 +11,7 @@
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "PhieuChi") + "'"); ">
                 <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới phiếu chi
+                Lập phiếu chi
             </button>
         </div>
     </div>

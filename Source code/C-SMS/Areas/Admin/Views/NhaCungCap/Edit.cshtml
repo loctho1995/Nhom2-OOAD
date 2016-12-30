@@ -1,7 +1,7 @@
 ﻿@model IList<Common.Models.NhaCungCap>
 
 @{
-    ViewBag.Title = "Sửa Nhà Cung Cấp";
+    ViewBag.Title = "Sửa thông tin nhà cung cấp";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
@@ -13,7 +13,7 @@
             
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "NhaCungCap") + "'"); ">
                 <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới nhà cung cấp
+                Thêm mới nhà cung cấp
             </button>
 
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "NhaCungCap") + "'"); ">

@@ -14,5 +14,7 @@ namespace Common.ViewModels
         public decimal giaBan { get; set; }
         public decimal giamGia { get; set; }
         public bool trangThai { get; set; }
+        public int soLuongTon { get; set; }
+        public string modelName { get; set; }
     }
 }

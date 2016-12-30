@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Danh Sách Loại Sản Phẩm";
+    ViewBag.Title = "Danh sách loại sản phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 <section id="page-content">
@@ -8,7 +8,7 @@
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "LoaiHangHoa") + "'"); ">
                 <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới loại sản phẩm
+                Thêm loại sản phẩm
             </button>
         </div>
     </div>
@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label>Tìm Kiếm</label>
                                     <div class="input-group">
-                                        @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm"})
+                                        @Html.TextBox("SearchString", null, new { @class = "form-control", @placeholder = "Tìm kiếm theo tên loại sản phẩm, phần trăm lợi nhuận"})
                                         <span class="input-group-btn">
                                             <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                         </span>

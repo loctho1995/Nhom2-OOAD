@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Common.ViewModels.PhieuXuatKhoViewModel>
 @using Common.ViewModels
 @{
-    ViewBag.Title = "Danh Sách Phiếu Xuất Kho";
+    ViewBag.Title = "Danh sách phiếu xuất kho";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 
@@ -11,7 +11,7 @@
         <div class="breadcrumb-wrapper hidden-xs">
             <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "XuatKho") + "'"); ">
                 <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới phiếu xuất kho
+                Lập phiếu xuất kho
             </button>
 
         </div>
@@ -73,7 +73,7 @@
                                     <div class="col-md-12">
                                         <label>Tìm Kiếm</label>
                                         <div class="input-group">
-                                            @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm" })
+                                            @Html.TextBox("SearchString", null, new { @class = "form-control rounded", @placeholder = "Tìm kiếm theo số phiếu" })
                                             <span class="input-group-btn">
                                                 <button class="btn btn-default" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>

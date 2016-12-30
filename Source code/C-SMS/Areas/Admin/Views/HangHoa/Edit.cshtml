@@ -1,7 +1,7 @@
 ﻿@model IList<Common.ViewModels.HangHoaViewModel>
 
 @{
-    ViewBag.Title = "Sửa Sản Phẩm";
+    ViewBag.Title = "Sửa sản phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 <link href="~/Content/assets/css/generalMessageError.css" rel="stylesheet" />
@@ -13,7 +13,7 @@
 
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "HangHoa") + "'"); ">
                 <i class="glyphicon glyphicon-edit"></i>
-                Tạo mới sản phẩm
+                Thêm sản phẩm
             </button>
 
             <button class="btn btn-lg btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Index", "HangHoa") + "'"); ">

@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Common.ViewModels.HangHoaViewModel>
 
 @{
-    ViewBag.Title = "Danh Sách Sản Phẩm";
+    ViewBag.Title = "Danh sách sản phẩm";
     Layout = "~/Areas/Admin/Views/Layout/HomeLayout.cshtml";
 }
 @using Common.ViewModels
@@ -13,7 +13,7 @@
             {
                 <button class="btn btn-sm btn-success btn-xs btn-push" onclick="@("window.location.href='" + @Url.Action("Create", "HangHoa") + "'"); ">
                     <i class="glyphicon glyphicon-edit"></i>
-                    Tạo mới hàng hóa
+                    Thêm sản phẩm
                 </button>
             }
             

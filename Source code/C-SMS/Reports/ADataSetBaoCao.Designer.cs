@@ -982,6 +982,10 @@ namespace WebBanHang.Reports {
             
             private global::System.Data.DataColumn columnTrangThai;
             
+            private global::System.Data.DataColumn columnSoLuongTon;
+            
+            private global::System.Data.DataColumn columnModelName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BaoCaoHangHoaDataTable() {
@@ -1065,6 +1069,22 @@ namespace WebBanHang.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SoLuongTonColumn {
+                get {
+                    return this.columnSoLuongTon;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn ModelNameColumn {
+                get {
+                    return this.columnModelName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1100,7 +1120,7 @@ namespace WebBanHang.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BaoCaoHangHoaRow AddBaoCaoHangHoaRow(string MaHangHoa, string TenHangHoa, string TenLoaiHangHoa, string GiaBan, string GiamGia, string TrangThai) {
+            public BaoCaoHangHoaRow AddBaoCaoHangHoaRow(string MaHangHoa, string TenHangHoa, string TenLoaiHangHoa, string GiaBan, string GiamGia, string TrangThai, string SoLuongTon, string ModelName) {
                 BaoCaoHangHoaRow rowBaoCaoHangHoaRow = ((BaoCaoHangHoaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         MaHangHoa,
@@ -1108,7 +1128,9 @@ namespace WebBanHang.Reports {
                         TenLoaiHangHoa,
                         GiaBan,
                         GiamGia,
-                        TrangThai};
+                        TrangThai,
+                        SoLuongTon,
+                        ModelName};
                 rowBaoCaoHangHoaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBaoCaoHangHoaRow);
                 return rowBaoCaoHangHoaRow;
@@ -1137,6 +1159,8 @@ namespace WebBanHang.Reports {
                 this.columnGiaBan = base.Columns["GiaBan"];
                 this.columnGiamGia = base.Columns["GiamGia"];
                 this.columnTrangThai = base.Columns["TrangThai"];
+                this.columnSoLuongTon = base.Columns["SoLuongTon"];
+                this.columnModelName = base.Columns["ModelName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1154,6 +1178,10 @@ namespace WebBanHang.Reports {
                 base.Columns.Add(this.columnGiamGia);
                 this.columnTrangThai = new global::System.Data.DataColumn("TrangThai", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTrangThai);
+                this.columnSoLuongTon = new global::System.Data.DataColumn("SoLuongTon", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSoLuongTon);
+                this.columnModelName = new global::System.Data.DataColumn("ModelName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnModelName);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2230,6 +2258,38 @@ namespace WebBanHang.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string SoLuongTon {
+                get {
+                    try {
+                        return ((string)(this[this.tableBaoCaoHangHoa.SoLuongTonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SoLuongTon\' in table \'BaoCaoHangHoa\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBaoCaoHangHoa.SoLuongTonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string ModelName {
+                get {
+                    try {
+                        return ((string)(this[this.tableBaoCaoHangHoa.ModelNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ModelName\' in table \'BaoCaoHangHoa\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBaoCaoHangHoa.ModelNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMaHangHoaNull() {
                 return this.IsNull(this.tableBaoCaoHangHoa.MaHangHoaColumn);
             }
@@ -2298,6 +2358,30 @@ namespace WebBanHang.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTrangThaiNull() {
                 this[this.tableBaoCaoHangHoa.TrangThaiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSoLuongTonNull() {
+                return this.IsNull(this.tableBaoCaoHangHoa.SoLuongTonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSoLuongTonNull() {
+                this[this.tableBaoCaoHangHoa.SoLuongTonColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsModelNameNull() {
+                return this.IsNull(this.tableBaoCaoHangHoa.ModelNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetModelNameNull() {
+                this[this.tableBaoCaoHangHoa.ModelNameColumn] = global::System.Convert.DBNull;
             }
         }
         
