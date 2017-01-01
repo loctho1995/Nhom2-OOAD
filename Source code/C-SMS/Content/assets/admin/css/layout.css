@@ -173,7 +173,7 @@ body.page-header-fixed .navbar-header, body.page-header-fixed .header-right {
 }
 body.page-header-fixed .header-right {
   right: 0px;
-  left: 220px;
+  left: 230px;
 }
 body.page-header-fixed.page-sidebar-minimize .header-right, body.page-header-fixed.page-sidebar-minimize-auto .header-right {
   left: 0px;
@@ -749,7 +749,7 @@ body.page-footer-fixed #back-top {
 }
 .header-left .navbar-header {
   height: 51px;
-  width: 220px;
+  width: 230px;
   left: 0;
 }
 .header-left .navbar-header .navbar-brand {
@@ -776,7 +776,7 @@ body.page-footer-fixed #back-top {
 .header-right {
   float: left;
   position: absolute;
-  left: 220px;
+  left: 230px;
   right: 0px;
 }
 .header-right .navbar-toolbar:before {
@@ -1685,7 +1685,7 @@ body.page-footer-fixed #back-top {
  * SIDEBAR LEFT
  * ======================================================================== */
 #sidebar-left {
-  width: 220px;
+  width: 230px;
   float: left;
   z-index: 200;
   position: absolute;
@@ -1699,7 +1699,7 @@ body.page-footer-fixed #back-top {
   bottom: 0px;
   display: block;
   content: "";
-  width: 220px;
+  width: 230px;
   z-index: -2;
 }
 
