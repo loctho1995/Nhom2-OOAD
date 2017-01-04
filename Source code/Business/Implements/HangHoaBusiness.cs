@@ -373,7 +373,7 @@ namespace Business.Implements
                     {
                         decimal giaChuaTinhLoiNhuan = Math.Round(a.GiaBan / phantram);
 
-                        a.GiaBan = Math.Round((giaChuaTinhLoiNhuan * (a.SoLuongTon) - giaNhap * soLuongNhap) / (a.SoLuongTon - soLuongNhap));
+                        a.GiaBan = phantram * Math.Round((giaChuaTinhLoiNhuan * (a.SoLuongTon) - giaNhap * soLuongNhap) / (a.SoLuongTon - soLuongNhap));
 
                         a.SoLuongTon = a.SoLuongTon - soLuongNhap;
 
