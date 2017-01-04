@@ -759,7 +759,7 @@ namespace Business.Implements
         {
             IQueryable<HangHoa> danhSachHangHoa = _hangHoaRepo.GetAll();
             var all = (from hanghoa in danhSachHangHoa
-                       where hanghoa.SoLuongTon <= 5 && hanghoa.TrangThai.Equals(true)
+                       where hanghoa.SoLuongTon < 5 && hanghoa.TrangThai.Equals(true)
                        select new
                        {
                            MaHangHoa = hanghoa.MaHangHoa,

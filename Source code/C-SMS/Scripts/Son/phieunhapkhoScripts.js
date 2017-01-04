@@ -18,7 +18,11 @@
 
         var errorQuantity1 = 0;
         errorQuantity1 = CheckQuantity1(errorQuantity1);
-        var error = errorQuantity + errorPrice + errorQuantity1 ;
+
+        var errorQuantity2 = 0;
+        errorQuantity2 = CheckQuantity2(errorQuantity2);
+
+        var error = errorQuantity + errorPrice + errorQuantity1 + errorQuantity2;
   
         if (isValidItem == true && error == 0) {
 
@@ -408,6 +412,7 @@ $(document).ready(function () {
 
     $("#giaNhap").on('keyup input propertychange paste change', function () {
         CheckPrice();
+        CheckQuantity2();
     });
 });
 
@@ -459,6 +464,24 @@ function CheckQuantity1(error) {
     }
     $("#soLuongNhap").blur(function () {
         $("#soLuongNhap").val($("#soLuongNhap").val().trim());
+    });
+    return error;
+}
+
+
+function CheckQuantity2(error) {
+    if (($('#giaNhap').val().trim() == '0') || ($('#giaNhap').val().trim() == '00') || ($('#giaNhap').val().trim() == '000') || ($('#giaNhap').val().trim() == '0000') || ($('#giaNhap').val().trim() == '00000') || ($('#giaNhap').val().trim() == '000000') || ($('#giaNhap').val().trim() == '0000000') || ($('#giaNhap').val().trim() == '00000000') || ($('#giaNhap').val().trim() == '000000000') || ($('#giaNhap').val().trim() == '0000000000')) {
+        $(".messageErrorinputQuantity2").text("Giá nhập phải lớn hơn 0!");
+        $(".notifyinputQuantity2").slideDown(250).removeClass("hidden");
+        $("#giaNhap").addClass("error");
+        error++;
+    }
+    else {
+        $(".notifyinputQuantity2").addClass("hidden");
+        $("#giaNhap").removeClass("error");
+    }
+    $("#giaNhap").blur(function () {
+        $("#giaNhap").val($("#giaNhap").val().trim());
     });
     return error;
 }

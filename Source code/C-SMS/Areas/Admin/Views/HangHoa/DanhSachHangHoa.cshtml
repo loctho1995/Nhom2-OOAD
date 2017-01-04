@@ -83,7 +83,10 @@
                             </button>
                             <ul class="dropdown-menu pull-right" role="menu">
                                 <li><a href="@Url.Action("ViewInfo", new { id = item.maHangHoa })"><i class="fa fa-eye"></i> Xem</a></li>
-
+                                @if (((NhanVienViewModel)Session["Account"]).maChucVu == 3 || ((NhanVienViewModel)Session["Account"]).maChucVu == 5)
+                                {
+                                    <li><a href="@Url.Action("Edit", new { id = item.maHangHoa })"><i class="fa fa-edit"></i> Sửa</a></li>
+                                }
                             </ul>
                         </div>
                     </td>

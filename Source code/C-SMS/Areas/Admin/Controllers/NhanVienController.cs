@@ -77,6 +77,10 @@ namespace WebBanHang.Areas.Admin.Controllers
             trangThai.Add(new SelectListItem { Text = "Ngừng Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
+
+            List<SelectListItem> admin = new List<SelectListItem>();
+            admin.Add(new SelectListItem { Text = "Chủ của hàng", Value = "3" });
+            ViewBag.Admin = admin;
             ViewBag.thongTinNhanVien = _nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList();
       
             return View(ViewBag.thongTinNhanVien);
@@ -136,6 +140,10 @@ namespace WebBanHang.Areas.Admin.Controllers
             trangThai.Add(new SelectListItem { Text = "Ngừng Hoạt Động", Value = "false" });
             ViewBag.data = trangThai;
             ViewBag.chucvu = _chucVuKhoBus.LoadChucVu();
+
+            List<SelectListItem> admin = new List<SelectListItem>();
+            admin.Add(new SelectListItem { Text = "Chủ của hàng", Value = "3" });
+            ViewBag.Admin = admin;
             return View(_nhanVienKhoBus.LoadDanhSachNhanVienTheoMa(id).ToList());
         }
        
@@ -158,6 +166,12 @@ namespace WebBanHang.Areas.Admin.Controllers
             {
                // nhanVien.avatar = "default.png";
                 nhanVien.avatar = nhanVien.checkImage;
+            }
+
+            if(id == 1)
+            {
+                nhanVien.trangThai = true;
+                nhanVien.maChucVu = 3;
             }
              //Get nhân viên muốn update (find by ID)
             NhanVien edit = (NhanVien)await _nhanVienKhoBus.Find(id);

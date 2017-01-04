@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Common.ViewModels.NhanVienViewModel>
+@using Common.ViewModels
 
 @foreach (var item in Model)
 {
@@ -44,15 +45,30 @@
         <input type="hidden" id="checkcmnd" name="checkcmnd" class="form-control rounded" />
     </div>
 
-    <div class="form-group">
-        <label>Chức vụ </label>
-            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control rounded" })
-    </div>
+    if (@item.maNhanVien == 1)
+    {
+        <div class="form-group">
+            <label>Chức vụ </label>
+            @Html.DropDownList("machucvu", new SelectList(@ViewBag.Admin, "Value", "Text"), new { @class = "form-control rounded", @disabled = "disabled" })
+        </div>
 
-    <div class="form-group">
-        <label >Trạng thái</label>
-        @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control", style = "margin-left:5px" })
-    </div>
+        <div class="form-group">
+            <label>Trạng thái</label>
+            @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control rounded", @disabled = "disabled" })
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <label>Chức vụ </label>
+            @Html.DropDownList("machucvu", new SelectList(ViewBag.chucvu, "Value", "Text"), new { @class = "form-control rounded" })
+        </div>
+
+        <div class="form-group">
+            <label>Trạng thái</label>
+            @Html.DropDownList("trangthai", new SelectList(@ViewBag.data, "Value", "Text"), new { @class = "form-control rounded" })
+        </div>
+    }
 
     <input type="hidden" id="checkImage" name="checkImage" value="@item.avatar" class="form-control rounded" />
     <div class="form-group">
